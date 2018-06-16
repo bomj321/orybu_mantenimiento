@@ -1,0 +1,7 @@
+[04-Jun-2018 02:13:26 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/joryan/public_html/admin/updatesitetitle.php:1) in /home/joryan/public_html/admin/updatesitetitle.php on line 1
+[04-Jun-2018 02:13:33 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/joryan/public_html/admin/updatesitetitle.php:1) in /home/joryan/public_html/admin/updatesitetitle.php on line 1
+[05-Jun-2018 02:47:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in /home/joryan/public_html/admin/deleteFaq.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/joryan/public_html/admin/deleteFaq.php on line 39
+[05-Jun-2018 02:48:13 UTC] PHP Fatal error:  Wrong SQL: INSERT INTO faq(elementName,question,answer) VALUES ('considerateimportquestion','34567890','34567890'') Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''34567890'')' at line 1 in /home/joryan/public_html/admin/faq_add_action.php on line 26
