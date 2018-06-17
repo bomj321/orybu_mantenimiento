@@ -212,13 +212,13 @@ include('navh.php');
 								<?php
 					if($_GET['keyword'] !="")
 { 
- $query=$_GET['keyword']; 
+ $query_key=$_POST['keyword']; 
  }
- if($_GET['category'] != "")
+ if($_POST['category'] != "")
  {
-  $category=$_GET['category'];
+  $category=$_POST['category'];
  }
-			$query="SELECT * FROM products INNER JOIN categories ON (products.catid=categories.catid) WHERE products.selectedkeyword LIKE '%$query%' || categories.titulo LIKE '%$category%' ";
+			$query="SELECT * FROM products INNER JOIN categories ON (products.catid=categories.catid) WHERE products.selectedkeyword LIKE '%$query_key%' || categories.titulo LIKE '%$category%' ";
                $result=mysqli_query($connection,$query);
 			   ?>
                         </div><!-- end row -->

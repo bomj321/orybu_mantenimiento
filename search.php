@@ -210,15 +210,15 @@ include('navh.php');
 	   <div class="content light-background">
                     <div class="row">
 								<?php
-					if($_GET['keyword'] !="")
+					if($_POST['keyword'] !="")
 {
- $query=$_GET['keyword'];
+ $query_key=$_POST['keyword'];
  }
- if($_GET['category'] != "")
+ if($_POST['category'] != "")
  {
-  $category=$_GET['category'];
+  $category=$_POST['category'];
  }
-			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE (products.selectedkeyword LIKE '%".$query."%') OR (categories.title LIKE '%".$category."%' )";
+			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.selectedkeyword LIKE '%".$query_key."%') OR (categories.title LIKE '%".$category."%' )";
                $result=mysqli_query($connection,$query);
 			   ?>
                         </div><!-- end row -->

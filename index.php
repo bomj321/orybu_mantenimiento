@@ -386,7 +386,7 @@ echo $final;
                     ?>
 
     <div class="col-sm-6" style="margin-right:50px;">
-	<a href="<?php echo $hreflink ?>"><img style="width:600px;height:180px;" src="images/<?php echo $image?>" alt=""/></a>
+	<img style="width:600px;height:180px;" src="images/<?php echo $image?>" alt=""/>
 
     </div>
 
@@ -403,7 +403,7 @@ echo $final;
                     $image=$row['image'];
                     ?>
 	 <div class="col-sm-4">
-	<a href="<?php echo $hreflink ?>"><img style="width:460px;height:180px;" src="images/<?php echo $image?>" alt=""/></a>
+	<img style="width:460px;height:180px;" src="images/<?php echo $image?>" alt=""/>
 
     </div>
 	<div class="col-sm-1">

@@ -18,7 +18,7 @@ $email=$_SESSION['uemail'];
                         </a>
                     </div><!-- end col -->
                     <div class="col-sm-7 vertical-align text-center">
-					 <form  action="search.php" method="GET">
+					 <form  action="search.php" method="POST">
 						
 						 <div class="row grid-space-1">
                                 <div class="col-sm-6">

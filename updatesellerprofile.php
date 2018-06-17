@@ -137,13 +137,12 @@ if($stmtimages === false)
 
     if($stmtimages->execute())
 			{
-				?>
-              <script>
+				echo' 
+			  <script>
 				        alert("Updated Your Company Information!");  //not showing an alert box.
-				        window.location.href="updatesellerprofile.php?email=echo $email";
-		
-				</script>
-                <?php
+				         window.location.href="myorybue.php";
+			 </script>
+				';
 			}
 			else{
 		echo "ERROR1";
@@ -165,13 +164,14 @@ if($stmtlicense === false)
 
     if($stmtlicense->execute())
 			{
-				?>
-              <script>
+				
+              echo' 
+			  <script>
 				        alert("Updated Your Company Information!");  //not showing an alert box.
-				         window.location.href="updatesellerprofile.php?email=echo $email";
-		
-				</script>
-                <?php
+				         window.location.href="myorybue.php";
+			 </script>
+				';
+                
 			}
 			else{
 				echo "ERROR2";
@@ -192,13 +192,12 @@ if($stmt === false)
 
    if($stmt->execute())
 			{
-				?>
-              <script>
+				echo' 
+			  <script>
 				        alert("Updated Your Company Information!");  //not showing an alert box.
-				         window.location.href="updatesellerprofile.php?email=echo $email";
-		
-				</script>
-                <?php
+				         window.location.href="myorybue.php";
+			 </script>
+				';
 			}
 			else{
 						echo "ERROR3";
@@ -571,7 +570,7 @@ if($stmt === false)
         </button>
            
        
-		<a href="profile.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
+		<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
        </input>
            </br>
 		     </br>  </br>

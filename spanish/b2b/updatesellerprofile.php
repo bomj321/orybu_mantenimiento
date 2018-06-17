@@ -92,7 +92,7 @@ if(isset($_POST['btn_save_updates']))
 
     		echo "<script>
                 alert('Las imagenes se han subido correctamente');
-                window.location= 'updatesellerprofile.php?email=echo $email'
+                window.location= 'myorybue.php'
         </script>";
 
         
@@ -133,7 +133,7 @@ if($stmtimages === false)
 				?>
               <script>
 				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
-				        window.location.href="updatesellerprofile.php?email=echo $email";
+				        window.location.href="myorybue.php";
 		
 				</script>
                 <?php
@@ -161,7 +161,7 @@ if($stmtlicense === false)
 				?>
               <script>
 				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
-				         window.location.href="updatesellerprofile.php?email=echo $email";
+				         window.location.href="myorybue.php";
 		
 				</script>
                 <?php
@@ -563,7 +563,7 @@ if($stmt === false)
         </button>
            
        
-		<a href="profile.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCELAR</a>
+		<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCELAR</a>
        </input>
            </br>
 		     </br>  </br>
