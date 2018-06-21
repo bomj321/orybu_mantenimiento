@@ -1,5 +1,7 @@
 
-<?php session_start();
+<?php
+error_reporting(0);
+session_start();
 include('Connect.php');
 $email= $_SESSION['confemail'];
 $confirmcode=$_SESSION['code'];
@@ -27,10 +29,10 @@ if (isset($userStatus)) {
             <div style='margin-left:21.875em;'>
             <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
-              <p>Thank you for registering, please confirm your email by <a href='http://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> clicking here</a>. 
+              <p>Thank you for registering, please confirm your email by <a href='https://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> clicking here</a>. 
               </p>
 
-              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='http://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> click aqui</a>.  
+              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='https://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> click aqui</a>.  
               </p>
 
             </body>
@@ -62,10 +64,10 @@ if (isset($userStatus)) {
             <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>
-                Thank you for registering, please confirm your email by<a href='http://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode'> clicking here</a>.
+                Thank you for registering, please confirm your email by<a href='https://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode'> clicking here</a>.
               </p>
 
-              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='http://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode'> click aqui</a>.
+              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='https://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode'> click aqui</a>.
               </p>
             </body>
         </html>     

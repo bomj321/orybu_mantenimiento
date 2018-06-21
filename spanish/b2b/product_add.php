@@ -132,7 +132,7 @@ if(trim($str1) ==trim($str2))
    {
    ?>
     <script>
-	 alert("Your Product Limit Exceeded");
+	 alert("Tu limite de producto ha sido excedido");
 	 window.location.href="suppliers.php";
 	 </script>
    <?php
@@ -143,7 +143,7 @@ if(trim($str1) ==trim($str2))
 	 {
 	 ?>
 	 <script>
-	 alert("Your Top List Product Exceeded");
+	 alert("Tu lista de producto ha sido excedida");
 	 window.location.href="suppliers.php";
 	 </script>
 	 <?php
@@ -152,7 +152,7 @@ if(trim($str1) ==trim($str2))
 	 {
 	  ?>
 	 <script>
-	 alert("Your Show Case Product Exceeded");
+	 alert("Tu cantidad de producto para mostrar ha sido excedido");
 	 window.location.href="suppliers.php";
 	 </script>
 	 <?php
@@ -167,7 +167,7 @@ else if(trim($str1) ==trim($str3))
    {
    ?>
     <script>
-	 alert("Your Product Limit Exceeded");
+	 alert("Tu limite de producto ha sido excedido");
 	 window.location.href="suppliers.php";
 	 </script>
    <?php
@@ -178,7 +178,7 @@ else if(trim($str1) ==trim($str3))
 	 {
 	 ?>
 	 <script>
-	 alert("Your Top List Product Exceeded");
+	 alert("Tu lista de producto ha sido excedida");
 	 window.location.href="suppliers.php";
 	 </script>
 	 <?php
@@ -187,7 +187,7 @@ else if(trim($str1) ==trim($str3))
 	 {
 	  ?>
 	 <script>
-	 alert("Your Show Case Product Exceeded");
+	 alert("Tu cantidad de producto para mostrar ha sido excedido");
 	 window.location.href="suppliers.php";
 	 </script>
 	 <?php

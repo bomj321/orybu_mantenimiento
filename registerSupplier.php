@@ -70,7 +70,7 @@ $confirmcode=$_SESSION['code'];
                                         <span>Phone Number:</span>
 											<input name="p1" type="text" size="10" placeholder="Code" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
-											<input name="p3" type="text"  size="44" placeholder=" Number here" required>
+											<input name="p3" type="text"  size="30" placeholder=" Number here" required>
 
 									</div>
 						<div class="form-group">

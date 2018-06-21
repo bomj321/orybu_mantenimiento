@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect('localhost', 'joryan_adminhtt_btbuser', '','joryan_adminhtt_btb');
+$connection = mysqli_connect('localhost', 'root', '','joryan_adminhtt_btb');
 if (!$connection){
     die("Database Connection Failed" . mysqli_error($connection));
 }
@@ -9,3 +9,4 @@ if (!$select_db){
     die("Database Selection Failed" . mysqli_error($connection));
 }
 ?>
+

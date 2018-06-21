@@ -61,7 +61,7 @@ $confirmcode=$_SESSION['code'];
                                         <span>Phone Number:</span>
 											<input name="p1" type="text" size="10" placeholder="Codigo" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
-											<input name="p3" type="text"  size="44"placeholder="Número" required>
+											<input name="p3" type="text"  size="30"placeholder="Número" required>
 
 									</div>
 						<div class="form-group">

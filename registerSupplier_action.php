@@ -65,17 +65,8 @@ include 'Connect.php';
     		$nom_img = $nombre_archivo;      
     		$directorio = 'images/'; // Directorio
  
-    		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
-    		{  
-
-    			echo "
-    			<script>
-                alert('Images uploaded correctly');
-        		</script>
-        		";
-
+    		move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img);
     		
-			}  
 		} 
 	} // Fin Foreach 		 
 
@@ -89,8 +80,10 @@ include 'Connect.php';
 				$image5=$_FILES['file2']['name'][4];
 			 
 		 ////////////////////////////////////////////////
-		 
-	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','7','5')";
+	$limitTopList=7;
+	$limitTotalProduct=38;
+	$limitShowCase=5;
+	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
    $qryresult=mysqli_query($connection,$q);
    if (!$qryresult) {
    
@@ -98,7 +91,7 @@ include 'Connect.php';
    }else{
    	
    	echo "
-   			alert('Correctly Added Information');
+   			alert('Correctly Added Information and Images');
 				<script>
 				window.location.href ='sendconfirmation2.php';
 				</script>

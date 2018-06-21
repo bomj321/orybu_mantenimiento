@@ -11,6 +11,9 @@ include('middlebar.php');
 include('navh.php');
  $email=$_SESSION['uemail'];
  $usertype=$_SESSION['utype'];
+
+
+
 $qry="SELECT * FROM `seller` WHERE `email`='$email' ";
 $result01=mysqli_query($connection,$qry);
  $count = mysqli_num_rows($result01);

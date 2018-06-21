@@ -86,6 +86,7 @@ function googleTranslateElementInit() {
 
 							<li><a href="myorybue.php">My Orybu</a></li>
 							<li><a href="suppliers.php">Manage Products</a></li>
+							<li><a href="product_add.php">Upload Product</a></li>
 							<li><a href="mysorders.php">My Orders</a></li>
                             <li><a href="chat2.php">My Chats</a></li>
                             <li><a href="adminchat.php?admin=63">Contact the Admin</a></li>
@@ -121,6 +122,7 @@ function googleTranslateElementInit() {
 
 							<li><a href="myorybue.php">My Orybu</a></li>
 							<li><a href="suppliers.php">Manage Products</a></li>
+                            <li><a href="product_add.php">Upload Product</a></li>
                         <li><a href="adminchat.php?admin=63">Contact the Admin</a></li>
                             <li><a href="chat2.php">My Chats</a></li>
 						<!--	<li><a href="mysorders.php"> Received Orders</a></li>

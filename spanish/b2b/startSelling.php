@@ -33,10 +33,16 @@ include('head.php');
 			  <div class="row">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="title-wrap">
-                            <h2 class="title lines">Empieza a vender</h2>
+                            <h2>Empieza a vender</h2>
                           
                         </div>
                     </div><!-- end col -->
+                    
+                    <div class="col-sm-2" style="margin-top:30px;">
+                        <a type="button" class="btn btn-success" href="product_add.php">Subir Producto</a>
+                    </div><!-- end col -->
+                    
+                    
                 </div><!-- end row -->
                 
                 <div class="row">

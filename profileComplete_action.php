@@ -66,10 +66,12 @@ if(isset($_POST['save']))
   move_uploaded_file($temp4, $filelocation4); 
    move_uploaded_file($temp5, $filelocation5); 
 		 ////////////////////////////////////////////////
-		 
+	 $limitTopList=7;
+	 $limitTotalProduct=38;
+	 $limitShowCase=5; 
 
  $q ="INSERT INTO seller(email,company_name,street,city,province,zipCode
-	,countryName,businessType,noOfEmployee,companylogo,companyDescription,companylicense,phoneNo,companyLegalNo) VALUES ('$email','$companyName','$street','$city','$province','$zipCode','$countryName','$businessType','$noOfEmployee','$images','$companyDescription','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo')";
+	,countryName,businessType,noOfEmployee,companylogo,companyDescription,companylicense,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$province','$zipCode','$countryName','$businessType','$noOfEmployee','$images','$companyDescription','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
 
 	  $r = $connection->prepare($q);
 					if($r === false) {
