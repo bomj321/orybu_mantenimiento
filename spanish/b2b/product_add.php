@@ -317,7 +317,7 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Certificacion del Producto: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Imagen del Producto: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Precio FOB <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Ordenes Minimas <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label>Orden Mínima<span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Detalles de envío: </label></div>
 				<div class="form-group" style="margin-top:20px;"><label> Metodo de Pagos: </label></div>				
 				</div>
@@ -594,8 +594,8 @@ else if(trim($str1) ==trim($str3))
 							 <option value="piece">Pieza</option>  
 							 <option value="ton">Ton</option>
 							 <option value="cubic meter">Metro Cúbico</option>  
-						     <option value="20 ft conteiner">Envase de 20ft</option> 
-                             <option value="40 ft conteiner">Envase de 40ft</option>
+						     <option value="20 ft conteiner">Contenedor de 20ft</option> 
+                             <option value="40 ft conteiner">Contenedor de 40ft</option>
                              <option value="litter">Litter</option>		
                              <option value="others">Others</option>							 
                          </select>
@@ -667,7 +667,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				</div>
 				<div style="margin-top: 26px;" class="form-group">
-						<input  type="text" class="form-control input-sm" placeholder="Rotacion" speed" name="rotation" id="rot">
+						<input  type="text" class="form-control input-sm" placeholder="Velocidad de Rotacion" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
 						<input required type="text" class="form-control input-sm" placeholder="Material de Elaboración" name="elobration" id="elobration">
@@ -687,7 +687,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				<div class="form-group">
 						 <select required class="form-control " id="unit" name="packaging" require>
-	                         <option value="Bag">Bolso</option>  
+	                         <option value="Bag">Bolsa Plástica</option>  
                              <option value="Bottle">Botella</option>  
 							 <option value="Can">Lata</option>  
 							 <option value="Barrel">Barril</option>
@@ -739,8 +739,8 @@ else if(trim($str1) ==trim($str3))
                              <option value="Feet">Píe</option>
                              <option value="Cubic Meter">Metro Cúbico</option>
 							 <option value="Cubic Feet">Píe Cúbico</option> 
-						     <option value="20 ft container">Envase de 20 ft</option>
-							 <option value="40 ft container">nvase de 40 ft</option>
+						     <option value="20 ft container">Contenedor de 20 ft</option>
+							 <option value="40 ft container">Contenedor de 40 ft</option>
 							<option value="Pallets">Embalajes</option>	
 							<option value="Carton">Caja</option>	
                             <option value="others">Otros</option>							 
@@ -772,8 +772,8 @@ else if(trim($str1) ==trim($str3))
 						 <div class="form-group">
 							<select class="form-control " id="payment" name="payment">
 								<option value="Paypal">Paypal</option>  
-								<option value="WebPay">WebPay</option>  
-								<option value="Paypal and WebPay">Paypal y WebPay</option>  							 
+								<option value="WebPay">Transferencia Bancaria</option>  
+								<option value="Paypal and WebPay">Paypal y Transferencia Bancaria</option>  							 
 							</select>   
 						 </div>
 						</div>	

@@ -58,7 +58,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             </tbody>
                         </table>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="col-md-4 col-sm-4 col-xs-4" style="margin-top:-80px;">
                     <?php
                     $logoquery="SELECT * FROM seller where email='$getmail'";
                     $logoresult=mysqli_query($connection,$logoquery);

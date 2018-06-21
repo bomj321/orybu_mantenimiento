@@ -102,7 +102,7 @@ if(isset($_POST['btn_save_updates']))
     			echo "
     			<script>
                 alert('Images uploaded correctly');
-                window.location= 'updatesellerprofile.php?email=echo $email'
+                window.location= 'myorybue.php'
         		</script>
         		";
 
@@ -123,10 +123,9 @@ if(isset($_POST['btn_save_updates']))
 				
 		 ////////////////////////////////////////////////
 	
-  if(empty($images)){
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+  if(empty($images) and empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)){
 
-$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sqlimages); 
 $stmtimages = $connection->prepare($sqlimages);
 if($stmtimages === false) 
@@ -181,7 +180,7 @@ if($stmtlicense === false)
 }else {
 $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
 
-	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sql); 
 $stmt = $connection->prepare($sql);
 if($stmt === false) 
@@ -546,43 +545,42 @@ if($stmt === false)
 					        
 
 						</div>
-						<div="form-group">
+						<div class="form-group">
 						<label>Company License</label>
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	<img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" /><img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" />
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[3]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[4]; ?>" />
 					        
-					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />
-					        <div class="form-group">
-					<h3>Uploaded Picture Preview Area </h3>
- 						<div id="selectedFiles1"></div>
+					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />				        
 							</div>
-
-							</div>
-									<div class="form-group">
-										<div class="row">
-										</br>
-											<div class="col-sm-6 col-sm-offset-3">
-											</br>
-											</br>
-			<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
-       &nbsp; Update Profile</i>
-        </button>
+							
+						<div class="col-sm-6 col-sm-offset-3">	
+							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+       						&nbsp; Update Profile</i>
+        			</button>
            
        
-		<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
-       </input>
-           </br>
-		     </br>  </br>
+						<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>       
+						<br>
+						<br>
+						<br>
          
-        </center>
-											</div>
-										</div>
-									</div>
+        			</center>
+						</div>		
 							
 								
-						</form>
+						</form>	
 						</div>
+						
+								<div class="col-sm-2">
+									<div class="form-group">
+											<h4>Uploaded Picture Preview Area </h4>
+												<div id="selectedFiles1"></div>
+										</div>
+								</div>		
+						
 						</div>
 				  </div><!-- end row -->                
             </div><!-- end container -->

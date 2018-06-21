@@ -665,7 +665,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				</div>
 				<div style="margin-top: 26px;" class="form-group">
-						<input  type="text" class="form-control input-sm" placeholder="Rotation" speed" name="rotation" id="rot">
+						<input  type="text" class="form-control input-sm" placeholder="Rotation speed" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
 						<input required type="text" class="form-control input-sm" placeholder="Elaboration Material" name="elobration" id="elobration">
@@ -685,7 +685,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				<div class="form-group">
 						 <select required class="form-control " id="unit" name="packaging" require>
-	                         <option value="Bag">Bag</option>  
+	                         <option value="Bag">Plastic Bag</option>  
                              <option value="Bottle">Bottle</option>  
 							 <option value="Can">Can</option>  
 							 <option value="Barrel">Barrel</option>
@@ -770,8 +770,8 @@ else if(trim($str1) ==trim($str3))
 						 <div class="form-group">
 							<select class="form-control " id="payment" name="payment">
 								<option value="Paypal">Paypal</option>  
-								<option value="WebPay">WebPay</option>  
-								<option value="Paypal and WebPay">Paypal and WebPay</option>  							 
+								<option value="WebPay">Wire Transfer</option>  
+								<option value="Paypal and WebPay">Paypal and Wire Transfer</option>  							 
 							</select>   
 						 </div>
 						</div>	

@@ -64,6 +64,7 @@ if(isset($_POST['btn_save_updates']))
 			 $filelocation = $target_dir.$images;
         $temp = $_FILES['file1']['tmp_name'];
 		 move_uploaded_file($temp, $filelocation);
+
 		 /////////////////////////////////////////////
 		 
 		 //////////////////////////////////////////
@@ -75,13 +76,21 @@ if(isset($_POST['btn_save_updates']))
 		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
 		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
  
+ 	
 		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
-		{   
-    		//echo "<script>
-               // alert('Maximo 1mb de tamaño y solo imagenes jpeg, jpg, png y git');
-               // window.location= 'updatesellerprofile.php?email=echo $email'
-        //</script>";
-		} 
+		{  
+
+
+			//echo "
+			//	<script>
+             //   alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
+              //  window.location= 'updatesellerprofile.php?email=echo $email'
+        		//</script>
+        		//";
+		
+    		
+		}
+		 
 		else  
 		{   
     		$nom_img = $nombre_archivo;      
@@ -90,19 +99,17 @@ if(isset($_POST['btn_save_updates']))
     		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
     		{  
 
-    		echo "<script>
-                alert('Las imagenes se han subido correctamente');
+    			echo "
+    			<script>
+                alert('Actualizada la informacion de la compañia');
                 window.location= 'myorybue.php'
-        </script>";
+        		</script>
+        		";
 
-        
-
- 			
+    		
 			}  
 		} 
-	} // Fin Foreach 
-
-		 
+	} // Fin Foreach 		 
 
 		
 		 ///SUBIR IMAGENES
@@ -116,10 +123,9 @@ if(isset($_POST['btn_save_updates']))
 				
 		 ////////////////////////////////////////////////
 	
-  if(empty($images)){
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+  if(empty($images) and empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)){
 
-$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sqlimages); 
 $stmtimages = $connection->prepare($sqlimages);
 if($stmtimages === false) 
@@ -130,13 +136,12 @@ if($stmtimages === false)
 
     if($stmtimages->execute())
 			{
-				?>
-              <script>
-				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
-				        window.location.href="myorybue.php";
-		
-				</script>
-                <?php
+				echo' 
+			  <script>
+				        alert("Actualizada la informacion de la compañia");  //not showing an alert box.
+				         window.location.href="myorybue.php";
+			 </script>
+				';
 			}
 			else{
 		echo "ERROR1";
@@ -158,13 +163,14 @@ if($stmtlicense === false)
 
     if($stmtlicense->execute())
 			{
-				?>
-              <script>
-				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
+				
+              echo' 
+			  <script>
+				        alert("Actualizada la informacion de la compañia");  //not showing an alert box.
 				         window.location.href="myorybue.php";
-		
-				</script>
-                <?php
+			 </script>
+				';
+                
 			}
 			else{
 				echo "ERROR2";
@@ -174,7 +180,7 @@ if($stmtlicense === false)
 }else {
 $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
 
-	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sql); 
 $stmt = $connection->prepare($sql);
 if($stmt === false) 
@@ -185,13 +191,12 @@ if($stmt === false)
 
    if($stmt->execute())
 			{
-				?>
-              <script>
-				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
-				         window.location.href="updatesellerprofile.php?email=echo $email";
-		
-				</script>
-                <?php
+				echo' 
+			  <script>
+				        alert("Actualizada la informacion de la compañia");  //not showing an alert box.
+				         window.location.href="myorybue.php";
+			 </script>
+				';
 			}
 			else{
 						echo "ERROR3";
@@ -221,35 +226,35 @@ if($stmt === false)
 					  </br>
                                <center>	</br>
                       </br>
-                      <h2>Informacion de la Compañia </h2></center>
+                      <h2>Informacion de la Compañia</h2></center>
 									<div class="form-group">
 									</br>
 									</br>
 										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control" placeholder="Nombre de la Compañia"  value="<?php echo $companyName ?>">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Nombre de la Compañia">
 									</div>
 										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>"  placeholder="Número Legal">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Numero legal de la Compañia">
 									</div>
 						
-                                               <input   type="text" name="street" tabindex="1" class="form-control"  placeholder="Calle"   value="<?php echo $street ?>">
+                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Calle">
 									</div>
 									</br>
 						<div class="form-group">
 										
-					        <input  type="text" name="city" tabindex="1" class="form-control"  placeholder="Ciudad"   value="<?php echo $city ?>">
+					        <input  type="text" name="city" tabindex="1" class="form-control"   value="<?php echo $city ?>" placeholder="Ciudad">
 							
 										
 						</div>
 							<div class="form-group">
 										
-					        <input  type="text" name="province" tabindex="1" class="form-control"  placeholder="Provincia"  value="<?php echo $province ?>">
+					        <input  type="text" name="province" tabindex="1" class="form-control"  value="<?php echo $province ?>" placeholder="Provincia">
 							
 										
 						</div>
 							<div class="form-group">
 										
-					        <input  type="text" name="zipCode" tabindex="1" class="form-control"  placeholder="Codigo Zip"  value="<?php echo $zipCode ?>">
+					        <input  type="text" name="zipCode" tabindex="1" class="form-control"   value="<?php echo $zipCode ?>" placeholder="Codigo Zip">
 							
 										
 						</div>
@@ -509,29 +514,31 @@ if($stmt === false)
 									</div>
 									</br>
 									</br>
-									<h4>Describe tu Compañia </h4>
+									<h4>Describe tu Compañia</h4>
 									<div class="form-group">
 										<select name="businessType"  class="form-control input">
 								  <option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
-                                             <option value="Manufacturer">Fabricante</option>
+                                             <option value="Manufacturer">Manufacturera</option>
                                              <option value="Distributor" >Distribuidora</option>
-											  <option value="Trading Company" >Comercio Company </option>
-                                             <option value="Retailer" >Minorista</option>  <option value="other" >Otra</option>      Trading Company                                       
+											  <option value="Trading Company" >Compañia de Intercambio</option>
+                                             <option value="Retailer" >Minorista</option>  
+                                             <option value="other" >Otra</option>                                     
 											 </select>
 									</div>
 									<div class="form-group">
 										
-					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  placeholder="Nro de Empleados"   value="<?php echo $noOfEmployee ?>">
+					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"   value="<?php echo $noOfEmployee ?>" placeholder="Numero de Empleados">
 													
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"  placeholder="Descripción"   rows="4" cols="50"> <?php echo $companyDescription ?>
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50" placeholder="Descripcion">
+							 <?php echo $companyDescription?>
 							
-									</textarea>	
+							</textarea>	
 						</div>
 										<div class="form-group">
-										<label>Logo de la Compañia</label>
+										<label>Company Logo</label>
 						
 										 <img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
 					       
@@ -539,43 +546,42 @@ if($stmt === false)
 					        
 
 						</div>
-						<div="form-group">
+						<div class="form-group">
 						<label>Licencia de la compañia</label>
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	<img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" /><img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" />
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[3]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[4]; ?>" />
 					        
-					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />
-					        <div class="form-group">
-					<h3>Uploaded Picture Preview Area </h3>
- 						<div id="selectedFiles1"></div>
+					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />				        
 							</div>
-
-							</div>
-									<div class="form-group">
-										<div class="row">
-										</br>
-											<div class="col-sm-6 col-sm-offset-3">
-											</br>
-											</br>
-			<center  style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
-       &nbsp; Actualizar Perfil</i>
-        </button>
+							
+						<div class="col-sm-6 col-sm-offset-3">	
+							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+       						&nbsp; Actualizar Perfil</i>
+        			</button>
            
        
-		<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCELAR</a>
-       </input>
-           </br>
-		     </br>  </br>
+						<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> Cancelar</a>       
+						<br>
+						<br>
+						<br>
          
-        </center>
-											</div>
-										</div>
-									</div>
+        			</center>
+						</div>		
 							
 								
-						</form>
+						</form>	
 						</div>
+						
+								<div class="col-sm-2">
+									<div class="form-group">
+											<h4>Area de vizualizacion previa</h4>
+												<div id="selectedFiles1"></div>
+										</div>
+								</div>		
+						
 						</div>
 				  </div><!-- end row -->                
             </div><!-- end container -->

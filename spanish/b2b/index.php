@@ -125,7 +125,7 @@ $(document).ready(function(){
                             <?php }?>
 
                             <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="background:transparent;">
                                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
