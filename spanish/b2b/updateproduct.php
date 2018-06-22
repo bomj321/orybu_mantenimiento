@@ -37,6 +37,8 @@ if(isset($_POST['btn_save_updates']))
 			$wquantity=$_POST['wquantity'];
 			$weight =$wquantity.' '.$_POST['dropweight'];
 			
+			$delivery_details= $_POST['delivery_details'];
+			$payment= $_POST['payment'];
 			$vquantity=$_POST['vquantity'];
 			$volume=$vquantity.' '.$_POST['dropvolum'];
 			$dquantity=$_POST['dquantity'];
@@ -59,10 +61,28 @@ if(isset($_POST['btn_save_updates']))
 			$price_unit=$_POST['dropminimum'];
 			$oquantity=$_POST['oquantity'];
 		    $miniorder=$oquantity.' '.$_POST['dropminimum2'];
+	
+$target_dir = "images/";	
+if($_FILES["file1"]["name"] !="" AND !empty($_FILES["file1"]["name"]))
+{
+			$target_file = $target_dir . basename($_FILES["file1"]["name"]);
+			$certification=$_FILES['file1']['name'];
+			$fileimage1=$_FILES['file1']['name'];
+			$filelocation = $target_dir.$image3;
+			$tempfile1 = $_FILES['file1']['tmp_name'];
+			move_uploaded_file($tempfile1, $filelocation); 
+	
+	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dimension."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',certification='".$certification."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
+	mysqli_query($connection,$sql);
+ }else{
+ 	
+ 	
 			
-	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."' ,image='".$license."' ,catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dimension."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',certification='".$fileimage."',miniorder='".$miniorder."'  WHERE (pid='$pid')";
-		mysqli_query($connection,$sql);
-
+	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dimension."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
+	mysqli_query($connection,$sql);
+}	
+	
+	
 			$showcaseid=$_POST['showcaseid'];
 			$showtoplist=$_POST['showtoplist'];
 			
@@ -81,81 +101,99 @@ if(isset($_POST['btn_save_updates']))
 			}
 				 //////////////////////////////////////////
 	
+	
+	
 				$target_dir = "images/";
-	if($_FILES["file2"]["name"][0] !="" )
+	if($_FILES["imagenes1"]["name"] !="" AND !empty($_FILES["imagenes1"]["name"]))
 {
-		 	$target_file = $target_dir . basename($_FILES["file2"]["name"][0]);
-			$image1=$_FILES['file2']['name'][0];
+		 	$target_file = $target_dir . basename($_FILES["imagenes1"]["name"]);
+			$image1=$_FILES['imagenes1']['name'];
 			$filelocation = $target_dir.$image1;
-			$temp1 = $_FILES['file2']['tmp_name'][0];
+			$temp1 = $_FILES['imagenes1']['tmp_name'];
 			move_uploaded_file($temp1, $filelocation);
-}	if($_FILES["file2"]["name"][1] !="" )
+}	if($_FILES["imagenes2"]["name"] !="" AND !empty($_FILES["imagenes2"]["name"]))
 {
 
-			$target_file = $target_dir . basename($_FILES["file2"]["name"][1]);
-			$image2=$_FILES['file2']['name'][1];
+			$target_file = $target_dir . basename($_FILES["imagenes2"]["name"]);
+			$image2=$_FILES['imagenes2']['name'];
 			$filelocation = $target_dir.$image2;
-			$temp2 = $_FILES['file2']['tmp_name'][1];
-}	if($_FILES["file2"]["name"][2] !="" )
+			$temp2 = $_FILES['imagenes2']['tmp_name'];
+}	if($_FILES["imagenes3"]["name"] !="" AND !empty($_FILES["imagenes3"]["name"]))
 {
 		
-			$target_file = $target_dir . basename($_FILES["file2"]["name"][2]);
-			$image3=$_FILES['file2']['name'][2];
+			$target_file = $target_dir . basename($_FILES["imagenes3"]["name"]);
+			$image3=$_FILES['imagenes3']['name'];
 			$filelocation = $target_dir.$image3;
-			$temp3 = $_FILES['file2']['tmp_name'][2];
+			$temp3 = $_FILES['imagenes3']['tmp_name'];
 			move_uploaded_file($temp3, $filelocation); 
- }	if($_FILES["file2"]["name"][3] !="" )
+ }	if($_FILES["imagenes4"]["name"] !="" AND !empty($_FILES["imagenes4"]["name"]))
 {
 
-			$target_file = $target_dir . basename($_FILES["file2"]["name"][3]);
-			$image4=$_FILES['file2']['name'][3];
+			$target_file = $target_dir . basename($_FILES["imagenes4"]["name"]);
+			$image4=$_FILES['imagenes4']['name'];
 			$filelocation = $target_dir.$image4;
-			$temp4 = $_FILES['file2']['tmp_name'][3];
+			$temp4 = $_FILES['imagenes4']['tmp_name'];
 			move_uploaded_file($temp4, $filelocation); 
- } 	 ////////////////////////////////////////////////
-	
-		if($_FILES["file1"]["name"] !="" )
+ }if($_FILES["imagenes5"]["name"] !="" AND !empty($_FILES["imagenes5"]["name"]))
 {
-			$target_file = $target_dir . basename($_FILES["file1"]["name"]);
-			$fileimage1=$_FILES['file1']['name'];
-			$filelocation = $target_dir.$image3;
-			$tempfile1 = $_FILES['file1']['tmp_name'];
-			move_uploaded_file($tempfile1, $filelocation); 
- }	
-  $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4;
 
+			$target_file = $target_dir . basename($_FILES["imagenes5"]["name"]);
+			$image5=$_FILES['imagenes5']['name'];
+			$filelocation = $target_dir.$image5;
+			$temp5 = $_FILES['imagenes5']['tmp_name'];
+			move_uploaded_file($temp5, $filelocation); 
+ } 	 ////////////////////////////////////////////////
+	////////////////////////////////////////////////
 	
-	
-			 $sql2="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."' ,image='".$license."' ,catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
-			
-			
-			
-			
-
+		
+  if(empty($image1)){
+  	 $sql2="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
  mysqli_query($connection,$sql2);
-	 $stmt = $connection->prepare($sql2);
-     if($stmt === false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
- 
+  }else{
+  	 $sql2="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',image='".$image1."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+      mysqli_query($connection,$sql2);
+  }
 	
-			if($stmt->execute())
-			{
-				?>
+
+if(empty($image2)){
+  	 $sql3="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+ mysqli_query($connection,$sql3);
+  }else{
+  	 $sql3="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',image2='".$image2."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+      mysqli_query($connection,$sql3);
+  }
+	
+if(empty($image3)){
+  	 $sql4="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+ mysqli_query($connection,$sql4);
+  }else{
+  	 $sql4="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',image3='".$image3."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+      mysqli_query($connection,$sql4);
+  }
+	
+if(empty($image4)){
+  	 $sql5="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+ mysqli_query($connection,$sql5);
+  }else{
+  	 $sql5="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',image4='".$image4."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+      mysqli_query($connection,$sql5);
+  }
+	
+if(empty($image5)){
+  	 $sql6="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+ mysqli_query($connection,$sql6);
+  }else{
+  	 $sql6="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."' ,fulldescription='".$fulldescription."',image5='".$image5."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."'  WHERE (pid='$pid')";
+      mysqli_query($connection,$sql6);
+  }	
+
+?>
                 <script>
-				        alert("Updated !");  //not showing an alert box.
-		window.location.href="suppliers.php";
+				        alert("Actualizado!");  //not showing an alert box.
+		                window.location.href="suppliers.php";
 				</script>
-                <?php
-			}
-			else{
-			echo 	$errMSG = "Sorry Data Could Not Updated !";
-				}
-		
-	
-		
+<?php
 	}
-	
 ?>
 <script>
 $(document).ready(function() {
@@ -308,7 +346,9 @@ $(document).ready(function() {
 				<div class="form-group" style="margin-top:31px;"><label> Certificacion del producto: </label></div> 
 				<div class="form-group" style="margin-top:250px;"><label> Imagen del producto: </label></div> 
 				<div class="form-group" style="margin-top:90px;"><label> Precio FOB: </label></div> 
-				<div class="form-group" style="margin-top:32px;"><label> Orden Miníma: </label></div> 
+				<div class="form-group" style="margin-top:32px;"><label> Orden Miníma: </label></div>
+				<div class="form-group" style="margin-top:38px;"><label> Delivery Details: </label></div>
+				<div class="form-group" style="margin-top:25px;"><label> Payment: </label></div>	 
 				
 				 
 			<!--	 -->
@@ -738,22 +778,110 @@ $(document).ready(function() {
 						 
 						
 						 <div class="form-group">
-						 <img style="height:100px; width:100px;" src="images/<?php echo $rowz['certification']; ?>" />
-						   <input class="form-control " type="file"  name="file1" />
-                          	</div>
-						 
-						  <?php $str3=$rowz['image']; 
-						  $procl = explode(',', $str3);  ?>
-						  <div class="form-group">
-					
-						   <img style="height:100px; width:100px;" src="images/<?php echo $procl[0]; ?>" />
-			   <img style="height:100px; width:100px;" src="images/<?php echo $procl[1]; ?>" />
-			    <img style="height:100px; width:100px;" src="images/<?php echo $procl[2]; ?>" />
-				 <img style="height:100px; width:100px;" src="images/<?php echo $procl[3]; ?>" />
-				  <img style="height:100px; width:100px;" src="images/<?php echo $procl[4]; ?>" />
-						   <input class="form-control" type="file"  name="file2[]" multiple="multiple" required />
-                           	
+						 <?php
+							$certification_verificacion= $rowz['certification'];; 
+						 if(!empty($certification_verificacion)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $rowz['certification']; ?>" />
+    								<input class="form-control" type="file"  name="file1" id="files"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No hay Certification</h4></center>
+								<input class="form-control " type="file"  name="file1" id="files" />
+							
+						<?php
+						 }
+						?> 
 						 </div>
+						 
+						<div class="form-group" style="border-style: solid;"> 
+						  <?php
+							$stri1=$rowz['image'];
+							$stri2=$rowz['image2'];
+							$stri3=$rowz['image3'];
+							$stri4=$rowz['image4'];
+							$stri5=$rowz['image5'];	
+							?>
+						 
+						 <?php
+						 if(!empty($stri1)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" />
+    								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No hay imagenes</h4></center>
+								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
+							
+						<?php
+						 }
+						?> 
+							
+							
+						<?php
+						 if(!empty($stri2)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" />
+    								<input class="form-control" type="file"  name="imagenes2"   id="files2"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No hay imagenes</h4></center>
+								<input class="form-control" type="file"  name="imagenes2"  id="files2"/>
+							
+						<?php
+						 }
+						?> 
+							
+						<?php
+						 if(!empty($stri3)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" />
+    								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No hay imagenes</h4></center>
+								<input class="form-control" type="file"  name="imagenes3"  id="files3"/>
+							
+						<?php
+						 }
+						?> 
+						
+						<?php
+						 if(!empty($stri4)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" />
+    								<input class="form-control" type="file"  name="imagenes4"   id="files4"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No hay imagenes</h4></center>
+								<input class="form-control" type="file"  name="imagenes4"  id="files4"/>
+							
+						<?php
+						 }
+						?> 
+							
+						<?php
+						 if(!empty($stri5)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" />
+    								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No hay imagenes</h4></center>
+								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
+							
+						<?php
+						 }
+						?> 																
+							 
+						  </div>
+						  
 						  <?php $stt8=$rowz['price_unit'];?>
 						 <div class="input-group" style="margin-bottom:10px;">  
   							<input type="text" class="form-control" placeholder="Precio" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
@@ -779,7 +907,8 @@ $(document).ready(function() {
 						 
 						 <div class="row">
 						 <?php $stt3=$rowz['miniorder']; $mcl = explode(' ', $stt3);  ?>
-					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required placeholder="Orden Mínima" /></div>
+					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required placeholder="Orden Mínima" />
+				   </div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
 						   <select class="form-control" id="unit" name="dropminimum2"  style="height:39px;">
 						    <option value="<?php echo $mcl[1]; ?>"><?php echo $mcl[1]; ?></option> 
@@ -800,6 +929,18 @@ $(document).ready(function() {
                          </select>         	
 						 </div>
 						 </div>
+						 
+						<div class="form-group">
+								 <input type="text" class="form-control input-sm" placeholder="Delivery Details" name="delivery_details" id="delivery_details" value="<?php echo $rowz['delivery_details']; ?>">
+						 </div>	
+						 <div class="form-group">
+							<select class="form-control " id="payment" name="payment">
+							    <option value="<?php echo $rowz['payment']; ?>"> <?php echo $rowz['payment']; ?> </option>
+								<option value="Paypal">Paypal</option>  
+								<option value="WebPay">Wire Transfer</option>  
+								<option value="Paypal and WebPay">Paypal and Wire Transfer</option>  							 
+							</select>   
+						 </div>  
 				</div>						  
 				
 				
@@ -838,6 +979,18 @@ $(document).ready(function() {
            </br>
          
         </center>
+        <div class="row">		
+					<div class="form-group col-sm-12">
+											<center>
+												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
+												 <div id="selectedFiles1"></div>
+												 <div id="selectedFiles2"></div>
+						                   </center>	 
+			 <div id="selectedFiles1"></div>
+					</div>	
+		
+      </div>	 
+         
         
 	  </form>  
  <!-- END of FORM -->	  
@@ -846,8 +999,221 @@ $(document).ready(function() {
             </div><!-- end container -->
         </section>
 		
-		<!-- Trigger the modal with a button -->
-  
+	<!-- Trigger the modal with a button -->
+<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init, false);
+	
+	function init() {
+		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files1').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files2').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files3').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files4').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files5').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
  <?php        
 
 include('footer.php');

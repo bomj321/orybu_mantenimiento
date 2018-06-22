@@ -113,27 +113,33 @@ $cl = explode(',', $myString);
 													?>
 														<input type="hidden" name="productaction" value="<?php echo $productaction ?>" />
 													<?php 
-													if($productaction =='2')
+													if($productaction==0)
 													{
 												
 													?>
 												
-												  <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Show off</a>
+												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show On</a>
 
 												
 													<?php
 													}
-													else if($productaction =='0' OR $productaction =='1')
+													else if($productaction==1)
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Show on</a>
+												  <a   class="btn btn-xs btn-warning" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Suspend</a>
 
 												
 			
 													<?php
-													}?>
-	
+													}else if($productaction==2)
+													{    
+                                                   ?>
+	                                                
+	                                                <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show Off</a>
+	                                                 <?php
+                                                    }
+                                                      ?> 
 		
 		 <?php   $producttoplist =$row['producttoplist'];
 													
@@ -159,8 +165,8 @@ $cl = explode(',', $myString);
 												
 			
 													<?php
-													}?>
-	
+													}                                                 
+                                                    ?>
 		 </td>
 <td> 
          <a    href="updateproduct.php?pid=<?php echo $row['pid'];?>"><i class="fa fa-pencil fa-fw"></i></a> &nbsp;&nbsp;

@@ -136,7 +136,7 @@ include('header.php');
 									<!-- end widget edit box -->
 		<?php
 include('Connect.php');
- $sql="SELECT * FROM products INNER JOIN users ON(products.user_id = users.user_id) INNER JOIN categories ON(products.catid =categories.catid) Where products.productaction ='0' OR products.productaction ='1' ";
+ $sql="SELECT * FROM products INNER JOIN users ON(products.user_id = users.user_id) INNER JOIN categories ON(products.catid =categories.catid) Where products.productaction ='1' OR products.productaction ='2' ";
 
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

@@ -309,14 +309,14 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:35px;"><label> Dimensions:</label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Capacity:</label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Energy Power:</label></div> 				 
-				<div class="form-group" style="margin-top:40px;"><label> Rotation Speed:</label></div> 
+				<div class="form-group" style="margin-top:40px;"><label> Rotation Speed: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Elaboration Material: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Use: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Packing <span class="text-danger">*</span>  </label></div>
                 <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 				
 				<div class="form-group" style="margin-top:20px;"><label> Product Certification: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Product Image: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
@@ -623,7 +623,7 @@ else if(trim($str1) ==trim($str3))
 						 <div class="form-group col-sm-8" style="padding-right:0px;  margin-top: 10px;">
 						 <input type="text" class="form-control " placeholder="Dimensions" name="dquantity" id="quantity"> 
 						 </div>
-				<div class="form-group col-sm-4" style="padding-left:0px;">
+				<div class="form-group col-sm-4" style="padding-left:0px; margin-top:10px;">
 						 <select class="form-control " id="unit" name="dropdimension">
 	                         <option value="feet">Feet</option>  
                              <option value="Inch">Inch</option>  
@@ -724,13 +724,14 @@ else if(trim($str1) ==trim($str3))
                            	
 						 </div>
 						  <div class="form-group">
-						   <input  id="files1" class="form-control " type="file"  name="file2[]" multiple="multiple"/>
+						   <input  id="files1" class="form-control " type="file"  name="file2[]" multiple="multiple" required/>
                            	
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text" placeholder="FOB Price" name="fobprice" required /></div>
-					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control " id="unit" name="dropminimum">
+						 <div class="input-group col-xs-12" style="margin-bottom:10px; width:93%; margin-left:15px;">  
+  							<input type="text" class="form-control" placeholder="Price" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
+  							<span class="input-group-addon" id="basic-addon1">$</span>
+  							<select class="form-control " id="unit" name="dropminimum2">
 	                         <option value="Unit">Unit</option>  
                              <option value="Ton">Ton</option>  
 							 <option value="Gram">Gram</option>  
@@ -745,8 +746,8 @@ else if(trim($str1) ==trim($str3))
 							<option value="Pallets">Pallets</option>	
 							<option value="Carton">Carton</option>	
                             <option value="others">Others</option>							 
-                         </select>         	
-						 </div>
+                         </select>        	
+							</div>
 					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text" placeholder="Minimum Order" name="oquantity" required /></div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
 						   <select class="form-control " id="unit" name="dropminimum2">
@@ -777,6 +778,9 @@ else if(trim($str1) ==trim($str3))
 								<option value="Paypal and WebPay">Paypal and Wire Transfer</option>  							 
 							</select>   
 						 </div>
+						 
+						 
+						 
 						</div>	
 						<?php
                             $sqll="Select * from `images` where id = '4' ";
@@ -785,7 +789,7 @@ else if(trim($str1) ==trim($str3))
 
                         <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
                         <?php foreach($results as $resu): ?>
-						<div class="col-sm-4 col-md-4">
+						<div class="col-sm-4 col-md-4" style="margin-top:56rem;">
 							<img src="images/<?php echo $resu['image'];?>" alt="imagen"  class="pull-right" style="width:20rem;height:28rem">
 						</div>
 						<?php endforeach;?>
@@ -800,22 +804,30 @@ else if(trim($str1) ==trim($str3))
 				
                </div>	
                 <!------------------------------EDITOR---------------->
-			
-		<div class="form-group col-sm-8">
-									<h3>Uploaded Picture Preview Area </h3>
-									 <div id="selectedFiles"></div>
- <div id="selectedFiles1"></div>
-		</div>	
+	  
 		
-		  <center><button type="submit" name="save" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
-       &nbsp; SAVE</i>
-        </button>
-		<a href="suppliers.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
-       </input>
-           </br>
-         
-        </center>
-        
+		
+	<div class="row">
+					  <center><button type="submit" name="save" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+				   &nbsp; SAVE</i>
+					</button>
+					<a href="suppliers.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
+				   </input>
+					   </br>
+
+					</center>
+      </div>
+      
+      <div class="row">		
+					<div class="form-group col-sm-12">
+											<center>
+												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
+												 <div id="selectedFiles"></div>
+						                   </center>	 
+			 <div id="selectedFiles1"></div>
+					</div>	
+		
+      </div>		  	  
 	  </form>  
  <!-- END of FORM -->	  
        </div><!-- end col -->    

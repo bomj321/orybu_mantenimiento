@@ -88,7 +88,7 @@ require 'Connect.php';
 					{
 					?>
 					   <ul class="w-150">
-
+                             <li><a href="myorybue.php">Mi Orybu</a></li>
 							<li><a href="buyeraccount.php">Mi cuenta</a></li>
 							<li><a href="buyerorders.php">Mis ordenes</a></li>
 										<li >

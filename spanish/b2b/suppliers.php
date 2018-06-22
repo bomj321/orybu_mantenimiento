@@ -113,27 +113,33 @@ $cl = explode(',', $myString);
 													?>
 														<input type="hidden" name="productaction" value="<?php echo $productaction ?>" />
 													<?php 
-													if($productaction =='2')
+													if($productaction==0)
 													{
 												
 													?>
 												
-												  <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Show off</a>
+												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Mostrar</a>
 
 												
 													<?php
 													}
-													else if($productaction =='0' OR $productaction =='1')
+													else if($productaction==1)
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Show on</a>
+												  <a   class="btn btn-xs btn-warning" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Suspender</a>
 
 												
 			
 													<?php
-													}?>
-	
+													}else if($productaction==2)
+													{    
+                                                   ?>
+	                                                
+	                                                <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">No Mostrar</a>
+	                                                 <?php
+                                                    }
+                                                      ?> 
 		
 		 <?php   $producttoplist =$row['producttoplist'];
 													
@@ -145,7 +151,7 @@ $cl = explode(',', $myString);
 												
 													?>
 												
-												  <a   class="btn btn-xs btn-danger" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Not     List</a>
+												  <a   class="btn btn-xs btn-danger" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">No lista superior</a>
 
 												
 													<?php
@@ -154,12 +160,13 @@ $cl = explode(',', $myString);
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Top    List </a>
+												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Lista Superior</a>
 
 												
 			
 													<?php
-													}?>
+													}                                                 
+                                                    ?>
 	
 		 </td>
 <td> 

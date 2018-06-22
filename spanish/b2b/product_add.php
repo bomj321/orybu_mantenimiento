@@ -308,14 +308,14 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:35px;"><label> Dimensiones: </label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Capacidad: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Fuente de Poder:</label></div> 				 
-				<div class="form-group" style="margin-top:40px;"><label> Velocidad de Rotacion:</label></div> 
+				<div class="form-group" style="margin-top:40px;"><label> Velocidad de Rotacion: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Material de Elaboracion: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Uso: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Tamaño: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Empaquetado  <span class="text-danger">*</span>  </label></div>
                 <div class="form-group" style="margin-top:20px;"><label> Tipo de Producto: </label></div> 				
 				<div class="form-group" style="margin-top:20px;"><label> Certificacion del Producto: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Imagen del Producto: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Imagen del Producto: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Precio FOB <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Orden Mínima<span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Detalles de envío: </label></div>
@@ -622,7 +622,7 @@ else if(trim($str1) ==trim($str3))
 						 <div class="form-group col-sm-8" style="padding-right:0px; margin-top: 10px;">
 						 <input  type="text" class="form-control " placeholder="Dimensiones" name="dquantity" id="quantity"> 
 						 </div>
-				<div class="form-group col-sm-4" style="padding-left:0px;">
+				<div class="form-group col-sm-4" style="padding-left:0px; margin-top: 10px;">
 						 <select class="form-control " id="unit" name="dropdimension">
 	                         <option value="feet">Pie</option>  
                              <option value="Inch">Pulgada</option>  
@@ -723,7 +723,7 @@ else if(trim($str1) ==trim($str3))
                            	
 						 </div>
 						  <div class="form-group">
-						   <input  id="files1" class="form-control " type="file"  name="file2[]" multiple="multiple"/>
+						   <input  id="files1" class="form-control " type="file"  name="file2[]" multiple="multiple" required/>
                            	
 						 </div>
 						 <div class="row">
@@ -784,7 +784,7 @@ else if(trim($str1) ==trim($str3))
 
                         <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
                         <?php foreach($results as $resu): ?>
-						<div class="col-sm-4 col-md-4">
+						<div class="col-sm-4 col-md-4" style="margin-top:56rem;">
 							<img src="images/<?php echo $resu['image'];?>" alt="imagen"  class="pull-right" style="width:20rem;height:28rem">
 						</div>
 						<?php endforeach;?>

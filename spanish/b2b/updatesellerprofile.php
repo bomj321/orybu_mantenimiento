@@ -10,23 +10,48 @@ $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
-
+$rowcount=mysqli_num_rows($stmt);
 $row = mysqli_fetch_array($stmt);
-
-
-   $companyName= $row['company_name'];
-    $companyLegalNo= $row['companyLegalNo'];
-		 $street= $row['street'];
+if($rowcount>0){
+	      $companyName= $row['company_name'];
+          $companyLegalNo= $row['companyLegalNo'];
+		  $street= $row['street'];
 		  $city= $row['city'];
 		  $province= $row['province'];
 		  $zipCode= $row['zipCode'];
-		   $countryName= $row['countryName'];
-		   $businessType= $row['businessType'];
+		  $countryName= $row['countryName'];
+		  $businessType= $row['businessType'];
 		  $noOfEmployee= $row['noOfEmployee'];
-		   $companyDescription= $row['companyDescription'];
-		 $companylogo= $row['companylogo'];
+		  $companyDescription= $row['companyDescription'];
+		  $companylogo= $row['companylogo'];
 		  $myString = $row['companylicense'];
-$cl = explode(',', $myString);
+		  $myString2 = $row['companylicense2'];
+	      $myString3 = $row['companylicense3'];
+	      $myString4 = $row['companylicense4'];
+	      $myString5 = $row['companylicense5'];
+
+	
+}else{
+	      $companyName= "";
+          $companyLegalNo= "";
+		  $street= "";
+		  $city= "";
+		  $province= "";
+		  $zipCode= "";
+		  $countryName= "";
+		  $businessType= "";
+		  $noOfEmployee= "";
+		  $companyDescription= "";
+		  $companylogo= "";
+		  $myString = "";
+		  $myString2 = "";
+	      $myString3 = "";
+	      $myString4 = "";
+	      $myString5 = "";
+	
+	
+}
+   
 	include('topbar.php');
 		include('middlebar.php');
 	  include('navh.php');  
@@ -44,9 +69,9 @@ $cl = explode(',', $myString);
 if(isset($_POST['btn_save_updates']))
 	{
 	  
-	 $companyName= $_POST['companyName'];
-	echo  $companyLegalNo= $_POST['companyLegalNo'];
-		 $street= $_POST['street'];
+	      $companyName= $_POST['companyName'];
+	      $companyLegalNo= $_POST['companyLegalNo'];
+		  $street= $_POST['street'];
 		  $city= $_POST['city'];
 		  $province= $_POST['province'];
 		  $zipCode= $_POST['zipCode'];
@@ -56,161 +81,131 @@ if(isset($_POST['btn_save_updates']))
 	 	  $companyDescription= $_POST['companyDescription'];
 		  
 		
+	/*
 	
-			$target_dir = "images/";
 	
-		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
-				$images=$_FILES['file1']['name'];
-			 $filelocation = $target_dir.$images;
-        $temp = $_FILES['file1']['tmp_name'];
-		 move_uploaded_file($temp, $filelocation);
-
-		 /////////////////////////////////////////////
+							
+							*/
+		
+		
+	  if($rowcount==0){
+		  
+		/*$sqllicense ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,companylicense2,companylicense3,companylicense4,companylicense5,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')"; */ 
+		  
+		 $limitTopList=7;
+	     $limitTotalProduct=38;
+	     $limitShowCase=5; 
+		 $sqllicense ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";   
 		 
-		 //////////////////////////////////////////
+		  /*$sqllicense="INSERT INTO seller email='".$email."', company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."' ";*/
+		 mysqli_query($connection,$sqllicense); 
+		  	
+
+	 }else{
+		$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."' WHERE email='$email'";
+		mysqli_query($connection,$sqllicense); 
+		$stmtimages = $connection->prepare($sqllicense);		  
 		
-		 ///SUBIR IMAGENES
-		 foreach ($_FILES["file2"]["error"] as $key => $error) { 
-		$nombre_archivo = $_FILES["file2"]["name"][$key];   
-		$tipo_archivo = $_FILES["file2"]["type"][$key];   
-		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
-		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
- 
- 	
-		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
-		{  
+		  }
 
+//////////////////////////////////////////////////////////////////////SUBIR IMAGENES////////////////////////////////////////////////////////////////
+$target_dir = "images/";
 
-			//echo "
-			//	<script>
-             //   alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
-              //  window.location= 'updatesellerprofile.php?email=echo $email'
-        		//</script>
-        		//";
-		
-    		
-		}
-		 
-		else  
-		{   
-    		$nom_img = $nombre_archivo;      
-    		$directorio = 'images/'; // Directorio
- 
-    		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
-    		{  
-
-    			echo "
-    			<script>
-                alert('Actualizada la informacion de la compañia');
-                window.location= 'myorybue.php'
-        		</script>
-        		";
-
-    		
-			}  
-		} 
-	} // Fin Foreach 		 
-
-		
-		 ///SUBIR IMAGENES
-
-				
-				$image1=$_FILES['file2']['name'][0];
-				$image2=$_FILES['file2']['name'][1];
-				$image3=$_FILES['file2']['name'][2];
-				$image4=$_FILES['file2']['name'][3];
-				$image5=$_FILES['file2']['name'][4];
-				
-		 ////////////////////////////////////////////////
-	
-  if(empty($images) and empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)){
-
-$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sqlimages); 
-$stmtimages = $connection->prepare($sqlimages);
-if($stmtimages === false) 
- {
-    trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
+	if($_FILES["imagenes_logo"]["name"] !="" AND !empty($_FILES["imagenes_logo"]["name"]))
+{
+		  $target_file = $target_dir . basename($_FILES["imagenes_logo"]["name"]);
+		  $images=$_FILES['imagenes_logo']['name'];
+		  $filelocation = $target_dir.$images;
+          $temp = $_FILES['imagenes_logo']['tmp_name'];
+		  move_uploaded_file($temp, $filelocation);
 }
+	
+	if($_FILES["imagenes_action1"]["name"] !="" AND !empty($_FILES["imagenes_action1"]["name"]))
+{
+		 	$target_file = $target_dir . basename($_FILES["imagenes_action1"]["name"]);
+			$image1=$_FILES['imagenes_action1']['name'];
+			$filelocation = $target_dir.$image1;
+			$temp1 = $_FILES['imagenes_action1']['tmp_name'];
+			move_uploaded_file($temp1, $filelocation);
+}	
+	if($_FILES["imagenes_action2"]["name"] !="" AND !empty($_FILES["imagenes_action2"]["name"]))
+{
 
+			$target_file = $target_dir . basename($_FILES["imagenes_action2"]["name"]);
+			$image2=$_FILES['imagenes_action2']['name'];
+			$filelocation = $target_dir.$image2;
+			$temp2 = $_FILES['imagenes_action2']['tmp_name'];
+}	        move_uploaded_file($temp2, $filelocation);
+	
+	if($_FILES["imagenes_action3"]["name"] !="" AND !empty($_FILES["imagenes_action3"]["name"]))
+{
+		
+			$target_file = $target_dir . basename($_FILES["imagenes_action3"]["name"]);
+			$image3=$_FILES['imagenes_action3']['name'];
+			$filelocation = $target_dir.$image3;
+			$temp3 = $_FILES['imagenes_action3']['tmp_name'];
+			move_uploaded_file($temp3, $filelocation); 
+ }	
+	if($_FILES["imagenes_action4"]["name"] !="" AND !empty($_FILES["imagenes_action4"]["name"]))
+{
 
-    if($stmtimages->execute())
-			{
-				echo' 
-			  <script>
-				        alert("Actualizada la informacion de la compañia");  //not showing an alert box.
-				         window.location.href="myorybue.php";
-			 </script>
-				';
-			}
-			else{
-		echo "ERROR1";
-		}
-
-}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
+			$target_file = $target_dir . basename($_FILES["imagenes_action4"]["name"]);
+			$image4=$_FILES['imagenes_action4']['name'];
+			$filelocation = $target_dir.$image4;
+			$temp4 = $_FILES['imagenes_action4']['tmp_name'];
+			move_uploaded_file($temp4, $filelocation); 		
+ }
+	if($_FILES["imagenes_action5"]["name"] !="" AND !empty($_FILES["imagenes_action5"]["name"]))
+{
+			$target_file = $target_dir . basename($_FILES["imagenes_action5"]["name"]);
+			$image5=$_FILES['imagenes_action5']['name'];
+			$filelocation = $target_dir.$image5;
+			$temp5 = $_FILES['imagenes_action5']['tmp_name'];
+			move_uploaded_file($temp5, $filelocation); 
+ } 	 ////////////////////////////////////////////////
+	////////////////////////////////////////////////
+	
+  if(!empty($images)){
+  	 $sql_logo="UPDATE seller  SET companylogo='".$images."' WHERE (email='$email')";
+ mysqli_query($connection,$sql_logo);
+  }	
+	
+	
+  if(!empty($image1)){
+  	 $sql2="UPDATE seller  SET companylicense='".$image1."' WHERE (email='$email')";
+ mysqli_query($connection,$sql2);
+  }
 	
 
-
-
-	$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sqllicense); 
-$stmtlicense = $connection->prepare($sqllicense);
-if($stmtlicense === false) 
- {
-    trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-
-
-    if($stmtlicense->execute())
-			{
-				
-              echo' 
-			  <script>
-				        alert("Actualizada la informacion de la compañia");  //not showing an alert box.
-				         window.location.href="myorybue.php";
-			 </script>
-				';
-                
-			}
-			else{
-				echo "ERROR2";
-
-		}
-
-}else {
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
-
-	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sql); 
-$stmt = $connection->prepare($sql);
-if($stmt === false) 
- {
-    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-
-
-   if($stmt->execute())
-			{
-				echo' 
-			  <script>
-				        alert("Actualizada la informacion de la compañia");  //not showing an alert box.
-				         window.location.href="myorybue.php";
-			 </script>
-				';
-			}
-			else{
-						echo "ERROR3";
-
-		}
-
-}
-
-
-		
+if(!empty($image2)){
+  	 $sql3="UPDATE seller  SET companylicense2='".$image2."' WHERE (email='$email')";
+ mysqli_query($connection,$sql3);
+  }
 	
-		
-	}
+if(!empty($image3)){
+  	$sql4="UPDATE seller  SET companylicense3='".$image3."' WHERE (email='$email')";
+ mysqli_query($connection,$sql4);
+  }
 	
+if(!empty($image4)){
+  	$sql5="UPDATE seller  SET companylicense4='".$image4."' WHERE (email='$email')";
+ mysqli_query($connection,$sql5);
+  }
+	
+if(!empty($image5)){
+  	$sql6="UPDATE seller  SET companylicense5='".$image5."' WHERE (email='$email')";
+ mysqli_query($connection,$sql6);
+  }
+//////////////////////////////////////////////////////////////////////SUBIR IMAGENES////////////////////////////////////////////////////////////////
+	echo' 
+						  <script>
+									alert("Actualizada la informacion de tu compañia!");  //not showing an alert box.
+									 window.location.href="profile.php";
+						 </script>
+							';
+
+}
+                       
 ?>
         <!-- start section -->
         <div class="container">
@@ -226,15 +221,15 @@ if($stmt === false)
 					  </br>
                                <center>	</br>
                       </br>
-                      <h2>Informacion de la Compañia</h2></center>
+                      <h2>Informacion de tu Compañia</h2></center>
 									<div class="form-group">
 									</br>
 									</br>
 										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Nombre de la Compañia">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Informacion de la compañia">
 									</div>
 										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Numero legal de la Compañia">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Numero Legal">
 									</div>
 						
                                                <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Calle">
@@ -260,7 +255,7 @@ if($stmt === false)
 						</div>
 										<div class="form-group">
 					      
-											    <select name="selectcountryName"  class="form-control input">
+											    <select name="selectcountryName"  class="form-control input" placeholder="Pais">
 								  <option value="<?php echo $countryName ?>"><?php echo $countryName ?></option>
                                             <option value="Afganistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
@@ -514,15 +509,14 @@ if($stmt === false)
 									</div>
 									</br>
 									</br>
-									<h4>Describe tu Compañia</h4>
+									<h4>Describe your Company </h4>
 									<div class="form-group">
 										<select name="businessType"  class="form-control input">
 								  <option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
-                                             <option value="Manufacturer">Manufacturera</option>
-                                             <option value="Distributor" >Distribuidora</option>
-											  <option value="Trading Company" >Compañia de Intercambio</option>
-                                             <option value="Retailer" >Minorista</option>  
-                                             <option value="other" >Otra</option>                                     
+                                             <option value="Manufacturer">Manufacturer</option>
+                                             <option value="Distributor" >Distributor</option>
+											  <option value="Trading Company" >Trading Company </option>
+                                             <option value="Retailer" >Retailer</option>  <option value="other" >Other</option>      Trading Company                                       
 											 </select>
 									</div>
 									<div class="form-group">
@@ -532,38 +526,116 @@ if($stmt === false)
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50" placeholder="Descripcion">
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50" placeholder="Descipcion">
 							 <?php echo $companyDescription?>
 							
 							</textarea>	
 						</div>
 										<div class="form-group">
-										<label>Company Logo</label>
+						 <?php
+						 if(!empty($companylogo)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_logo" id="files"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No Logo</h4></center>
+								<input class="form-control " type="file"  name="imagenes_logo" id="files" />
+							
+						<?php
+						 }
+						?> 
+						 </div>
 						
-										 <img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
-					       
-					        <input id="files" class="form-control" type="file" name="file1" />
-					        
-
-						</div>
-						<div class="form-group">
-						<label>Licencia de la compañia</label>
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" />
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[3]; ?>" />
-									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[4]; ?>" />
-					        
-					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />				        
-							</div>
+						
+						<div class="form-group" style="border-style: solid;"> 						 
+						 
+						 <?php
+						 if(!empty($myString)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $myString; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No Picture</h4></center>
+								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
+							
+						<?php
+						 }
+						?> 
+							
+							
+						<?php
+						 if(!empty($myString2)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $myString2; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No Picture</h4></center>
+								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
+							
+						<?php
+						 }
+						?> 
+							
+						<?php
+						 if(!empty($myString3)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $myString3; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No Picture</h4></center>
+								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
+							
+						<?php
+						 }
+						?> 
+						
+						<?php
+						 if(!empty($myString4)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $myString4; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No Picture</h4></center>
+								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
+							
+						<?php
+						 }
+						?> 
+							
+						<?php
+						 if(!empty($myString5)) {
+						 ?>
+    								<img style="height:100px; width:100px;" src="images/<?php echo $myString5; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>	
+    					<?php
+							}else{
+							?>
+								<center><h4>No Picture</h4></center>
+								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>
+							
+						<?php
+						 }
+						?> 																
+							 
+						  </div>
 							
 						<div class="col-sm-6 col-sm-offset-3">	
 							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
-       						&nbsp; Actualizar Perfil</i>
+       						&nbsp; Update Profile</i>
         			</button>
            
        
-						<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> Cancelar</a>       
+						<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>       
 						<br>
 						<br>
 						<br>
@@ -577,8 +649,9 @@ if($stmt === false)
 						
 								<div class="col-sm-2">
 									<div class="form-group">
-											<h4>Area de vizualizacion previa</h4>
+											<h4>Uploaded Picture Preview Area </h4>
 												<div id="selectedFiles1"></div>
+												<div id="selectedFiles2"></div>
 										</div>
 								</div>		
 						
@@ -616,42 +689,6 @@ if($stmt === false)
 	
 	function init() {
 		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
-		selDiv = document.querySelector("#selectedFiles");
-	}
-		
-	function handleFileSelect(e) {
-		
-		if(!e.target.files || !window.FileReader) return;
-		
-		selDiv.innerHTML = "";
-		
-		var files = e.target.files;
-		var filesArr = Array.prototype.slice.call(files);
-		filesArr.forEach(function(f) {
-			if(!f.type.match("image.*")) {
-				return;
-			}
-	
-			var reader = new FileReader();
-			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
-				selDiv.innerHTML += html;				
-			}
-			reader.readAsDataURL(f); 
-			
-		});
-		
-		
-	}
-	</script>
-	<script>
-
-	var selDiv = "";
-		
-	document.addEventListener("DOMContentLoaded", init1, false);
-	
-	function init1() {
-		document.querySelector('#files1').addEventListener('change', handleFileSelect, false);
 		selDiv = document.querySelector("#selectedFiles1");
 	}
 		
@@ -680,7 +717,185 @@ if($stmt === false)
 		
 	}
 	</script>
-
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files1').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files2').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files3').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files4').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
+	
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init1, false);
+	
+	function init1() {
+		document.querySelector('#files5').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles2");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+		});
+		
+		
+	}
+	</script>  
 	
     </body>
 </html>

@@ -93,7 +93,7 @@ include 'Connect.php';
 			$keyquery="INSERT INTO confirm (email,keyd) VALUES('$email','$keyd')";
 			mysqli_query($connection,$keyquery);
 			if($userType == 'buyer')
-			{
+			{				
 				header('Location:sendconfirmation2.php?userStatus=1');
 			}
 			if($userType == 'supplier' OR $userType =='both')

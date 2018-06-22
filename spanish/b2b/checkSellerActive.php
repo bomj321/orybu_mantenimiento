@@ -6,7 +6,7 @@ include 'Connect.php';
 		 $productaction = $_REQUEST['productaction'];
 		if($productaction==0)
 		{
-		   $sql = "UPDATE products SET productaction  ='2'  WHERE pid ='$pid'";
+		   $sql = "UPDATE products SET productaction  ='1'  WHERE pid ='$pid'";
 		}
 		else if($productaction==1)
 		{

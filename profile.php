@@ -143,7 +143,7 @@ else{
  <?php
 
 
- $sql="SELECT * FROM  membership INNER JOIN seller ON(membership.email = seller.email) Where seller.email='$email'";
+ $sql="SELECT * FROM  membership INNER JOIN seller ON(membership.email = seller.email) Where membership.email='$email'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -224,9 +224,8 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $nr=mysqli_num_rows($stmt);
 $row=$stmt->fetch_assoc()?>
 <div class="row">
-                    <div class="col-sm-10" >
-<center><h2>COMPANY INFORMATION</h2>
-</center>
+                    <div class="col-sm-12" >
+<center><h2>COMPANY INFORMATION</h2></center>
 
 
 
@@ -295,14 +294,58 @@ $row=$stmt->fetch_assoc()?>
 
 					<tr>
 			<th>	Company License</th>
-					<?php $imagen = $row['companylicense'];
-					$valor = explode(',',$imagen); 
-					 ?>
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[0]; ?>" /></td>
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[1]; ?>" /></td>
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[2]; ?>" /></td>
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[3]; ?>" /></td>
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[4]; ?>" /></td>
+					<?php
+							$stri1=$row['companylicense'];
+							$stri2=$row['companylicense2'];
+							$stri3=$row['companylicense3'];
+							$stri4=$row['companylicense4'];
+							$stri5=$row['companylicense5'];	
+							?>
+					<?php
+						 if(!empty($stri1)) {
+						 ?>
+    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" /></td>
+    								
+    					<?php
+							}
+							?>
+						 
+							
+							
+						<?php
+						 if(!empty($stri2)) {
+						 ?>
+    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" /></td>
+    					<?php
+							}
+							?>
+						
+							
+						<?php
+						 if(!empty($stri3)) {
+						 ?>
+						<td><img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" /></td>
+    					<?php
+							}
+							?>
+														
+						<?php
+						 if(!empty($stri4)) {
+						 ?>
+						<td><img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" /></td>
+    					<?php
+							}
+							?>
+						
+							
+						<?php
+						 if(!empty($stri5)) {
+						 ?>
+						<td><img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" /></td>
+    					<?php
+							}
+							?>
+					
 					</tr>
 					<tr>
 			<th>	Country Name</th>
