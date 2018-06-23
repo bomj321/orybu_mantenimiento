@@ -253,8 +253,9 @@ pre {
   display:inline !important;
   }
 
-.btn-group + .btn-group {
-  margin-left: 5px;
+.btn-group a {
+  background: #67b168 !important;
+  border: 1px solid #67b168 !important;
 }
 .activeColour ul{
   -webkit-padding-start: 0px;

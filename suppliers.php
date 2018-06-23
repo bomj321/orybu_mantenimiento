@@ -41,7 +41,7 @@ $row=$stmt->fetch_assoc();
            echo $_SESSION['suc']; }?>
             <div class="container">
 			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg" >Product Views Statistics</a> 
- <a href="product_add.php" class="btn btn-success btn-lg">Add Productos</a>
+ <a href="product_add.php" class="btn btn-success btn-lg">Add Products</a>
            </br>
         
         </center>         
