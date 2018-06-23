@@ -42,7 +42,9 @@ if(isset($_POST['btn_save_updates']))
 			$vquantity=$_POST['vquantity'];
 			$volume=$vquantity.' '.$_POST['dropvolum'];
 			$dquantity=$_POST['dquantity'];
-			$dimension=$dquantity.' '.$_POST['dropdimension'];
+            $dquantity2=$_POST['dquantity2'];
+            $dquantity3=$_POST['dquantity3'];
+            $dquantity4=$_POST['dropdimension'];
 			$cquantity=$_POST['cquantity'];
 			
 			$capacity=$cquantity.' '.$_POST['dropcapacity'];
@@ -72,13 +74,13 @@ if($_FILES["file1"]["name"] !="" AND !empty($_FILES["file1"]["name"]))
 			$tempfile1 = $_FILES['file1']['tmp_name'];
 			move_uploaded_file($tempfile1, $filelocation); 
 	
-	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dimension."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',certification='".$certification."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
+     $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dquantity."',dimension2='".$dquantity2."',dimension3='".$dquantity3."',dimension4='".$dquantity4."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',certification='".$certification."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
 	mysqli_query($connection,$sql);
  }else{
  	
  	
 			
-	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dimension."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
+     $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dquantity."',dimension2='".$dquantity2."',dimension3='".$dquantity3."',dimension4='".$dquantity4."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
 	mysqli_query($connection,$sql);
 }	
 	
@@ -654,22 +656,33 @@ $(document).ready(function() {
 				         </div>
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px;">
-						 <?php $str2=$rowz['dimension']; $dcl = explode(' ', $str2);  ?>
-						 <input type="text" class="form-control" placeholder="Dimensions" name="dquantity" id="quantity" value="<?php echo $dcl[0]; ?>"> 
-						 </div>
-				<div class="form-group col-sm-4" style="padding-left:0px;">
-						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						 <select class="form-control input-sm" id="unit" name="dropdimension" style="height:39px;">
-						    <option value="<?php echo $dcl[1]; ?>"> <?php echo $dcl[1]; ?> </option>
-	                         <option value="feet">Pie</option>  
-                             <option value="Inch">Pulgada</option>  
-							 <option value="Centimeter">Centimetro</option>  
-							 <option value="Meter">Metro</option>
-							
-                             <option value="others">Otros</option>							 
-                         </select>
-				</div>
+						 		<?php 
+                                $str2=$rowz['dimension'];
+                                $str22=$rowz['dimension2'];
+                                $str23=$rowz['dimension3'];
+                                $str24=$rowz['dimension4'];
+                                ?>
+								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<input type="text" class="form-control " placeholder="L" name="dquantity" id="quantity" value="<?php echo $str2;?>"> 
+								</div>
+								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<input type="text" class="form-control " placeholder="Al" name="dquantity2" id="quantity" value="<?php echo $str22; ?>"> 
+								</div>
+								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<input type="text" class="form-control " placeholder="An" name="dquantity3" id="quantity" value="<?php echo $str23; ?>"> 
+								</div>
+						<div class="form-group col-sm-4 col-sm-offset-2" style="padding-left:0px;">
+								<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
+								<select class="form-control input" id="unit" name="dropdimension" style="height:38px; margin-top:10px;">
+									<option value="<?php echo $str24; ?>"> <?php echo $str24; ?> </option>
+									<option value="feet">Pie</option>  
+									<option value="Inch">Pulgada</option>  
+									<option value="Centimeter">Centimetro</option>  
+									<option value="Meter">Metro</option>
+									
+									<option value="others">Otro</option>							 
+								</select>
+						</div>
 				</div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
@@ -971,10 +984,10 @@ $(document).ready(function() {
 			</div>
 		    -->
 		
-		  <center><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+		  <center><button type="submit" name="btn_save_updates" class="btn btn-success"><i class="fa fa-refresh" >
        &nbsp; Actualizar</i>
         </button>
-		<a href="suppliers.php" class="btn btn-warning"><i class="fa fa-times"></i> Cancelar</a>
+		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;"></i> Cancelar</a>
        </input>
            </br>
          
