@@ -35,7 +35,7 @@ if(empty($errors))
             </head>
             <body>
             <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='https://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>
              Thanx for Contact us Please do not reply to this mail.

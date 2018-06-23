@@ -59,7 +59,7 @@
                         <li>                        
                             <!-- SSL, No Borrar-->
                             <script language="JavaScript" type="text/javascript">
-                            TrustLogo("http://www.orybu.com/spanish/b2b/comodo_secure_seal_76x26_transp.png", "CL1", "none");
+                            TrustLogo("https://www.orybu.com/spanish/b2b/comodo_secure_seal_76x26_transp.png", "CL1", "none");
                             </script>
                             <a  href="https://www.positivessl.com/" id="comodoTL"></a>                      
                         </li>

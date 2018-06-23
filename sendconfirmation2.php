@@ -27,7 +27,7 @@ if (isset($userStatus)) {
             </head>
             <body>
             <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='https://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>Thank you for registering, please confirm your email by <a href='https://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> clicking here</a>. 
               </p>
@@ -61,7 +61,7 @@ if (isset($userStatus)) {
             </head>
             <body>
              <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='https://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>
                 Thank you for registering, please confirm your email by<a href='https://www.orybu.com/emailconfirm.php?email=$email&code=$confirmcode'> clicking here</a>.
