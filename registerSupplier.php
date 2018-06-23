@@ -41,11 +41,12 @@ $confirmcode=$_SESSION['code'];
 
 						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
 							<a href="sendconfirmation2.php?userStatus=1" >
-								<input type="submit" class="btn btn-default round btn-lg" value="SKIP">
+								<input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SKIP">
 							</br>
+							</a>
 						</div>
 
-					</a>
+					
 					        <div style="clear:both"></div>
 
 						<hr>
@@ -54,7 +55,18 @@ $confirmcode=$_SESSION['code'];
 								<form id="register-form" action="registerSupplier_action.php"  enctype="multipart/form-data" method="post" role="form">
 								<div class="row">
 					<div class="col-sm-12" >
-
+									<div class="form-group">
+										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Name">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Code">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Number Bank">
+									</div>
+										
 
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Company Name">
@@ -384,13 +396,15 @@ $confirmcode=$_SESSION['code'];
 </div>
 
 									<div class="form-group">
-										<div class="row">
-										</br>
-										<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
-											</br>
-											</br>
-												<input type="submit" name="register-submit" class=" btn btn-default round btn-lg" value="SAVE">
-											</div>
+										<div class="row" style="text-align:center;">
+										
+										<a href="sendconfirmation2.php?userStatus=1" >
+								        <input type="button" class="btn btn-warning round btn-lg" value="SKIP">
+									   </a>
+											
+												<input type="submit" name="register-submit" style="color:black;" class="btn btn-success round btn-lg" value="SAVE">
+												
+											
 										</div>
 									</div>
 										

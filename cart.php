@@ -29,7 +29,7 @@ $email=$_SESSION['uemail'];
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
-                                        <th>Update</th>
+                                        <th style="text-align:center;">Update</th>
                                         <th>Delete</th>                                                
                                     </tr>
                                 </thead>
@@ -49,7 +49,7 @@ $email=$_SESSION['uemail'];
                                             <p><?php echo $rowcart['description'];?></p>
                                         </td>
                                         <td>
-                                        <span>$<?php echo $rowcart['price'];?></span>
+                                        <p class="text-success">$<?php echo $rowcart['price'];?></p>
                                         </td>
                                         <td>
                                             <form action="cart1.php?pid=<?php echo $rowcart['id'];?>&price=<?php echo $rowcart['price'];?>" method="post" >
@@ -69,9 +69,9 @@ $email=$_SESSION['uemail'];
                                             </select>
                                         </td>
                                         <td>     
-                                        <span class="text-primary">$<?php echo $rowcart['totalprice'];?></span>
+                                        <span class="text-success">$<?php echo $rowcart['totalprice'];?></span>
                                         </td>
-                                        <td><button class="btn btn-default btn-md round pull-right" name="btn_save_updates" type="submit">
+                                        <td><button class="btn btn-success btn-md round pull-right" name="btn_save_updates" type="submit">
                                         <i class="fa fa-refresh"></i>
                                         </button>
                                         </form>
@@ -93,7 +93,7 @@ $email=$_SESSION['uemail'];
                         <a href="allproduct.php" class="btn btn-light semi-circle btn-md pull-left">
                             <i class="fa fa-arrow-left mr-5"></i> Continue Shopping
                         </a>
-                        <a href="checkout.php" class="btn btn-default semi-circle btn-md pull-right">
+                        <a href="checkout.php" class="btn btn-success semi-circle btn-md pull-right">
                             Checkout <i class="fa fa-arrow-right ml-5"></i>
                         </a>
                     </div><!-- end col -->

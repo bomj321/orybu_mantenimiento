@@ -231,6 +231,28 @@ $row=$stmt->fetch_assoc()?>
 
 
 <table class="table table-bordered" style="background-color:#f2f2f2;">
+   
+   <tr>
+    			<th>Name of the bank</th>
+			
+					<td><br><?php echo $row['bank']; ?></td>
+					</tr>
+					 <tr>
+    			<th>SWITF/BIC Code </th>
+			
+					<td><br><?php echo $row['bank_code']; ?></td>
+					</tr>
+					 <tr>
+    			<th>Account number</th>
+			
+					<td><br><?php echo $row['number_bank']; ?></td>
+					</tr>
+					
+                    <tr>
+    			<th> Serial No</th>
+			
+					<td><br><?php echo $row['sellerid']; ?></td>
+					</tr>
     <tr>
     			<th> Serial No</th>
 			
@@ -290,7 +312,17 @@ $row=$stmt->fetch_assoc()?>
 					<tr>
 			<th>	Logo de la Compañia</th>
 			
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $row['companylogo']; ?>" /></td>
+					<?php
+							$stri_logo=$row['companylogo'];							
+							?>
+					<?php
+						 if(!empty($stri_logo)) {
+						 ?>
+    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri_logo; ?>" /></td>
+    								
+    					<?php
+							}
+							?>
 					</tr>
 					<tr>
 			<th>	Licencia de la Compañia</th>
@@ -356,12 +388,14 @@ $row=$stmt->fetch_assoc()?>
 		  </tr>	
 		  <tr>
 		  </br>
-		  <center>
 		  <tr >
-		  <td>
-         <a   style="float:right" class="btn btn-primary" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">Actualizar</a>
+		  <td colspan="6">
+        		  <center>
+
+         <a   class="btn btn-success" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">UPDATE </a>
+         </center>
+
 		 </td>
-</center>
 		 </tr>
          </table>
 		 </div>

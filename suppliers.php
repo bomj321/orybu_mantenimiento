@@ -40,8 +40,8 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-warning btn-lg" style="padding-top:0px">Product Views Statistics</a> 
- <a href="product_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> ADD PRODUCT</a>
+			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg" >Product Views Statistics</a> 
+ <a href="product_add.php" class="btn btn-success btn-lg">Add Productos</a>
            </br>
         
         </center>         

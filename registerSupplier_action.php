@@ -9,12 +9,14 @@ include 'Connect.php';
   <?php  if (isset($_POST['register-submit'])) {
 	
 	
-		
-		 $companyName= $_POST['companyName'];
-		  $companyLegalNo= $_POST['companyLegalNo'];
-	$p1=$_POST['p1'];
-	$p2=$_POST['p2'];
-	$p3=$_POST['p3'];
+		    $name_bank= $_POST['bank_name'];
+	        $bank_code= $_POST['bank_code'];
+	        $number_bank= $_POST['bank_number'];
+		    $companyName= $_POST['companyName'];
+		    $companyLegalNo= $_POST['companyLegalNo'];
+			$p1=$_POST['p1'];
+			$p2=$_POST['p2'];
+			$p3=$_POST['p3'];
 		$phone = $p1 . ' ' . $p2 . ' ' .$p3;
 	$street= $_POST['street'];
 		  $city= $_POST['city'];
@@ -83,7 +85,7 @@ include 'Connect.php';
 	$limitTopList=7;
 	$limitTotalProduct=38;
 	$limitShowCase=5;
-	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
+	 $q="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,bank, 	bank_code,number_bank,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName',$name_bank,$bank_code,$number_bank,'$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";   
    $qryresult=mysqli_query($connection,$q);
    if (!$qryresult) {
    

@@ -15,6 +15,34 @@ $category=$_GET['category'];
 include('topbar.php');
 include('middlebar.php');
 include('navh.php');
+        
+        ///////////////////////CONSULTAS CANTIDAD///////////////////////////////
+               $chile='Chile';
+               $query_chile="SELECT * FROM products WHERE country LIKE '%$chile%' ";
+               $result_chile=mysqli_query($connection,$query_chile);      
+               $row_chile= mysqli_num_rows($result_chile);
+        
+               $eeuu='United States of America';
+               $query_eeuu="SELECT * FROM products WHERE country LIKE '%$eeuu%' ";
+               $result_eeuu=mysqli_query($connection,$query_eeuu);      
+               $row_eeuu= mysqli_num_rows($result_eeuu);
+        
+               $mexico='Mexico';
+               $query_mexico="SELECT * FROM products WHERE country LIKE '%$mexico%' ";
+               $result_mexico=mysqli_query($connection,$query_mexico);   
+               $row_mexico= mysqli_num_rows($result_mexico);
+        
+               $china='China';
+               $query_china="SELECT * FROM products WHERE country LIKE '%$china%' ";
+               $result_china=mysqli_query($connection,$query_china);   
+               $row_china= mysqli_num_rows($result_china);
+        
+               $france='France';
+               $query_france="SELECT * FROM products WHERE country LIKE '%$france%' ";
+               $result_france=mysqli_query($connection,$query_france);      
+               $row_france= mysqli_num_rows($result_france);
+        ///////////////////////CONSULTAS CANTIDAD///////////////////////////////
+
 	   ?>	   
                    
         <!-- start section -->
@@ -32,66 +60,14 @@ include('navh.php');
                         
                 <div class="row">
                     <!-- start sidebar -->
-                    <div class="col-sm-2">
-					<div class="widget">
-                            <div class="panel-group accordion" id="searchFilter">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#searchFilter" href="#searchFilterCollapse">
-                                                Search
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="searchFilterCollapse" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-										 
-                           <form  action="searchallproduct.php" method="GET">
-                                <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Search">
-                    
-                                          
-                                        </div><!-- end panel-body -->
-                                    </div><!-- end panel-collapse -->
-                                </div><!-- end panel -->
-                            </div><!-- end accordion -->
-                        </div><!-- end widget -->
-						</form>
+                    <div class="col-sm-3">
+					
                       
-						<div class="widget">
-                            <div class="panel-group accordion" id="priceFilter">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#priceFilter" href="#priceFilterCollapse">
-                                                Prices
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="priceFilterCollapse" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            <form method="post" action="filterbyprice.php" class="price-range" data-start-min="50" data-start-max="1000" data-min="10" data-max="2000" data-step="1">
-                                <div class="ui-range-values" >
-                                    <div class="ui-range-value-min" name="max_value" id="ui-range-value-min">
-                                        $<span></span>
-                                        <input  name="min_value" value="data-step" type="hidden" >
-                                    </div> -
-                                    <div class="ui-range-value-max">
-                                        $<span></span>
-                                        <input  name="max_value" value="data-step" type="hidden">
-                                    </div>
-                                </div>
-                                <div class="ui-range-slider"></div>
-                                <input type="submit" name="filter" class="btn btn-default btn-block btn-md" value="Filter">
-                            </form>
-                                        </div><!-- end panel-body -->
-                                    </div><!-- end panel-collapse -->
-                                </div><!-- end panel -->
-                            </div><!-- end accordion -->
-                        </div><!-- end widget -->
+						
                         <form  action="searchallproduct.php" method="GET">
 						 <div class="widget">
                             <div class="panel-group accordion" id="categoriesFilter">
-                                <div class="panel panel-danger">
+                                <div class="panel panel-success">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#categoriesFilter" href="#categoriesFilterCollapse">
@@ -103,64 +79,64 @@ include('navh.php');
                                         <div class="panel-body">
                                             <?php
 //											$sql="SELECT * FROM `categories`  ";
-	//													$rst=mysqli_query($connection,$sql);	
-														?>	
+	//													$rst=mysqli_query($connection,$sql);
+														?>
                                                                 <ul class="list list-unstyled">
-										<?php 
+										<?php
 								//		while($rowt=mysqli_fetch_array($rst)){ ?>
                                             <li>
-                                                <div  style="font-size:10px;">
+                                                <div>
                                                     <input name="categorytitle[]"  value="Chile"  type="checkbox" >
-                                                    <label > Chile
-												     <?php 
+                                                    <label> Chile (<?php echo $row_chile; ?>)
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
                                             </li>
 											  <li>
-                                                <div  style="font-size:10px;">
+                                                <div>
                                                     <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
-                                                    <label > Mexico
-												     <?php 
+                                                    <label > Mexico (<?php echo $row_mexico; ?>)
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
 												</li>
 												  <li>
-                                                <div  style="font-size:10px;">
-                                                    <input name="categorytitle[]"  value="United State"  type="checkbox" >
-                                                    <label > Estados Unidos
-												     <?php 
+                                                <div >
+                                                    <input name="categorytitle[]"  value="United States of America"  type="checkbox" >
+                                                    <label > Estados Unidos (<?php echo $row_eeuu; ?>)
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
                                             </li>
 											  <li>
-                                                <div  style="font-size:10px;">
+                                                <div>
                                                     <input name="categorytitle[]"  value="China"  type="checkbox" >
-                                                    <label > China
-												     <?php 
+                                                    <label > China (<?php echo $row_china; ?>)
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
                                             </li>
 											  <li>
-                                                <div  style="font-size:10px;">
+                                                <div >
                                                     <input name="categorytitle[]"  value="France"  type="checkbox" >
-                                                    <label > Francia
-												     <?php 
+                                                    <label > Francia (<?php echo $row_france; ?>)
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
                                             </li>
-                                          
+
 
 											<?php
 										//	}?>
-										
+
                                         </ul>
                                         </div><!-- end panel-body -->
-										 <input type="submit" name="filter" class="btn btn-danger btn-block btn-md" value="Submit">
+										 <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Submit">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
 								
@@ -170,17 +146,17 @@ include('navh.php');
 						</form>
 							<div class="widget">
                             <div class="panel-group accordion" id="tagsFilter">
-                                <div class="panel panel-warning">
+                                <div class="panel panel-success">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#tagsFilter" href="#tagsFilterCollapse">
-                                                Etiquetas Populares
+                                                Categorias
                                             </a>
                                         </h3>
                                     </div>
                                     <div id="tagsFilterCollapse" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.titulo='Ropa, textiles y accesorios' ";
+                                            <?php $query1="SELECT * FROM categories";
 										$result1=mysqli_query($connection,$query1);
 										?>		
                                         <ul class="tags">
@@ -188,7 +164,7 @@ include('navh.php');
 											?>										
 											
 											<li>
-                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitulo']; ?>"><?php echo $row['subtitulo']; ?></a>
+                                                <a style="color: black;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $row['titulo']; ?>"><?php echo $row['titulo']; ?></a>
                                             </li>
                                             <?php
 											}?>
@@ -200,7 +176,7 @@ include('navh.php');
                         </div><!-- end widget -->
                        </div><!-- end col -->
                     <!-- end sidebar -->
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                        
                     
                             

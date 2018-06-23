@@ -12,7 +12,6 @@ include('head.php');
 include('topbar.php');
 include('middlebar.php');
 include('navh.php');
-
 ini_set('error_reporting',0);
 
 

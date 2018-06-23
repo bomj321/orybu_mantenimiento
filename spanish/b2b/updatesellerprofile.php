@@ -13,6 +13,10 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $rowcount=mysqli_num_rows($stmt);
 $row = mysqli_fetch_array($stmt);
 if($rowcount>0){
+	      $name_bank= $row['bank'];
+	      $bank_code= $row['bank_code'];
+	      $number_bank= $row['number_bank'];
+	
 	      $companyName= $row['company_name'];
           $companyLegalNo= $row['companyLegalNo'];
 		  $street= $row['street'];
@@ -32,6 +36,9 @@ if($rowcount>0){
 
 	
 }else{
+	      $name_bank= "";
+	      $bank_code= "";
+	      $number_bank= "";
 	      $companyName= "";
           $companyLegalNo= "";
 		  $street= "";
@@ -48,6 +55,7 @@ if($rowcount>0){
 	      $myString3 = "";
 	      $myString4 = "";
 	      $myString5 = "";
+	
 	
 	
 }
@@ -69,6 +77,9 @@ if($rowcount>0){
 if(isset($_POST['btn_save_updates']))
 	{
 	  
+	      $name_bank= $_POST['bank_name'];
+	      $bank_code= $_POST['bank_code'];
+	      $number_bank= $_POST['bank_number'];
 	      $companyName= $_POST['companyName'];
 	      $companyLegalNo= $_POST['companyLegalNo'];
 		  $street= $_POST['street'];
@@ -79,7 +90,6 @@ if(isset($_POST['btn_save_updates']))
 		  $businessType= $_POST['businessType'];
 		  $noOfEmployee= $_POST['noOfEmployee'];
 	 	  $companyDescription= $_POST['companyDescription'];
-		  
 		
 	/*
 	
@@ -95,14 +105,14 @@ if(isset($_POST['btn_save_updates']))
 		 $limitTopList=7;
 	     $limitTotalProduct=38;
 	     $limitShowCase=5; 
-		 $sqllicense ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";   
+		 $sqllicense ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,bank, 	bank_code,number_bank,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName',$name_bank,$bank_code,$number_bank,'$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')"; 
 		 
 		  /*$sqllicense="INSERT INTO seller email='".$email."', company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."' ";*/
 		 mysqli_query($connection,$sqllicense); 
 		  	
 
 	 }else{
-		$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."' WHERE email='$email'";
+		$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."',bank='".$name_bank."',bank_code='".$bank_code."',number_bank='".$number_bank."' WHERE email='$email'";
 		mysqli_query($connection,$sqllicense); 
 		$stmtimages = $connection->prepare($sqllicense);		  
 		
@@ -222,9 +232,25 @@ if(!empty($image5)){
                                <center>	</br>
                       </br>
                       <h2>Informacion de tu Compañia</h2></center>
+                      
+                      
+                      
 									<div class="form-group">
 									</br>
 									</br>
+									<div class="form-group">
+										<input type="text" name="bank_name" id="bank_name" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Nombre del Banco">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_code" id="bank_code" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="Codigo del Banco">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_number" id="bank_number" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Numero del banco">
+									</div>
+									
+									
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Informacion de la compañia">
 									</div>
@@ -630,12 +656,12 @@ if(!empty($image5)){
 						  </div>
 							
 						<div class="col-sm-6 col-sm-offset-3">	
-							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
        						&nbsp; Update Profile</i>
         			</button>
            
        
-						<a href="myorybue.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>       
+						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;"><i class="fa fa-times"></i> CANCEL</a>       
 						<br>
 						<br>
 						<br>

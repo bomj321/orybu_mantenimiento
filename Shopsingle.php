@@ -7,7 +7,6 @@ $pid=$_GET['pid'];
 $_SESSION['pid']=$pid;
 $_SESSION['user_id'];
 //Inserción a la db para las estadisticas de los usuarios
-
 $date =  date('Y-m-d');// Tiempo
 $chart="INSERT INTO chart_basic_user (id,id_pid,visited_at,visit) VALUES ('NULL','{$pid}','{$date}','1')";
 mysqli_query($connection,$chart);
@@ -26,10 +25,10 @@ $chart_ad="INSERT INTO `chart_category_subcatego_admin` (id,id_catid,id_subcatid
 mysqli_query($connection,$chart_ad);
 //Fin de Inserción a la db para las estadisticas de los administradores
 
-
 $stquery2="SELECT * FROM users where user_id='$uzerid'";
 $stres2=mysqli_query($connection,$stquery2);
 while($r2=mysqli_fetch_array($stres2)){
+$sellerid=$r2['user_id'];    
 $prodStat=$r2['productstat'];
 $prodStat++;
 }
@@ -148,9 +147,9 @@ function googleTranslateElementInit() {
                     <form action="mycartArry.php?pid=<?php echo $pid; ?>" method="post">
                         <hr class="spacer-15">
                         <ul class="list list-inline">
-                            <li><a class="btn btn-gray btn-md round" href="chat2.php?sellerid=<?php echo $sellerid;?>&pid=<?php echo $pid;?>"><i class="fa fa-chat mr-5"></i>Contact Supplier</a></li>
-                            <li><a class="btn btn-gray btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>Add My Favorite</a></li>
-                            <li><button type="submit"  class="btn btn-default btn-md round"><i class="fa fa-shopping-basket mr-5"></i>Buy Now</button></li>
+                            <li><a class="btn btn-success btn-md round" href="chat2.php?sellerid=<?php echo $sellerid;?>&pid=<?php echo $pid;?>"><i class="fa fa-chat mr-5"></i>Contact Supplier</a></li>
+                            <li><a class="btn btn-success btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>Add My Favorite</a></li>
+                            <li><button type="submit"  class="btn btn-success btn-md round"><i class="fa fa-shopping-basket mr-5"></i>Buy Now</button></li>
                         </ul>
                     </form>
                 </div><!-- end col -->
@@ -159,7 +158,7 @@ function googleTranslateElementInit() {
     </div><!-- end row -->
 <!--HASTA AQUI-->
 <?php	$pid =$_GET['pid'];
-$sql="SELECT * FROM  products  INNER JOIN users ON(products.user_id= users.user_id) INNER JOIN seller ON(users.email=seller.email) INNER JOIN categories ON (products.catid=categories.catid)Where products.pid ='$pid'";
+$sql="SELECT * FROM  products  INNER JOIN users ON(products.user_id= users.user_id) INNER JOIN seller ON(users.email=seller.email) INNER JOIN categories ON (products.catid=categories.catid) Where products.pid ='$pid'";
 
 $result=mysqli_query($connection,$sql);
 if($result == false) {

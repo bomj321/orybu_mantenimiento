@@ -67,7 +67,7 @@ $fila =$asideres3->fetch_assoc();
 </div><!--DIV DE ARRIBA-->
 
 <hr style="width: 90%">
-<div style="margin-top: -1.5rem;"><!--DIV DE INTERMEDIO-->
+<div style="margin-top: -1.5rem; margin-left:2rem;"><!--DIV DE INTERMEDIO-->
 
         <div style=" width: 35%; float: left;" >
         <h6 style="text-align: center; color: black; font-weight: bold;">User:&nbsp;<?php echo $fila2['firstName'];?></h6>

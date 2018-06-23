@@ -3,6 +3,9 @@ require 'Connect.php';
 include 'head.php';
 $email=$_SESSION['uemail'];
 // //////////////////////////// CONSULTA A CHECKOUT///////////////////////////////////////////////
+$sql_member="SELECT * FROM membership WHERE email='$email'";
+$stmt_member=mysqli_query($connection,$sql_member);
+$rowmember=mysqli_fetch_array($stmt_member);
 
 $sql1="SELECT * FROM checkout WHERE id = 4 ";
 $stmt1=mysqli_query($connection,$sql1);
@@ -305,9 +308,9 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                                     <div class="col-sm-8 col-md-8 col-xs-8">
                                                                     <form action="pagar.php" method="POST">
                                                                                 <input type="hidden" name="precio" value="<?php echo $tot;?>">
-                                                                                <button type="submit" class="paypal btn btn-default round"  style="margin-top: 1rem;">Pagar con Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
+                                                                                <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">Pagar con Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
                                                                             </form>
-                                                                            <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Compra con WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="#" class="btn btn-success round" style="margin-top: 1rem;">Transferencia Bancaria <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->
@@ -405,13 +408,51 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                         <div class="table-responsive">
                                             <table class="table no-border">
                                                 <tr>
-                                                    <th>Subtotal del carrito</th>
+                                                    <th>Subtotal del Carrito</th>
                                                     <td><?php echo '$'.$tot;?></td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <th>Usuario Gratuito</th>
+                                                    <td>1.5% de Comision de servicio</td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <th>Usuario Basico</th>
+                                                    <td>0.5% de Comision de servicio</td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>Total del pedido</th>
-                                               <td><?php echo '$'.$tot;?></td>
+                                                   <?php                                                  
+                                                        if($rowmember=='Free Membership'){
+                                                    ?>
+                                                    <th>Total de la Orden</th>
+                                                    <?php
+                                                    $total = $tot + ($tot * (1.5/100));
+                                                    $_SESSION['total']=$total;
+                                                    ?>        
+                                                    <td id="<?php echo $total;?>"><?php echo '$'.$total;?></td>
+                                                    
+                                                    <?php
+                                                        }elseif($rowmember=='Basic Membership'){
+                                                         $total = $tot + ($tot * (0.5/100));
+                                                         $_SESSION['total']=$total;   
+                                                    ?>
+                                                        <td id="<?php echo $total;?>"><?php echo '$'.$total;?></td>
+                                                    <?php
+                                                        }elseif(empty($rowmember)){
+                                                            echo'
+                                                                <script>
+                                                                alert("You do not have Memberships, you can not continue");
+                                                                window.location.href="index.php";
+                                                                </script>
+                                                               ';
+                                                            
+                                                         }   
+                                                    ?>
+                                                            
+                                                    
+                                                    
                                                 </tr>
                                             </table><!-- end table -->
                                         </div><!-- end table-responsive -->

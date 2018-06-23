@@ -222,19 +222,35 @@ if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 $nr=mysqli_num_rows($stmt);
-$row=$stmt->fetch_assoc()?>
+$row=$stmt->fetch_assoc();?>
 <div class="row">
                     <div class="col-sm-12" >
 <center><h2>COMPANY INFORMATION</h2></center>
-
-
-
-<table class="table table-bordered" style="background-color:#f2f2f2; te">
-    <tr>
+<table class="table table-bordered" style="background-color:#f2f2f2;">
+                   
+                     <tr>
+    			<th>Name of the bank</th>
+			
+					<td><br><?php echo $row['bank']; ?></td>
+					</tr>
+					 <tr>
+    			<th>SWITF/BIC Code </th>
+			
+					<td><br><?php echo $row['bank_code']; ?></td>
+					</tr>
+					 <tr>
+    			<th>Account number</th>
+			
+					<td><br><?php echo $row['number_bank']; ?></td>
+					</tr>
+					
+                    <tr>
     			<th> Serial No</th>
 			
-					<td></br><?php echo $row['sellerid']; ?></td>
+					<td><br><?php echo $row['sellerid']; ?></td>
 					</tr>
+					
+					
 					<tr>
 			<th>	Email</th>
 			
@@ -288,8 +304,21 @@ $row=$stmt->fetch_assoc()?>
 					</tr>
 					<tr>
 			<th>	Company Logo</th>
-			
-					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $row['companylogo']; ?>" /></td>
+					<?php
+							$stri_logo=$row['companylogo'];							
+							?>
+					<?php
+						 if(!empty($stri_logo)) {
+						 ?>
+    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri_logo; ?>" /></td>
+    								
+    					<?php
+							}
+							?>
+				
+				
+				
+				
 					</tr>
 
 					<tr>
@@ -357,15 +386,18 @@ $row=$stmt->fetch_assoc()?>
 		  </tr>	
 		  <tr>
 		  </br>
-		  <center>
 		  <tr >
-		  <td>
-         <a   style="float:right" class="btn btn-primary" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">UPDATE </a>
+		  <td colspan="6">
+        		  <center>
+
+         <a   class="btn btn-success" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">UPDATE </a>
+         </center>
+
 		 </td>
-</center>
 		 </tr>
          </table>
 		 </div>
+		 
 		 </div>
     
    
