@@ -45,7 +45,9 @@ $rows=mysqli_fetch_array($stmtt);
 			$vquantity=$_POST['vquantity'];
 			$dropvolum=$vquantity.' '.$_POST['dropvolum'];
 			$dquantity=$_POST['dquantity'];
-			$dropdimension=$dquantity.' '.$_POST['dropdimension'];
+			$dquantity2=$_POST['dquantity2'];
+			$dquantity3=$_POST['dquantity3'];
+			$dquantity4=$_POST['dropdimension'];
 			$cquantity=$_POST['cquantity'];			
 			$dropcapacity=$cquantity.' '.$_POST['dropcapacity'];
 			$equantity=$_POST['equantity'];
@@ -143,7 +145,8 @@ if($_FILES["file2"]["name"][4] !="")
 
 			  			 //$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productType2, productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery_details')";
 
-			$query="INSERT INTO products(email,catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,price_unit,miniorder,fulldescription,image,image2,image3,image4,image5,producttoplist,productType,productType2,productaction,user_id,delivery_details, payment)VALUES('$email','$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fob','$fob_unit','$oquantity','$description','$image1','$image2', '$image3','$image4','$image5','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery', '$payment')";
+			$query="INSERT INTO products(email,catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,dimension2,dimension3,dimension4,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,price_unit,miniorder,fulldescription,image,image2,image3,image4,image5,producttoplist,productType,productType2,productaction,user_id,delivery_details, payment)VALUES
+			('$email','$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dquantity','$dquantity2','$dquantity3','$dquantity4','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fob','$fob_unit','$oquantity','$description','$image1','$image2', '$image3','$image4','$image5','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery', '$payment')";
 			
 	
 		 

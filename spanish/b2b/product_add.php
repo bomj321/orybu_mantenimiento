@@ -619,10 +619,20 @@ else if(trim($str1) ==trim($str3))
 				         </div>
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px; margin-top: 10px;">
-						 <input  type="text" class="form-control " placeholder="Dimensiones" name="dquantity" id="quantity"> 
+
+						  <div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="L" name="dquantity" id="quantity"> 
 						 </div>
-				<div class="form-group col-sm-4" style="padding-left:0px; margin-top: 10px;">
+
+						 <div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="An" name="dquantity2" id="quantity"> 
+						 </div>
+
+						 <div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="Al" name="dquantity3" id="quantity"> 
+						 </div>
+
+				<div class="form-group col-sm-4 col-sm-offset-2" style="padding-left:0px; margin-top: 10px;">
 						 <select class="form-control " id="unit" name="dropdimension">
 	                         <option value="feet">Pie</option>  
                              <option value="Inch">Pulgada</option>  
@@ -800,20 +810,27 @@ else if(trim($str1) ==trim($str3))
                </div>	
                 <!------------------------------EDITOR---------------->
 			
-		<div class="form-group col-sm-8">
-									<h3>Área de vista previa de la imagen cargada </h3>
-									 <div id="selectedFiles"></div>
- <div id="selectedFiles1"></div>
-		</div>	
+		<div class="row">
+					  <center><button type="submit" name="save" class="btn btn-success" ><i class="fa fa-refresh" >
+				   &nbsp; SAVE</i>
+					</button>
+					<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;"><i class="fa fa-times"></i> CANCEL</a>
+				   </input>
+					   </br>
+
+					</center>
+      </div>
+      
+      <div class="row">		
+					<div class="form-group col-sm-12">
+											<center>
+												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
+												 <div id="selectedFiles"></div>
+						                   </center>	 
+			 <div id="selectedFiles1"></div>
+					</div>	
 		
-		  <center><button type="submit" name="save" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
-       &nbsp; SAVE</i>
-        </button>
-		<a href="suppliers.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
-       </input>
-           </br>
-         
-        </center>
+      </div>		  
         
 	  </form>  
  <!-- END of FORM -->	  

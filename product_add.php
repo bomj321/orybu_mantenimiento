@@ -620,20 +620,26 @@ else if(trim($str1) ==trim($str3))
 				         </div>
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px;  margin-top: 10px;">
-						 <input type="text" class="form-control " placeholder="Dimensions" name="dquantity" id="quantity"> 
+						 <div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="L" name="dquantity" id="quantity"> 
 						 </div>
-				<div class="form-group col-sm-4" style="padding-left:0px; margin-top:10px;">
-						 <select class="form-control " id="unit" name="dropdimension">
-	                         <option value="feet">Feet</option>  
-                             <option value="Inch">Inch</option>  
-							 <option value="Centimeter">Centimeter</option>  
-							 <option value="Meter">Meter</option>
-							
-                             <option value="others">Others</option>							 
-                         </select>
-				</div>
-				</div>
+						 <div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="H" name="dquantity2" id="quantity"> 
+						 </div>
+						 <div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="W" name="dquantity3" id="quantity"> 
+						 </div>
+								<div class="form-group col-sm-4 col-sm-offset-2" style="padding-left:0px; margin-top:10px;">
+										<select class="form-control " id="unit" name="dropdimension">
+											<option value="feet">Feet</option>  
+											<option value="Inch">Inch</option>  
+											<option value="Centimeter">Centimeter</option>  
+											<option value="Meter">Meter</option>
+											
+											<option value="others">Others</option>							 
+										</select>
+								</div>
+				         </div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 						<input  type="text" class="form-control " placeholder="Enter Capacity" name="cquantity" id="quantity"> 
@@ -808,10 +814,10 @@ else if(trim($str1) ==trim($str3))
 		
 		
 	<div class="row">
-					  <center><button type="submit" name="save" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+					  <center><button type="submit" name="save" class="btn btn-success" ><i class="fa fa-refresh" >
 				   &nbsp; SAVE</i>
 					</button>
-					<a href="suppliers.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
+					<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;"><i class="fa fa-times"></i> CANCEL</a>
 				   </input>
 					   </br>
 

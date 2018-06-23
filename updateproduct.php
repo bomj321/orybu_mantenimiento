@@ -976,7 +976,7 @@ $(document).ready(function() {
 			</div>
 		    -->
 		
-		  <center><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+		  <center><button type="submit" name="btn_save_updates" class="btn btn-success" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
        &nbsp; UPDATE</i>
         </button>
 		<a href="suppliers.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
