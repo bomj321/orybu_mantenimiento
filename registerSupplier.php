@@ -399,10 +399,10 @@ $confirmcode=$_SESSION['code'];
 										<div class="row" style="text-align:center;">
 										
 										<a href="sendconfirmation2.php?userStatus=1" >
-								        <input type="button" class="btn btn-warning round btn-lg" value="SKIP">
+								        <input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SKIP">
 									   </a>
 											
-												<input type="submit" name="register-submit" style="color:black;" class="btn btn-success round btn-lg" value="SAVE">
+												<input type="submit" name="register-submit" style="color:white;" class="btn btn-success round btn-lg" value="SAVE">
 												
 											
 										</div>

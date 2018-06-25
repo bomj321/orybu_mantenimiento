@@ -84,8 +84,8 @@ include 'Connect.php';
      $limitTopList=7;
 	 $limitTotalProduct=38;
 	 $limitShowCase=5;
-		 
-	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,bank, 	bank_code,number_bank,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName',$name_bank,$bank_code,$number_bank,'$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
+
+		$q = "INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo ,countryName,bank,bank_code,number_bank,companylicense,companylicense2,companylicense3,companylicense4,companylicense5,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$name_bank','$bank_code','$number_bank','$image1','$image2','$image3','$image4','$image5','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
    $qryresult=mysqli_query($connection,$q);
    if (!$qryresult) {
    

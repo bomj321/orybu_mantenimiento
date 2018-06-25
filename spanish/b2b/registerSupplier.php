@@ -3,16 +3,16 @@ session_start();
 error_reporting(0);
 include 'Connect.php';
 include('head.php');
-$email= $_SESSION['confemail'];
-$confirmcode=$_SESSION['code'];
-  ?>
+$email = $_SESSION['confemail'];
+$confirmcode = $_SESSION['code'];
+?>
 
     <body>
      <!-- start topBar -->
      <?php include('topbar.php');
-	include('middlebar.php');
-	  include('navh.php');
-	   ?>
+				include('middlebar.php');
+				include('navh.php');
+				?>
 
 
 		<div class="container">
@@ -31,9 +31,10 @@ $confirmcode=$_SESSION['code'];
 
 
 
-						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
+						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2 form-group">
 							<a href="sendconfirmation2.php?userStatus=1" >
-								<input type="button" class="btn btn-default round btn-lg" style="color:black;" value="Saltar">
+							<input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SALTAR">
+
 							</br>
 						</div>
 
@@ -84,7 +85,7 @@ $confirmcode=$_SESSION['code'];
 							<div class="form-group">
 
 					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Provincia">
-												        <input  type="hidden" name="email" value="<?php echo  $email;?>" >
+												        <input  type="hidden" name="email" value="<?php echo $email; ?>" >
 
 
 						</div>
@@ -389,10 +390,10 @@ $confirmcode=$_SESSION['code'];
 										<div class="row" style="text-align:center;">
 										
 										<a href="sendconfirmation2.php?userStatus=1" >
-								        <input type="button" class="btn btn-warning round btn-lg" value="SALTAR">
+								        <input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SALTAR">
 									   </a>
 											
-												<input type="submit" name="register-submit" class=" btn btn-success round btn-lg" style="color:black;" value="GUARDAR">
+												<input type="submit" name="register-submit" class=" btn btn-success round btn-lg" style="color:white;" value="GUARDAR">
 												
 											
 										</div>
