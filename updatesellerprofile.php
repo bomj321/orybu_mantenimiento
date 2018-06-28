@@ -1,3 +1,4 @@
+
 <?php session_start();
 require 'Connect.php';
 error_reporting(0);
@@ -13,10 +14,14 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $rowcount=mysqli_num_rows($stmt);
 $row = mysqli_fetch_array($stmt);
 if($rowcount>0){
+
+		  $sellerid= $row['sellerid'];			  
 	      $name_bank= $row['bank'];
 	      $bank_code= $row['bank_code'];
 	      $number_bank= $row['number_bank'];
-	
+	      $p1=$row['phoneNo'];
+		  $p2=$row['phoneSSN'];
+		  $p3=$row['phoneNumber'];
 	      $companyName= $row['company_name'];
           $companyLegalNo= $row['companyLegalNo'];
 		  $street= $row['street'];
@@ -36,6 +41,10 @@ if($rowcount>0){
 
 	
 }else{
+	      $sellerid="";
+	      $p1="";
+		  $p2="";
+		  $p3="";
 	      $name_bank= "";
 	      $bank_code= "";
 	      $number_bank= "";
@@ -73,6 +82,81 @@ if($rowcount>0){
 </style>
 <?php
 
+$image= $_GET['image'];
+$image_limpio= mysqli_real_escape_string($connection, $image);
+$email_borrar= $_GET['email'];
+$email_limpio= mysqli_real_escape_string($connection, $email_borrar);
+
+if (!empty($image_limpio) AND !empty($email_limpio)) {
+			if ($image_limpio=='1') {
+				$vacio = "";				
+				$sql2="UPDATE seller  SET companylicense='".$vacio."' WHERE (email='$email_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo' 
+						  <script>
+									alert("Image Deleted");  //not showing an alert box.
+									window.location.href="updatesellerprofile.php";
+									 
+						 </script>
+							';
+			}elseif ($image_limpio=='2') {
+				$vacio = "";				
+				$sql2="UPDATE seller  SET companylicense2='".$vacio."' WHERE (email='$email_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo' 
+						  <script>
+									alert("Image Deleted");  //not showing an alert box.
+									window.location.href="updatesellerprofile.php";
+									 
+						 </script>
+							';
+			}elseif ($image_limpio=='3') {
+				$vacio = "";				
+				$sql2="UPDATE seller  SET companylicense3='".$vacio."' WHERE (email='$email_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo' 
+						  <script>
+									alert("Image Deleted");  //not showing an alert box.
+									window.location.href="updatesellerprofile.php";
+									 
+						 </script>
+							';
+			}elseif ($image_limpio=='4') {
+				$vacio = "";				
+				$sql2="UPDATE seller  SET companylicense4='".$vacio."' WHERE (email='$email_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo' 
+						  <script>
+									alert("Image Deleted");  //not showing an alert box.
+									window.location.href="updatesellerprofile.php";
+									 
+						 </script>
+							';
+			}elseif ($image_limpio=='5') {
+				$vacio = "";				
+				$sql2="UPDATE seller  SET companylicense5='".$vacio."' WHERE (email='$email_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo' 
+						  <script>
+									alert("Image Deleted");  //not showing an alert box.
+									window.location.href="updatesellerprofile.php";
+									 
+						 </script>
+							';
+			}elseif($image_limpio=='logo'){
+				$vacio = "";				
+				$sql2="UPDATE seller  SET companylogo='".$vacio."' WHERE (email='$email_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo' 
+						  <script>
+									alert("Logo Deleted");  //not showing an alert box.
+									window.location.href="updatesellerprofile.php";
+									 
+						 </script>
+							';
+			}
+}
+
 if(isset($_POST['btn_save_updates']))
 	{
 	      $name_bank= $_POST['bank_name'];
@@ -88,6 +172,9 @@ if(isset($_POST['btn_save_updates']))
 		  $businessType= $_POST['businessType'];
 		  $noOfEmployee= $_POST['noOfEmployee'];
 	 	  $companyDescription= $_POST['companyDescription'];
+	 	  $p1=$_POST['p1'];
+	      $p2=$_POST['p2'];
+		  $p3=$_POST['p3'];
 		  
 		
 	/*
@@ -104,14 +191,14 @@ if(isset($_POST['btn_save_updates']))
 		 $limitTopList=7;
 	     $limitTotalProduct=38;
 	     $limitShowCase=5; 
-		 $sqllicense ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,bank, 	bank_code,number_bank,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName',$name_bank,$bank_code,$number_bank,'$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";   
+		 $sqllicense ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,countryName,bank, 	bank_code,number_bank,phoneNo,phoneSSN,phoneNumber,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$countryName',$name_bank,$bank_code,$number_bank,'$p1','$p2','$p3','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";   
 		 
 		  /*$sqllicense="INSERT INTO seller email='".$email."', company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."' ";*/
 		 mysqli_query($connection,$sqllicense); 
 		  	
 
 	 }else{
-		$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."',bank='".$name_bank."',bank_code='".$bank_code."',number_bank='".$number_bank."' WHERE email='$email'";
+		$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."',bank='".$name_bank."',bank_code='".$bank_code."',number_bank='".$number_bank."',phoneNo='".$p1."',phoneSSN='".$p2."',phoneNumber='".$p3."' WHERE email='$email'";
 		mysqli_query($connection,$sqllicense); 
 		$stmtimages = $connection->prepare($sqllicense);		  
 		
@@ -120,16 +207,16 @@ if(isset($_POST['btn_save_updates']))
 //////////////////////////////////////////////////////////////////////SUBIR IMAGENES////////////////////////////////////////////////////////////////
 $target_dir = "images/";
 
-	if($_FILES["imagenes_logo"]["name"] !="" AND !empty($_FILES["imagenes_logo"]["name"]))
+	if($_FILES["imagenes_logo"]["name"] !="" AND !empty($_FILES["imagenes_logo"]["name"]) AND (strpos($_FILES["imagenes_logo"]["type"],'gif') || strpos($_FILES["imagenes_logo"]["type"],'jpeg') || strpos($_FILES["imagenes_logo"]["type"],'png') || strpos($_FILES["imagenes_logo"]["type"],'jpg'))
 {
-		  $target_file = $target_dir . basename($_FILES["imagenes_logo"]["name"]);
+		  $target_file = $target_dir . basename($_FILES["imagenes_logo"]["name"] );
 		  $images=$_FILES['imagenes_logo']['name'];
 		  $filelocation = $target_dir.$images;
           $temp = $_FILES['imagenes_logo']['tmp_name'];
 		  move_uploaded_file($temp, $filelocation);
 }
 	
-	if($_FILES["imagenes_action1"]["name"] !="" AND !empty($_FILES["imagenes_action1"]["name"]))
+	if($_FILES["imagenes_action1"]["name"] !="" AND !empty($_FILES["imagenes_action1"]["name"]) AND (strpos($_FILES["imagenes_action1"]["type"],'gif') || strpos($_FILES["imagenes_action1"]["type"],'jpeg') || strpos($_FILES["imagenes_action1"]["type"],'png') || strpos($_FILES["imagenes_action1"]["type"],'jpg'))
 {
 		 	$target_file = $target_dir . basename($_FILES["imagenes_action1"]["name"]);
 			$image1=$_FILES['imagenes_action1']['name'];
@@ -137,7 +224,7 @@ $target_dir = "images/";
 			$temp1 = $_FILES['imagenes_action1']['tmp_name'];
 			move_uploaded_file($temp1, $filelocation);
 }	
-	if($_FILES["imagenes_action2"]["name"] !="" AND !empty($_FILES["imagenes_action2"]["name"]))
+	if($_FILES["imagenes_action2"]["name"] !="" AND !empty($_FILES["imagenes_action2"]["name"]) AND (strpos($_FILES["imagenes_action2"]["type"],'gif') || strpos($_FILES["imagenes_action2"]["type"],'jpeg') || strpos($_FILES["imagenes_action2"]["type"],'png') || strpos($_FILES["imagenes_action2"]["type"],'jpg'))
 {
 
 			$target_file = $target_dir . basename($_FILES["imagenes_action2"]["name"]);
@@ -146,7 +233,7 @@ $target_dir = "images/";
 			$temp2 = $_FILES['imagenes_action2']['tmp_name'];
 }	        move_uploaded_file($temp2, $filelocation);
 	
-	if($_FILES["imagenes_action3"]["name"] !="" AND !empty($_FILES["imagenes_action3"]["name"]))
+	if($_FILES["imagenes_action3"]["name"] !="" AND !empty($_FILES["imagenes_action3"]["name"]) AND (strpos($_FILES["imagenes_action3"]["type"],'gif') || strpos($_FILES["imagenes_action3"]["type"],'jpeg') || strpos($_FILES["imagenes_action3"]["type"],'png') || strpos($_FILES["imagenes_action3"]["type"],'jpg'))
 {
 		
 			$target_file = $target_dir . basename($_FILES["imagenes_action3"]["name"]);
@@ -155,7 +242,7 @@ $target_dir = "images/";
 			$temp3 = $_FILES['imagenes_action3']['tmp_name'];
 			move_uploaded_file($temp3, $filelocation); 
  }	
-	if($_FILES["imagenes_action4"]["name"] !="" AND !empty($_FILES["imagenes_action4"]["name"]))
+	if($_FILES["imagenes_action4"]["name"] !="" AND !empty($_FILES["imagenes_action4"]["name"]) AND (strpos($_FILES["imagenes_action4"]["type"],'gif') || strpos($_FILES["imagenes_action4"]["type"],'jpeg') || strpos($_FILES["imagenes_action4"]["type"],'png') || strpos($_FILES["imagenes_action4"]["type"],'jpg'))
 {
 
 			$target_file = $target_dir . basename($_FILES["imagenes_action4"]["name"]);
@@ -164,7 +251,7 @@ $target_dir = "images/";
 			$temp4 = $_FILES['imagenes_action4']['tmp_name'];
 			move_uploaded_file($temp4, $filelocation); 		
  }
-	if($_FILES["imagenes_action5"]["name"] !="" AND !empty($_FILES["imagenes_action5"]["name"]))
+	if($_FILES["imagenes_action5"]["name"] !="" AND !empty($_FILES["imagenes_action5"]["name"]) AND (strpos($_FILES["imagenes_action5"]["type"],'gif') || strpos($_FILES["imagenes_action5"]["type"],'jpeg') || strpos($_FILES["imagenes_action5"]["type"],'png') || strpos($_FILES["imagenes_action5"]["type"],'jpg'))
 {
 			$target_file = $target_dir . basename($_FILES["imagenes_action5"]["name"]);
 			$image5=$_FILES['imagenes_action5']['name'];
@@ -231,7 +318,7 @@ if(!empty($image5)){
                                <center>	</br>
                       </br>
                       <h2>Company Information </h2></center>
-									<div class="form-group">
+									
 									</br>
 									</br>
 									<div class="form-group">
@@ -253,10 +340,18 @@ if(!empty($image5)){
 										<div class="form-group">
 										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Company Legal No">
 									</div>
-						
+						             <div class="form-group">
                                                <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Street">
 									</div>
 									</br>
+
+						             <div class="form-group">
+                                            <span>Phone Number:</span>
+											<input name="p1" type="text" size="10" placeholder="Code" value="<?php echo $p1 ?>" required>
+											<input name="p2" type="text" size="18" placeholder="SSN #" value="<?php echo $p2 ?>" required>
+											<input name="p3" type="text" size="26" placeholder=" Number here" value="<?php echo $p3 ?>" required>
+									</div>
+												
 						<div class="form-group">
 										
 					        <input  type="text" name="city" tabindex="1" class="form-control"   value="<?php echo $city ?>" placeholder="City">
@@ -538,7 +633,8 @@ if(!empty($image5)){
                                              <option value="Manufacturer">Manufacturer</option>
                                              <option value="Distributor" >Distributor</option>
 											  <option value="Trading Company" >Trading Company </option>
-                                             <option value="Retailer" >Retailer</option>  <option value="other" >Other</option>      Trading Company                                       
+                                             <option value="Retailer" >Retailer</option>  
+                                             <option value="other" >Other</option>                                
 											 </select>
 									</div>
 									<div class="form-group">
@@ -548,7 +644,7 @@ if(!empty($image5)){
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50" placeholder="Description">
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"  rows="4" cols="50" placeholder="Description">
 							 <?php echo $companyDescription?>
 							
 							</textarea>	
@@ -557,31 +653,45 @@ if(!empty($image5)){
 						 <?php
 						 if(!empty($companylogo)) {
 						 ?>
+    							<div class="input-group">
     								<img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
     								<input class="form-control" type="file"  name="imagenes_logo" id="files"/>	
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=logo" type="button" class="btn btn-danger">Eliminar Logo</a>
+    							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>No Logo</h4></center>
+								<center><h4>Add Company Logo</h4></center>
 								<input class="form-control " type="file"  name="imagenes_logo" id="files" />
+
 							
 						<?php
 						 }
 						?> 
 						 </div>
 						
-						
-						<div class="form-group" style="border-style: solid;"> 						 
+						<div class="col-md-12">
+							<center>
+								<h4>Upload Company Licenses</h4>
+							</center>
+						</div>
+						<div class="form-group" > 						 
 						 
 						 <?php
 						 if(!empty($myString)) {
 						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString; ?>" />
-    								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>	
+    								
+
+    								<div class="input-group">
+									  
+									 <img style="height:100px; width:100px;" src="images/<?php echo $myString; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=1" type="button" class="btn btn-danger">Eliminar Imagen</a>
+									</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>No Picture</h4></center>
+								<h4>Add Company License #1</h4>
 								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
 							
 						<?php
@@ -592,12 +702,15 @@ if(!empty($image5)){
 						<?php
 						 if(!empty($myString2)) {
 						 ?>
+						 		<div class="input-group">		
     								<img style="height:100px; width:100px;" src="images/<?php echo $myString2; ?>" />
-    								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>	
+    								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=2" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>		
     					<?php
 							}else{
 							?>
-								<center><h4>No Picture</h4></center>
+							      <h4>Add Company License #2</h4>
 								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
 							
 						<?php
@@ -607,12 +720,15 @@ if(!empty($image5)){
 						<?php
 						 if(!empty($myString3)) {
 						 ?>
+						        <div class="input-group">
     								<img style="height:100px; width:100px;" src="images/<?php echo $myString3; ?>" />
-    								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>	
+    								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=3" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>			
     					<?php
 							}else{
 							?>
-								<center><h4>No Picture</h4></center>
+								<h4>Add Company License #3</h4>
 								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
 							
 						<?php
@@ -622,12 +738,15 @@ if(!empty($image5)){
 						<?php
 						 if(!empty($myString4)) {
 						 ?>
+						        <div class="input-group">
     								<img style="height:100px; width:100px;" src="images/<?php echo $myString4; ?>" />
-    								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>	
+    								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=4" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>No Picture</h4></center>
+								<h4>Add Company License #4</h4>
 								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
 							
 						<?php
@@ -637,12 +756,15 @@ if(!empty($image5)){
 						<?php
 						 if(!empty($myString5)) {
 						 ?>
+						        <div class="input-group">
     								<img style="height:100px; width:100px;" src="images/<?php echo $myString5; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>	
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=5" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>No Picture</h4></center>
+								<h4>Add Company License #5</h4>
 								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>
 							
 						<?php
@@ -667,13 +789,13 @@ if(!empty($image5)){
 						</div>		
 							
 								
-						</form>	
+						</form>							
 						</div>
 						
-								<div class="col-sm-2">
+								<div class="col-md-2 col-sm-2">
 									<div class="form-group">
 											<h4>Uploaded Picture Preview Area </h4>
-												<div id="selectedFiles1"></div>
+												<div id="selectedFiles1" ></div>
 												<div id="selectedFiles2"></div>
 										</div>
 								</div>		
@@ -923,3 +1045,4 @@ if(!empty($image5)){
     </body>
 </html>
     
+

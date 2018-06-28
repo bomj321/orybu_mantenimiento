@@ -4325,3 +4325,16 @@ background-color: rgba(0, 0, 0, 0.16);
   height: 520px; }
 
 /*# sourceMappingURL=default.css.map */
+/*ESTILOS PERSONALIZADOS*/
+#selectedFiles1 img{
+                  width: 200px;
+
+              }
+
+              #selectedFiles2 img{
+                  width: 200px;
+
+              }
+.tabla_perfil td{
+border-bottom:hidden !important;
+}        

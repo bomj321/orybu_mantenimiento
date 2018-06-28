@@ -830,7 +830,7 @@ else if(trim($str1) ==trim($str3))
 												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
 												 <div id="selectedFiles"></div>
 						                   </center>	 
-			 <div id="selectedFiles1"></div>
+										  <div id="selectedFiles1"></div>
 					</div>	
 		
       </div>		  	  

@@ -1,18 +1,21 @@
+
+text/x-generic registerSupplier.php ( PHP script text )
+
 <?php
 session_start();
 error_reporting(0);
 include 'Connect.php';
 include('head.php');
-$email = $_SESSION['confemail'];
-$confirmcode = $_SESSION['code'];
-?>
+$email= $_SESSION['confemail'];
+$confirmcode=$_SESSION['code'];
+  ?>
 
     <body>
      <!-- start topBar -->
      <?php include('topbar.php');
-				include('middlebar.php');
-				include('navh.php');
-				?>
+	include('middlebar.php');
+	  include('navh.php');
+	   ?>
 
 
 		<div class="container">
@@ -85,7 +88,7 @@ $confirmcode = $_SESSION['code'];
 							<div class="form-group">
 
 					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Provincia">
-												        <input  type="hidden" name="email" value="<?php echo $email; ?>" >
+												        <input  type="hidden" name="email" value="<?php echo  $email;?>" >
 
 
 						</div>

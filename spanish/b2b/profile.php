@@ -230,34 +230,29 @@ $row=$stmt->fetch_assoc()?>
 
 
 
-<table class="table table-bordered" style="background-color:#f2f2f2;">
+<table class="table tabla_perfil table-responsive" style="background-color:#f2f2f2;">
    
    <tr>
-    			<th>Name of the bank</th>
+    			<th >Número del Banco</th>
 			
 					<td><br><?php echo $row['bank']; ?></td>
 					</tr>
 					 <tr>
-    			<th>SWITF/BIC Code </th>
+    			<th>Código SWITF/BIC  </th>
 			
 					<td><br><?php echo $row['bank_code']; ?></td>
 					</tr>
 					 <tr>
-    			<th>Account number</th>
+    			<th>Número del Banco</th>
 			
 					<td><br><?php echo $row['number_bank']; ?></td>
 					</tr>
 					
                     <tr>
-    			<th> Serial No</th>
+    			<th>Serial No</th>
 			
 					<td><br><?php echo $row['sellerid']; ?></td>
-					</tr>
-    <tr>
-    			<th> Serial No</th>
-			
-					<td></br><?php echo $row['sellerid']; ?></td>
-					</tr>
+					
 					<tr>
 			<th>	Email</th>
 			
@@ -280,20 +275,32 @@ $row=$stmt->fetch_assoc()?>
 					<td></br><?php echo $row['street']; ?></td>
 					</tr>
 					<tr>
+			<th>	Codigo Postal</th>
+			
+					<td></br><?php echo $row['zipCode']; ?></td>
+					</tr>
+			<tr>
+			<th>	Numero Telefonico</th>
+			
+					<td></br><?php echo $row['phoneNo']. ' '. $row['phoneSSN']. ' '. $row['phoneNumber']; ?></td>
+					</tr>		
+					<tr>
 			<th>	Ciudad</th>
 			
 					<td></br><?php echo $row['city']; ?></td>
 					</tr>
+					
 					<tr>
-			<th>	Codigo Postal</th>
+			<th>	Nombre del País</th>
 			
-					<td></br><?php echo $row['zipCode']; ?></td>
+					<td></br><?php echo $row['countryName']; ?></td>
 					</tr>
 					<tr>
 			<th>	Provincia</th>
 			
 					<td></br><?php echo $row['province']; ?></td>
 					</tr>
+						
 					<tr>
 			<th>	Tipo de Negocio</th>
 			
@@ -307,7 +314,7 @@ $row=$stmt->fetch_assoc()?>
 					<tr>
 			<th>	Descripción de la Compañia</th>
 			
-					<td></br><?php echo $row['companyDescription']; ?></td>
+					<td colspan="5"></br><?php echo $row['companyDescription']; ?></td>
 					</tr>
 					<tr>
 			<th>	Logo de la Compañia</th>
@@ -378,11 +385,7 @@ $row=$stmt->fetch_assoc()?>
 							}
 							?>
 					
-					</tr>
-					<tr>
-			
-					<td></br><?php echo $row['countryName']; ?></td>
-					</tr>
+					</tr>					
 					
 			
 		  </tr>	
@@ -392,7 +395,7 @@ $row=$stmt->fetch_assoc()?>
 		  <td colspan="6">
         		  <center>
 
-         <a   class="btn btn-success" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">UPDATE </a>
+         <a   class="btn btn-success" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">Actualizar</a>
          </center>
 
 		 </td>

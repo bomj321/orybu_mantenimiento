@@ -1,3 +1,6 @@
+
+application/x-httpd-php registerSupplier.php ( PHP script text )
+
 <?php
 session_start();
 error_reporting(0);

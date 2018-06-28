@@ -1,3 +1,6 @@
+
+application/x-httpd-php registerSupplier_action.php ( PHP script text )
+
 <?php
 session_start();
 error_reporting(0);
@@ -17,7 +20,7 @@ include 'Connect.php';
 			$p1=$_POST['p1'];
 			$p2=$_POST['p2'];
 			$p3=$_POST['p3'];
-		$phone = $p1 . ' ' . $p2 . ' ' .$p3;
+		
 	$street= $_POST['street'];
 		  $city= $_POST['city'];
 		  $province= $_POST['province'];
@@ -85,7 +88,7 @@ include 'Connect.php';
 	$limitTopList=7;
 	$limitTotalProduct=38;
 	$limitShowCase=5;
-	 $q="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo ,countryName,bank,bank_code,number_bank,companylicense,companylicense2,companylicense3,companylicense4,companylicense5,phoneNo,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$name_bank','$bank_code','$number_bank','$image1','$image2','$image3','$image4','$image5','$phone','$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
+	 $q="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo ,countryName,bank,bank_code,number_bank,companylicense,companylicense2,companylicense3,companylicense4,companylicense5,phoneNo,phoneSSN,phoneNumber,companyLegalNo,limitTopList,limitTotalProduct,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$name_bank','$bank_code','$number_bank','$image1','$image2','$image3','$image4','$image5','$p1',$p2,$p3,'$companyLegalNo','$limitTopList','$limitTotalProduct','$limitShowCase')";
    $qryresult=mysqli_query($connection,$q);
    if (!$qryresult) {
    

@@ -227,7 +227,7 @@ $row=$stmt->fetch_assoc();?>
 <div class="row">
                     <div class="col-sm-12" >
 <center><h2>COMPANY INFORMATION</h2></center>
-<table class="table table-bordered" style="background-color:#f2f2f2;">
+<table class="table tabla_perfil table-responsive" style="background-color:#f2f2f2;">
                    
                      <tr>
     			<th>Name of the bank</th>
@@ -240,7 +240,7 @@ $row=$stmt->fetch_assoc();?>
 					<td><br><?php echo $row['bank_code']; ?></td>
 					</tr>
 					 <tr>
-    			<th>Account number</th>
+    			<th>Number Bank</th>
 			
 					<td><br><?php echo $row['number_bank']; ?></td>
 					</tr>
@@ -274,20 +274,33 @@ $row=$stmt->fetch_assoc();?>
 					<td></br><?php echo $row['street']; ?></td>
 					</tr>
 					<tr>
+			<th>	ZipCode</th>
+			
+					<td></br><?php echo $row['zipCode']; ?></td>
+					</tr>
+			<tr>
+			<th>	Phone Number</th>
+			
+					<td></br><?php echo $row['phoneNo']. ' '. $row['phoneSSN']. ' '. $row['phoneNumber']; ?></td>
+					</tr>		
+					<tr>		
+					<tr>
 			<th>	City</th>
 			
 					<td></br><?php echo $row['city']; ?></td>
 					</tr>
+					
 					<tr>
-			<th>	ZipCode</th>
+			<th>	Country Name</th>
 			
-					<td></br><?php echo $row['zipCode']; ?></td>
+					<td></br><?php echo $row['countryName']; ?></td>
 					</tr>
 					<tr>
 			<th>	Province</th>
 			
 					<td></br><?php echo $row['province']; ?></td>
 					</tr>
+
 					<tr>
 			<th>	BusinessType</th>
 			
@@ -377,11 +390,7 @@ $row=$stmt->fetch_assoc();?>
 							?>
 					
 					</tr>
-					<tr>
-			<th>	Country Name</th>
-			
-					<td></br><?php echo $row['countryName']; ?></td>
-					</tr>	
+					
 					
 			
 		  </tr>	
