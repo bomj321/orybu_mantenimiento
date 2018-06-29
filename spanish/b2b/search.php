@@ -106,7 +106,7 @@ include('navh.php');
        
                             <div class="col-sm-12 text-left">
               <div style="margin-top:-50px; height:20px;"class="content white-background">
-                                <h6  style="margin-top:-10px; ">TODOS LOS PRODUCTOS > CATEGORIAS</h6>
+                                <h6  style="margin-top:-10px; ">TODOS LOS PRODUCTOS > Categorias</h6>
                 </div>
                             </div><!-- end col -->
                   </div><!-- end row -->
@@ -156,7 +156,7 @@ include('navh.php');
                           <li>
                                                 <div >
                                                     <input name="categorytitle[]"  value="United States of America"  type="checkbox" >
-                                                    <label > United States (<?php echo $row_eeuu; ?>)
+                                                    <label > Estados Unidos (<?php echo $row_eeuu; ?>)
                              <?php
                             //echo $rowt['title'];?>
                                                     </label>
@@ -243,16 +243,28 @@ include('navh.php');
      <div >
                     <div class="row">
                 <?php
-          if($_POST['keyword'] !="")
-{
- $query_key=$_POST['keyword'];
+          if(!empty($_POST['keyword']) AND isset($_POST['keyword'])){
+            $query_key=$_POST['keyword'];
+            $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%$query_key%') AND producttoplist='1' ";
+               $result=mysqli_query($connection,$query); 
  }
- if($_POST['category'] != "")
+
+ if(!empty($_POST['category']))
  {
+    $category=$_POST['category'];
+  $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) AND producttoplist='1' ";
+  $result=mysqli_query($connection,$query);
   $category=$_POST['category'];
  }
-       $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ((products.selectedkeyword LIKE '%".$query_key."%') OR (categories.title LIKE '%".$category."%' )) AND producttoplist='1' ";
-               $result=mysqli_query($connection,$query);
+
+ if(!empty($_POST['category']) AND !empty($_POST['keyword']) AND isset($_POST['keyword'])){
+  $category=$_POST['category'];
+  $query_key=$_POST['keyword'];           
+    $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) OR (products.keywords LIKE '%$query_key%')  AND producttoplist='1'";
+    $result=mysqli_query($connection,$query);
+ }
+
+       
          ?>
                         </div><!-- end row -->
                     <?php
@@ -320,16 +332,25 @@ include('navh.php');
 
                    
                 <?php
-          if($_POST['keyword'] !="")
-{
- $query_key=$_POST['keyword'];
- }
- if($_POST['category'] != "")
- {
-  $category=$_POST['category'];
- }
-       $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ((products.selectedkeyword LIKE '%".$query_key."%') OR (categories.title LIKE '%".$category."%' )) AND producttoplist='0'";
+          if(!empty($_POST['keyword']) AND isset($_POST['keyword'])){
+            $query_key=$_POST['keyword'];         
+          $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%$query_key%')  AND producttoplist='0'";
                $result_no=mysqli_query($connection,$query_no);
+ }
+ if(!empty($_POST['category']))
+ {  
+  $category=$_POST['category'];
+  $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) AND producttoplist='0'";
+  $result_no=mysqli_query($connection,$query_no);
+ }
+
+ if(!empty($_POST['category']) AND !empty($_POST['keyword']) AND isset($_POST['keyword'])){
+  $category=$_POST['category'];
+  $query_key=$_POST['keyword'];           
+          $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) OR (products.keywords LIKE '%$query_key%')  AND producttoplist='0'";
+          $result_no=mysqli_query($connection,$query_no);
+ }
+       
          ?>
                         </div><!-- end row -->
                     <?php
@@ -376,15 +397,13 @@ include('navh.php');
                  <?php echo '<h6><a href="Shopsingle.php?pid='.$row_no['pid'].'"> '.$row_no['ntitle'].'</a></h6>'; ?>
 
                                 </div><!-- end title -->
-                <div class="price">
-                                  <center>  <span class="amount text-success">$<?php echo $row_no['price']; ?></span>  </center>
-                      <?php
-
-                      //$p = $price -10;
-                                               ?>
-                                          <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
-
-                                        </div>
+                            <div class="price">
+                                  <center><span class="amount text-primary">USD $ <?php echo $row_no['price']; ?></span></center>
+                                  <center><span class="amount text-default">Min Order: <?php echo $row_no['miniorder']; ?></span></center>
+                                  <center><span class="amount text-default">Company Name: <?php echo $row_no['company_name']; ?></span></center>
+                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row_no['pid'];?>&name=<?php echo $row_no['firstName']?>"></i>Contact Supplier</a></center>
+                        
+                                </div>
                             </div><!-- end cat-item-style2 -->
                         <!-- end col -->
 

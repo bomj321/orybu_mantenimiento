@@ -1079,6 +1079,20 @@ $(document).ready(function() {
 						 
 						 
 				</div>	
+	<style type="text/css">
+	 #selectedFiles1 img{
+	 	max-width: 400px;
+                  margin-left: -30px;                  
+
+              }    
+
+    #selectedFiles2 img{	 
+    max-width: 400px;	
+                  margin-left: -30px;                  
+
+              }              
+
+</style>			
 
 				<div class="row">		
 					<div class="form-group col-sm-12">

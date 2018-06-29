@@ -177,7 +177,7 @@ include('navh.php');
 
                                         </ul>
                                         </div><!-- end panel-body -->
-                                         <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Submit">
+                                         <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Buscar">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
                                 
@@ -205,7 +205,7 @@ include('navh.php');
                                             ?>                                      
                                             
                                             <li>
-                                                <a style="color: black;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $row['titulo']; ?>"><?php echo $row['titulo']; ?></a>
+                                                <a style="color: black;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $row['title']; ?>"><?php echo $row['titulo']; ?></a>
                                             </li>
                                             <?php
                                             }?>

@@ -145,7 +145,7 @@ include('navh.php');
                                             </li>
                                               <li>
                                                 <div>
-                                                    <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
+                                                    <input name="categorytitle[]"  value="Mexico"  type="checkbox" >
                                                     <label > Mexico (<?php echo $row_mexico; ?>)
                                                      <?php
                                                         //echo $rowt['title'];?>
@@ -186,7 +186,7 @@ include('navh.php');
 
                                         </ul>
                                         </div><!-- end panel-body -->
-                                         <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Submit">
+                                         <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Find">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
 
