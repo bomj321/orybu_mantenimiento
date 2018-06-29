@@ -1,14 +1,92 @@
 <?php session_start();
 error_reporting(0);
 include('Connect.php');
+$email=$_SESSION['uemail'];
+ $usertype=$_SESSION['utype']; 
+$pid_session = $_GET['pid'];
+
+$image= $_GET['image'];
+$image_limpio= mysqli_real_escape_string($connection, $image);
+$pid_borrar= $pid_session;
+$pid_limpio= mysqli_real_escape_string($connection, $pid_borrar); 
+
+if (!empty($image_limpio) AND !empty($pid_limpio)) {
+			if ($image_limpio=='1') {
+				$vacio = "";				
+				$sql2="UPDATE products  SET image='".$vacio."' WHERE (pid='$pid_limpio')";
+ 						mysqli_query($connection,$sql2);
+ 						header('Location: updateproduct.php?pid='.$pid_limpio);
+			
+							
+			}elseif ($image_limpio=='2') {
+				$vacio = "";				
+				$sql2="UPDATE products  SET  image2='".$vacio."' WHERE (pid='$pid_limpio')";
+				mysqli_query($connection,$sql2);	
+				 echo '
+						<script>
+									alert("Image Borrada");  //not showing an alert box.							
+									 
+						 </script>
+
+				 ';	
+				header('Location: updateproduct.php?pid='.$pid_limpio);
+			}elseif ($image_limpio=='3') {
+				$vacio = "";				
+				$sql2="UPDATE products  SET image3='".$vacio."' WHERE (pid='$pid_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo '
+						<script>
+									alert("Image Borrada");  //not showing an alert box.							
+									 
+						 </script>
+
+				 ';	
+				header('Location: updateproduct.php?pid='.$pid_limpio);
+			}elseif ($image_limpio=='4') {
+				$vacio = "";				
+				$sql2="UPDATE products  SET  image4='".$vacio."' WHERE (pid='$pid_limpio')";
+				mysqli_query($connection,$sql2);	
+				echo '
+						<script>
+									alert("Image Borrada");  //not showing an alert box.							
+									 
+						 </script>
+
+				 ';	
+				header('Location: updateproduct.php?pid='.$pid_limpio);
+			}elseif ($image_limpio=='5') {
+				$vacio = "";				
+				$sql2="UPDATE products  SET  image5='".$vacio."' WHERE (pid='$pid_limpio')";
+				mysqli_query($connection,$sql2);
+				echo '
+						<script>
+									alert("Image Borrada");  //not showing an alert box.							
+									 
+						 </script>
+
+				 ';		
+				header('Location: updateproduct.php?pid='.$pid_limpio);
+			}elseif($image_limpio=='certificacion'){
+				$vacio = "";				
+				$sql2="UPDATE products  SET certification='".$vacio."' WHERE (pid='$pid_limpio')";
+				mysqli_query($connection,$sql2);
+				echo '
+						<script>
+									alert("Image Borrada");  //not showing an alert box.							
+									 
+						 </script>
+
+				 ';		
+				header('Location: updateproduct.php?pid='.$pid_limpio);
+			}
+		}
+
 include('head.php');?>
 <?php
 include('topbar.php');
 include('middlebar.php');
 include('navh.php');
 //include('middlebar.php');
- $email=$_SESSION['uemail'];
- $usertype=$_SESSION['utype'];
 ?>
    
 <?php
@@ -58,7 +136,6 @@ if(isset($_POST['btn_save_updates']))
 			$productType = $_POST['productType'];
 			//$showcaseid=$_POST['showcaseid'];
 			//$showtoplist=$_POST['showtoplist'];
-            $description = $_POST['description'];
 			$price=$_POST['fobprice'];
 			$price_unit=$_POST['dropminimum'];
 			$oquantity=$_POST['oquantity'];
@@ -302,8 +379,8 @@ $(document).ready(function() {
 				<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">
 				
 				<div class="form-group"><label> Titulo del Producto: </label></div> <br> 
-                <div class="form-group"><label> Palabras Claves:</label> </div> <br> 
-				<div class="form-group"><label style="font-size:13px;"> Palabras claves seleccionadas: </label></div> 
+                <div class="form-group"><label> Palabras Claves:<span class="text-danger">*</span></label> </div> <br> 
+				<div class="form-group"><label style="font-size:13px;"> Palabras claves seleccionadas:<span class="text-danger">*</span> </label></div> 
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="form-group">
@@ -314,7 +391,7 @@ $(document).ready(function() {
 				</div>
 				<div class="form-group">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						<textarea class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey"  > <?php echo  $rowz['selectedkeyword'];?> </textarea>
+						<textarea class="form-control" placeholder="keyword" required name="selectedkeyword" id="selectedkey"  > <?php echo  $rowz['selectedkeyword'];?> </textarea>
 				</div>
 				</div>
 				<script>
@@ -344,13 +421,12 @@ $(document).ready(function() {
 				<div class="form-group" style="margin-top:20px;"><label> Empaquetado: </label></div>
                 <div class="form-group" style="margin-top:20px;"><label> Tipo de producto: </label></div> 
 				<div class="form-group" style="margin-top:25px;"><label> Mostrar Producto: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Lista Superior: </label></div> 				
-				<div class="form-group" style="margin-top:31px;"><label> Certificacion del producto: </label></div> 
-				<div class="form-group" style="margin-top:250px;"><label> Imagen del producto: </label></div> 
-				<div class="form-group" style="margin-top:90px;"><label> Precio FOB: </label></div> 
+				<div class="form-group" style="margin-top:25px;"><label> Lista Superior: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Precio FOB: </label></div> 
 				<div class="form-group" style="margin-top:32px;"><label> Orden Miníma: </label></div>
 				<div class="form-group" style="margin-top:38px;"><label> Delivery Details: </label></div>
-				<div class="form-group" style="margin-top:25px;"><label> Payment: </label></div>	 
+				<div class="form-group" style="margin-top:25px;"><label> Payment: </label></div>				
+					 
 				
 				 
 			<!--	 -->
@@ -687,7 +763,7 @@ $(document).ready(function() {
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 				<?php $st3=$rowz['volume']; $ccl = explode(' ', $st3);  ?>
-						<input type="text" class="form-control" placeholder="Enter Capicity" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
+						<input type="text" class="form-control" placeholder="Inserte Capacidad" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
 						 <select class="form-control" id="unit" name="dropcapacity" style="height:39px;">
@@ -706,7 +782,7 @@ $(document).ready(function() {
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 				<?php $st4=$rowz['volume']; $ecl = explode(' ', $st4);  ?>
-				<input type="text" class="form-control" placeholder="Enter Power" name="equantity" id="quantity" value="<?php echo $ecl[0]; ?>">
+				<input type="text" class="form-control" placeholder="Inserte Fuente de Poder" name="equantity" id="quantity" value="<?php echo $ecl[0]; ?>">
 				</div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
@@ -723,13 +799,13 @@ $(document).ready(function() {
 				</div>
 				<div class="form-group">
 				
-						<input type="text" class="form-control input-sm" required placeholder="Rotation speed" name="rotation" id="rot" value="<?php echo $rowz['rotationspeed'];?>">
+						<input type="text" class="form-control input-sm" placeholder="Velocidad de Rotacion" name="rotation" id="rot" value="<?php echo $rowz['rotationspeed'];?>">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Elobration Material" name="elobration" id="elobration" value="<?php echo $rowz['elaboration'];?>">
+						<input type="text" class="form-control input-sm" required placeholder="Material de Elaboracion" name="elobration" id="elobration" value="<?php echo $rowz['elaboration'];?>">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Use" name="use" id="use" value="<?php echo $rowz['puse']; ?>">
+						<input type="text" class="form-control input-sm" required placeholder="Uso" name="use" id="use" value="<?php echo $rowz['puse']; ?>">
 				</div>
 				<div class="form-group">
 						 <select class="form-control" id="unit" name="size">
@@ -788,114 +864,7 @@ $(document).ready(function() {
 			</select>
 			</div>
 
-						 
-						
-						 <div class="form-group">
-						 <?php
-							$certification_verificacion= $rowz['certification'];; 
-						 if(!empty($certification_verificacion)) {
-						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $rowz['certification']; ?>" />
-    								<input class="form-control" type="file"  name="file1" id="files"/>	
-    					<?php
-							}else{
-							?>
-								<center><h4>No hay Certification</h4></center>
-								<input class="form-control " type="file"  name="file1" id="files" />
-							
-						<?php
-						 }
-						?> 
-						 </div>
-						 
-						<div class="form-group" style="border-style: solid;"> 
-						  <?php
-							$stri1=$rowz['image'];
-							$stri2=$rowz['image2'];
-							$stri3=$rowz['image3'];
-							$stri4=$rowz['image4'];
-							$stri5=$rowz['image5'];	
-							?>
-						 
-						 <?php
-						 if(!empty($stri1)) {
-						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" />
-    								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>	
-    					<?php
-							}else{
-							?>
-								<center><h4>No hay imagenes</h4></center>
-								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
-							
-						<?php
-						 }
-						?> 
-							
-							
-						<?php
-						 if(!empty($stri2)) {
-						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" />
-    								<input class="form-control" type="file"  name="imagenes2"   id="files2"/>	
-    					<?php
-							}else{
-							?>
-								<center><h4>No hay imagenes</h4></center>
-								<input class="form-control" type="file"  name="imagenes2"  id="files2"/>
-							
-						<?php
-						 }
-						?> 
-							
-						<?php
-						 if(!empty($stri3)) {
-						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" />
-    								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>	
-    					<?php
-							}else{
-							?>
-								<center><h4>No hay imagenes</h4></center>
-								<input class="form-control" type="file"  name="imagenes3"  id="files3"/>
-							
-						<?php
-						 }
-						?> 
-						
-						<?php
-						 if(!empty($stri4)) {
-						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" />
-    								<input class="form-control" type="file"  name="imagenes4"   id="files4"/>	
-    					<?php
-							}else{
-							?>
-								<center><h4>No hay imagenes</h4></center>
-								<input class="form-control" type="file"  name="imagenes4"  id="files4"/>
-							
-						<?php
-						 }
-						?> 
-							
-						<?php
-						 if(!empty($stri5)) {
-						 ?>
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" />
-    								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>	
-    					<?php
-							}else{
-							?>
-								<center><h4>No hay imagenes</h4></center>
-								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
-							
-						<?php
-						 }
-						?> 																
-							 
-						  </div>
-						  
-						  <?php $stt8=$rowz['price_unit'];?>
+			 <?php $stt8=$rowz['price_unit'];?>
 						 <div class="input-group" style="margin-bottom:10px;">  
   							<input type="text" class="form-control" placeholder="Precio" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
   							<span class="input-group-addon" id="basic-addon1">$</span>
@@ -954,7 +923,169 @@ $(document).ready(function() {
 								<option value="Paypal and WebPay">Paypal and Wire Transfer</option>  							 
 							</select>   
 						 </div>  
-				</div>						  
+
+<style type="text/css">
+	
+	/*ESTILOS PERSONALIZADOS*/
+#selectedFiles1 img{
+                  width: 200px;
+
+              }
+
+#selectedFiles2 img{
+                  width: 200px;
+
+              }
+</style>
+						 
+						<div class="col-md-12">
+							<center>
+								<h4>Subir la Certificacion del Producto</h4>
+							</center>
+						</div>
+
+						 <div class="form-group">
+						 <?php
+							$certification_verificacion= $rowz['certification'];; 
+						 if(!empty($certification_verificacion)) {
+						 ?>
+						 		<div class="input-group">
+    								<img style="height:100px; width:100px;" src="images/<?php echo $rowz['certification']; ?>" />
+    								<input class="form-control" type="file"  name="file1" id="files"/>
+    								<a href="updateproduct.php?image=certificacion&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Certificacion</a>
+    							</div>			
+    					<?php
+							}else{
+							?>
+								<center><h4>Agregar Certificacion</h4></center>
+								<input class="form-control " type="file"  name="file1" id="files" />
+							
+						<?php
+						 }
+						?> 
+						 </div>
+
+						 <div class="col-md-12">
+							<center>
+								<h4>Agregar las Imagenes de los Productos</h4>
+							</center>
+						</div>
+						 
+						<div class="form-group"> 
+						  <?php
+							$stri1=$rowz['image'];
+							$stri2=$rowz['image2'];
+							$stri3=$rowz['image3'];
+							$stri4=$rowz['image4'];
+							$stri5=$rowz['image5'];	
+							?>
+						 
+						 <?php
+						 if(!empty($stri1)) {
+						 ?>
+						 		<div class="input-group">
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" />
+    								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
+    								<a href="updateproduct.php?image=1&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>		
+    					<?php
+							}else{
+							?>
+								<center><h4>Agregar Imagen #1</h4></center>
+								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
+							
+						<?php
+						 }
+						?> 
+							
+							
+						<?php
+						 if(!empty($stri2)) {
+						 ?>
+						        <div class="input-group">
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" />
+    								<input class="form-control" type="file"  name="imagenes2"   id="files2"/>
+    								<a href="updateproduct.php?image=2&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>		
+    					<?php
+							}else{
+							?>
+								<center><h4>Agregar Imagen #2</h4></center>
+								<input class="form-control" type="file"  name="imagenes2"  id="files2"/>
+							
+						<?php
+						 }
+						?> 
+							
+						<?php
+						 if(!empty($stri3)) {
+						 ?>
+						        <div class="input-group">
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" />
+    								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>	
+    								<a href="updateproduct.php?image=3&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>	
+    					<?php
+							}else{
+							?>
+								<center><h4>Agregar Imagen #3</h4></center>
+								<input class="form-control" type="file"  name="imagenes3"  id="files3"/>
+							
+						<?php
+						 }
+						?> 
+						
+						<?php
+						 if(!empty($stri4)) {
+						 ?>
+						         <div class="input-group">
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" />
+    								<input class="form-control" type="file"  name="imagenes4"   id="files4"/>
+    								<a href="updateproduct.php?image=4&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    							</div>	
+    					<?php
+							}else{
+							?>
+								<center><h4>Agregar Imagen #4</h4></center>
+								<input class="form-control" type="file"  name="imagenes4"  id="files4"/>
+							
+						<?php
+						 }
+						?> 
+							
+						<?php
+						 if(!empty($stri5)) {
+						 ?>
+						        <div class="input-group">
+    								<img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" />
+    								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
+    								<a href="updateproduct.php?image=5&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    							</div>		
+    					<?php
+							}else{
+							?>
+								<center><h4>Agregar Imagen #5</h4></center>
+								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
+							
+						<?php
+						 }
+						?> 																
+							 
+						  </div>
+						  
+						 
+				</div>	
+				<div class="row">		
+					<div class="form-group col-sm-12">
+											<center>
+												<h3 style="text-align:center;">Area de Visualizacion Previa</h3>
+												 <div id="selectedFiles1"></div>
+												 <div id="selectedFiles2"></div>
+						                   </center>	 
+			 <div id="selectedFiles1"></div>
+					</div>	
+		
+      </div>									  
 				
 				
 				</div>	
@@ -964,13 +1095,23 @@ $(document).ready(function() {
 		<script>
 			$(document).ready(function() {
 				$("#txtEditor").Editor();
+				$("#txtEditor").Editor("setText", "<?php echo $rowz['fulldescription']; ?>");
 				
 			});
 				</script>
+
+			<script>
+			$(document).submit(function() {				
+				$("#txtEditor").val($('.Editor-editor').html()); 
+				
+			});
+				</script>	
+
+
 				<div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> Descripcion:</b> </h4></div> 
  <div class="form-group col-sm-2"> </div>        
 		<div class="form-group col-sm-8">
-			    <textarea   class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"><?php echo $rowz['fulldescription']; ?> </textarea>
+	<textarea class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"></textarea>
 				</div>	
                 </div>				
 				<!--<div class="form-group">
@@ -987,22 +1128,12 @@ $(document).ready(function() {
 		  <center><button type="submit" name="btn_save_updates" class="btn btn-success"><i class="fa fa-refresh" >
        &nbsp; Actualizar</i>
         </button>
-		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;"></i> Cancelar</a>
+		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:white; border: 1px solid ;"><i class="fa fa-times"></i> Cancelar</a>
        </input>
            </br>
          
         </center>
-        <div class="row">		
-					<div class="form-group col-sm-12">
-											<center>
-												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
-												 <div id="selectedFiles1"></div>
-												 <div id="selectedFiles2"></div>
-						                   </center>	 
-			 <div id="selectedFiles1"></div>
-					</div>	
-		
-      </div>	 
+         
          
         
 	  </form>  
@@ -1038,7 +1169,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1073,7 +1204,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1109,7 +1240,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1145,7 +1276,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1181,7 +1312,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1217,7 +1348,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" +"<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 

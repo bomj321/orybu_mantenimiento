@@ -314,7 +314,7 @@ $row=$stmt->fetch_assoc();?>
 					<tr>
 			<th>	Company Description</th>
 			
-					<td></br><?php echo $row['companyDescription']; ?></td>
+					<td colspan="5"></br><?php echo $row['companyDescription']; ?></td>
 					</tr>
 					<tr>
 			<th>	Company Logo</th>

@@ -1,6 +1,4 @@
 
-application/x-httpd-php registerSupplier.php ( PHP script text )
-
 <?php
 session_start();
 error_reporting(0);
@@ -25,20 +23,7 @@ $confirmcode=$_SESSION['code'];
 				</br>	</br>	</br>
 				<div class="panel panel-login" style="background-color:#f7f7f7;">
 					<div class="panel-heading" style="background-color:#f2f2f2;">
-						<div class="row">
-
-							<div class="col-sm-8  col-sm-offset-2" id="rg">
-
-								<center><h3>COMPANY INFORMATION </h3>
-
-
-							</center>
-
-
-						</div>
-
-					</div>
-				<hr>
+						
 
 
 
@@ -58,6 +43,7 @@ $confirmcode=$_SESSION['code'];
 								<form id="register-form" action="registerSupplier_action.php"  enctype="multipart/form-data" method="post" role="form">
 								<div class="row">
 					<div class="col-sm-12" >
+						<center> <h3>BANK INFORMATION</h3></center>
 									<div class="form-group">
 										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Name">
 									</div>
@@ -70,7 +56,7 @@ $confirmcode=$_SESSION['code'];
 										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Number Bank">
 									</div>
 										
-
+						<center><h3>COMPANY INFORMATION</h3></center>
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Company Name">
 									</div>
@@ -97,7 +83,7 @@ $confirmcode=$_SESSION['code'];
 							<div class="form-group">
 
 					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Province">
-												        <input  type="hidden" name="email" value="<?php echo  $email;?>" >
+												        <input  type="hidden" name="email" >
 
 
 						</div>
@@ -375,31 +361,84 @@ $confirmcode=$_SESSION['code'];
 									<div class="form-group">
 
 					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  required placeholder="Number of Employees">
+<style type="text/css">
+	 #selectedFiles1 img{	 	
+                  max-width: 400px;
+                  margin-left: -35px;                  
 
+              }    
+
+</style>
 							</div>
 							<div class="form-group">
 
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Described Here " >		
-									</textarea>
+			<textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Describe your company" ></textarea>
 						</div>
-										<div class="form-group">
-										<label> Your Company logo </label>
-					        <input id="files"  class="form-control" type="file" required name="file1" onchange="readURL(this);" />
+										
+										
+						<div="form-group">						 
+								<center><h4>Add Company Logo</h4></center>
+								<input class="form-control " type="file"  required name="imagenes_logo" id="files" onchange="readURL(this);" />							
+								<div id="selectedFiles"></div>
+						 </div>																																					
+						
+						
 
-						<div id="selectedFiles"></div>
-						</div>
-						<div="form-group">
-								<label> Your Company License </label>
-					        <input  id="files1" class="form-control" type="file"  id="files" required name="file2[]" multiple="multiple"/>
 
+						<!--SUBIR LICENCIAS-->
+						<div class="col-md-12">
+							<center>
+								<h4>Add Company Licenses</h4>
+							</center>
 						</div>
+						<div class="form-group" > 						 
+						 
+						 	
+
+								<h4>Add Company License #1</h4>
+								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
+						
+							
+							
+						
+							      <h4>Add Company License #2</h4>
+								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
+							
+						
+						
+								<h4>Add Company License #3</h4>
+								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
+						
+						
+						      
+    					
+								<h4>Add Company License #4</h4>
+								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
+					
+    					
+								<h4>Add Company License #5</h4>
+								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>																			
+							 
+						  </div>
+
+						  <!--SUBIR LICENCIAS-->
+
+
+
+
+
+
 								<div="form-group">
-										<h3>Uploaded Picture Preview Area </h3>
- <div id="selectedFiles1"></div>
-</div>
+											<center>
+													<h3>Uploaded Picture Preview Area </h3>
+											</center>
+			 											<div id="selectedFiles1" class="col-md-5 col-xs-offset-4">
+			 												<br>
+			 											</div>
+								</div>
 
-									<div class="form-group">
-										<div class="row" style="text-align:center;">
+									<div class="form-group" >
+										<div class="row" style="text-align:center; margin-top:30px;">
 										
 										<a href="sendconfirmation2.php?userStatus=1" >
 								        <input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SKIP">
@@ -582,7 +621,9 @@ confirm_password.onkeyup = validatePassword;
 
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;
 			}
 			reader.readAsDataURL(f);
@@ -617,7 +658,9 @@ confirm_password.onkeyup = validatePassword;
 
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
 				selDiv.innerHTML += html;
 			}
 			reader.readAsDataURL(f);
@@ -628,6 +671,157 @@ confirm_password.onkeyup = validatePassword;
 	}
 	</script>
 
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files2').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files3').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files4').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files5').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
 	<!-- //////////////////////////////////////End Image Uploader Js Script -->
     </body>
 </html>

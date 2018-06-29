@@ -4332,10 +4332,11 @@ background-color: rgba(0, 0, 0, 0.16);
 
               }
 
-              #selectedFiles2 img{
+#selectedFiles2 img{
                   width: 200px;
 
               }
+          
 .tabla_perfil td{
 border-bottom:hidden !important;
 }              

@@ -260,7 +260,7 @@ else if(trim($str1) ==trim($str3))
 								</select>
 							</div>
 						<?php } ?>
-						<div class="form-group " id="ShowSubcategory"><select id="Show" class="form-control "> <option value=""> Select Category first </option> </select></div>  
+						<div class="form-group " id="ShowSubcategory"><select id="Show" class="form-control "> <option value=""> Select Subcategory</option> </select></div>  
 					</div>
 					</div>  
 				</div>  <!-- row  -->
@@ -269,17 +269,17 @@ else if(trim($str1) ==trim($str3))
 					<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">				
 						<div class="form-group"><label> Product Title <span class="text-danger">*</span></label></div> <br> 
 						<div class="form-group"><label> Keyword <span class="text-danger">*</span></label> </div> <br> 
-						<div class="form-group"><label> Selected Keyword</label></div> 
+						<div class="form-group"><label> Selected Keyword<span class="text-danger">*</span></label></div> 
 					</div>
 					<div class="col-sm-4" style="margin-left:-200px;">
 						<div class="form-group">
-							<input required type="text" class="form-control " required placeholder="Enter Title" name="title" id="title">
+							<input required type="text" class="form-control " required="true" placeholder="Enter Title" name="title" id="title">
 						</div>
 						<div class="form-group">
-							<input required type="text" class="form-control" required placeholder="Enter keyword" name="keyword" id="keyword" >
+							<input required type="text" class="form-control" placeholder="Enter keyword" name="keyword" id="keyword" >
 						</div>
 						<div class="form-group">
-							<textarea  class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey">  </textarea>
+							<textarea  class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey" required="true">  </textarea>
 						</div>
 					</div>
 						<?php
@@ -305,27 +305,25 @@ else if(trim($str1) ==trim($str3))
 				</div>
 
 				<div class="form-group" style="margin-top:20px;"><label> Weight: <span class="text-danger">*</span></label></div>
-				<div class="form-group" style="margin-top:20px;"><label> Volume:</label></div> 
-				<div class="form-group" style="margin-top:35px;"><label> Dimensions:</label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Capacity:</label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Energy Power:</label></div> 				 
-				<div class="form-group" style="margin-top:40px;"><label> Rotation Speed: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Elaboration Material: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:50px;"><label> Volume:</label></div> 
+				<div class="form-group" style="margin-top:40px;"><label> Dimensions:</label></div> 
+				<div class="form-group" style="margin-top:55px;"><label> Capacity:</label></div> 
+				<div class="form-group" style="margin-top:25px;"><label> Energy Power:</label></div> 				 
+				<div class="form-group" style="margin-top:65px;"><label> Rotation Speed:</label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Elaboration Material: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Use: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Packing <span class="text-danger">*</span>  </label></div>
-                <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 				
-				<div class="form-group" style="margin-top:20px;"><label> Product Certification: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Product Image: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
-				<div class="form-group" style="margin-top:20px;"><label> Payment: </label></div>				
+				<div class="form-group" style="margin-top:30px;"><label> Packing <span class="text-danger">*</span>  </label></div>
+                <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div>				
+				<div class="form-group" style="margin-top:580px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:30px;"><label> Payment: <span class="text-danger">*</span> </label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
 				<div class="form-group col-sm-6">
-			<select  class="form-control " id="unit" name="dropcountry" required>
+			<select  class="form-control " id="unit" name="dropcountry" required="true">
 
 	                <option value="Chile">Chile</option>
 					<option value="Afganistan">Afghanistan</option>
@@ -581,15 +579,15 @@ else if(trim($str1) ==trim($str3))
 					<label>Port<span class="text-danger">*</span></label></div> 
 				
 				<div class="form-group col-sm-4" style="padding-right:0px;">
-				<input type="text" class="form-control " required placeholder="Port" name="port" id="port">
+				<input type="text" class="form-control " required="true" placeholder="Port" name="port" id="port">
 				</div>
 				</div>
 				<div class="row">
 				     <div class="form-group col-sm-8" style="padding-right:0px;">
-						<input type="text" class="form-control " placeholder="Enter Weight" name="wquantity" id="wquantity"> 
+						<input type="text" class="form-control" required="true"  placeholder="Enter Weight" name="wquantity" id="wquantity"> 
 						</div>
 							<div class="form-group col-sm-4" style="padding-left:0px;">
-							<select class="form-control " id="unit" name="dropweight" >
+							<select class="form-control " id="unit" name="dropweight" style="height:40px;" >
 	                         <option value="kilogram">Kilogram</option>  
                              <option value="Gram">Gram</option>  
 							 <option value="piece">Piece</option>  
@@ -607,7 +605,7 @@ else if(trim($str1) ==trim($str3))
 						<input type="text" class="form-control " placeholder="Volume" name="vquantity" id="quantity"> 
 						</div>
 						<div class="form-group col-sm-4" style="padding-left:0px;">
-						<select class="form-control " id="unit" name="dropvolum">
+						<select class="form-control " id="unit" name="dropvolum" style="height:40px;">
 	                         <option value="">Volume</option>  
                              <option value="Cubic meter">Cubic meter</option>  
 							 <option value="Cubic feet">Cubic feet</option>  
@@ -630,7 +628,7 @@ else if(trim($str1) ==trim($str3))
 						 <input type="text" class="form-control " placeholder="W" name="dquantity3" id="quantity"> 
 						 </div>
 								<div class="form-group col-sm-4 col-sm-offset-2" style="padding-left:0px; margin-top:10px;">
-										<select class="form-control " id="unit" name="dropdimension">
+										<select class="form-control " id="unit" name="dropdimension"  style="height:40px;">
 											<option value="feet">Feet</option>  
 											<option value="Inch">Inch</option>  
 											<option value="Centimeter">Centimeter</option>  
@@ -645,7 +643,7 @@ else if(trim($str1) ==trim($str3))
 						<input  type="text" class="form-control " placeholder="Enter Capacity" name="cquantity" id="quantity"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
-						 <select class="form-control" id="unit" name="dropcapacity">
+						 <select class="form-control" id="unit" name="dropcapacity"  style="height:40px;">
 	                         <option value="Ton">Ton</option>  
                              <option value="Kilogram">Kilogram</option>  
 							 <option value="Cubic Feet">Cubic Feet</option>  
@@ -663,7 +661,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						 <select required class="form-control " id="energy" name="dropenergy">
+						 <select required class="form-control " id="energy" name="dropenergy"  style="height:40px;">
 	                         <option value="Volt">Volt</option>  
                              <option value="Ohm">Ohm</option>  
 							 <option value="Watt">Watt</option>  
@@ -677,10 +675,10 @@ else if(trim($str1) ==trim($str3))
 						<input  type="text" class="form-control input-sm" placeholder="Rotation speed" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
-						<input required type="text" class="form-control input-sm" placeholder="Elaboration Material" name="elobration" id="elobration">
+						<input required="true" type="text" class="form-control input-sm" placeholder="Elaboration Material" name="elobration" id="elobration">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Use" name="use" id="use">
+						<input type="text" class="form-control input-sm" required="true" placeholder="Use" name="use" id="use">
 				</div>
 				<div class="form-group">
 						 <select class="form-control " id="unit" name="size">
@@ -693,7 +691,7 @@ else if(trim($str1) ==trim($str3))
                          </select>
 				</div>
 				<div class="form-group">
-						 <select required class="form-control " id="unit" name="packaging" require>
+						 <select required class="form-control " id="unit" name="packaging" required="true">
 	                         <option value="Bag">Plastic Bag</option>  
                              <option value="Bottle">Bottle</option>  
 							 <option value="Can">Can</option>  
@@ -723,21 +721,58 @@ else if(trim($str1) ==trim($str3))
 
 
 
+						 <div class="form-group">						 
+								<center><h4>Product Certification</h4></center>
+								<input class="form-control "  type="file"  required="true" name="imagenes_logo" id="files" />							
+								<div id="selectedFiles"></div>
+						 </div>				 
+						
+					  
+
+						 <!--SUBIR LICENCIAS-->
+						<div class="col-md-12">
+							<center>
+								<h4>Products Images</h4>
+							</center>
+						</div>
+						<div class="form-group" > 						 
 						 
-						 
-						 <div class="form-group">
-						   <input style="margin-top: -5px;" id="files" class="form-control " type="file"  name="file1"/>
-                           	
-						 </div>
-						  <div class="form-group">
-						   <input  id="files1" class="form-control " type="file"  name="file2[]" multiple="multiple" required/>
-                           	
-						 </div>
+						 	
+
+								<h5>Add Product Image #1</h5>
+								<input class="form-control" type="file"  required="true" name="imagenes_action1"  id="files1"/>
+						
+							
+							
+						
+							      <h5>Add Product Image #2</h5>
+								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
+							
+						
+						
+								<h5>Add Product Image #3</h5>
+								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
+						
+						
+						      
+    					
+								<h5>Add Product Image #4</h5>
+								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
+					
+    					
+								<h5>Add Product Image #5</h5>
+								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>																			
+							 
+						  </div>
+
+						  <!--SUBIR LICENCIAS-->
+
+
 						 <div class="row">
 						 <div class="input-group col-xs-12" style="margin-bottom:10px; width:93%; margin-left:15px;">  
-  							<input type="text" class="form-control" placeholder="Price" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
+  							<input type="text" class="form-control input-group-lg" placeholder="Price" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required="true" >
   							<span class="input-group-addon" id="basic-addon1">$</span>
-  							<select class="form-control " id="unit" name="dropminimum2">
+  							<select class="form-control " id="unit" name="dropminimum2" style="height:40px;>
 	                         <option value="Unit">Unit</option>  
                              <option value="Ton">Ton</option>  
 							 <option value="Gram">Gram</option>  
@@ -754,9 +789,9 @@ else if(trim($str1) ==trim($str3))
                             <option value="others">Others</option>							 
                          </select>        	
 							</div>
-					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text" placeholder="Minimum Order" name="oquantity" required /></div>
-					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control " id="unit" name="dropminimum2">
+					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text" placeholder="Minimum Order" name="oquantity" required="true" /></div>
+					   <div class="form-group col-sm-4 input-group"  style="padding-left:0px;">
+						   <select class="form-control " id="unit" name="dropminimum2" style="height:39px;>
 	                         <option value="Unit">Unit</option>  
                              <option value="Ton">Ton</option>  
 							 <option value="Gram">Gram</option>  
@@ -775,15 +810,35 @@ else if(trim($str1) ==trim($str3))
 						 </div>
 						 </div>
 						 <div class="form-group">
-								 <input type="text" class="form-control input-sm" placeholder="Delivery Details" name="delivery_details" id="delivery_details">
+								 <input type="text" class="form-control input-sm" required="true" placeholder="Delivery Details" name="delivery_details" id="delivery_details">
 						 </div>	
 						 <div class="form-group">
-							<select class="form-control " id="payment" name="payment">
+							<select class="form-control " id="payment" name="payment" required="true">
 								<option value="Paypal">Paypal</option>  
 								<option value="WebPay">Wire Transfer</option>  
 								<option value="Paypal and WebPay">Paypal and Wire Transfer</option>  							 
 							</select>   
 						 </div>
+<style type="text/css">
+	 #selectedFiles1 img{	 	
+                  max-width: 400px;
+                  margin-left: -35px;                  
+
+              }  
+
+     #selectedFiles img{	 	
+                  max-width: 400px;
+                  margin-left: -35px;                  
+
+              }
+</style>
+						 <div class="form-group col-sm-12">
+											<center>
+												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
+												 <div id="selectedFiles"></div>
+						                   </center>	 
+										  <div id="selectedFiles1"></div>
+					</div>	
 						 
 						 
 						 
@@ -803,6 +858,12 @@ else if(trim($str1) ==trim($str3))
 				</div>	
 
 				<!------------------------------EDITOR---------------->
+				<script>
+			$(document).submit(function() {				
+				$("#txtEditor").val($('.Editor-editor').html()); 
+				
+			});
+				</script>
 				<div class="row">
 				<?php 
 				include('editor.php');
@@ -825,13 +886,7 @@ else if(trim($str1) ==trim($str3))
       </div>
       
       <div class="row">		
-					<div class="form-group col-sm-12">
-											<center>
-												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
-												 <div id="selectedFiles"></div>
-						                   </center>	 
-										  <div id="selectedFiles1"></div>
-					</div>	
+					
 		
       </div>		  	  
 	  </form>  
@@ -867,7 +922,7 @@ else if(trim($str1) ==trim($str3))
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" +  "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -902,7 +957,7 @@ else if(trim($str1) ==trim($str3))
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -910,6 +965,157 @@ else if(trim($str1) ==trim($str3))
 		});
 		
 		
+	}
+	</script>
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files2').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files3').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files4').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files5').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
 	}
 	</script>
  <?php        

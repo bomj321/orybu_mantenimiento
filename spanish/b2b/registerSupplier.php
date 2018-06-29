@@ -1,6 +1,4 @@
 
-text/x-generic registerSupplier.php ( PHP script text )
-
 <?php
 session_start();
 error_reporting(0);
@@ -8,6 +6,7 @@ include 'Connect.php';
 include('head.php');
 $email= $_SESSION['confemail'];
 $confirmcode=$_SESSION['code'];
+
   ?>
 
     <body>
@@ -24,49 +23,49 @@ $confirmcode=$_SESSION['code'];
 				</br>	</br>	</br>
 				<div class="panel panel-login" style="background-color:#f7f7f7;">
 					<div class="panel-heading" style="background-color:#f2f2f2;">
-						<div class="row">
-							<div class="col-sm-8  col-sm-offset-2" id="rg">
-								<center><h3>Información de la Compañia</h3>
-							</center>
-						</div>
-					</div>
-				<hr>
+						
+			
 
 
 
-						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2 form-group">
+						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
 							<a href="sendconfirmation2.php?userStatus=1" >
-							<input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SALTAR">
-
+								<input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SALTAR">
 							</br>
+							</a>
 						</div>
 
-					</a>
-					<div style="clear:both"></div>
+					
+					        <div style="clear:both"></div>
+
 						<hr>
 					</br>
 					</br>
 								<form id="register-form" action="registerSupplier_action.php"  enctype="multipart/form-data" method="post" role="form">
 								<div class="row">
 					<div class="col-sm-12" >
-
-										<div class="form-group">
-										<input type="text" name="bank_name" id="bank_name" tabindex="3" class="form-control"  placeholder="Nombre del Banco">
+						<center> <h3>
+							INFORMACION BANCARIA
+							     </h3>
+						</center>
+									<div class="form-group">
+										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Nombre del Banco">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="bank_code" id="bank_code" tabindex="3" class="form-control" placeholder="Codigo del Banco">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="Codigo Bancario">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="bank_number" id="bank_number" tabindex="3" class="form-control" placeholder="Numero del banco">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Numero Bancario">
 									</div>
-
+										
+									<center><h3>INFORMACIÓN DE LA COMPAÑIA</h3></center>
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Nombre de la Compañia">
 									</div>
 										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  required placeholder="Número Legal">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  required placeholder="Numero Legal de la Compañia">
 									</div>
 							<div class="form-group">
                                                <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Calle">
@@ -76,7 +75,7 @@ $confirmcode=$_SESSION['code'];
                                         <span>Phone Number:</span>
 											<input name="p1" type="text" size="10" placeholder="Codigo" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
-											<input name="p3" type="text"  size="30"placeholder="Número" required>
+											<input name="p3" type="text"  size="30" placeholder="Aqui el Número" required>
 
 									</div>
 						<div class="form-group">
@@ -88,20 +87,20 @@ $confirmcode=$_SESSION['code'];
 							<div class="form-group">
 
 					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Provincia">
-												        <input  type="hidden" name="email" value="<?php echo  $email;?>" >
+								 <input  type="hidden" name="email" >
 
 
 						</div>
 							<div class="form-group">
 
-					        <input  type="text" name="zipCode" tabindex="1" class="form-control" required  placeholder="Código Postal">
+					        <input  type="text" name="zipCode" tabindex="1" class="form-control" required  placeholder="Codigo Postar">
 
 
 						</div>
 									<div class="form-group">
 										 <select name="selectcountryName" required class="form-control input">
 
-					<option value="">Select Country...</option>
+					<option value="">Selecciona tu País...</option>
 					<option value="Afganistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
 					<option value="Algeria">Algeria</option>
@@ -353,55 +352,108 @@ $confirmcode=$_SESSION['code'];
 									</div>
 									</br>
 									</br>
-									<h4>Describe tu Compañia</h4>
+									<h4>Describe tu Compañía</h4>
 									<div class="form-group">
 										<select name="businessType" required class="form-control input">
-											<option value="">Selecciona el tipo de Negocio</option>
-											<option value="Manufacturer">Fabricante</option>
-											<option value="Distributor" >Distribuidor</option>
-											<option value="Trading Company">Compañia de Negocios</option>
-											<option value="Retailer" >Detallista</option>
-											<option value="other" >Otro</option>
-										</select>
+								  <option value="">Seleeciona tu tipo de Empresa</option>
+                                             <option value="Manufacturer">Manufacturera</option>
+                                             <option value="Distributor" >Distribuidora</option>
+											  <option value="Trading Company" >Empresa Comercial</option>
+                                             <option value="Retailer" >Minorista</option> 
+                                              <option value="other" >Otro</option>    
+											 </select>
 									</div>
 									<div class="form-group">
 
 					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  required placeholder="Número de Empleados">
+<style type="text/css">
+	 #selectedFiles1 img{	 	
+                  max-width: 400px;
+                  margin-left: -35px;                  
 
+              }    
+
+</style>
 							</div>
 							<div class="form-group">
-								<textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Descripción aqui">		
-								</textarea>
-							</div>
-										<div class="form-group">
-										<label>Logo de la Compañia</label>
-					        <input id="files"  class="form-control" type="file" required name="file1" onchange="readURL(this);" />
 
-						<div id="selectedFiles"></div>
+					 <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Describe tu Compañia" ></textarea>
 						</div>
-						<div="form-group">
-								<label>Licencia de la Compañia</label>
-					        <input  id="files1" class="form-control" type="file"  id="files" required name="file2[]" multiple="multiple"/>
+										
+										
+						<div="form-group">						 
+								<center><h4>Agregar Logo de la Empresa</h4></center>
+								<input class="form-control " type="file"  required name="imagenes_logo" id="files" onchange="readURL(this);" />							
+								<div id="selectedFiles"></div>
+						 </div>																																					
+						
+						
 
+
+						<!--SUBIR LICENCIAS-->
+						<div class="col-md-12">
+							<center>
+								<h4>Agregar Licencias de la Compañia</h4>
+							</center>
 						</div>
+						<div class="form-group" > 						 
+						 
+						 	
+
+								<h4>Agregar Licencias de la Empresa #1</h4>
+								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
+						
+							
+							
+						
+							      <h4>Agregar Licencias de la Empresa #2</h4>
+								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
+							
+						
+						
+								<h4>Agregar Licencias de la Empresa #3</h4>
+								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
+						
+						
+						      
+    					
+								<h4>Agregar Licencias de la Empresa #4</h4>
+								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
+					
+    					
+								<h4>Agregar Licencias de la Empresa #5</h4>
+								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>																			
+							 
+						  </div>
+
+						  <!--SUBIR LICENCIAS-->
+
+
+
+
+
+
 								<div="form-group">
-										<h3>Imagen cargada</h3>
-									<div id="selectedFiles1"></div>
+											<center>
+													<h3>Uploaded Picture Preview Area </h3>
+											</center>
+			 											<div id="selectedFiles1" class="col-md-5 col-xs-offset-4">
+			 												<br>
+			 											</div>
 								</div>
 
-									<div class="form-group">
-										<div class="row" style="text-align:center;">
+									<div class="form-group" >
+										<div class="row" style="text-align:center; margin-top:30px;">
 										
 										<a href="sendconfirmation2.php?userStatus=1" >
 								        <input type="button" class="btn btn-warning round btn-lg" style="color:black;" value="SALTAR">
 									   </a>
 											
-												<input type="submit" name="register-submit" class=" btn btn-success round btn-lg" style="color:white;" value="GUARDAR">
+												<input type="submit" name="register-submit" style="color:white;" class="btn btn-success round btn-lg" value="GUARDAR">
 												
 											
 										</div>
 									</div>
-										
 										
 
 
@@ -574,7 +626,9 @@ confirm_password.onkeyup = validatePassword;
 
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;
 			}
 			reader.readAsDataURL(f);
@@ -609,7 +663,9 @@ confirm_password.onkeyup = validatePassword;
 
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
 				selDiv.innerHTML += html;
 			}
 			reader.readAsDataURL(f);
@@ -620,6 +676,157 @@ confirm_password.onkeyup = validatePassword;
 	}
 	</script>
 
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files2').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files3').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files4').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
+
+	<script>
+	var selDiv = "";
+
+	document.addEventListener("DOMContentLoaded", init1, false);
+
+	function init1() {
+		document.querySelector('#files5').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles1");
+	}
+
+	function handleFileSelect(e) {
+
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				/*var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";*/
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+
+				selDiv.innerHTML += html;
+			}
+			reader.readAsDataURL(f);
+
+		});
+
+
+	}
+	</script>
 	<!-- //////////////////////////////////////End Image Uploader Js Script -->
     </body>
 </html>

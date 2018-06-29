@@ -10,8 +10,18 @@ You should have received a copy of the GNU General Public License along with thi
  *
 */
 
-@charset "utf-8";
+/*!
+ * http://suyati.github.io/line-control
+ * LineControl 1.1.0
+ * Copyright (C) 2014, Suyati Technologies
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+*/
 
+@charset "utf-8";
+/* base styles */
 .jumbotron {
    background-color: #67A754;
   background-image: url(images/radial_bg.png);
@@ -102,7 +112,8 @@ h2.demo-text{font-family: 'Roboto', sans-serif!important; font-size:45px; font-w
 #menuBarDiv .dropdown-toggle .caret{margin-left:5px; border-top-color:#999;}
 #menuBarDiv a.btn{position:relative; margin-bottom:3px;}
 #paletteCntr{}
-
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{height:auto; margin-bottom:10px;}
+  
 #statusbar{
   min-height:30px;
   border-radius:0 0 3px  3px;
@@ -254,8 +265,13 @@ pre {
   display:inline !important;
   }
 
-.btn-group + .btn-group {
+.btn-group + .btn-group{
   margin-left: 5px;
+}
+
+.btn-group a{
+  background: #67b168 !important;
+  border: 1px solid #67b168 !important;
 }
 .activeColour ul{
   -webkit-padding-start: 0px;
@@ -305,11 +321,12 @@ h1{
   }
 
 
+
 		</style>
 
 
 <div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> DESCRIPCION:</b> </h4></div> 
  <div class="form-group col-sm-2"> </div>        
 		<div class="form-group col-sm-8">
-			    <textarea   class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"> </textarea>
+			    <textarea   class="form-control" placeholder="Agregue Descripcion" name="description" id="txtEditor" rows="4" col="6"> </textarea>
 				</div>	

@@ -207,7 +207,7 @@ if(isset($_POST['btn_save_updates']))
 //////////////////////////////////////////////////////////////////////SUBIR IMAGENES////////////////////////////////////////////////////////////////
 $target_dir = "images/";
 
-	if($_FILES["imagenes_logo"]["name"] !="" AND !empty($_FILES["imagenes_logo"]["name"]) AND (strpos($_FILES["imagenes_logo"]["type"],'gif') || strpos($_FILES["imagenes_logo"]["type"],'jpeg') || strpos($_FILES["imagenes_logo"]["type"],'png') || strpos($_FILES["imagenes_logo"]["type"],'jpg'))
+	if($_FILES["imagenes_logo"]["name"] !="" AND !empty($_FILES["imagenes_logo"]["name"]) AND (strpos($_FILES["imagenes_logo"]["type"],'gif') || strpos($_FILES["imagenes_logo"]["type"],'jpeg') || strpos($_FILES["imagenes_logo"]["type"],'png') || strpos($_FILES["imagenes_logo"]["type"],'jpg')))
 {
 		  $target_file = $target_dir . basename($_FILES["imagenes_logo"]["name"] );
 		  $images=$_FILES['imagenes_logo']['name'];
@@ -216,7 +216,7 @@ $target_dir = "images/";
 		  move_uploaded_file($temp, $filelocation);
 }
 	
-	if($_FILES["imagenes_action1"]["name"] !="" AND !empty($_FILES["imagenes_action1"]["name"]) AND (strpos($_FILES["imagenes_action1"]["type"],'gif') || strpos($_FILES["imagenes_action1"]["type"],'jpeg') || strpos($_FILES["imagenes_action1"]["type"],'png') || strpos($_FILES["imagenes_action1"]["type"],'jpg'))
+	if($_FILES["imagenes_action1"]["name"] !="" AND !empty($_FILES["imagenes_action1"]["name"]) AND (strpos($_FILES["imagenes_action1"]["type"],'gif') || strpos($_FILES["imagenes_action1"]["type"],'jpeg') || strpos($_FILES["imagenes_action1"]["type"],'png') || strpos($_FILES["imagenes_action1"]["type"],'jpg')))
 {
 		 	$target_file = $target_dir . basename($_FILES["imagenes_action1"]["name"]);
 			$image1=$_FILES['imagenes_action1']['name'];
@@ -224,7 +224,7 @@ $target_dir = "images/";
 			$temp1 = $_FILES['imagenes_action1']['tmp_name'];
 			move_uploaded_file($temp1, $filelocation);
 }	
-	if($_FILES["imagenes_action2"]["name"] !="" AND !empty($_FILES["imagenes_action2"]["name"]) AND (strpos($_FILES["imagenes_action2"]["type"],'gif') || strpos($_FILES["imagenes_action2"]["type"],'jpeg') || strpos($_FILES["imagenes_action2"]["type"],'png') || strpos($_FILES["imagenes_action2"]["type"],'jpg'))
+	if($_FILES["imagenes_action2"]["name"] !="" AND !empty($_FILES["imagenes_action2"]["name"]) AND (strpos($_FILES["imagenes_action2"]["type"],'gif') || strpos($_FILES["imagenes_action2"]["type"],'jpeg') || strpos($_FILES["imagenes_action2"]["type"],'png') || strpos($_FILES["imagenes_action2"]["type"],'jpg')))
 {
 
 			$target_file = $target_dir . basename($_FILES["imagenes_action2"]["name"]);
@@ -233,7 +233,7 @@ $target_dir = "images/";
 			$temp2 = $_FILES['imagenes_action2']['tmp_name'];
 }	        move_uploaded_file($temp2, $filelocation);
 	
-	if($_FILES["imagenes_action3"]["name"] !="" AND !empty($_FILES["imagenes_action3"]["name"]) AND (strpos($_FILES["imagenes_action3"]["type"],'gif') || strpos($_FILES["imagenes_action3"]["type"],'jpeg') || strpos($_FILES["imagenes_action3"]["type"],'png') || strpos($_FILES["imagenes_action3"]["type"],'jpg'))
+	if($_FILES["imagenes_action3"]["name"] !="" AND !empty($_FILES["imagenes_action3"]["name"]) AND (strpos($_FILES["imagenes_action3"]["type"],'gif') || strpos($_FILES["imagenes_action3"]["type"],'jpeg') || strpos($_FILES["imagenes_action3"]["type"],'png') || strpos($_FILES["imagenes_action3"]["type"],'jpg')))
 {
 		
 			$target_file = $target_dir . basename($_FILES["imagenes_action3"]["name"]);
@@ -242,7 +242,7 @@ $target_dir = "images/";
 			$temp3 = $_FILES['imagenes_action3']['tmp_name'];
 			move_uploaded_file($temp3, $filelocation); 
  }	
-	if($_FILES["imagenes_action4"]["name"] !="" AND !empty($_FILES["imagenes_action4"]["name"]) AND (strpos($_FILES["imagenes_action4"]["type"],'gif') || strpos($_FILES["imagenes_action4"]["type"],'jpeg') || strpos($_FILES["imagenes_action4"]["type"],'png') || strpos($_FILES["imagenes_action4"]["type"],'jpg'))
+	if($_FILES["imagenes_action4"]["name"] !="" AND !empty($_FILES["imagenes_action4"]["name"]) AND (strpos($_FILES["imagenes_action4"]["type"],'gif') || strpos($_FILES["imagenes_action4"]["type"],'jpeg') || strpos($_FILES["imagenes_action4"]["type"],'png') || strpos($_FILES["imagenes_action4"]["type"],'jpg')))
 {
 
 			$target_file = $target_dir . basename($_FILES["imagenes_action4"]["name"]);
@@ -251,7 +251,7 @@ $target_dir = "images/";
 			$temp4 = $_FILES['imagenes_action4']['tmp_name'];
 			move_uploaded_file($temp4, $filelocation); 		
  }
-	if($_FILES["imagenes_action5"]["name"] !="" AND !empty($_FILES["imagenes_action5"]["name"]) AND (strpos($_FILES["imagenes_action5"]["type"],'gif') || strpos($_FILES["imagenes_action5"]["type"],'jpeg') || strpos($_FILES["imagenes_action5"]["type"],'png') || strpos($_FILES["imagenes_action5"]["type"],'jpg'))
+	if($_FILES["imagenes_action5"]["name"] !="" AND !empty($_FILES["imagenes_action5"]["name"]) AND (strpos($_FILES["imagenes_action5"]["type"],'gif') || strpos($_FILES["imagenes_action5"]["type"],'jpeg') || strpos($_FILES["imagenes_action5"]["type"],'png') || strpos($_FILES["imagenes_action5"]["type"],'jpg')))
 {
 			$target_file = $target_dir . basename($_FILES["imagenes_action5"]["name"]);
 			$image5=$_FILES['imagenes_action5']['name'];
@@ -772,6 +772,27 @@ if(!empty($image5)){
 						?> 																
 							 
 						  </div>
+<style type="text/css">
+	 #selectedFiles1 img{	 	
+                  margin-left: -30px;                  
+
+              }    
+
+    #selectedFiles2 img{	 	
+                  margin-left: -30px;                  
+
+              }              
+
+</style>
+				
+
+						 <div class="form-group">
+											<center><h4>Uploaded Picture Preview Area </h4></center>
+												<div id="selectedFiles1" class="col-md-5 col-xs-offset-4" style="margin-bottom: 10px;" >
+													<br>
+												</div>
+												<div id="selectedFiles2" class="col-md-5 col-xs-offset-4" style="margin-bottom: 10px;"></div>
+										</div> 
 							
 						<div class="col-sm-6 col-sm-offset-3">	
 							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
@@ -780,7 +801,7 @@ if(!empty($image5)){
            
        						
        						
-						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;" ><i class="fa fa-times"></i> CANCEL</a>       
+						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:white; border: 1px solid ;" ><i class="fa fa-times"></i> CANCEL</a>       
 						<br>
 						<br>
 						<br>
@@ -792,13 +813,9 @@ if(!empty($image5)){
 						</form>							
 						</div>
 						
-								<div class="col-md-2 col-sm-2">
-									<div class="form-group">
-											<h4>Uploaded Picture Preview Area </h4>
-												<div id="selectedFiles1" ></div>
-												<div id="selectedFiles2"></div>
-										</div>
-								</div>		
+								
+									
+									
 						
 						</div>
 				  </div><!-- end row -->                
@@ -852,7 +869,7 @@ if(!empty($image5)){
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -887,7 +904,7 @@ if(!empty($image5)){
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -923,7 +940,7 @@ if(!empty($image5)){
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -959,7 +976,7 @@ if(!empty($image5)){
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -995,7 +1012,7 @@ if(!empty($image5)){
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1031,7 +1048,7 @@ if(!empty($image5)){
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
