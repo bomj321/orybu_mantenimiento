@@ -83,9 +83,7 @@ $rows=mysqli_fetch_array($stmtt);
 			{
 			 $productstatus=1;
 			}
-			if($_POST['showtoplist'] !="")
-			{
-			}
+			
 		//$productType = $_POST['productType'];// item name
 			
 			///SUBIR IMAGENES

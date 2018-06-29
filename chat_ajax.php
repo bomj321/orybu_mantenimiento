@@ -27,6 +27,7 @@ if(!isset($_SESSION))
 	$ejecutar2 = $connection->query($consulta2);
 	$fila2 = $ejecutar2->fetch_array();
 	$image = $fila['image'];
+	$nueva_oferta = $fila['nueva_oferta'];
 ?>
 	<div id="datos-chat">
 		<?php 
@@ -39,19 +40,23 @@ if(!isset($_SESSION))
 		<span style="color: black; float: right;"><?php echo formatearFecha($fila['fecha']); ?></span>
 		<?php 
 
-}else{
+}elseif(empty($image)){
 		 ?>
 
 		<span style="color: black;" ><?php echo $fila2['firstName']; ?>:</span>
-		<span style="color: black;"><?php echo $fila['mensaje']; ?></span> 
-		<span><a href="<?php echo $target_dir.$fila['image'];?>"><?php echo $image ?></a></span>
+		<span style="color: black;"><?php echo $fila['mensaje']; ?></span>
+			<?php if (!empty($nueva_oferta)) {				
+			?> 
+		<span><a class="text-danger" href="mycartArry.php?pid=<?php echo $pid; ?>&precio_nuevo=<?php echo $nueva_oferta; ?>">Press to accept the Offer</a></span>
+		<?php
+			}
+		?>
 		<span style="color: black; float: right;"><?php echo formatearFecha($fila['fecha']); ?></span>
 
 		 <?php 
 
 }
-
-		  ?>
+		 ?>			 
 		  <hr>
 	</div>
 	

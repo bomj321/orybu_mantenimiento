@@ -314,7 +314,7 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Use: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Packing <span class="text-danger">*</span>  </label></div>
-                <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div>				
+                <div class="form-group" style="margin-top:20px;"><label> Product type:  <span class="text-danger">*</span> </label></div>				
 				<div class="form-group" style="margin-top:580px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
@@ -708,7 +708,7 @@ else if(trim($str1) ==trim($str3))
 						 
 						 <div class="form-group ">
 		
-			<select  class="form-control " name="productType">
+			<select  required="true" class="form-control " name="productType">
 			<option  value="">Select Product Type</option>
 			<option value="Eco Friendly" >Eco Friendly</option>
 			<option value="Innovation" >Innovation</option>
@@ -790,7 +790,7 @@ else if(trim($str1) ==trim($str3))
                          </select>        	
 							</div>
 					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text" placeholder="Minimum Order" name="oquantity" required="true" /></div>
-					   <div class="form-group col-sm-4 input-group"  style="padding-left:0px;">
+					   <div class="form-group col-sm-4 input-group"  style="padding-right:14px;">
 						   <select class="form-control " id="unit" name="dropminimum2" style="height:39px;>
 	                         <option value="Unit">Unit</option>  
                              <option value="Ton">Ton</option>  

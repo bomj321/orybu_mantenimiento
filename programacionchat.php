@@ -7,6 +7,7 @@
             
         //$nombre = mysqli_real_escape_string($_POST['nombre']);
         $mensaje = mysqli_real_escape_string($connection,$_POST['mensaje']);
+        $nuevo_precio = mysqli_real_escape_string($connection,$_POST['nueva_oferta']);
         $comprobar = "SELECT * FROM c_chats WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='1') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='1')";
         $comprobacion = $connection->query($comprobar);
         $row=$comprobacion->fetch_assoc();
@@ -26,7 +27,7 @@
 
 
         if (mysqli_num_rows($comprobacionx3)==0) {
-           $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1');";  
+           $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1')";  
         $resultado = $connection->query($insert);
        
 
@@ -66,14 +67,15 @@
           
           include('datosimagen.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
+         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image,nueva_oferta) VALUES
+         (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen','".$nuevo_precio."')";
          $resultado3 = $connection->query($insert2);
          
           //INSERTAR LOS MENSAJES
 
-          if($resultado3){
+         /* if($resultado3){
             echo "<embed loop='false' src='css/beep.mp3' hidden='true' autoplay='true'>";
-           }
+           }*/
 
           
           
@@ -91,15 +93,16 @@
           $id_cch=$fila['id_cch'];
           include('datosimagen.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
+          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image,nueva_oferta) VALUES
+          (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen','".$nuevo_precio."')";
          $resultado4 = $connection->query($insert3);
         
 
-            if($resultado4) {
+           /* if($resultado4) {
 
              echo "<embed loop='false' src='css/beep.mp3' hidden='true' autoplay='true'>";
 
-              }  
+              }  */
 
                           
         }

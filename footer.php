@@ -9,7 +9,7 @@
     <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-6 col-md-3">
                         <h5 class="title">Buyers</h5>
                         <ul class="list alt-list">
                             <li><a href="startBuying.php"><i class="fa fa-angle-right"></i>Start Buying</a></li>
@@ -20,7 +20,7 @@
                         
                     </div><!-- end col -->
                     
-                    <div class="col-sm-3">
+                    <div class="col-sm-6 col-md-3">
                         <h5 class="title">Sellers</h5>
                         <ul class="list alt-list">
                             <li><a href="startSelling.php"><i class="fa fa-angle-right"></i>Start Buying</a></li>
@@ -30,7 +30,7 @@
 
                         
                     </div><!-- end col -->
-                    <div class="col-sm-2">
+                    <div class="col-sm-4 col-md-2">
                         <h5 class="title">My Account</h5>
                         <ul class="list alt-list">
                             <li><a href="buyeraccount.php"><i class="fa fa-angle-right"></i>My Account</a></li>
@@ -39,7 +39,7 @@
                             <li><a href="checkout.php"><i class="fa fa-angle-right"></i>Checkout</a></li>
                         </ul>
                     </div><!-- end col -->
-                    <div class="col-sm-2">
+                    <div class="col-sm-4 col-md-2">
                         <h5 class="title">Information</h5>
                         <ul class="list alt-list">
                             <li><a href="aboutus.php"><i class="fa fa-angle-right"></i>About Us</a></li>
@@ -49,7 +49,7 @@
                             <li><a href="contactus.php"><i class="fa fa-angle-right"></i>Contact Us</a></li>
                         </ul>
                     </div><!-- end col -->
-                    <div class="col-sm-2">
+                    <div class="col-sm-4 col-md-2">
                         <h5 class="title">Payment Methods</h5>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         <ul class="list list-inline">

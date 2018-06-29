@@ -38,9 +38,7 @@ include('head.php');
                         </div>
                     </div><!-- end col -->
                     
-                    <div class="col-sm-2" style="margin-top:30px;">
-                        <a type="button" class="btn btn-success" href="product_add.php">Upload Product</a>
-                    </div><!-- end col -->
+                   
                     
                     
                 </div><!-- end row -->
@@ -108,6 +106,13 @@ include('head.php');
          
                  
                 </div><!-- end row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <center>
+                             <a type="button" class="btn btn-success btn-lg" href="product_add.php">Upload Product</a>
+                        </center>
+                    </div>
+                </div>
         
             </div><!-- end container -->
         </section>

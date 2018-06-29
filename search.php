@@ -44,7 +44,7 @@ include('navh.php');
         
         
         
-        ///////////////////////CONSULTAS CANTIDAD CATEGORIAs///////////////////////////////
+       /* ///////////////////////CONSULTAS CANTIDAD CATEGORIAS///////////////////////////////
                $Industrial=15;
                $query1="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.catid LIKE '%".$Industrial."%' )";
                $result1=mysqli_query($connection,$query1);      
@@ -94,7 +94,7 @@ include('navh.php');
                $query10="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.catid LIKE '%".$Shoes."%' )";
                $result10=mysqli_query($connection,$query10);      
                $row10= mysqli_num_rows($result10);
-        ///////////////////////CONSULTAS CANTIDAD CATEGORIAS///////////////////////////////
+        ///////////////////////CONSULTAS CANTIDAD CATEGORIAS///////////////////////////////*/
 
         
 	   ?>
@@ -106,7 +106,7 @@ include('navh.php');
 			 
                             <div class="col-sm-12 text-left">
 							<div style="margin-top:-50px; height:20px;"class="content white-background">
-                                <h6  style="margin-top:-10px; ">ALL PRODUCTS >Categories</h6>
+                                <h6  style="margin-top:-10px; ">ALL PRODUCTS > Categories</h6>
 								</div>
                             </div><!-- end col -->
                   </div><!-- end row -->
@@ -187,7 +187,7 @@ include('navh.php');
 
                                         </ul>
                                         </div><!-- end panel-body -->
-										 <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Submit">
+										 <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Find">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
 
@@ -240,7 +240,7 @@ include('navh.php');
 
 
 
-	   <div class="content light-background">
+	   <div >
                     <div class="row">
 								<?php
 					if($_POST['keyword'] !="")
@@ -251,7 +251,7 @@ include('navh.php');
  {
   $category=$_POST['category'];
  }
-			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.selectedkeyword LIKE '%".$query_key."%') OR (categories.title LIKE '%".$category."%' )";
+			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ((products.selectedkeyword LIKE '%".$query_key."%') OR (categories.title LIKE '%".$category."%' )) AND producttoplist='1' ";
                $result=mysqli_query($connection,$query);
 			   ?>
                         </div><!-- end row -->
@@ -262,7 +262,7 @@ include('navh.php');
 				 $cl = explode(',', $myString);
 							  ?>
 
-         <div class="col-sm-6 col-md-3" style="padding:3px">
+         <div class="col-sm-6 col-md-6" >
                         	<?php
 
 
@@ -281,7 +281,7 @@ include('navh.php');
 										?>
                             <div class="cat-item-style2">
 							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
+								 <?php echo '<h6>'.$row['title'].'</h6>'; ?>
 
                                 </div><!-- end title -->
 								<div class="price">
@@ -291,7 +291,7 @@ include('navh.php');
                                 <figure>
 
                    <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">
-										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
+										 <img style="height:200px; width:100%;" src="images/<?php echo $myString; ?>" alt="" />
 
                                     </a>
                                 </figure>
@@ -315,12 +315,94 @@ include('navh.php');
 
 				   </div>
 				   <?php  } ?>
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
+                   
+                
 
-                        </div><!-- end col -->
-                    </div><!-- end row -->
+<!-------------------------------------------------------------------NO TOP LIST----------------------------------------------------------------------------->
+
+                   
+                <?php
+          if($_POST['keyword'] !="")
+{
+ $query_key=$_POST['keyword'];
+ }
+ if($_POST['category'] != "")
+ {
+  $category=$_POST['category'];
+ }
+       $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ((products.selectedkeyword LIKE '%".$query_key."%') OR (categories.title LIKE '%".$category."%' )) AND producttoplist='0'";
+               $result_no=mysqli_query($connection,$query_no);
+         ?>
+                        </div><!-- end row -->
+                    <?php
+                  while( $row_no=mysqli_fetch_array($result_no)){
+         $myString_no = $row_no['image'];
+          $productType_no=$row_no['productType'];
+         $cl = explode(',', $myString);
+                ?>
+
+         <div class="col-sm-6 col-md-6" >
+                          <?php
+
+
+
+
+              if($productType_no =="Eco Friendly"){
+                  ?>
+                       <span> <img style="height:35px; width:35px;float:right"src="images/ecofriendly.png" />
+                                       </span><?php
+                    }
+                    else if($productType_no =="Innovation"){
+                    ?>
+                       <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
+                                       </span><?php
+                    }
+                    ?>
+                            <div class="cat-item-style2">
+                 <div class="title">
+                 <?php echo '<h6>'.$row_no['title'].'</h6>'; ?>
+
+                                </div><!-- end title -->
+                <div class="price">
+                                  <center>  <span class="amount text-primary"><?php echo $row_no['subtitle']; ?></span>  </center>
+
+                                        </div>
+                                <figure>
+
+                   <a href="Shopsingle.php?pid=<?php echo $row_no['pid'] ; ?>">
+                     <img style="height:200px; width:100%;" src="images/<?php echo $myString_no; ?>" alt="" />
+
+                                    </a>
+                                </figure>
+                                <div class="title">
+                 <?php echo '<h6><a href="Shopsingle.php?pid='.$row_no['pid'].'"> '.$row_no['ntitle'].'</a></h6>'; ?>
+
+                                </div><!-- end title -->
+                <div class="price">
+                                  <center>  <span class="amount text-success">$<?php echo $row_no['price']; ?></span>  </center>
+                      <?php
+
+                      //$p = $price -10;
+                                               ?>
+                                          <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
+
+                                        </div>
+                            </div><!-- end cat-item-style2 -->
+                        <!-- end col -->
+
+                   <!-- end row -->
+
+           </div>
+           <?php  } ?>
+                    
                 </div><!-- end content -->
+<!------------------------------------------------------------------- NO TOP LIST----------------------------------------------------------------------------->
+
+
+
+       
+
+
 
 	  </div>
 	  </section>

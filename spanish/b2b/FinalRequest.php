@@ -31,8 +31,12 @@ $query = "INSERT INTO buyerrequests(buyer_id, BuyerName,prod_name,bmessage,image
  //echo $query;
  $result=mysqli_query($connection,$query);
  if($result){
-	 $suc='<div class="alert alert-success" id="#suc">Successfuly Requested !</div>';
-	 echo $suc;
+	 echo '
+      <script>
+                    alert("Solicitado con éxito!");  //not showing an alert box.
+                    window.location.href="breq.php";
+        </script>  
+   ';
  }
 }
  ?>
@@ -57,8 +61,8 @@ include('head.php');
                           </div>
 
                         <div class="form-group">
-                          <label class="control-label" for="message" name="description">Descirption</label>
-                          <textarea id="message" rows="5" class="form-control" required placeholder="Description ..." name="description"></textarea>
+                          <label class="control-label" for="message" name="description">Descripcion</label>
+                          <textarea id="message" rows="5" class="form-control" required placeholder="Descipcion..." name="description"></textarea>
                        </div>
 					 <div class="form-group">
                                 <input type="submit"  class="btn btn-success round btn-md"  value="Request">

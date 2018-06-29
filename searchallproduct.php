@@ -185,7 +185,7 @@ include('navh.php');
 
                                         </ul>
                                         </div><!-- end panel-body -->
-										 <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Submit">
+										 <input type="submit" name="filter" class="btn btn-success btn-block btn-md" value="Find">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
 								
@@ -246,7 +246,7 @@ include('navh.php');
  $query=$_GET['keyword'];
              if($title !=" ")
 			 {
- 			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%".$title."%' )";
+ 			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%".$title."%' ) AND producttoplist='1'";
 				}	 
 				
                $result=mysqli_query($connection,$query);
@@ -258,7 +258,7 @@ include('navh.php');
 							$cl = explode(',', $myString);
 				  ?>
 				 
-         <div class="col-sm-6 col-md-3" style="padding:3px">
+         <div class="col-sm-6 col-md-6">
                         												
 							 
 						<?php
@@ -277,7 +277,7 @@ include('navh.php');
                         
                             <div class="cat-item-style2">
 							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
+								 <?php echo '<h6> '.$row['title'].'</h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
@@ -287,7 +287,7 @@ include('navh.php');
                                 <figure>
 								
                    <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
-										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
+										 <img style="height:200px; width:100%;" src="images/<?php echo $cl[0]; ?>" alt="" />
 										
                                     </a>
                                 </figure>
@@ -319,7 +319,7 @@ include('navh.php');
 foreach ($name as $country){ 
  
 				
-					 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ( products.country LIKE '%".$country."%'  )";
+					 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ( products.country LIKE '%".$country."%'  ) AND producttoplist='0'";
 					 
 					
                $result=mysqli_query($connection,$query);
@@ -331,7 +331,7 @@ foreach ($name as $country){
 							$cl = explode(',', $myString);
 				  ?>
 				 
-         <div class="col-sm-6 col-md-3" style="padding:3px">
+         <div class="col-sm-6 col-md-6" style="padding:3px">
                         												
 							 
 						<?php
@@ -360,7 +360,7 @@ foreach ($name as $country){
                                 <figure>
 								
                    <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
-										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
+										 <img style="height:200px; width:100%;" src="images/<?php echo $cl[0]; ?>" alt="" />
 										
                                     </a>
                                 </figure>

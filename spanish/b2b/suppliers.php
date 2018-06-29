@@ -160,7 +160,7 @@ $cl = explode(',', $myString);
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Lista Superior</a>
+												  <a   class=" btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Lista Superior</a>
 
 												
 			

@@ -39,7 +39,7 @@ function googleTranslateElementInit() {
 
                     <li class="linkdown" >
                         <a href="javascript:void(0);">
-                           <img src="img/flags/flag-english.jpg" class="mr-5" alt="">
+                           <img style="width: 15px" src="img/flags/eeuu.jpeg" class="mr-5" alt="">
                             <span class="hidden-xs">
                              English
                                 <i class="fa fa-angle-down ml-5"></i>

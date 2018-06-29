@@ -1,9 +1,8 @@
 <?php session_start();
 include('Connect.php');
 $pid=$_GET['pid']; 
+$nuevo_precio=$_GET['precio_nuevo']; 
 $email=$_SESSION['uemail'];
-
-
 $_SESSION['pid']=$pid;
 
 $query="SELECT * from products where pid=$pid";
@@ -23,7 +22,19 @@ $email = $_SESSION['uemail'];
 $pid = $_SESSION['pid'];
 $image = $cl[0];
 $title = $_SESSION['ntitle'];
-$price = $_SESSION['price'];
+if (!empty($nuevo_precio) AND isset($nuevo_precio) AND is_numeric($nuevo_precio)) {
+	$price=$nuevo_precio;
+}elseif(is_NAN($nuevo_precio)){
+	echo' 
+						  <script>
+									alert("NO ES UN NUMERO");  //not showing an alert box.
+									 window.location.href="chat2.php";
+						 </script>
+							';
+}else{
+	$price = $_SESSION['price'];
+}
+
 $description = $_SESSION['fulldesc'];
 $orderstatus = 'Incomplete';
 //Variables
@@ -33,7 +44,15 @@ $orderstatus = 'Incomplete';
  $insert2 = "INSERT INTO cart2(pid,image,title,price,description,email,orderstatus,quantity,totalprice) VALUES(".$pid.", '".$image."','".$title."', ".$price.", '".$description."','".$email."','".$orderstatus."','1',".$price.");";
          $resultado3 = $connection->query($insert2);
 //INSERT INTO
-
+if(!$resultado3){
+ echo 'error </br>' ;
+  echo $email .'</br>';
+  echo $pid.'</br>';
+  echo $image.'</br>';
+  echo $title.' titulo</br>';
+  echo $price.' precio</br>';
+  echo $description.'</br>';
+}
 $cart = array (
 'pid'  =>$_SESSION['pid'],
 'p_image' => $_SESSION['image'],

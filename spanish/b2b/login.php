@@ -4,19 +4,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 $email = mysqli_real_escape_string( $connection, $_POST['email']);
 $password = mysqli_real_escape_string($connection, $_POST['password']);   
  
-$confirmado_sql="SELECT * FROM users WHERE email='$email' AND password = '$password'";
+$confirmado_sql="SELECT * FROM users WHERE email='$email'";
 $rsl_sql=mysqli_query($connection,$confirmado_sql);
 $row_confirmado = mysqli_fetch_array($rsl_sql);
+$password_confirmado= $row_confirmado['password'];
 $confirmado=$row_confirmado['confirmed'];
 $userstatus= $row_confirmado['userStatus']; 
 $tipo_usuario= $row_confirmado['userType'];
 $nr=mysqli_num_rows($rsl_sql); 
 if($nr>0){
- 
-   if($confirmado==0){
+
+  if($password_confirmado != $password){
     echo'
     <script>
-    alert("Por favor revisa tu email de confirmacion");
+    alert("Contraseña Incorrecta");
+    window.location.href="singlelogin.php";
+    </script>
+   ';
+
+
+  }elseif($confirmado==0){
+    echo'
+    <script>
+    alert("Por favor confirma tu cuenta");
     window.location.href="logoff.php";
     </script>
    ';
@@ -25,16 +35,16 @@ if($nr>0){
  }elseif($userstatus==0){ 
   echo'
     <script>
-    alert("Contacta con el admin, perfil pendiente");
+    alert("Contacta con el admin, perfil en espera");
     window.location.href="logoff.php";
     </script>
    ';
  
 }elseif($tipo_usuario=='buyer' || $tipo_usuario=='both' || $tipo_usuario=='supplier'){
     $usertype=$row_confirmado['userType'];
-	$userstatus=$row_confirmado['userStatus'];
+    $userstatus=$row_confirmado['userStatus'];
     $checkemail=$row_confirmado['email'];
-	$name=$row_confirmado['firstName'];
+    $name=$row_confirmado['firstName'];
     $_SESSION['fname']=$name;
     $checkpassword=$row_confirmado['email'];
       $userid= $row_confirmado['user_id'];     
@@ -45,13 +55,13 @@ if($nr>0){
       $_SESSION['countryName'] = $country;
  
  $_SESSION['firstName']=$name;
-	  $now= date("Y-m-d h:i:s");
+    $now= date("Y-m-d h:i:s");
 
-	 $updatequery="update `users` set `status`='online', `lastactiveon`='$now' where `email`='$email' ";
-	mysqli_query($connection,$updatequery);
+   $updatequery="update `users` set `status`='online', `lastactiveon`='$now' where `email`='$email' ";
+  mysqli_query($connection,$updatequery);
  
          $_SESSION['uemail']=$email;
-         $_SESSION['utype']=$usertype;		 
+         $_SESSION['utype']=$usertype;     
          header("location: index.php");
 }
  
@@ -59,7 +69,7 @@ if($nr>0){
  }else{
    echo'
     <script>
-    alert("Datos incorrectos, por favor insertalos nuevamente");
+    alert("Email Incorrecto");
     window.location.href="singlelogin.php";
     </script>
    ';

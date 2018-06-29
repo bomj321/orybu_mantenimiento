@@ -1,4 +1,4 @@
- <?php
+<?php
       if (isset($_POST['enviar'])) {
        // $vendedor = mysqli_real_escape_string($connection,$_GET['sellerid']);
          $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
@@ -7,6 +7,7 @@
             
         //$nombre = mysqli_real_escape_string($_POST['nombre']);
         $mensaje = mysqli_real_escape_string($connection,$_POST['mensaje']);
+        $nuevo_precio = mysqli_real_escape_string($connection,$_POST['nueva_oferta']);
         $comprobar = "SELECT * FROM c_chats WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='1') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='1')";
         $comprobacion = $connection->query($comprobar);
         $row=$comprobacion->fetch_assoc();
@@ -14,8 +15,9 @@
       
 
         if (mysqli_num_rows($comprobacion)==0) {
-          //INSERTAR EL CHAT
           
+          //INSERTAR EL CHAT
+         
 
          //ACTUALIZAR CHAT 
         $comprobarx3 = "SELECT * FROM c_chats WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='0' AND vchatb ='1' ) OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='0' AND vchata ='1') OR (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='0') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='0')";
@@ -25,20 +27,21 @@
 
 
         if (mysqli_num_rows($comprobacionx3)==0) {
-           $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1');";  
+           $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1')";  
         $resultado = $connection->query($insert);
        
 
 
         }else{
-          $sqlx3 = "UPDATE c_chats SET vchata='1' WHERE id_cch ='126'";
+          $sqlx3 = "UPDATE c_chats SET vchata='1' WHERE id_cch ='$id_cchx3'";
           $connection->query($sqlx3);       
-          $sqlx4 = "UPDATE c_chats SET vchatb='1' WHERE id_cch ='126'";
+          $sqlx4 = "UPDATE c_chats SET vchatb='1' WHERE id_cch ='$id_cchx3'";
           $connection->query($sqlx4); 
 
         }
 
          //ACTUALIZAR CHAT 
+
 
 
 
@@ -52,7 +55,7 @@
           $resultado2 = $connection->query($siguiente);
           $fila=$resultado2->fetch_assoc();
           $id_cch=$fila['id_cch'];
-          
+         
 
  //INSERTAR EL CHAT
           
@@ -64,14 +67,15 @@
           
           include('datosimagen.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
+         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image,nueva_oferta) VALUES
+         (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen','".$nuevo_precio."')";
          $resultado3 = $connection->query($insert2);
-          
+         
           //INSERTAR LOS MENSAJES
 
-          if($resultado3){
+         /* if($resultado3){
             echo "<embed loop='false' src='css/beep.mp3' hidden='true' autoplay='true'>";
-           }
+           }*/
 
           
           
@@ -86,19 +90,19 @@
 
            //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ        
           
-          $image = 'nada';
           $id_cch=$fila['id_cch'];
           include('datosimagen.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
+          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image,nueva_oferta) VALUES
+          (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen','".$nuevo_precio."')";
          $resultado4 = $connection->query($insert3);
         
 
-            if($resultado4) {
+           /* if($resultado4) {
 
              echo "<embed loop='false' src='css/beep.mp3' hidden='true' autoplay='true'>";
 
-              }  
+              }  */
 
                           
         }

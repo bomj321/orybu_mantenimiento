@@ -14,10 +14,40 @@ include('middlebar.php');
 include('navh.php');
 
 ini_set('error_reporting',0);
-
+$email=$_SESSION['uemail'];
+$sql_email="SELECT * FROM seller WHERE email='$email'";
+$stmt_email=mysqli_query($connection,$sql_email);
+$rowemail=mysqli_fetch_array($stmt_email);
 
 ?>
+<!--------------------------------------------CHAT DE BUYER REQUEST-->
+<!--HOJA DE ESTILO-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+ <!--HOJA DE ESTILO-->
 
+ 
+
+  <body >
+<div class="container chateo" id="body">
+  <!-------------------------BOTONES-->
+<div style="margin-bottom: 2em;" class="row ">
+  <div class="col-md-2">
+    <a href="chat2.php"><button class="btn btn-primary">MIS CHATS</button></a>
+  </div>
+
+<div class="col-md-2">
+      <a href="chatby.php"><button class="btn btn-primary">SOLICITUDES DE COMPRA</button></a>
+
+</div>
+
+</div>
+
+
+  <!-------------------------BOTONES-->
+  <div class="row">
+    <!---ASIDE DEL CHAT-->
+<div class="col-md-4" id="aside" style="height: 628.383px">
+      <h6 style="text-align: center">Mis Chats (Solicitudes de Compra)</h6>
 
 
 <?php 
@@ -43,41 +73,15 @@ if(isset($_GET['leido'])) {
 
 
  ?>
- <!--HOJA DE ESTILO-->
-<link rel="stylesheet" type="text/css" href="css/estilos.css">
- <!--HOJA DE ESTILO-->
-
  
-
-  <body >
-<div class="container chateo" id="body">
-  <!-------------------------BOTONES-->
-<div style="margin-bottom: 2em;" class="row ">
-  <div class="col-md-2">
-    <a href="chat2.php"><button class="btn btn-primary">MI CHATS</button></a>
-  </div>
-
-<div style="margin-left: -3em;" class="col-md-2">
-      <a href="chatby.php"><button class="btn btn-primary">SOLICITUDES DE COMPRA</button></a>
-
-</div>
-
-</div>
-
-
-  <!-------------------------BOTONES-->
-  <div class="row">
-
-    <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside" style="height: 628.383px">
-      <h6 style="text-align: center">MY CHATS (Buyers Requests)</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
 <?php 
-      include("programacionasidechatby.php");
-     ?>
-<!--FIN PROGRAMACION DEL ASIDE DEL CHAT-->
 
+include("programacionasidechatby.php");
+
+ ?>
+<!--Fin PROGRAMACION DEL ASIDE DEL CHAT-->
 </div>
 
 <!-------------------------------ASIDE DEL CHAT------------------------>
@@ -99,9 +103,17 @@ if (!empty($pid) AND !empty($para) ) {
 
     <form method="POST" action="" enctype="multipart/form-data">
       <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
-      <textarea name="mensaje" placeholder="Enter your message"></textarea>
+      <textarea name="mensaje" placeholder="Envia un Mensaje"></textarea>
     <input class="filesenviar" id="files"  type="file"  name="imagen"/>
-    <input class="inputenviar" type="submit" name="enviar" value="Send">    </form>
+    <?php if($rowemail>0)
+    {
+    ?>
+       <input type="text" name="nueva_oferta" placeholder="Generar oferta, insertar nuevo precio">
+     <?php
+     } 
+     ?>
+    <input class="inputenviar" type="submit" name="enviar" value="Enviar">
+        </form>
      </div>
 
 <!--CHAT-->
@@ -112,10 +124,10 @@ if (!empty($pid) AND !empty($para) ) {
  ?>
 
 <!--AJAX PARA EL CHAT-->
-  
-    <?php 
-      include("programacionajaxchatby.php");
-     ?>
+  <?php 
+
+include("programacionajaxchatby.php");
+ ?>
 <!--AJAX PARA EL CHAT-->
 
 
@@ -123,12 +135,12 @@ if (!empty($pid) AND !empty($para) ) {
  <!--DEPENDENDIENDO LAS VARIABLES APARECERA O NO-->
 
 <!--Programacion del CHAT-->
+<?php 
 
-    <?php 
-      include("programacionchatby.php");
-     ?>
-
-  <!--Fin Programacion del CHAT--> 
+include("programacionchatby.php");
+ ?>
+    
+   <!--Fin Programacion del CHAT-->
 
   
 
@@ -203,5 +215,7 @@ if (!empty($pid) AND !empty($para) ) {
 
 <!--SCRIPT PARA EL SCROLL-->
 </body>
+<!--------------------------------------------CHAT DE BUYER REQUEST-->
+
 <?php require'footer.php'; ?>
 </html>

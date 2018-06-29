@@ -89,7 +89,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
             </div>
             <div class="row">         
                 
-                <div class="col-8 col-sm-8 col-xs-8">
+                <div class="col-8 col-sm-8 col-xs-8" style="margin-top: 50px;">
                 <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
@@ -279,7 +279,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     </div>
                 </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4" style="float:right; margin-top:4rem">
+                <div class="col-md-4 col-sm-4 col-xs-4" style="float:right; margin-top:9rem">
                     <?php
                     $sql="Select * from `images` Where id='47'";
                     $result=mysqli_query($connection,$sql);

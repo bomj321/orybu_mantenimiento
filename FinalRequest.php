@@ -32,9 +32,15 @@ move_uploaded_file($temp, $filelocation);
 $query = "INSERT INTO buyerrequests(buyer_id, BuyerName,prod_name,bmessage,image,catename,quantity,unit,dtym, tiempo,country) VALUES ('$userid','$user', '$prod_name','$desc' ,'$image','$dropcat','$quantity','$dropunit','$dtym', '$fechafinal', '$pais')";
  //echo $query;
  $result=mysqli_query($connection,$query);
- if($result){
-	 $suc='<div class="alert alert-success" id="#suc">Successfuly Requested !</div>';
-	 echo $suc;
+ if($result){	
+
+
+   echo '
+      <script>
+                    alert("Successfully Requested!");  //not showing an alert box.
+                    window.location.href="breq.php";
+        </script>  
+   ';
  }
 }
  ?>

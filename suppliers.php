@@ -104,8 +104,7 @@ $myString = $row['image'];
                 <td></br><?php echo $row['delivery_details']; ?></td>		
                 <td><img style="height:100px; width:100px;" src="images/<?php echo $myString; ?>" /></td>
 
-        <td></br>
-		&nbsp;&nbsp;
+        <td>
 	
 		 <?php  $productaction =$row['productaction'];
 													
@@ -126,7 +125,7 @@ $myString = $row['image'];
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-warning" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Suspend</a>
+												   <a class="btn btn-xs btn-warning" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Suspend</a>
 
 												
 			
@@ -140,7 +139,8 @@ $myString = $row['image'];
                                                     }
                                                       ?> 
 		
-		 <?php   $producttoplist =$row['producttoplist'];
+		 											<?php   
+		 											$producttoplist =$row['producttoplist'];
 													
 													?>
 														<input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
@@ -159,7 +159,7 @@ $myString = $row['image'];
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Top    List </a>
+												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Top List </a>
 
 												
 			

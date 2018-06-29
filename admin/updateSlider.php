@@ -26,28 +26,33 @@ $row=mysqli_fetch_assoc($stmt);
 
 if(isset($_POST['btn_save_updates']))
 	{
-     $title = $_POST['title'];// item name
+    /* $title = $_POST['title'];// item name
 	 $subtitle = $_POST['subtitle'];// item name
 			
 		 
 			
 		    $description = $_POST['description'];// item name
-			 $elementname = $_POST['elementname'];// item name
+			 $elementname = $_POST['elementname'];// item name*/
 			 
 		    $hreflink = $_POST['hreflink'];// item name
 		
 		
-			$target_dir = "../images/";
-	
+			    $target_dir = "../images/";	
 		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
 				$image=$_FILES['file1']['name'];
-			$filelocation = $target_dir.$image;
-        $temp = $_FILES['file1']['tmp_name'];
-		 move_uploaded_file($temp, $filelocation);
+			    $filelocation = $target_dir.$image;
+                $temp = $_FILES['file1']['tmp_name'];
+		        move_uploaded_file($temp, $filelocation);
 	
 	
-$sql="UPDATE slider  SET image='".$image."' WHERE (id='$id')";
+	if(empty($image) AND isset($image)){
+  	$sql="UPDATE slider  SET src='".$hreflink."' WHERE (id='$id')";
  mysqli_query($connection,$sql);
+  }else{
+  		$sql="UPDATE slider  SET image='".$image."', src='".$hreflink."' WHERE (id='$id')";
+ 		mysqli_query($connection,$sql);
+  }	
+
 	 $stmt = $connection->prepare($sql);
      if($stmt === false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -150,7 +155,11 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 														<label>Picture</label>
 														<img style="height:150px; width:150px;"src="../images/<?php echo $image ?>">
 														<input type="file" class="form-control" name="file1"  />
-													</div>											
+													</div>	
+
+												<div class="input-group input-group-lg col-md-12">
+												  <input type="text" class="form-control" placeholder="Add Link" name="hreflink">
+												</div>											
 
 												<div class="form-actions">
 													<div class="row">
@@ -162,6 +171,8 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 														</div>
 													</div>
 												</div>
+												
+												
 											</form>
 											
 

@@ -314,7 +314,7 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Uso: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Tamaño: </label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Empaquetado <span class="text-danger">*</span>  </label></div>
-                <div class="form-group" style="margin-top:20px;"><label> Tipo de Producto: </label></div>				
+                <div class="form-group" style="margin-top:20px;"><label> Tipo de Producto:  <span class="text-danger">*</span> </label></div>				
 				<div class="form-group" style="margin-top:580px;"><label>Precio FOB <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:30px;"><label>Orden Minima <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Detalles del Envio: <span class="text-danger">*</span></label></div>
@@ -706,7 +706,7 @@ else if(trim($str1) ==trim($str3))
 						 
 						 <div class="form-group ">
 		
-			<select  class="form-control " name="productType">
+			<select  required="true" class="form-control " name="productType">
 			<option  value="">Selecciona el tipo de Producto</option>
 			<option value="Eco Friendly" >Eco-Amigable</option>
 			<option value="Innovation" >Inovador</option>

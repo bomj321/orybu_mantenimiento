@@ -103,10 +103,11 @@ $(document).ready(function(){
 						    $result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
 							$picture=$row['image'];
+							$link=$row['src'];
 							?>
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                <img src="../../images/<?php echo $picture;?>" style="width: 100%;height: 45rem;" alt="...">
+                                 <a href="<?php echo $link;?>"> <img src="../../images/<?php echo $picture;?>" style="width: 100%;height: 45rem;" alt="..."></a>
                                 <div class="carousel-caption">
                                 </div>
                                 </div>
@@ -117,7 +118,7 @@ $(document).ready(function(){
                             <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
                             <?php foreach($results as $resu): ?>
                                 <div class="item">
-                                <img src="../../images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 45rem;">
+                                <a href="<?php echo $resu['src'];?>"><img src="../../images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 45rem;"></a>
                                 <div class="carousel-caption">
                                 </div>
                                 </div>
@@ -173,7 +174,7 @@ $(document).ready(function(){
                         $row=mysqli_fetch_array($result);
                         $image=$row['image'];
                         ?>
-						<a href="<?php echo $hreflink ?>"><img class="img-responsive height" src="../../images/<?php echo $image?>" />
+						<a ><img class="img-responsive height" src="../../images/<?php echo $image?>" />
 						</a>
 					</div>
 				</div><!-- end col -->
@@ -561,7 +562,7 @@ echo $final;
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 0,4";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 0 LIMIT 0,100";
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -625,7 +626,7 @@ $userId=$row['user_id'];
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 5,10";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 0 LIMIT 101,200";
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);

@@ -4,7 +4,7 @@ session_start();
 error_reporting(0);
 include 'Connect.php';
 include('head.php');
-$email= $_SESSION['confemail'];
+$email= $_SESSION['uemail'];
 $confirmcode=$_SESSION['code'];
 
   ?>

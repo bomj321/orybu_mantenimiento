@@ -8,12 +8,14 @@ $confirmcode=$_SESSION['code'];
 $userStatus = $_GET['userStatus'];
 // Para enviar un correo HTML, debe establecerse la cabecera Content-type
 $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-$cabeceras .= "Organization: Orybu.com\r\n";
+$cabeceras .= "Organization: Ecommerce Orybu\r\n";
 $cabeceras .= "X-Priority: 3\r\n";
-$cabeceras .= "X-Mailer: PHP". phpversion(7.0) ."\r\n";
+$cabeceras .= "X-Mailer: PHP". phpversion(7.1) ."\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$cabeceras .= 'Cc: <admin@orybu.com>' . "\r\n";
+$cabeceras .= 'Bcc: <admin@orybu.com>' . "\r\n";
 // Cabeceras adicionales
-$cabeceras .= 'From:<admin@orybu.com>' . "\r\n";
+$cabeceras .= 'From: www.orybu.com <admin@orybu.com>' . "\r\n";
 $cabeceras .= "Reply-To: <admin@orybu.com>\r\n";
 $cabeceras .= "Return-Path: <admin@orybu.com>\r\n";
 if (isset($userStatus)) {

@@ -32,8 +32,8 @@ require 'Connect.php';
                             </span>
                         </a>
                         <ul class="w-100">
-
-                            <li><a href="../../"><img src="img/flags/flag-english.jpg" class="mr-5" alt="">English</a>
+                            
+                            <li><a href="../../"><img style="width: 15px" src="img/flags/eeuu.jpeg" class="mr-5" alt="">English</a>
 							</li>
                         </ul>
                     </li>

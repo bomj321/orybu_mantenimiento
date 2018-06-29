@@ -38,11 +38,22 @@ $email=$_SESSION['uemail'];
                                 $aside1 = "SELECT * FROM cart2 WHERE email = '$email' ";
                                 $asideres1 = $connection->query($aside1);
                                 while ($rowcart=mysqli_fetch_array($asideres1)) {
+                                    $buyer_request= ['buyer_request'];
                                 ?>
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img width="60px" src="images/<?php echo $rowcart['image'];?>" alt="product">
+                                                <?php
+                                                    if($buyer_request==1){
+                                                 ?>
+                                                <img width="60px" src="ReqImages/<?php echo $rowcart['image'];?>" alt="product">
+                                                <?php
+                                                    }else{
+                                                 ?>
+                                                     <img width="60px" src="images/<?php echo $rowcart['image'];?>" alt="product">
+                                                 <?php
+                                                    }
+                                                 ?>
                                             </a>
                                         </td>
                                         <td>

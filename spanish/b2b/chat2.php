@@ -14,7 +14,10 @@ include('middlebar.php');
 include('navh.php');
 
 ini_set('error_reporting',0);
-
+$email=$_SESSION['uemail'];
+$sql_email="SELECT * FROM seller WHERE email='$email'";
+$stmt_email=mysqli_query($connection,$sql_email);
+$rowemail=mysqli_fetch_array($stmt_email);
 
 ?>
 
@@ -97,6 +100,13 @@ if (!empty($pid) AND !empty($para) ) {
       <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
       <textarea name="mensaje" placeholder="Envia un Mensaje"></textarea>
     <input class="filesenviar" id="files"  type="file"  name="imagen"/>
+    <?php if($rowemail>0)
+    {
+    ?>
+       <input type="text" name="nueva_oferta" placeholder="Generar oferta, insertar nuevo precio">
+     <?php
+     } 
+     ?>
     <input class="inputenviar" type="submit" name="enviar" value="Enviar">    </form>
      </div>
 

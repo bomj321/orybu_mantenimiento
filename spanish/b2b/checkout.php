@@ -2,11 +2,12 @@
 require 'Connect.php';
 include 'head.php';
 $email=$_SESSION['uemail'];
+mysqli_set_charset($connection,'utf8');
 // //////////////////////////// CONSULTA A CHECKOUT///////////////////////////////////////////////
 $sql_member="SELECT * FROM membership WHERE email='$email'";
 $stmt_member=mysqli_query($connection,$sql_member);
 $rowmember=mysqli_fetch_array($stmt_member);
-
+$member = $rowmember['membershiptype'];
 $sql1="SELECT * FROM checkout WHERE id = 4 ";
 $stmt1=mysqli_query($connection,$sql1);
 if($stmt1 == false) {
@@ -310,7 +311,7 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                                                 <input type="hidden" name="precio" value="<?php echo $tot;?>">
                                                                                 <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">Pagar con Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
                                                                             </form>
-                                                                            <a href="#" class="btn btn-success round" style="margin-top: 1rem;">Transferencia Bancaria <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="wire.php" class="btn btn-success round" style="margin-top: 1rem;">Transferencia Bancaria <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->
@@ -367,7 +368,7 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                         </div><!-- end panel-heading -->
                                                         <div id="collapseQuestionTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionTwo">
                                                             <div class="panel-body">
-                                                                <p><?php echo $row2['descripcion'] ; ?></p>
+                                                                <p><?php $row2['descripcion'] ; ?></p>
                                                             </div><!-- end panel-body -->
                                                         </div><!-- end collapse -->
                                                     </div><!-- end panel -->
@@ -412,19 +413,35 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                     <td><?php echo '$'.$tot;?></td>
                                                 </tr>
                                                 
-                                                <tr>
-                                                    <th>Usuario Gratuito</th>
-                                                    <td>1.5% de Comision de servicio</td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <th>Usuario Basico</th>
-                                                    <td>0.5% de Comision de servicio</td>
+                                               <tr>
+                                                  
+                                                   <?php                                                  
+                                                        if($member='Free Membership'){
+                                                        $total = $tot + ($tot * (1.5/100));
+                                                        $_SESSION['total']=$total;
+                                                    ?>
+                                                    
+                                                    <th>Comisión de Servicio</th>   
+                                                    <td>1.5%</td>
+                                                    
+                                                    <?php
+                                                        }elseif($member='Basic Membership'){
+                                                         $total = $tot + ($tot * (0.5/100));
+                                                         $_SESSION['total']=$total;   
+                                                    ?>
+                                                        <th>Comision de Servicio</th>
+                                                        <td>0.5% </td>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                            
+                                                    
+                                                    
                                                 </tr>
 
                                                 <tr>
                                                    <?php                                                  
-                                                        if($rowmember=='Free Membership'){
+                                                        if($member=='Free Membership'){
                                                     ?>
                                                     <th>Total de la Orden</th>
                                                     <?php
@@ -434,7 +451,7 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                     <td id="<?php echo $total;?>"><?php echo '$'.$total;?></td>
                                                     
                                                     <?php
-                                                        }elseif($rowmember=='Basic Membership'){
+                                                        }elseif($member=='Basic Membership'){
                                                          $total = $tot + ($tot * (0.5/100));
                                                          $_SESSION['total']=$total;   
                                                     ?>

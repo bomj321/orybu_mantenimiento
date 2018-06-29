@@ -1,5 +1,7 @@
 
-<?php session_start();
+<?php
+session_start();
+error_reporting(0);
 include('Connect.php');
 $email= $_SESSION['confemail'];
 $confirmcode=$_SESSION['code'];
@@ -10,8 +12,10 @@ $cabeceras .= "Organization: Orybu.com\r\n";
 $cabeceras .= "X-Priority: 3\r\n";
 $cabeceras .= "X-Mailer: PHP". phpversion(7.0) ."\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$cabeceras .= 'Cc: <admin@orybu.com>' . "\r\n";
+$cabeceras .= 'Bcc: <admin@orybu.com>' . "\r\n";
 // Cabeceras adicionales
-$cabeceras .= 'From:<admin@orybu.com>' . "\r\n";
+$cabeceras .= 'From: www.orybu.com <admin@orybu.com>' . "\r\n";
 $cabeceras .= "Reply-To: <admin@orybu.com>\r\n";
 $cabeceras .= "Return-Path: <admin@orybu.com>\r\n";
 if (isset($userStatus)) {
@@ -68,7 +72,7 @@ if (isset($userStatus)) {
         </html>			
 		";
 		
-		mail($email,"MY ORYBU",$message,$cabeceras);	
+		mail($email,"Confirmacion de Correo-MY ORYBU",$message,$cabeceras);	
 			
 		echo "<script>
                 alert('Registro Completo!. Por favor Confirma tu email');

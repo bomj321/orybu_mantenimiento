@@ -36,13 +36,8 @@ include('head.php');
                             <h2>Empieza a vender</h2>
                           
                         </div>
-                    </div><!-- end col -->
-                    
-                    <div class="col-sm-2" style="margin-top:30px;">
-                        <a type="button" class="btn btn-success" href="product_add.php">Subir Producto</a>
-                    </div><!-- end col -->
-                    
-                    
+                    </div><!-- end col -->                  
+                  
                 </div><!-- end row -->
                 
                 <div class="row">
@@ -103,6 +98,14 @@ include('head.php');
                         </figure>
                     </div><!-- end col -->
                 </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <center>
+                             <a type="button" class="btn btn-success btn-lg" href="product_add.php">Subir Productos</a>
+                        </center>
+                    </div>
+                </div><!-- end row 2-->
         
             </div><!-- end container -->
         </section>

@@ -7,6 +7,7 @@ $email=$_SESSION['uemail'];
 $sql_member="SELECT * FROM membership WHERE email='$email'";
 $stmt_member=mysqli_query($connection,$sql_member);
 $rowmember=mysqli_fetch_array($stmt_member);
+$member = $rowmember['membershiptype'];
 
 $sql1="SELECT * FROM checkout WHERE id = 1 ";
 $stmt1=mysqli_query($connection,$sql1);
@@ -298,7 +299,7 @@ include('navh.php');
                                                                                 <input type="hidden" name="precio" value="<?php echo $tot;?>">
                                                                                 <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
                                                                             </form>
-                                                                            <a href="#" class="btn btn-success round" style="margin-top: 1rem;">Wire Transfer<i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="wire.php" class="btn btn-success round" style="margin-top: 1rem;">Wire Transfer<i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->
@@ -389,21 +390,36 @@ include('navh.php');
                                                     <th>Cart Subtotal</th>
                                                     <td><?php echo '$'.$tot;?></td>
                                                 </tr>
-                                                
                                                 <tr>
-                                                    <th>Free User</th>
-                                                    <td>1.5% Service Fee</td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <th>Basic User</th>
-                                                    <td>0.5% de Service Fee</td>
+                                                  
+                                                   <?php                                                  
+                                                        if($member='Free Membership'){
+                                                        $total = $tot + ($tot * (1.5/100));
+                                                        $_SESSION['total']=$total;
+                                                    ?>
+                                                    
+                                                    <th>Service Fee</th>   
+                                                    <td>1.5%</td>
+                                                    
+                                                    <?php
+                                                        }elseif($member='Basic Membership'){
+                                                         $total = $tot + ($tot * (0.5/100));
+                                                         $_SESSION['total']=$total;   
+                                                    ?>
+                                                        <th>Service Fee</th>
+                                                        <td>0.5% </td>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                            
+                                                    
+                                                    
                                                 </tr>
 
                                                 <tr>
-                                                  <th>Order Total</th>
+                                                  <th>Total Order</th>
                                                    <?php                                                  
-                                                        if($rowmember='Free Membership'){
+                                                        if($member='Free Membership'){
                                                         $total = $tot + ($tot * (1.5/100));
                                                         $_SESSION['total']=$total;
                                                     ?>
@@ -412,7 +428,7 @@ include('navh.php');
                                                     <td id="<?php echo $total;?>"><?php echo '$'.$total;?></td>
                                                     
                                                     <?php
-                                                        }elseif($rowmember='Basic Membership'){
+                                                        }elseif($member='Basic Membership'){
                                                          $total = $tot + ($tot * (0.5/100));
                                                          $_SESSION['total']=$total;   
                                                     ?>
