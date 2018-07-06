@@ -421,23 +421,21 @@ $(document).ready(function() {
                
 				</div>
 				<div class="form-group" style="margin-top:30px;"><label> Weight: <span class="text-danger">*</span></label></div>
-				<div class="form-group" style="margin-top:40px;"><label> Volume: </label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Volume: </label></div> 
 				<div class="form-group" style="margin-top:35px;"><label> Dimensions: </label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Capicity: </label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Capacity: </label></div> 
 				<div class="form-group" style="margin-top:35px;"><label> Energy Power: </label></div> 
 				 
-				<div class="form-group" style="margin-top:40px;"><label> Rational Speed: </label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Elaboration Material: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Use: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:40px;"><label> Size: </label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Rational Speed: </label></div> 
+				<div class="form-group" style="margin-top:25px;"><label> Elaboration Material: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:25px;"><label> Use: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Packing: <span class="text-danger">*</span></label></div>
-                <div class="form-group" style="margin-top:30px;"><label> Product type: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Show case: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Top list: </label></div> 	
+                <div class="form-group" style="margin-top:25px;"><label> Product type: </label></div>				
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:32px;"><label> Minimum Order: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:38px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
-				<div class="form-group" style="margin-top:25px;"><label> Payment: <span class="text-danger">*</span></label></div>				
+				<div class="form-group" style="margin-top:20px;"><label> Minimum Order: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:15px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Payment: <span class="text-danger">*</span></label></div>				
 				
 				
 				 
@@ -698,7 +696,8 @@ $(document).ready(function() {
 					<option value="Zimbabwe">Zimbabwe</option>						 
                          </select>
 				</div>
-				<div class="form-group col-sm-2"><label> Port: <span class="text-danger">*</span></label></div>  
+				<div class="form-group col-sm-1" style="margin-right: 15px;">
+					<label>Port<span class="text-danger">*</span></label></div>  
 				
 				<div class="form-group col-sm-4" style="padding-right:0px;">
 				<input type="text" class="form-control input-sm" required placeholder="Port" name="port" id="port" value="<?php echo  $rowz['port'];?>">
@@ -707,30 +706,30 @@ $(document).ready(function() {
 				<div class="row">
 				<?php $str=$rowz['weight']; $cl = explode(' ', $str);  ?>
 				     <div class="form-group col-sm-8" style="padding-right:0px;">
-						<input type="text" class="form-control input-sm" required placeholder="Enter Weight" name="wquantity" id="wquantity" value="<?php echo $cl[0] ;?>"> 
+						<input type="text" class="form-control" required placeholder="Enter Weight" name="wquantity" id="wquantity" value="<?php echo $cl[0] ;?>"> 
 						</div>
 							<div class="form-group col-sm-4" style="padding-left:0px;">
-							<select class="form-control" id="unit" name="dropweight" style="height:38px;">
-							<option value="<?php echo $cl[1];?>"><?php echo $cl[1];?></option>
-	                         <option value="kilogram">Kilogram</option>  
-                             <option value="Gram">Gram</option>  
-							 <option value="piece">Piece</option>  
-							 <option value="ton">Ton</option>
-							 <option value="cubic meter">Cubic meter</option>  
-						     <option value="20 ft conteiner">20 ft conteiner</option> 
-                             <option value="40 ft conteiner">40 ft conteiner</option>
-                             <option value="litter">Litter</option>		
-                             <option value="others">Others</option>							 
+							<select class="form-control" id="unit" name="dropweight">
+								<option value="<?php echo $cl[1];?>"><?php echo $cl[1];?></option>
+		                         <option value="kilogram">Kilogram</option>  
+	                             <option value="Gram">Gram</option>  
+								 <option value="piece">Piece</option>  
+								 <option value="ton">Ton</option>
+								 <option value="cubic meter">Cubic meter</option>  
+							     <option value="20 ft conteiner">20 ft conteiner</option> 
+	                             <option value="40 ft conteiner">40 ft conteiner</option>
+	                             <option value="litter">Litter</option>		
+	                             <option value="others">Others</option>							 
                          </select>
 				         </div>
 						 </div>
 				<div class="row">
 				        <div class="form-group col-sm-8" style="padding-right:0px;">
 						<?php $str1=$rowz['volume']; $vcl = explode(' ', $str1);  ?>
-						<input type="text" class="form-control input-sm" placeholder="Volume" name="vquantity" id="quantity" value="<?php echo $vcl[0]; ?>"> 
+						<input type="text" class="form-control" placeholder="Volume" name="vquantity" id="quantity" value="<?php echo $vcl[0]; ?>"> 
 						</div>
 						<div class="form-group col-sm-4" style="padding-left:0px;">
-						<select class="form-control input" id="unit" name="dropvolum" style="height:38px;" >
+						<select class="form-control " id="unit" name="dropvolum">
 						     <option value="<?php echo $vcl[1]; ?>"><?php echo $vcl[1]; ?> </option>
 	                         <option value="">Volume</option>  
                              <option value="Cubic meter">Cubic meter</option>  
@@ -751,18 +750,18 @@ $(document).ready(function() {
 								$str23=$rowz['dimension3'];
 								$str24=$rowz['dimension4'];
 								?>
-								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<div class="form-group col-sm-2" style="padding-right:0px;  ">
 								<input type="text" class="form-control " placeholder="L" name="dquantity" id="quantity" value="<?php echo $str2;?>"> 
 								</div>
-								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<div class="form-group col-sm-2" style="padding-right:0px; ">
 								<input type="text" class="form-control " placeholder="H" name="dquantity2" id="quantity" value="<?php echo $str22; ?>"> 
 								</div>
-								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<div class="form-group col-sm-2" style="padding-right:0px; ">
 								<input type="text" class="form-control " placeholder="W" name="dquantity3" id="quantity" value="<?php echo $str23; ?>"> 
 								</div>
 						<div class="form-group col-sm-4 col-sm-offset-2" style="padding-left:0px;">
 								<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-								<select class="form-control input" id="unit" name="dropdimension" style="height:38px; margin-top:10px;">
+								<select class="form-control" id="unit" name="dropdimension" >
 									<option value="<?php echo $str24; ?>"> <?php echo $str24; ?> </option>
 									<option value="feet">Feet</option>  
 									<option value="Inch">Inch</option>  
@@ -776,10 +775,10 @@ $(document).ready(function() {
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 				<?php $st3=$rowz['volume']; $ccl = explode(' ', $st3);  ?>
-						<input type="text" class="form-control input-sm" placeholder="Enter Capicity" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
+						<input type="text" class="form-control" placeholder="Enter Capicity" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
-						 <select class="form-control input" id="unit" name="dropcapacity" style="height:38px;">
+						 <select class="form-control input" id="unit" name="dropcapacity" >
 						 <option value="<?php echo $ccl[1] ?>"><?php echo $ccl[1] ;?></option>
 	                         <option value="Ton">Ton</option>  
                              <option value="Kilogram">Kilogram</option>  
@@ -795,11 +794,11 @@ $(document).ready(function() {
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 				<?php $st4=$rowz['volume']; $ecl = explode(' ', $st4);  ?>
-				<input type="text" class="form-control input" placeholder="Enter Power" name="equantity" id="quantity" value="<?php echo $ecl[0]; ?>">
+				<input type="text" class="form-control " placeholder="Enter Power" name="equantity" id="quantity" value="<?php echo $ecl[0]; ?>">
 				</div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						 <select class="form-control input" id="energy" name="dropenergy" style="height:38px;">
+						 <select class="form-control " id="energy" name="dropenergy" >
 						    <option value="<?php echo $ecl[1];?>"><?php echo $ecl[1] ;?></option>
 	                         <option value="Volt">Volt</option>  
                              <option value="Ohm">Ohm</option>  
@@ -858,72 +857,67 @@ $(document).ready(function() {
 	
 			</select>
 			
-			</div>
-	
-				<div class="form-group">
-
-			<select  class="form-control "  id="showcaseid" name="showcaseid" >
-			<option value="<?php echo $rowz['productstatus']; ?>"> <?php echo $rowz['productstatus']; ?> </option>
-			<option  value="" >Select Product </option>
-			<option value ="0">Show on Show Case</option>
-			</select>
-			</div>
-				<div class="form-group">
-
-			<select  class="form-control "  id="showtoplist" name="showtoplist" >
-			<option value="<?php echo $rowz['producttoplist']; ?>"> <?php echo $rowz['producttoplist']; ?> </option>
-			<option  value="" >Select For Top List</option>
-			<option value ="1">Set As Top List Product</option>
-			</select>
-			</div>
-
+			</div>	
+				
 			            <?php $stt8=$rowz['price_unit'];?>
 						 <div class="input-group" style="margin-bottom:10px;">  
   							<input type="text" class="form-control" placeholder="Price" required="true" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
   							<span class="input-group-addon" id="basic-addon1">$</span>
-  							<select class="form-control" id="unit" name="dropminimum"  style="height:39px;">
+  							<select class="form-control" id="unit" name="dropminimum">
 						    <option value="<?php echo $stt8; ?>"><?php echo $stt8; ?></option> 
-	                         <option value="Unit">Unidad</option>  
-                             <option value="Ton">Ton</option>  
-							 <option value="Gram">Gramo</option>  
-							 <option value="Inch">Pulgada</option>
-							 <option value="ounace">Onza</option>  
-						     <option value="Gallon">Galon</option>  
-                             <option value="Feet">Pie</option>
-                             <option value="Cubic Meter">Metro Cubico</option>
-							 <option value="Cubic Feet">Pie Cubico</option> 
-						     <option value="20 ft container">Envase de 20ft</option>
-							 <option value="40 ft container">Envase de 40ft</option>
-							<option value="Pallets">Paletas</option>	
-							<option value="Carton">Carton</option>	
-                            <option value="others">Otros</option>							 
+	                         <option value="Unit">Unit</option>  
+			                             <option value="Ton">Ton</option>  
+										 <option value="Gram">Gram</option>  
+										 <option value="Inch">Inch</option>
+										 <option value="ounace">ounce</option>  
+									     <option value="Gallon">Gallon</option>  
+			                             <option value="Feet">Feet</option>
+			                             <option value="Cubic Meter">Cubic Meter</option>
+										 <option value="Cubic Feet">Cubic Feet</option> 
+									     <option value="20 ft container">20 ft container</option>
+										 <option value="40 ft container">40 ft container</option>
+										<option value="Pallets">Pallets</option>	
+										<option value="Carton">Carton</option>	
+			                            <option value="others">Others</option>					 
                          </select>         	
 							</div>
 						 
 						 
-						 <div class="row">
 						 <?php $stt3=$rowz['miniorder']; $mcl = explode(' ', $stt3);  ?>
-					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/></div>
-					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control input-sm" id="unit" name="dropminimum2"  style="height:39px;">
-						    <option value="<?php echo $mcl[1]; ?>"><?php echo $mcl[1]; ?></option> 
-	                         <option value="Unit">Unit</option>  
-                             <option value="Ton">Ton</option>  
-							 <option value="Gram">Gram</option>  
-							 <option value="Inch">Inch</option>
-							 <option value="ounace">ounce</option>  
-						     <option value="Gallon">Gallon</option>  
-                             <option value="Feet">Feet</option>
-                             <option value="Cubic Meter">Cubic Meter</option>
-							 <option value="Cubic Feet">Cubic Feet</option> 
-						     <option value="20 ft container">20 ft container</option>
-							 <option value="40 ft container">40 ft container</option>
-							<option value="Pallets">Pallets</option>	
-							<option value="Carton">Carton</option>	
-                            <option value="others">Others</option>							 
+
+						 <div class="input-group" style="margin-bottom:10px;">  
+  							<input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/>
+  							<span class="input-group-addon" id="basic-addon1">$</span>
+  							<select class="form-control" id="unit" name="dropminimum2">
+						    <option value="<?php echo $mcl[1];?>"><?php echo $mcl[1];?></option> 
+	                        <option value="Unit">Unit</option>  
+			                             <option value="Ton">Ton</option>  
+										 <option value="Gram">Gram</option>  
+										 <option value="Inch">Inch</option>
+										 <option value="ounace">ounce</option>  
+									     <option value="Gallon">Gallon</option>  
+			                             <option value="Feet">Feet</option>
+			                             <option value="Cubic Meter">Cubic Meter</option>
+										 <option value="Cubic Feet">Cubic Feet</option> 
+									     <option value="20 ft container">20 ft container</option>
+										 <option value="40 ft container">40 ft container</option>
+										<option value="Pallets">Pallets</option>	
+										<option value="Carton">Carton</option>	
+			                            <option value="others">Others</option>						 
                          </select>         	
-						 </div>
-						 </div>
+							</div>
+
+
+
+
+					
+
+
+
+
+
+
+
 						<div class="form-group">
 								 <input type="text" class="form-control input-sm" required="true"  placeholder="Delivery Details" name="delivery_details" id="delivery_details" value="<?php echo $rowz['delivery_details']; ?>">
 						 </div>	
@@ -939,7 +933,7 @@ $(document).ready(function() {
 						 
 						<div class="col-md-12">
 							<center>
-								<h4>Upload Product Certification</h4>
+								<h6>Upload Product Certification</h6>
 							</center>
 						</div>
 
@@ -949,14 +943,14 @@ $(document).ready(function() {
 						 if(!empty($certification_verificacion)) {
 						 ?>
     							<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $rowz['certification']; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $rowz['certification']; ?>" />
     								<input class="form-control" type="file"  name="file1" id="files"/>	
-    								<a href="updateproduct.php?image=certificacion&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Certificacion</a>
+    								<a href="updateproduct.php?image=certificacion&pid=<?php echo $_GET['pid'];?>">Delete Certification</a>
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Add Product Certification</h4></center>
+								
 								<input class="form-control " type="file"  name="file1" id="files" />
 							
 						<?php
@@ -966,7 +960,7 @@ $(document).ready(function() {
 
 						 <div class="col-md-12">
 							<center>
-								<h4>Add Products Images</h4>
+								<h5>Add Products Images</h5>
 							</center>
 						</div>
 						 
@@ -983,14 +977,14 @@ $(document).ready(function() {
 						 if(!empty($stri1)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri1; ?>" />
     								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
-    								<a href="updateproduct.php?image=1&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    								<a href="updateproduct.php?image=1&pid=<?php echo $_GET['pid'];?>">Delete Image</a>	
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Add Product Image #1</h4></center>
+								<center><h6>Add Product Image #1</h6></center>
 								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
 							
 						<?php
@@ -1002,14 +996,14 @@ $(document).ready(function() {
 						 if(!empty($stri2)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri2; ?>" />
     								<input class="form-control" type="file"  name="imagenes2"   id="files2"/>
-    								<a href="updateproduct.php?image=2&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updateproduct.php?image=2&pid=<?php echo $_GET['pid'];?>">Delete Image</a>
     							</div>		
     					<?php
 							}else{
 							?>
-								<center><h4>Add Product Image #2</h4></center>
+								<center><h6>Add Product Image #2</h6></center>
 								<input class="form-control" type="file"  name="imagenes2"  id="files2"/>
 							
 						<?php
@@ -1020,14 +1014,14 @@ $(document).ready(function() {
 						 if(!empty($stri3)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri3; ?>" />
     								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>
-    								<a href="updateproduct.php?image=3&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    								<a href="updateproduct.php?image=3&pid=<?php echo $_GET['pid'];?>">Delete Image</a>	
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Add Product Image #3</h4></center>
+								<center><h6>Add Product Image #3</h6></center>
 								<input class="form-control" type="file"  name="imagenes3"  id="files3"/>
 							
 						<?php
@@ -1038,14 +1032,14 @@ $(document).ready(function() {
 						 if(!empty($stri4)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri4; ?>" />
     								<input class="form-control" type="file"  name="imagenes4"   id="files4"/>
-    								<a href="updateproduct.php?image=4&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    								<a href="updateproduct.php?image=4&pid=<?php echo $_GET['pid'];?>">Delete Image</a>	
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Add Product Image #4</h4></center>
+								<center><h6>Add Product Image #4</h6></center>
 								<input class="form-control" type="file"  name="imagenes4"  id="files4"/>
 							
 						<?php
@@ -1056,14 +1050,14 @@ $(document).ready(function() {
 						 if(!empty($stri5)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri5; ?>" />
     								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
-    								<a href="updateproduct.php?image=5&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updateproduct.php?image=5&pid=<?php echo $_GET['pid'];?>">Delete Image</a>
     							</div>		
     					<?php
 							}else{
 							?>
-								<center><h4>Add Product Image #5</h4></center>
+								<center><h6>Add Product Image #5</h6></center>
 								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
 							
 						<?php
@@ -1097,7 +1091,7 @@ $(document).ready(function() {
 				<div class="row">		
 					<div class="form-group col-sm-12">
 											<center>
-												<h3 style="text-align:center;">Uploaded Picture Preview Area </h3>
+												<h5 style="text-align:center;">Uploaded Picture Preview Area </h5>
 												 <div id="selectedFiles1"></div>
 												 <div id="selectedFiles2"></div>
 						                   </center>	 
@@ -1145,7 +1139,7 @@ $(document).ready(function() {
 		  <center><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
        &nbsp; UPDATE</i>
         </button>
-		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:white; border: 1px solid ;"><i class="fa fa-times"></i> CANCEL</a>
+		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;"><i class="fa fa-times"></i> CANCEL</a>
        
            </br>
          

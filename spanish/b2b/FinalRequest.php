@@ -53,16 +53,16 @@ include('head.php');
 <div class="row">
 <div class="col-sm-8 col-sm-offset-2" style="margin-top:1rem;background-color:#D1F2EB;">
 <div style="background-color:#D1F2EB;width:100%;padding:8px" >
-<h2 class="title">Fill below Fields</h2>  <br>
+<h2 class="title">Complete las Informaci&oacute;n</h2>  <br>
    <form method="POST" enctype="multipart/form-data">
                          <div class="form-group">
-                          <label for="pimage">Product Image</label>
+                          <label for="pimage">Imagen del Producto</label>
                           <input type="file" name="pimage"   required class="form-control input-lg">
                           </div>
 
                         <div class="form-group">
-                          <label class="control-label" for="message" name="description">Descripcion</label>
-                          <textarea id="message" rows="5" class="form-control" required placeholder="Descipcion..." name="description"></textarea>
+                          <label class="control-label" for="message" name="description">Descripci&oacute;n</label>
+                          <textarea id="message" rows="5" class="form-control" required placeholder="Descripcion..." name="description"></textarea>
                        </div>
 					 <div class="form-group">
                                 <input type="submit"  class="btn btn-success round btn-md"  value="Request">

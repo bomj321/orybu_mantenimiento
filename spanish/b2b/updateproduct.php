@@ -3,12 +3,12 @@ error_reporting(0);
 include('Connect.php');
 $email=$_SESSION['uemail'];
  $usertype=$_SESSION['utype']; 
-$pid_session = $_GET['pid'];
 
+$pid_session = $_GET['pid'];
 $image= $_GET['image'];
 $image_limpio= mysqli_real_escape_string($connection, $image);
 $pid_borrar= $pid_session;
-$pid_limpio= mysqli_real_escape_string($connection, $pid_borrar); 
+$pid_limpio= mysqli_real_escape_string($connection, $pid_borrar);
 
 if (!empty($image_limpio) AND !empty($pid_limpio)) {
 			if ($image_limpio=='1') {
@@ -21,10 +21,10 @@ if (!empty($image_limpio) AND !empty($pid_limpio)) {
 			}elseif ($image_limpio=='2') {
 				$vacio = "";				
 				$sql2="UPDATE products  SET  image2='".$vacio."' WHERE (pid='$pid_limpio')";
-				mysqli_query($connection,$sql2);	
+				mysqli_query($connection,$sql2);
 				 echo '
 						<script>
-									alert("Image Borrada");  //not showing an alert box.							
+									alert("Imagen Borrada");  //not showing an alert box.							
 									 
 						 </script>
 
@@ -34,9 +34,9 @@ if (!empty($image_limpio) AND !empty($pid_limpio)) {
 				$vacio = "";				
 				$sql2="UPDATE products  SET image3='".$vacio."' WHERE (pid='$pid_limpio')";
 				mysqli_query($connection,$sql2);	
-				echo '
+				 echo '
 						<script>
-									alert("Image Borrada");  //not showing an alert box.							
+									alert("Imagen Borrada");  //not showing an alert box.							
 									 
 						 </script>
 
@@ -46,9 +46,9 @@ if (!empty($image_limpio) AND !empty($pid_limpio)) {
 				$vacio = "";				
 				$sql2="UPDATE products  SET  image4='".$vacio."' WHERE (pid='$pid_limpio')";
 				mysqli_query($connection,$sql2);	
-				echo '
+				 echo '
 						<script>
-									alert("Image Borrada");  //not showing an alert box.							
+									alert("Imagen Borrada");  //not showing an alert box.							
 									 
 						 </script>
 
@@ -58,9 +58,9 @@ if (!empty($image_limpio) AND !empty($pid_limpio)) {
 				$vacio = "";				
 				$sql2="UPDATE products  SET  image5='".$vacio."' WHERE (pid='$pid_limpio')";
 				mysqli_query($connection,$sql2);
-				echo '
+				 echo '
 						<script>
-									alert("Image Borrada");  //not showing an alert box.							
+									alert("Imagen Borrada");  //not showing an alert box.							
 									 
 						 </script>
 
@@ -69,17 +69,20 @@ if (!empty($image_limpio) AND !empty($pid_limpio)) {
 			}elseif($image_limpio=='certificacion'){
 				$vacio = "";				
 				$sql2="UPDATE products  SET certification='".$vacio."' WHERE (pid='$pid_limpio')";
-				mysqli_query($connection,$sql2);
-				echo '
+				mysqli_query($connection,$sql2);	
+				 echo '
 						<script>
-									alert("Image Borrada");  //not showing an alert box.							
+									alert("Imagen Borrada");  //not showing an alert box.							
 									 
 						 </script>
 
-				 ';		
+				 ';	
 				header('Location: updateproduct.php?pid='.$pid_limpio);
 			}
 		}
+
+
+
 
 include('head.php');?>
 <?php
@@ -87,13 +90,18 @@ include('topbar.php');
 include('middlebar.php');
 include('navh.php');
 //include('middlebar.php');
+ $email=$_SESSION['uemail'];
+ $usertype=$_SESSION['utype'];
+ $_GET['pid'];
+ $pid_session = $_GET['pid'];
 ?>
    
 <?php
 
+
 if(isset($_POST['btn_save_updates']))
 	{
-	  $pid = $_GET['pid'];// item name
+	  $pid =$pid_session;// item name
 	  $ntitle = $_POST['ntitle'];// item name 
 		 
 			$price = $_POST['price'];// item name
@@ -102,12 +110,17 @@ if(isset($_POST['btn_save_updates']))
 				$subcatid = $_POST['subcatid'];// item name
 					$quantity = $_POST['quantity'];// item name
 			$color = $_POST['color'];// item name
-			  $productType =$_POST['productType'];
-			  
-			     $catid = $_POST['catid'];// item name
-			    $subcatid = $_POST['subcatid'];// item name
+		 
 		
-	 
+		
+		
+		     $productType =$_POST['productType'];
+			  
+			 $catid = $_POST['catid'];// item name
+			 $subcatid = $_POST['subcatid'];// item name
+		
+	        $delivery_details= $_POST['delivery_details'];
+			$payment= $_POST['payment'];
 			$keyword = $_POST['keyword'];
 			$selectedkeyword=$_POST['selectedkeyword'];
 			$country = $_POST['dropcountry'];//dropcountry
@@ -115,14 +128,13 @@ if(isset($_POST['btn_save_updates']))
 			$wquantity=$_POST['wquantity'];
 			$weight =$wquantity.' '.$_POST['dropweight'];
 			
-			$delivery_details= $_POST['delivery_details'];
-			$payment= $_POST['payment'];
 			$vquantity=$_POST['vquantity'];
 			$volume=$vquantity.' '.$_POST['dropvolum'];
 			$dquantity=$_POST['dquantity'];
             $dquantity2=$_POST['dquantity2'];
             $dquantity3=$_POST['dquantity3'];
             $dquantity4=$_POST['dropdimension'];
+
 			$cquantity=$_POST['cquantity'];
 			
 			$capacity=$cquantity.' '.$_POST['dropcapacity'];
@@ -136,10 +148,12 @@ if(isset($_POST['btn_save_updates']))
 			$productType = $_POST['productType'];
 			//$showcaseid=$_POST['showcaseid'];
 			//$showtoplist=$_POST['showtoplist'];
+            $description = $_POST['description'];
 			$price=$_POST['fobprice'];
 			$price_unit=$_POST['dropminimum'];
 			$oquantity=$_POST['oquantity'];
-		    $miniorder=$oquantity.' '.$_POST['dropminimum2'];
+			$miniorder=$oquantity.' '.$_POST['dropminimum2'];
+	
 	
 $target_dir = "images/";	
 if($_FILES["file1"]["name"] !="" AND !empty($_FILES["file1"]["name"]))
@@ -151,17 +165,15 @@ if($_FILES["file1"]["name"] !="" AND !empty($_FILES["file1"]["name"]))
 			$tempfile1 = $_FILES['file1']['tmp_name'];
 			move_uploaded_file($tempfile1, $filelocation); 
 	
-     $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dquantity."',dimension2='".$dquantity2."',dimension3='".$dquantity3."',dimension4='".$dquantity4."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',certification='".$certification."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
+	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dquantity."',dimension2='".$dquantity2."',dimension3='".$dquantity3."',dimension4='".$dquantity4."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',certification='".$certification."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
 	mysqli_query($connection,$sql);
  }else{
  	
  	
 			
-     $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dquantity."',dimension2='".$dquantity2."',dimension3='".$dquantity3."',dimension4='".$dquantity4."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
+	 $sql="UPDATE products  SET ntitle='".$ntitle."' ,price='".$price."',price_unit='".$price_unit."',fulldescription='".$fulldescription."',catid='".$catid."' ,subcatid='".$subcatid."',productaction='".$productaction."',producttoplist='".$producttoplist."',productType='".$productType."', keywords='".$keyword."',selectedkeyword='".$selectedkeyword."',country='".$country."',port='".$port."',weight='".$weight."',volume='".$volume."',dimension='".$dquantity."',dimension2='".$dquantity2."',dimension3='".$dquantity3."',dimension4='".$dquantity4."',capacity='".$capacity."',energypower='".$energy."',rotationspeed='".$rotation."',elaboration='".$elaboration."',puse='".$use."',psize='".$size."',packing='".$packing."',miniorder='".$miniorder."',delivery_details='".$delivery_details."',payment='".$payment."'  WHERE (pid='$pid')";
 	mysqli_query($connection,$sql);
-}	
-	
-	
+}		
 			$showcaseid=$_POST['showcaseid'];
 			$showtoplist=$_POST['showtoplist'];
 			
@@ -179,8 +191,6 @@ if($_FILES["file1"]["name"] !="" AND !empty($_FILES["file1"]["name"]))
 			 $producttoplist=$_POST['showtoplist'];
 			}
 				 //////////////////////////////////////////
-	
-	
 	
 				$target_dir = "images/";
 	if($_FILES["imagenes1"]["name"] !="" AND !empty($_FILES["imagenes1"]["name"]))
@@ -274,6 +284,8 @@ if(empty($image5)){
 <?php
 	}
 ?>
+
+
 <script>
 $(document).ready(function() {
   
@@ -312,7 +324,7 @@ $(document).ready(function() {
         <section class="section white-backgorund">
             <div class="container">
 			 <!-- start Form -->
-                  <form  method="POST" enctype="multipart/form-data">
+                  <form  method="POST" enctype="multipart/form-data" class="col-md-12 col-sm-12">
 				  
 			  <div class="row" style="padding-left:10px;">
 			  </br>
@@ -323,7 +335,7 @@ $(document).ready(function() {
     
 
        			 <?php
- $pid=$_GET["pid"];
+ $pid=$pid_session;
  $sql="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (pid=$pid)";
  $rez=mysqli_query($connection,$sql);
  $rowz=mysqli_fetch_array($rez);
@@ -378,20 +390,20 @@ $(document).ready(function() {
 			  
 				<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">
 				
-				<div class="form-group"><label> Titulo del Producto: </label></div> <br> 
+				<div class="form-group"><label>Titulo del Producto: <span class="text-danger">*</span></label></div> <br> 
                 <div class="form-group"><label> Palabras Claves:<span class="text-danger">*</span></label> </div> <br> 
-				<div class="form-group"><label style="font-size:13px;"> Palabras claves seleccionadas:<span class="text-danger">*</span> </label></div> 
+				<div class="form-group"><label>Palabras Claves Agreg. :<span class="text-danger">*</span></label></div> 
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="form-group">
-						<input type="text" class="form-control input-lg" required placeholder="Enter Title" name="ntitle" id="title" value="<?php echo  $rowz['ntitle'];?>">
+						<input type="text" class="form-control input-lg" required placeholder="Inserte titulo" name="ntitle" id="title" value="<?php echo  $rowz['ntitle'];?>">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Enter keyword" name="keyword" id="keyword" value="<?php echo  $rowz['keywords'];?>">
+						<input type="text" class="form-control input-sm" required placeholder="Inserte Palabra Clave" name="keyword" id="keyword" value="<?php echo  $rowz['keywords'];?>">
 				</div>
 				<div class="form-group">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						<textarea class="form-control" placeholder="keyword" required name="selectedkeyword" id="selectedkey"  > <?php echo  $rowz['selectedkeyword'];?> </textarea>
+						<textarea class="form-control" placeholder="Palabra Clave" required name="selectedkeyword" id="selectedkey"  > <?php echo  $rowz['selectedkeyword'];?> </textarea>
 				</div>
 				</div>
 				<script>
@@ -408,25 +420,23 @@ $(document).ready(function() {
 				<div class="form-group col-sm-6"><label> Pais: </label></div> 
                
 				</div>
-				<div class="form-group" style="margin-top:30px;"><label> Peso: </label></div>
-				<div class="form-group" style="margin-top:40px;"><label> Volumen: </label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Peso: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:30px;"><label> Volumen: </label></div> 
 				<div class="form-group" style="margin-top:35px;"><label> Dimensiones: </label></div> 
-				<div class="form-group" style="margin-top:35px;"><label> Capacidad: </label></div> 
-				<div class="form-group" style="margin-top:40px;"><label> Fuente de poder: </label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Capacidad: </label></div> 
+				<div class="form-group" style="margin-top:35px;"><label> Fuente de poder: </label></div> 
 				 
-				<div class="form-group" style="margin-top:35px;"><label> Velocidad de Rotacion: </label></div> 
-				<div class="form-group" style="margin-top:25px;"><label> Material de Elaboracion: </label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Uso: </label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Tamaño: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Empaquetado: </label></div>
-                <div class="form-group" style="margin-top:20px;"><label> Tipo de producto: </label></div> 
-				<div class="form-group" style="margin-top:25px;"><label> Mostrar Producto: </label></div> 
-				<div class="form-group" style="margin-top:25px;"><label> Lista Superior: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Precio FOB: </label></div> 
-				<div class="form-group" style="margin-top:32px;"><label> Orden Miníma: </label></div>
-				<div class="form-group" style="margin-top:38px;"><label> Delivery Details: </label></div>
-				<div class="form-group" style="margin-top:25px;"><label> Payment: </label></div>				
-					 
+				<div class="form-group" style="margin-top:30px;"><label> Velocidad de Rotacion: </label></div> 
+				<div class="form-group" style="margin-top:25px;"><label> Material de Elaboracion: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:25px;"><label> Uso: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Tamaño: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Empaquetado: <span class="text-danger">*</span></label></div>
+                <div class="form-group" style="margin-top:25px;"><label> Tipo de producto: </label></div>				
+				<div class="form-group" style="margin-top:20px;"><label>Precio FOB: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label>Orden Miníma: <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:15px;"><label>Detalles del Envio: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:20px;"><label>Metodo de Pago: <span class="text-danger">*</span></label></div>				
+				
 				
 				 
 			<!--	 -->
@@ -686,77 +696,77 @@ $(document).ready(function() {
 					<option value="Zimbabwe">Zimbabwe</option>						 
                          </select>
 				</div>
-				<div class="form-group col-sm-2"><label> Port: </label></div>  
+				<div class="form-group col-sm-1" style="margin-right: 15px;">
+					<label>Puerto<span class="text-danger">*</span></label></div>  
 				
 				<div class="form-group col-sm-4" style="padding-right:0px;">
-				<input type="text" class="form-control" required placeholder="Port" name="port" id="port" value="<?php echo  $rowz['port'];?>">
+				<input type="text" class="form-control input-sm" required placeholder="Puerto" name="port" id="port" value="<?php echo  $rowz['port'];?>">
 				</div>
 				</div>
 				<div class="row">
 				<?php $str=$rowz['weight']; $cl = explode(' ', $str);  ?>
 				     <div class="form-group col-sm-8" style="padding-right:0px;">
-						<input type="text" class="form-control" placeholder="Enter Weight" name="wquantity" id="wquantity" value="<?php echo $cl[0] ;?>"> 
+						<input type="text" class="form-control" required placeholder="Inserte Peso" name="wquantity" id="wquantity" value="<?php echo $cl[0] ;?>"> 
 						</div>
 							<div class="form-group col-sm-4" style="padding-left:0px;">
-							<select class="form-control input-sm" id="unit" name="dropweight" style="height:39px;">
-							<option value="<?php echo $cl[1];?>"><?php echo $cl[1];?></option>
-	                         <option value="kilogram">Kilogramo</option>  
-                             <option value="Gram">Gramo</option>  
-							 <option value="piece">Pieza</option>  
-							 <option value="ton">Ton</option>
-							 <option value="cubic meter">Metro Cubico</option>  
-						     <option value="20 ft conteiner">Envase de 20ft</option> 
-                             <option value="40 ft conteiner">Envase de 40ft</option>
-                             <option value="litter">Litro</option>		
-                             <option value="others">Otros</option>							 
+							<select class="form-control" id="unit" name="dropweight">
+								<option value="<?php echo $cl[1];?>"><?php echo $cl[1];?></option>
+		                         <option value="kilogram">Kilogramo</option>  
+                             <option value="Gramo">Gramo</option>  
+							 <option value="Pieza">Pieza</option>  
+							 <option value="Tonelada">Tonelada</option>
+							 <option value="Metro Cubico">Metro Cubico</option>  
+						     <option value="Envase de 20ft">Envase de 20ft</option> 
+                             <option value="Envase de 40ft">Envase de 40ft</option>
+                             <option value="Litro">Litro</option>		
+                             <option value="Otros">Otros</option>								 
                          </select>
 				         </div>
 						 </div>
 				<div class="row">
 				        <div class="form-group col-sm-8" style="padding-right:0px;">
 						<?php $str1=$rowz['volume']; $vcl = explode(' ', $str1);  ?>
-						<input type="text" class="form-control" placeholder="Volume" name="vquantity" id="quantity" value="<?php echo $vcl[0]; ?>"> 
+						<input type="text" class="form-control" placeholder="Volumen" name="vquantity" id="quantity" value="<?php echo $vcl[0]; ?>"> 
 						</div>
 						<div class="form-group col-sm-4" style="padding-left:0px;">
-						<select class="form-control input-sm" id="unit" name="dropvolum" style="height:39px;">
+						<select class="form-control " id="unit" name="dropvolum">
 						     <option value="<?php echo $vcl[1]; ?>"><?php echo $vcl[1]; ?> </option>
-	                         <option value="">Volumen</option>  
-                             <option value="Cubic meter">Metro Cúbico</option>  
-							 <option value="Cubic feet">Pie Cúbico</option>  
-							 <option value="Cubic Centimeter">Centimetro Cúbico</option>
-							 <option value="cubic meter">Metro Cúbico</option>  
-						    
-                             <option value="litter">Litro</option>		
-                             <option value="others">Otros</option>							 
+	                          <option value="">Volumen</option>  
+                             <option value="Metro Cúbico">Metro Cúbico</option>  
+							 <option value="Pie Cubico">Pie Cúbico</option>  
+							 <option value="Centimetro Cubico">Centimetro Cúbico</option>
+							 <option value="Metro Cubico">Metro Cúbico</option>
+                             <option value="Litro">Litro</option>		
+                             <option value="Otros">Otros</option>
                          </select>
 				         </div>
 						 </div>
 						 <div class="row">
-						 		<?php 
-                                $str2=$rowz['dimension'];
-                                $str22=$rowz['dimension2'];
-                                $str23=$rowz['dimension3'];
-                                $str24=$rowz['dimension4'];
-                                ?>
-								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+						 
+								<?php 
+								$str2=$rowz['dimension'];
+								$str22=$rowz['dimension2'];
+								$str23=$rowz['dimension3'];
+								$str24=$rowz['dimension4'];
+								?>
+								<div class="form-group col-sm-2" style="padding-right:0px;  ">
 								<input type="text" class="form-control " placeholder="L" name="dquantity" id="quantity" value="<?php echo $str2;?>"> 
 								</div>
-								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<div class="form-group col-sm-2" style="padding-right:0px; ">
 								<input type="text" class="form-control " placeholder="Al" name="dquantity2" id="quantity" value="<?php echo $str22; ?>"> 
 								</div>
-								<div class="form-group col-sm-2" style="padding-right:0px;  margin-top: 10px;">
+								<div class="form-group col-sm-2" style="padding-right:0px; ">
 								<input type="text" class="form-control " placeholder="An" name="dquantity3" id="quantity" value="<?php echo $str23; ?>"> 
 								</div>
 						<div class="form-group col-sm-4 col-sm-offset-2" style="padding-left:0px;">
 								<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-								<select class="form-control input" id="unit" name="dropdimension" style="height:38px; margin-top:10px;">
+								<select class="form-control" id="unit" name="dropdimension" >
 									<option value="<?php echo $str24; ?>"> <?php echo $str24; ?> </option>
-									<option value="feet">Pie</option>  
-									<option value="Inch">Pulgada</option>  
-									<option value="Centimeter">Centimetro</option>  
-									<option value="Meter">Metro</option>
-									
-									<option value="others">Otro</option>							 
+									<option value="Pie">Pie</option>  
+									<option value="Pulgada">Pulgada</option>  
+									<option value="Centimetro">Centimetro</option> 
+									<option value="Metro">Metro</option>
+									<option value="Otro">Otro</option>
 								</select>
 						</div>
 				</div>
@@ -766,69 +776,64 @@ $(document).ready(function() {
 						<input type="text" class="form-control" placeholder="Inserte Capacidad" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
-						 <select class="form-control" id="unit" name="dropcapacity" style="height:39px;">
+						 <select class="form-control input" id="unit" name="dropcapacity" >
 						 <option value="<?php echo $ccl[1] ?>"><?php echo $ccl[1] ;?></option>
-	                         <option value="Ton">Ton</option>  
-                             <option value="Kilogram">Kilogramos</option>  
-							 <option value="Cubic Feet">Píe Cúbico</option>  
-							 <option value="Cubic meter">Metro Cúbico</option>
-							 <option value="Pound">Libra</option>  
-						     
-
-                             <option value="others">Otros</option>							 
+	                        <option value="Tonelada">Tonelada</option>  
+                             <option value="Kilogramos">Kilogramos</option>  
+							 <option value="Píe Cubico">Píe Cúbico</option>  
+							 <option value="Metro Cubico">Metro Cúbico</option>
+							 <option value="Libra">Libra</option>
+                             <option value="Otros">Otros</option>
                          </select>
 				</div>
 				</div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 				<?php $st4=$rowz['volume']; $ecl = explode(' ', $st4);  ?>
-				<input type="text" class="form-control" placeholder="Inserte Fuente de Poder" name="equantity" id="quantity" value="<?php echo $ecl[0]; ?>">
+				<input type="text" class="form-control " placeholder="Inserte Fuente de Poder" name="equantity" id="quantity" value="<?php echo $ecl[0]; ?>">
 				</div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						 <select class="form-control " id="energy" name="dropenergy" style="height:39px;">
+						 <select class="form-control " id="energy" name="dropenergy" >
 						    <option value="<?php echo $ecl[1];?>"><?php echo $ecl[1] ;?></option>
-	                         <option value="Volt">Voltio</option>  
-                             <option value="Ohm">Ohmio</option>  
-							 <option value="Watt">Vatios</option>  
-							 <option value="empere">Amperio</option>
-									
-                             <option value="others">Otros</option>							 
+	                         <option value="Voltio">Voltio</option>  
+                             <option value="Ohmio">Ohmio</option>  
+							 <option value="Vatios">Vatios</option>  
+							 <option value="Amperio">Amperio</option>
+                             <option value="Otros">Otros</option>								 
                          </select>
 				</div>
 				</div>
 				<div class="form-group">
 				
-						<input type="text" class="form-control input-sm" placeholder="Velocidad de Rotacion" name="rotation" id="rot" value="<?php echo $rowz['rotationspeed'];?>">
+						<input type="text" class="form-control input"  placeholder="Velocidad de Rotacion" name="rotation" id="rot" value="<?php echo $rowz['rotationspeed'];?>">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Material de Elaboracion" name="elobration" id="elobration" value="<?php echo $rowz['elaboration'];?>">
+						<input type="text" class="form-control input" required placeholder="Material de Elaboracion" name="elobration" id="elobration" value="<?php echo $rowz['elaboration'];?>">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Uso" name="use" id="use" value="<?php echo $rowz['puse']; ?>">
+						<input type="text" class="form-control input" required placeholder="Uso" name="use" id="use" value="<?php echo $rowz['puse']; ?>">
 				</div>
 				<div class="form-group">
-						 <select class="form-control" id="unit" name="size">
+						 <select class="form-control input" id="unit" name="size">
 						   <option value="<?php echo $rowz['psize']; ?>"> <?php echo $rowz['psize']; ?> </option>
-	                         <option value="Small">Pequeño</option>  
-                             <option value="Medium">Mediano</option>  
-							 <option value="Large">Grande</option>  
-							 <option value="Extra large">Extra Grande</option>
-								
-                             <option value="others">Others</option>							 
+	                         <option value="Pequeño">Pequeño</option>  
+                             <option value="Mediano">Mediano</option>  
+							 <option value="Grande">Grande</option>  
+							 <option value="Extra Grande">Extra Grande</option>
+                             <option value="Otros">Otros</option>
                          </select>
 				</div>
 				<div class="form-group">
-						 <select class="form-control" id="unit" name="packaging">
+						 <select class="form-control" id="unit" required="true" name="packaging">
 						    <option value="<?php echo $rowz['packing']; ?>"> <?php echo $rowz['packing']; ?> </option>
-	                         <option value="Bag">Bolsa Plástica</option>  
-                             <option value="Bottle">Botella</option>  
-							 <option value="Can">Enlatado</option>  
-							 <option value="Barrel">Barril</option>
+	                          <option value="Bolsa Plástica">Bolsa Plástica</option>  
+                             <option value="Botella">Botella</option>  
+							 <option value="Enlatado">Enlatado</option>  
+							 <option value="Barril">Barril</option>
 							 <option value="Carton">Carton</option>  
-						     <option value="Wooden Box">Caja de Madera</option>  
-                          		
-                             <option value="others">Otros</option>							 
+						     <option value="Caja de Madera">Caja de Madera</option>
+                             <option value="Otros">Otros</option>
                          </select>	
 						 </div>
 					
@@ -837,110 +842,90 @@ $(document).ready(function() {
 						 
 						 <div class="form-group ">
 		
-			<select  required class="form-control" name="productType">
+			<select  required class="form-control input" name="productType">
 			<option  value="<?php echo $rowz['productType']; ?>"><?php echo $rowz['productType']; ?></option>
 			<option value="Eco Friendly" >Eco Friendly </option>
 			<option value="Innovation" >Innovacion</option>
-			<option value="Normal Product" >Producto Normal</option>
-	
+			<option value="Normal Product" >Producto Normal</option>	
 			</select>
 			
-			</div>
-	
-				<div class="form-group">
-
-			<select  class="form-control"  id="showcaseid" name="showcaseid" >
-			<option value="<?php echo $rowz['productstatus']; ?>"> <?php echo $rowz['productstatus']; ?> </option>
-			<option  value="" >Selecciona un Producto</option>
-			<option value ="0">Mostrar Producto</option>
-			</select>
-			</div>
-				<div class="form-group">
-
-			<select  class="form-control"  id="showtoplist" name="showtoplist" >
-			<option value="<?php echo $rowz['producttoplist']; ?>"> <?php echo $rowz['producttoplist']; ?> </option>
-			<option  value="" >Selecciona para lista especial</option>
-			<option value ="1">Establecer como producto de la lista especial</option>
-			</select>
-			</div>
-
-			 <?php $stt8=$rowz['price_unit'];?>
+			</div>	
+				
+			            <?php $stt8=$rowz['price_unit'];?>
 						 <div class="input-group" style="margin-bottom:10px;">  
-  							<input type="text" class="form-control" placeholder="Precio" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
+  							<input type="text" class="form-control" placeholder="Precio" required="true" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
   							<span class="input-group-addon" id="basic-addon1">$</span>
-  							<select class="form-control" id="unit" name="dropminimum"  style="height:39px;">
+  							<select class="form-control" id="unit" name="dropminimum">
 						    <option value="<?php echo $stt8; ?>"><?php echo $stt8; ?></option> 
-	                         <option value="Unit">Unidad</option>  
-                             <option value="Ton">Ton</option>  
-							 <option value="Gram">Gramo</option>  
-							 <option value="Inch">Pulgada</option>
-							 <option value="ounace">Onza</option>  
-						     <option value="Gallon">Galon</option>  
-                             <option value="Feet">Pie</option>
-                             <option value="Cubic Meter">Metro Cubico</option>
-							 <option value="Cubic Feet">Pie Cubico</option> 
-						     <option value="20 ft container">Envase de 20ft</option>
-							 <option value="40 ft container">Envase de 40ft</option>
-							<option value="Pallets">Paletas</option>	
+	                          <option value="Unidad">Unidad</option>  
+                             <option value="Tonelada">Tonelada</option>  
+							 <option value="Gramo">Gramo</option>  
+							 <option value="Pulgada">Pulgada</option>
+							 <option value="Onza">Onza</option>  
+						     <option value="Galon">Galon</option>  
+                             <option value="Pie">Pie</option>
+                             <option value="Metro Cubico">Metro Cubico</option>
+							 <option value="Pie Cubico">Pie Cubico</option> 
+						     <option value="Envase de 20ft">Envase de 20ft</option>
+							 <option value="Envase de 40ft">Envase de 40ft</option>
+							<option value="Paletas">Paletas</option>	
 							<option value="Carton">Carton</option>	
-                            <option value="others">Otros</option>							 
+                            <option value="Otros">Otros</option>							 
                          </select>         	
 							</div>
 						 
-						 <div class="row">
-						 <?php $stt3=$rowz['miniorder']; $mcl = explode(' ', $stt3);  ?>
-					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required placeholder="Orden Mínima" />
-				   </div>
-					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control" id="unit" name="dropminimum2"  style="height:39px;">
-						    <option value="<?php echo $mcl[1]; ?>"><?php echo $mcl[1]; ?></option> 
-	                         <option value="Unit">Unidad</option>  
-                             <option value="Ton">Ton</option>  
-							 <option value="Gram">Gramo</option>  
-							 <option value="Inch">Pulgada</option>
-							 <option value="ounace">Onza</option>  
-						     <option value="Gallon">Galon</option>  
-                             <option value="Feet">Pie</option>
-                             <option value="Cubic Meter">Metro Cubico</option>
-							 <option value="Cubic Feet">Pie Cubico</option> 
-						     <option value="20 ft container">Envase de 20ft</option>
-							 <option value="40 ft container">Envase de 40ft</option>
-							<option value="Pallets">Paletas</option>	
-							<option value="Carton">Carton</option>	
-                            <option value="others">Otros</option>							 
-                         </select>         	
-						 </div>
-						 </div>
 						 
+						 <?php $stt3=$rowz['miniorder']; $mcl = explode(' ', $stt3);  ?>
+
+						 <div class="input-group" style="margin-bottom:10px;">  
+  							<input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/>
+  							<span class="input-group-addon" id="basic-addon1">$</span>
+  							<select class="form-control" id="unit" name="dropminimum2">
+						    <option value="<?php echo $mcl[1];?>"><?php echo $mcl[1];?></option> 
+	                         <option value="Unidad">Unidad</option>  
+                             <option value="Tonelada">Tonelada</option>  
+							 <option value="Gramo">Gramo</option>  
+							 <option value="Pulgada">Pulgada</option>
+							 <option value="Onza">Onza</option>  
+						     <option value="Galon">Galon</option>  
+                             <option value="Pie">Pie</option>
+                             <option value="Metro Cubico">Metro Cubico</option>
+							 <option value="Pie Cubico">Pie Cubico</option> 
+						     <option value="Envase de 20ft">Envase de 20ft</option>
+							 <option value="Envase de 40ft">Envase de 40ft</option>
+							<option value="Paletas">Paletas</option>	
+							<option value="Carton">Carton</option>	
+                            <option value="Otros">Otros</option>							 
+                         </select>         	
+							</div>
+
+
+
+
+					
+
+
+
+
+
+
+
 						<div class="form-group">
-								 <input type="text" class="form-control input-sm" placeholder="Delivery Details" name="delivery_details" id="delivery_details" value="<?php echo $rowz['delivery_details']; ?>">
+								 <input type="text" class="form-control input-sm" required="true"  placeholder="Delivery Details" name="delivery_details" id="delivery_details" value="<?php echo $rowz['delivery_details']; ?>">
 						 </div>	
 						 <div class="form-group">
-							<select class="form-control " id="payment" name="payment">
+							<select class="form-control " id="payment" name="payment" required="true">
 							    <option value="<?php echo $rowz['payment']; ?>"> <?php echo $rowz['payment']; ?> </option>
 								<option value="Paypal">Paypal</option>  
-								<option value="WebPay">Wire Transfer</option>  
-								<option value="Paypal and WebPay">Paypal and Wire Transfer</option>  							 
+								<option value="Transferencia Bancaria">Transferencia Bancaria</option>  
+								<option value="Paypal y Transferencia Bancaria">Paypal y Transferencia Bancaria</option>  							 
 							</select>   
-						 </div>  
+						 </div> 
 
-<style type="text/css">
-	
-	/*ESTILOS PERSONALIZADOS*/
-#selectedFiles1 img{
-                  width: 200px;
-
-              }
-
-#selectedFiles2 img{
-                  width: 200px;
-
-              }
-</style>
 						 
 						<div class="col-md-12">
 							<center>
-								<h4>Subir la Certificacion del Producto</h4>
+								<h6>Agregar Certificacion</h6>
 							</center>
 						</div>
 
@@ -949,15 +934,15 @@ $(document).ready(function() {
 							$certification_verificacion= $rowz['certification'];; 
 						 if(!empty($certification_verificacion)) {
 						 ?>
-						 		<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $rowz['certification']; ?>" />
-    								<input class="form-control" type="file"  name="file1" id="files"/>
-    								<a href="updateproduct.php?image=certificacion&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Certificacion</a>
-    							</div>			
+    							<div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $rowz['certification']; ?>" />
+    								<input class="form-control" type="file"  name="file1" id="files"/>	
+    								<a href="updateproduct.php?image=certificacion&pid=<?php echo $_GET['pid'];?>">Eliminar Certificacion</a>
+    							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Certificacion</h4></center>
+								
 								<input class="form-control " type="file"  name="file1" id="files" />
 							
 						<?php
@@ -967,7 +952,7 @@ $(document).ready(function() {
 
 						 <div class="col-md-12">
 							<center>
-								<h4>Agregar las Imagenes de los Productos</h4>
+								<h5>Agregar las Imagenes de los Productos</h5>
 							</center>
 						</div>
 						 
@@ -984,14 +969,14 @@ $(document).ready(function() {
 						 if(!empty($stri1)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri1; ?>" />
     								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
-    								<a href="updateproduct.php?image=1&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
-    							</div>		
+    								<a href="updateproduct.php?image=1&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>	
+    							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Imagen #1</h4></center>
+								<center><h6>Agregar Imagen #1</h6></center>
 								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
 							
 						<?php
@@ -1002,15 +987,15 @@ $(document).ready(function() {
 						<?php
 						 if(!empty($stri2)) {
 						 ?>
-						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" />
+						 		<div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri2; ?>" />
     								<input class="form-control" type="file"  name="imagenes2"   id="files2"/>
-    								<a href="updateproduct.php?image=2&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updateproduct.php?image=2&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>
     							</div>		
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Imagen #2</h4></center>
+								<center><h6>Agregar Imagen #2</h6></center>
 								<input class="form-control" type="file"  name="imagenes2"  id="files2"/>
 							
 						<?php
@@ -1021,14 +1006,14 @@ $(document).ready(function() {
 						 if(!empty($stri3)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" />
-    								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>	
-    								<a href="updateproduct.php?image=3&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri3; ?>" />
+    								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>
+    								<a href="updateproduct.php?image=3&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>	
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Imagen #3</h4></center>
+								<center><h6>Agregar Imagen #3</h6></center>
 								<input class="form-control" type="file"  name="imagenes3"  id="files3"/>
 							
 						<?php
@@ -1038,15 +1023,15 @@ $(document).ready(function() {
 						<?php
 						 if(!empty($stri4)) {
 						 ?>
-						         <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" />
+						        <div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri4; ?>" />
     								<input class="form-control" type="file"  name="imagenes4"   id="files4"/>
-    								<a href="updateproduct.php?image=4&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    								<a href="updateproduct.php?image=4&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>	
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Imagen #4</h4></center>
+								<center><h6>Agregar Imagen #4</h6></center>
 								<input class="form-control" type="file"  name="imagenes4"  id="files4"/>
 							
 						<?php
@@ -1056,15 +1041,15 @@ $(document).ready(function() {
 						<?php
 						 if(!empty($stri5)) {
 						 ?>
-						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" />
+						 		<div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri5; ?>" />
     								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
-    								<a href="updateproduct.php?image=5&pid=<?php echo $_GET['pid'];?>" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updateproduct.php?image=5&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>
     							</div>		
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Imagen #5</h4></center>
+								<center><h6>Agregar Imagen #5</h6></center>
 								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
 							
 						<?php
@@ -1072,10 +1057,14 @@ $(document).ready(function() {
 						?> 																
 							 
 						  </div>
-						  
 						 
-				</div>
-
+						  
+						
+						 
+						 
+						 
+						 
+				</div>	
 	<style type="text/css">
 	 #selectedFiles1 img{
 	 	max-width: 400px;
@@ -1089,19 +1078,20 @@ $(document).ready(function() {
 
               }              
 
-</style>				
+</style>			
+
 				<div class="row">		
 					<div class="form-group col-sm-12">
 											<center>
-												<h3 style="text-align:center;">Area de Visualizacion Previa</h3>
+												<h5 style="text-align:center;">Area de Visualizacion Previa </h5>
 												 <div id="selectedFiles1"></div>
 												 <div id="selectedFiles2"></div>
 						                   </center>	 
-			 <div id="selectedFiles1"></div>
+						 <div id="selectedFiles1"></div>
 					</div>	
 		
-      </div>									  
-				
+      			</div>						  
+							
 				
 				</div>	
 				<div class="row">
@@ -1120,13 +1110,11 @@ $(document).ready(function() {
 				$("#txtEditor").val($('.Editor-editor').html()); 
 				
 			});
-				</script>	
-
-
+				</script>
 				<div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> Descripcion:</b> </h4></div> 
  <div class="form-group col-sm-2"> </div>        
 		<div class="form-group col-sm-8">
-	<textarea class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"></textarea>
+			    <textarea   class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"><?php echo $rowz['fulldescription']; ?> </textarea>
 				</div>	
                 </div>				
 				<!--<div class="form-group">
@@ -1140,15 +1128,15 @@ $(document).ready(function() {
 			</div>
 		    -->
 		
-		  <center><button type="submit" name="btn_save_updates" class="btn btn-success"><i class="fa fa-refresh" >
+		  <center><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
        &nbsp; Actualizar</i>
         </button>
-		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:white; border: 1px solid ;"><i class="fa fa-times"></i> Cancelar</a>
-       </input>
+		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;"><i class="fa fa-times"></i> Cancelar</a>
+       
            </br>
          
         </center>
-         
+        
          
         
 	  </form>  
@@ -1158,7 +1146,7 @@ $(document).ready(function() {
             </div><!-- end container -->
         </section>
 		
-	<!-- Trigger the modal with a button -->
+		<!-- Trigger the modal with a button -->
 <script>
 	var selDiv = "";
 		
@@ -1219,7 +1207,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" +"<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1255,7 +1243,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" +"<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1291,7 +1279,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" +"<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1363,7 +1351,7 @@ $(document).ready(function() {
 	
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">" +"<br clear=\"left\"/>";
+				var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
 				selDiv.innerHTML += html;				
 			}
 			reader.readAsDataURL(f); 
@@ -1376,6 +1364,4 @@ $(document).ready(function() {
  <?php        
 
 include('footer.php');
-?>
-
-    
+?>    
