@@ -238,7 +238,7 @@ $(document).ready(function(){
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD <?php echo $price = $row['price'].$row['price_unit'];  ?></span>
 							  </br>
 							  <span class="amount text-default">Orden min:<?php echo $quantity?></span>
 							  </br>
@@ -255,7 +255,7 @@ $(document).ready(function(){
 <!-- ////////////////////////////////////// -->
 <?php 
 
- $sqlx2="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly')";
+ $sqlx2="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 0 AND (productType='Innovation' OR productType='Eco Friendly')";
 		$stmtx2=mysqli_query($connection,$sqlx2);
 		if($stmtx2 == false) {
 		trigger_error('Wrong SQL: ' . $sqlx2 . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -275,7 +275,7 @@ while (($nrx2 + 6) > $final ) {
                      <div class="item" style="padding-right:70px; padding-left:70px; background-color:#ffffff;">
                             <div class="row" style="background-color:#ffffff;">
 												 <?php
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT $inicial,$final";
+			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 0 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT $inicial,$final";
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -305,7 +305,7 @@ while (($nrx2 + 6) > $final ) {
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">USD<?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD<?php echo $price = $row['price'].$row['price_unit'];  ?></span>
 							  </br>
 							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>							  
@@ -562,7 +562,7 @@ echo $final;
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 0 LIMIT 0,100";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE (productType='Normal Product' AND productstatus=1 AND productaction = 0) OR (productType='Normal Product' AND productstatus=1 AND admin_show_case = 1) LIMIT 0,100";
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -592,7 +592,7 @@ $userId=$row['user_id'];
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD <?php echo $price = $row['price'].$row['price_unit'];  ?></span>
 							  </br>
 							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>
@@ -626,7 +626,7 @@ $userId=$row['user_id'];
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 0 LIMIT 101,200";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE (productType='Normal Product' AND productstatus=1 AND productaction = 0) OR (productType='Normal Product' AND productstatus=1 AND admin_show_case = 1) LIMIT 101,200";
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -656,7 +656,7 @@ $userId=$row['user_id'];
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD <?php echo $price = $row['price'].$row['price_unit'];  ?></span>
 							  </br>
 							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>

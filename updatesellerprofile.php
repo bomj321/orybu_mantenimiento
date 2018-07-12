@@ -644,19 +644,16 @@ if(!empty($image5)){
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"  rows="4" cols="50" placeholder="Description">
-							 <?php echo $companyDescription?>
-							
-							</textarea>	
+	<textarea  name="companyDescription" tabindex="1" class="form-control"  rows="4" cols="50" placeholder="Description"><?php echo $companyDescription;?></textarea>	
 						</div>
 										<div class="form-group">
 						 <?php
 						 if(!empty($companylogo)) {
 						 ?>
     							<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $companylogo; ?>" />
     								<input class="form-control" type="file"  name="imagenes_logo" id="files"/>	
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=logo" type="button" class="btn btn-danger">Delete Logo</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=logo">Delete Logo</a>
     							</div>	
     					<?php
 							}else{
@@ -684,9 +681,9 @@ if(!empty($image5)){
 
     								<div class="input-group">
 									  
-									 <img style="height:100px; width:100px;" src="images/<?php echo $myString; ?>" />
+									 <img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=1" type="button" class="btn btn-danger">Delete Image</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=1">Delete Image</a>
 									</div>	
     					<?php
 							}else{
@@ -703,9 +700,9 @@ if(!empty($image5)){
 						 if(!empty($myString2)) {
 						 ?>
 						 		<div class="input-group">		
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString2; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString2; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>
-    								<a style="margin-left: 10rem;" href="updatesellerprofile.php?email=<?php echo $email;?>&image=2" >Delete Image</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=2" >Delete Image</a>
     							</div>		
     					<?php
 							}else{
@@ -721,9 +718,9 @@ if(!empty($image5)){
 						 if(!empty($myString3)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString3; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString3; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=3" type="button" class="btn btn-danger">Delete Image</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=3" >Delete Image</a>
     							</div>			
     					<?php
 							}else{
@@ -739,9 +736,9 @@ if(!empty($image5)){
 						 if(!empty($myString4)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString4; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString4; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=4" type="button" class="btn btn-danger">Delete Image</a>	
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=4" >Delete Image</a>	
     							</div>	
     					<?php
 							}else{
@@ -757,9 +754,9 @@ if(!empty($image5)){
 						 if(!empty($myString5)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString5; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString5; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>	
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=5" type="button" class="btn btn-danger">Delete Image</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=5" >Delete Image</a>
     							</div>	
     					<?php
 							}else{
@@ -801,7 +798,7 @@ if(!empty($image5)){
            
        						
        						
-						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:white; border: 1px solid ;" ><i class="fa fa-times"></i> CANCEL</a>       
+						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;" ><i class="fa fa-times"></i> CANCEL</a>       
 						<br>
 						<br>
 						<br>

@@ -75,7 +75,7 @@ $confirmcode=$_SESSION['code'];
                                         <span>Numero de Telefono</span>
 											<input name="p1" type="text" size="10" placeholder="Codigo" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
-											<input name="p3" type="text"  size="30" placeholder="Aqui el Número" required>
+											<input name="p3" type="text"  size="25" placeholder="Aqui el Número" required>
 
 									</div>
 						<div class="form-group">
@@ -356,11 +356,11 @@ $confirmcode=$_SESSION['code'];
 									<div class="form-group">
 										<select name="businessType" required class="form-control input">
 								  <option value="">Seleeciona tu tipo de Empresa</option>
-                                             <option value="Manufacturer">Manufacturera</option>
-                                             <option value="Distributor" >Distribuidora</option>
-											  <option value="Trading Company" >Empresa Comercial</option>
-                                             <option value="Retailer" >Minorista</option> 
-                                              <option value="other" >Otro</option>    
+                                             <option value="Manufacturera">Manufacturera</option>
+                                             <option value="Distribuidora" >Distribuidora</option>
+											  <option value="Empresa Comercial" >Empresa Comercial</option>
+                                             <option value="Minorista" >Minorista</option> 
+                                              <option value="Otro" >Otro</option>    
 											 </select>
 									</div>
 									<div class="form-group">
@@ -377,12 +377,12 @@ $confirmcode=$_SESSION['code'];
 							</div>
 							<div class="form-group">
 
-					 <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Describe tu Compañia" ></textarea>
+					 <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Describe tu Compañia Aqui" ></textarea>
 						</div>
 										
 										
 						<div="form-group">						 
-								<center><h4>Agregar Logo de la Empresa</h4></center>
+								<center><h6>Agregar Logo de la Empresa</h6></center>
 								<input class="form-control " type="file"  required name="imagenes_logo" id="files" onchange="readURL(this);" />							
 								<div id="selectedFiles"></div>
 						 </div>																																					
@@ -393,35 +393,35 @@ $confirmcode=$_SESSION['code'];
 						<!--SUBIR LICENCIAS-->
 						<div class="col-md-12">
 							<center>
-								<h4>Agregar Licencias de la Compañia</h4>
+								<h5>Agregar Licencias de la Compañia</h5>
 							</center>
 						</div>
 						<div class="form-group" > 						 
 						 
 						 	
 
-								<h4>Agregar Licencias de la Empresa #1</h4>
+								<h6>Agregar Licencias de la Empresa #1</h6>
 								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
 						
 							
 							
 						
-							      <h4>Agregar Licencias de la Empresa #2</h4>
+							      <h6>Agregar Licencias de la Empresa #2</h6>
 								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
 							
 						
 						
-								<h4>Agregar Licencias de la Empresa #3</h4>
+								<h6>Agregar Licencias de la Empresa #3</h6>
 								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
 						
 						
 						      
     					
-								<h4>Agregar Licencias de la Empresa #4</h4>
+								<h6>Agregar Licencias de la Empresa #4</h6>
 								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
 					
     					
-								<h4>Agregar Licencias de la Empresa #5</h4>
+								<h6>Agregar Licencias de la Empresa #5</h6>
 								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>																			
 							 
 						  </div>
@@ -435,7 +435,7 @@ $confirmcode=$_SESSION['code'];
 
 								<div="form-group">
 											<center>
-													<h3>Area de Vizualizacion Previa</h3>
+													<h5>Area de Vizualizacion Previa</h5>
 											</center>
 			 											<div id="selectedFiles1" class="col-md-5 col-xs-offset-4">
 			 												<br>

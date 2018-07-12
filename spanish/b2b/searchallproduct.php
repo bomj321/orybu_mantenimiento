@@ -226,179 +226,8 @@ include('navh.php');
                     <!-- end sidebar -->
                     <div class="col-sm-9">
                       
-                        
-                    
-                            
-                            
-               
-         
-     <div class="content light-background">
-      <center><h5>MÁS BUSCADOS</h5></center>
-                    <div class="row">
-          <?php
-          $email=$_SESSION['uemail'];
       
- $query=$_GET['keyword']; 
- if($_GET['title'] != "" OR $_GET['keyword'] != "")
- {
-  $title=$_GET['title'];
- $query=$_GET['keyword'];
-             if($title !=" " )
-       {
-       $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%".$title."%' ) AND (producttoplist='1')";
-        } 
-        
-               $result=mysqli_query($connection,$query);
-         ?>
-                        </div><!-- end row -->
-                    <?php
-                  while( $row=mysqli_fetch_array($result)){ 
-   $myString = $row['image'];
-              $cl = explode(',', $myString);
-          ?>
-         
-         <div class="col-sm-6 col-md-6">
-                                                
-               
-            <?php
-
-              if($productType =="Eco Friendly"){
-                  ?>
-                       <span> <img style="height:35px; width:35px;float:right"src="images/ecofriendly.png" />
-                                       </span><?php
-                    }
-                    else if($productType =="Innovation"){
-                    ?>
-                       <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
-                                       </span><?php
-                    }
-                    ?>  
-                        
-                            <div class="cat-item-style2">
-                 <div class="title">
-                 <?php echo '<h6> '.$row['title'].'</h6>'; ?>
-                                
-                                </div><!-- end title -->
-                <div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitulo']; ?></span>  </center> 
-                    
-                                        </div>
-                                <figure>
-                
-                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                                  
-                     <img style="height:200px; width:100%;" src="images/<?php echo $cl[0]; ?>" alt="" />
-                    
-                                    </a>
-                                </figure>
-                                <div class="title">
-                 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
-                                
-                                </div><!-- end title -->
-                <div class="price">
-                                  <center>  <span class="amount text-primary">$<?php echo $row['price']; ?></span>  </center> 
-                      <?php
-                      
-                      //$p = $price -10;
-                                               ?>
-                                          <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
-                        
-                                        </div>
-                            </div><!-- end cat-item-style2 -->
-                        <!-- end col -->
-                   
-                   <!-- end row -->
-          
-           </div>
-           <?php
-             } 
-
-
-
-
-
- }
- if($_GET['categorytitle'] !="")
-{
-  $name = $_GET['categorytitle'];
-
-foreach ($name as $country){ 
- 
-        
-           $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ( products.country LIKE '%".$country."%') AND (producttoplist='1')";
-           
-          
-               $result=mysqli_query($connection,$query);
-         ?>
-                        </div><!-- end row -->
-                    <?php
-                  while( $row=mysqli_fetch_array($result)){ 
-   $myString = $row['image'];
-              $cl = explode(',', $myString);
-          ?>
-         
-         <div class="col-sm-6 col-md-6" style="padding:3px">
-                                                
-               
-            <?php
-
-              if($productType =="Eco Friendly"){
-                  ?>
-                       <span> <img style="height:35px; width:35px;float:right"src="images/ecofriendly.png" />
-                                       </span><?php
-                    }
-                    else if($productType =="Innovation"){
-                    ?>
-                       <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
-                                       </span><?php
-                    }
-                    ?>  
-                        
-                            <div class="cat-item-style2">
-                 <div class="title">
-                 <?php echo '<h6> '.$row['titulo'].'</a></h6>'; ?>
-                                
-                                </div><!-- end title -->
-                <div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitulo']; ?></span>  </center> 
-                    
-                                        </div>
-                                <figure>
-                
-                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                                  
-                     <img style="height:200px; width:100%;" src="images/<?php echo $cl[0]; ?>" alt="" />
-                    
-                                    </a>
-                                </figure>
-                                <div class="title">
-                 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
-                                
-                                </div><!-- end title -->
-                <div class="price">
-                                  <center>  <span class="amount text-primary">$<?php echo $row['price']; ?></span>  </center> 
-                      <?php
-                      
-                      //$p = $price -10;
-                                               ?>
-                                          <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
-                        
-                                        </div>
-                            </div><!-- end cat-item-style2 -->
-                        <!-- end col -->
-                   
-                   <!-- end row -->
-          
-           </div>
-           <?php 
-                } 
-             }
-           }?>
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                           
-                        </div><!-- end col -->
-                    </div><!-- end row -->
-                </div><!-- end content -->
-
+    
 
 <!-------------------------------------------------------------------------TOP 0---------------------------------------------------------------------------->
  <div class="content light-background">
@@ -406,14 +235,18 @@ foreach ($name as $country){
           <?php
           $email=$_SESSION['uemail'];
       
- $query=$_GET['keyword']; 
+ $query_key=$_GET['keyword']; 
  if($_GET['title'] != "" OR $_GET['keyword'] != "")
  {
   $title=$_GET['title'];
- $query=$_GET['keyword'];
-             if($title !=" ")
+ $query_key=$_GET['keyword'];
+              if($title !=" ")
        {
-       $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%".$title."%' ) AND producttoplist='0'";
+       $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%".$title."%' ) ORDER BY  pid DESC ";
+        }elseif( $query_key != " "){
+          $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%".$query_key."%' ) ORDER BY  pid DESC ";
+        }elseif( $query_key != " " AND $title !=" "){
+          $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%".$query_key."%' ) AND (categories.title LIKE '%".$title."%' ) ORDER BY  pid DESC ";
         }  
         
                $result=mysqli_query($connection,$query);
@@ -492,7 +325,7 @@ foreach ($name as $country){
 foreach ($name as $country){ 
  
         
-           $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ( products.country LIKE '%".$country."%'  AND producttoplist='0' ) ";
+           $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.country LIKE '%".$country."%') ORDER BY  pid DESC ";
            
           
                $result=mysqli_query($connection,$query);

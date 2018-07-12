@@ -108,9 +108,9 @@ include('Connect.php');
 														<option class="form-control" value="faqquestion" >faqquestion</option>
 														<option class="form-control" value="faqquestion" >faqquestionspanish</option>
 														<option class="form-control" value="considerateimportquestion" >considerateimportquestion</option>
-														<option class="form-control" value="considerateimportquestion" >considerateimportquestionspanish</option>
+														<option class="form-control" value="considerateimportquestionspanish" >considerateimportquestionspanish</option>
 														<option class="form-control" value="considerateimportquestion" >considerateexportquestion</option>
-														<option class="form-control" value="considerateimportquestion" >considerateexportquestionspanish</option>
+														<option class="form-control" value="considerateexportquestionspanish" >considerateexportquestionspanish</option>
 
 
                           </select>

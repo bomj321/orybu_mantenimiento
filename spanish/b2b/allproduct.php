@@ -221,7 +221,7 @@ include('navh.php');
       	 
 <!--Comienza a imprimir-->	 
 <div class="row">
-					<?php $query="SELECT * FROM users INNER JOIN products ON(users.user_id = products.user_id) INNER JOIN seller ON(users.email = seller.email)";
+					<?php $query="SELECT * FROM users INNER JOIN products ON(users.user_id = products.user_id) INNER JOIN seller ON(users.email = seller.email) ORDER BY  pid DESC";
                         $result=mysqli_query($connection,$query);
 			         ?>
                         </div><!-- end row -->

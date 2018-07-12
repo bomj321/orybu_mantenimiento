@@ -26,7 +26,7 @@ include('middlebar.php');
                     <div class="col-sm-9">
                         <div class="panel-group accordion style1" id="question" role="tablist" aria-multiselectable="true">
                             <?php
- $sql="SELECT * FROM faq  Where elementName ='considerateimportquestion'  ";
+ $sql="SELECT * FROM faq  Where elementName ='considerateimportquestion' ORDER BY id ASC ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

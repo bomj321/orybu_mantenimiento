@@ -96,7 +96,7 @@ $cl = explode(',', $myString);
 
             <tr>    
                 <td></br><?php echo $row['ntitle']; ?></td>
-                <td></br><?php echo $row['price']; ?></td>  
+                <td></br><?php echo $row['price']. ' USD'; ?></td>  
                 <td></br><?php echo $row['fulldescription']; ?></td>
                 <td></br><?php echo $row['title']; ?></td>
                 <td></br><?php echo $row['productType']; ?></td>
@@ -117,56 +117,35 @@ $cl = explode(',', $myString);
 													{
 												
 													?>
-												
-												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Mostrar</a>
+												<!--
+												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php //echo $row['productaction'];?>&pid=<?php //echo $row['pid'] ?>">Show On</a>-->
+
+												   <a   class="btn btn-xs btn-success" style="width: 120px; margin-left: -10px;">Show On</a>
 
 												
 													<?php
 													}
-													else if($productaction==1)
+													else if($productaction==2)
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-warning" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Suspender</a>
-
+												    <a   class="btn btn-xs btn-danger" style="width: 120px; margin-left: -10px;" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show Off</a>
 												
 			
 													<?php
-													}else if($productaction==2)
-													{    
+													} 
                                                    ?>
-	                                                
-	                                                <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">No Mostrar</a>
-	                                                 <?php
-                                                    }
-                                                      ?> 
 		
 		 <?php   $producttoplist =$row['producttoplist'];
 													
 													?>
 														<input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
-													<?php 
-													if($producttoplist =='0' OR $producttoplist == "")
-													{
+													
 												
-													?>
-												
-												  <a   class="btn btn-xs btn-danger" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">No lista superior</a>
+												  <a   class="btn btn-xs btn-primary" style="width: 120px;" href="checktoplist.php?producttoplist=0&pid=<?php echo $row['pid'] ?>">lista superior</a>
 
 												
-													<?php
-													}
-													else if($producttoplist =='1')
-													{
-												
-													?>
-												  <a   class=" btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Lista Superior</a>
-
-												
-			
-													<?php
-													}                                                 
-                                                    ?>
+													
 	
 		 </td>
 <td> 

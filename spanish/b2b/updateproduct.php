@@ -696,7 +696,7 @@ $(document).ready(function() {
 					<option value="Zimbabwe">Zimbabwe</option>						 
                          </select>
 				</div>
-				<div class="form-group col-sm-1" style="margin-right: 15px;">
+				<div class="form-group col-sm-1" style="margin-right: 25px;">
 					<label>Puerto<span class="text-danger">*</span></label></div>  
 				
 				<div class="form-group col-sm-4" style="padding-right:0px;">

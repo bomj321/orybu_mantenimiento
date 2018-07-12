@@ -95,7 +95,7 @@ $myString = $row['image'];
 
             <tr>    
                 <td></br><?php echo $row['ntitle']; ?></td>
-                <td></br><?php echo $row['price']; ?></td>  
+                <td></br><?php echo $row['price']. ' USD'; ?></td>  
                 <td></br><?php echo $row['fulldescription']; ?></td>
                 <td></br><?php echo $row['title']; ?></td>
                 <td></br><?php echo $row['productType']; ?></td>
@@ -115,57 +115,37 @@ $myString = $row['image'];
 													{
 												
 													?>
-												
-												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show On</a>
+												<!--
+												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php //echo $row['productaction'];?>&pid=<?php //echo $row['pid'] ?>">Show On</a>-->
+
+												   <a   class="btn btn-xs btn-success" style="max-width: 92.666px;">Show On</a>
 
 												
 													<?php
 													}
-													else if($productaction==1)
+													else if($productaction==2)
 													{
 												
 													?>
-												   <a class="btn btn-xs btn-warning" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Suspend</a>
-
+												    <a   class="btn btn-xs btn-danger" style="width: 93px;" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show Off</a>
 												
 			
 													<?php
-													}else if($productaction==2)
-													{    
+													} 
                                                    ?>
 	                                                
-	                                                <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show Off</a>
-	                                                 <?php
-                                                    }
-                                                      ?> 
-		
+	                                               		
 		 											<?php   
 		 											$producttoplist =$row['producttoplist'];
 													
 													?>
 														<input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
-													<?php 
-													if($producttoplist =='0' OR $producttoplist == "")
-													{
+													
 												
-													?>
-												
-												  <a   class="btn btn-xs btn-danger" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Not     List</a>
+												  <a   class="btn btn-xs btn-primary" style="max-width: 92.666px;" href="checktoplist.php?producttoplist=0&pid=<?php echo $row['pid'] ?>">Top List</a>
 
 												
-													<?php
-													}
-													else if($producttoplist =='1')
-													{
-												
-													?>
-												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Top List </a>
-
-												
-			
-													<?php
-													}                                                 
-                                                    ?>
+													
 		 </td>
 <td> 
          <a    href="updateproduct.php?pid=<?php echo $row['pid'];?>"><i class="fa fa-pencil fa-fw"></i></a> &nbsp;&nbsp;

@@ -21,8 +21,14 @@ include 'Connect.php';
             		 }*/
 
 
-            	if (($top_disponible-1)>0) {
-            		 	$sql = "UPDATE products SET producttoplist='1'  WHERE pid ='$pid'";
+            	if (($top_disponible-1)>=0) {
+
+            			$sql_max_id = "SELECT max(pid)  FROM products";
+            		 	$ejecuto=mysqli_query($connection,$sql_max_id);
+            		 	$row = mysqli_fetch_row($ejecuto);					     
+						$id_sumado=$row[0]+1;
+
+            		 	$sql = "UPDATE products SET producttoplist='1', pid='$id_sumado'  WHERE pid ='$pid'";
             		 	mysqli_query($connection,$sql);
 
 
@@ -40,7 +46,7 @@ include 'Connect.php';
 									{
 									?>
 									<script>
-									alert("Top List Changed");
+									alert("This product is now Top List");
 									window.location.href ="suppliers.php";
 									</script>
 									<?php

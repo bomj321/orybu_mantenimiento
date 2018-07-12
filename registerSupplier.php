@@ -71,7 +71,7 @@ $confirmcode=$_SESSION['code'];
                                         <span>Phone Number:</span>
 											<input name="p1" type="text" size="10" placeholder="Code" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
-											<input name="p3" type="text"  size="30" placeholder=" Number here" required>
+											<input name="p3" type="text"  size="25" placeholder=" Number here" required>
 
 									</div>
 						<div class="form-group">
@@ -348,7 +348,7 @@ $confirmcode=$_SESSION['code'];
 									</div>
 									</br>
 									</br>
-									<h4>Describe your Company </h4>
+									<h4>Describe your company here</h4>
 									<div class="form-group">
 										<select name="businessType" required class="form-control input">
 								  <option value="">SELECT Business Type</option>
@@ -377,7 +377,7 @@ $confirmcode=$_SESSION['code'];
 										
 										
 						<div="form-group">						 
-								<center><h4>Add Company Logo</h4></center>
+								<center><h6>Add Company Logo</h6></center>
 								<input class="form-control " type="file"  required name="imagenes_logo" id="files" onchange="readURL(this);" />							
 								<div id="selectedFiles"></div>
 						 </div>																																					
@@ -388,35 +388,35 @@ $confirmcode=$_SESSION['code'];
 						<!--SUBIR LICENCIAS-->
 						<div class="col-md-12">
 							<center>
-								<h4>Add Company Licenses</h4>
+								<h5>Add Company Licenses</h5>
 							</center>
 						</div>
 						<div class="form-group" > 						 
 						 
 						 	
 
-								<h4>Add Company License #1</h4>
+								<h6>Add Company License #1</h6>
 								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
 						
 							
 							
 						
-							      <h4>Add Company License #2</h4>
+							      <h6>Add Company License #2</h6>
 								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
 							
 						
 						
-								<h4>Add Company License #3</h4>
+								<h6>Add Company License #3</h6>
 								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
 						
 						
 						      
     					
-								<h4>Add Company License #4</h4>
+								<h6>Add Company License #4</h6>
 								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
 					
     					
-								<h4>Add Company License #5</h4>
+								<h6>Add Company License #5</h6>
 								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>																			
 							 
 						  </div>
@@ -430,7 +430,7 @@ $confirmcode=$_SESSION['code'];
 
 								<div="form-group">
 											<center>
-													<h3>Uploaded Picture Preview Area </h3>
+													<h5>Uploaded Picture Preview Area </h5>
 											</center>
 			 											<div id="selectedFiles1" class="col-md-5 col-xs-offset-4">
 			 												<br>

@@ -25,7 +25,7 @@ function googleTranslateElementInit() {
             <div class="container">
                 <ul class="list-inline pull-left hidden-sm hidden-xs">
                     <li style="color:#878c94;"><span class="text-primary">Have a question?</span> Email us to info@orybu.com</li>
-                </ul>
+                </ul>               
 
                 <ul class="topBarNav pull-right">
                      <li class="linkdown">

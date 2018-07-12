@@ -12,13 +12,13 @@ include 'Connect.php';
 
         $pid = $_REQUEST['pid'];
 		 $productaction = $_REQUEST['productaction'];
-		if($productaction==0)
+		if($productaction==2)
 		{
-		   $sql = "UPDATE products SET productaction  ='1'  WHERE pid ='$pid'";
+		   $sql = "UPDATE products SET productaction  ='0', admin_show_case='1'  WHERE pid ='$pid'";
 		}
-		else if($productaction==1)
+		else if($productaction==0)
 		{
-		   $sql = "UPDATE products SET productaction  ='0' WHERE pid ='$pid' ";
+		   $sql = "UPDATE products SET productaction  ='2', admin_show_case='0' WHERE pid ='$pid' ";
 		}
      
  	 mysqli_query($connection,$sql);

@@ -18,8 +18,8 @@ include 'head.php';
                 <div class="row">
                     <div class="col-sm-12">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                             <li class="active">Register</li>
+                            <li><a href="#">Inicio</a></li>
+                             <li class="active">Registro</li>
                            
                         </ul><!-- end breadcrumb -->
                     </div><!-- end col -->    
@@ -53,7 +53,7 @@ include 'head.php';
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-12 text-left">
-                                <h2 class="title">Create an account</h2>
+                                <h2 class="title">Crear una Cuenta</h2>
                             </div><!-- end col -->
                         </div><!-- end row -->
                         
@@ -63,58 +63,58 @@ include 'head.php';
                             <div class="col-sm-12 col-md-10 col-lg-12">
                                 <form id="register-form" action="register_action.php"  enctype="multipart/form-data" method="post" class="form-horizontal">
                                     <div class="form-group">
-                                        <label for="name" class="col-sm-2 control-label">First Name</label>
+                                        <label for="name" class="col-sm-2 control-label">Nombre</label>
                                         <div class="col-sm-10">
-                                          <input type="text" name="fname" id="fname" class="form-control input-md" id="name" placeholder="First Name">
+                                          <input type="text" name="fname" id="fname" class="form-control input-md" id="name" placeholder="Nombre">
                                         </div>
                                     </div><!-- end form-group -->
 									
 									<div class="form-group">
-                                        <label for="lastname" class="col-sm-2 control-label">Last Name</label>
+                                        <label for="lastname" class="col-sm-2 control-label">Apellido</label>
                                         <div class="col-sm-10">
-                                          <input type="text" name="lname" id="lname" class="form-control input-md" id="name" placeholder="Last Name">
+                                          <input type="text" name="lname" id="lname" class="form-control input-md" id="name" placeholder="Apellido">
                                         </div>
                                     </div>
 									
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
-                                          <input type="email" class="form-control input-md" name="email" id="email" onchange="form.cemail.pattern = this.value;"  pattern="(?=.*[a-z || A-Z]).{6,}"  placeholder="Email Address" required>
+                                          <input type="email" class="form-control input-md" name="email" id="email" onchange="form.cemail.pattern = this.value;"  pattern="(?=.*[a-z || A-Z]).{6,}"  placeholder="Correo Electronico" required>
                                         </div>
                                     </div><!-- end form-group -->
 									
 									 <div class="form-group">
-                                        <label for="confrm email" class="col-sm-2 control-label">Confirm Email <span class="text-danger">*</span></label>
+                                        <label for="confrm email" class="col-sm-2 control-label">Confirma Email <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
-                                          <input type="email" class="form-control input-md" name="cemail" id="cemail" onchange="form.cemail.pattern = this.value;" title="Please Enter Alphanumeric and Minimum 6 Character" pattern="(?=.*[a-z || A-Z]).{6,}"  placeholder="Confirm Email" required>
+                                          <input type="email" class="form-control input-md" name="cemail" id="cemail" onchange="form.cemail.pattern = this.value;" title="Por favor alfanumerio y minimo 6 caracteres" pattern="(?=.*[a-z || A-Z]).{6,}"  placeholder="Confirma Email" required>
                                         </div>
                                     </div>
 							        
 									<div class="form-group">
-                                        <label for="password" class="col-sm-2 control-label">Password</label>
+                                        <label for="password" class="col-sm-2 control-label">Contrase&ntilde;a</label>
                                         <div class="col-sm-10">
-                                          <input type="password" name="password"  class="form-control input-md" id="password" title="Please Enter Alphanumeric and Minimum 6 Character"  onchange="form.cpassword.pattern = this.value;"  pattern="(?=.*[a-z || A-Z]).{6,}" required placeholder="Password"  onclick="Pas_advice();">
+                                          <input type="password" name="password"  class="form-control input-md" id="password" title="Por favor alfanumerio y minimo 6 caracteres"  onchange="form.cpassword.pattern = this.value;"  pattern="(?=.*[a-z || A-Z]).{6,}" required placeholder="Contrase&ntilde;a"  onclick="Pas_advice();">
                                         </div>
                                     </div>		
 									
                                     <div class="form-group">
-                                        <label for="password" class="col-sm-2 control-label">Confirm Password<span class="text-danger">*</span></label>
+                                        <label for="password" class="col-sm-2 control-label">Confirma Cont.<span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
-                                          <input type="password" name="cpassword" class="form-control input-md" id="password" placeholder="Confirm Password" required>
+                                          <input type="password" name="cpassword" class="form-control input-md" id="password" placeholder="Confirma Contrase&ntilde;a"  required>
                                         </div>
                                     </div><!-- end form-group -->
 									<div class="form-group">
-									<center> <input type="radio" name="role" value="buyer" > Buyer &nbsp; &nbsp;
-									  <input type="radio" name="role" value="supplier"> Supplier &nbsp; &nbsp;
-									  <input type="radio" name="role" value="both" checked> Both
+									<center> <input type="radio" name="role" value="buyer" > Comprador &nbsp; &nbsp;
+									  <input type="radio" name="role" value="supplier"> Vendedor &nbsp; &nbsp;
+									  <input type="radio" name="role" value="both" checked> Ambos
 								</center>
 								</div>
 								<div class="form-group">
-								<label for="password" class="col-sm-2 control-label">Country <span class="text-danger">*</span></label>
+								<label for="password" class="col-sm-2 control-label">Pais <span class="text-danger">*</span></label>
 								<div class="col-sm-10">
 								<select name="countryName" required class="form-control input">
 								 
-					<option value="">Select Country...</option>
+					<option value="">Selecciona tu Pa&iacute;s...</option>
 					<option value="Afganistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
 					<option value="Algeria">Algeria</option>
@@ -368,7 +368,7 @@ include 'head.php';
 								
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="submit" name="register-submit" id="register-submit" class="btn btn-success round btn-md"><i class="fa fa-user mr-5"></i> Register</button>
+                                            <button type="submit" name="register-submit" id="register-submit" class="btn btn-success round btn-md"><i class="fa fa-user mr-5"></i> Registrar</button>
                                         </div>
                                     </div><!-- end form-group -->
                                 </form>

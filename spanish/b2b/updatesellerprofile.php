@@ -654,14 +654,14 @@ if(!empty($image5)){
 						 if(!empty($companylogo)) {
 						 ?>
     							<div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $companylogo; ?>" />
     								<input class="form-control" type="file"  name="imagenes_logo" id="files"/>	
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=logo" type="button" class="btn btn-danger">Eliminar Logo</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=logo">Eliminar Logo</a>
     							</div>	
     					<?php
 							}else{
 							?>
-								<center><h4>Agregar Logo de la Empresa</h4></center>
+								<center><h6>Agregar Logo de la Empresa</h6></center>
 								<input class="form-control " type="file"  name="imagenes_logo" id="files" />
 
 							
@@ -684,14 +684,14 @@ if(!empty($image5)){
 
     								<div class="input-group">
 									  
-									 <img style="height:100px; width:100px;" src="images/<?php echo $myString; ?>" />
+									 <img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=1" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=1">Eliminar Imagen</a>
 									</div>	
     					<?php
 							}else{
 							?>
-								<h4>Agregar Licencia de la Empresa #1</h4>
+								<h6>Agregar Licencia de la Empresa #1</h6>
 								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
 							
 						<?php
@@ -703,14 +703,14 @@ if(!empty($image5)){
 						 if(!empty($myString2)) {
 						 ?>
 						 		<div class="input-group">		
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString2; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString2; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=2" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=2" >Eliminar Imagen</a>
     							</div>		
     					<?php
 							}else{
 							?>
-								<h4>Agregar Licencia de la Empresa #2</h4>
+								<h6>Agregar Licencia de la Empresa #2</h6>
 								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
 							
 						<?php
@@ -721,14 +721,14 @@ if(!empty($image5)){
 						 if(!empty($myString3)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString3; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString3; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=3" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=3">Eliminar Imagen</a>
     							</div>			
     					<?php
 							}else{
 							?>
-								<h4>Agregar Licencia de la Empresa #3</h4>
+								<h6>Agregar Licencia de la Empresa #3</h6>
 								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
 							
 						<?php
@@ -739,14 +739,14 @@ if(!empty($image5)){
 						 if(!empty($myString4)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString4; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString4; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=4" type="button" class="btn btn-danger">Eliminar Imagen</a>	
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=4">Eliminar Imagen</a>	
     							</div>	
     					<?php
 							}else{
 							?>
-								<h4>Agregar Licencia de la Empresa #4</h4>
+								<h6>Agregar Licencia de la Empresa #4</h6>
 								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
 							
 						<?php
@@ -757,14 +757,14 @@ if(!empty($image5)){
 						 if(!empty($myString5)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px;" src="images/<?php echo $myString5; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString5; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>	
-    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=5" type="button" class="btn btn-danger">Eliminar Imagen</a>
+    								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=5">Eliminar Imagen</a>
     							</div>	
     					<?php
 							}else{
 							?>
-								<h4>Agregar Licencia de la Empresa #5</h4>
+								<h6>Agregar Licencia de la Empresa #5</h6>
 								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>
 							
 						<?php
@@ -799,7 +799,7 @@ if(!empty($image5)){
            
        						
        						
-						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:whiter; border: 1px solid ;" ><i class="fa fa-times"></i> Cancelar</a>       
+						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;" ><i class="fa fa-times"></i> Cancelar</a>       
 						<br>
 						<br>
 						<br>

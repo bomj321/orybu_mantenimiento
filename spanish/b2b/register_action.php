@@ -70,7 +70,7 @@ include 'Connect.php';
 			 if ($count > 0) {
                 ?>
 				<script>
-				alert("Email Already Exit");
+				alert("Email ya Existe");
 				window.location.href ="register.php";
 				</script>
 				<?php
@@ -124,7 +124,7 @@ include 'Connect.php';
 			{
 			?>
 			<script>
-			alert("Add Company Information!");
+			alert("Agrega la Informacion de la Compañia!");
 			window.location.href ="registerSupplier.php?email='<?php echo $email; ?>'";
 			</script>
 		<?php
