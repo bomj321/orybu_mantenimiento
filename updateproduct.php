@@ -434,7 +434,7 @@ $(document).ready(function() {
                 <div class="form-group" style="margin-top:25px;"><label> Product type: </label></div>				
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Minimum Order: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:15px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:25px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
 				<div class="form-group" style="margin-top:20px;"><label> Payment: <span class="text-danger">*</span></label></div>				
 				
 				
@@ -858,9 +858,11 @@ $(document).ready(function() {
 			</select>
 			
 			</div>	
+
+				<div class="row">
 				
 			            <?php $stt8=$rowz['price_unit'];?>
-						 <div class="input-group" style="margin-bottom:10px;">  
+						 <div class="input-group" style="margin-bottom:10px; width:93%; margin-left:15px;">  
   							<input type="text" class="form-control" placeholder="Price" required="true" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
   							<span class="input-group-addon" id="basic-addon1">$</span>
   							<select class="form-control" id="unit" name="dropminimum">
@@ -885,12 +887,14 @@ $(document).ready(function() {
 						 
 						 <?php $stt3=$rowz['miniorder']; $mcl = explode(' ', $stt3);  ?>
 
-						 <div class="input-group" style="margin-bottom:10px;">  
-  							<input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/>
-  							<span class="input-group-addon" id="basic-addon1">$</span>
-  							<select class="form-control" id="unit" name="dropminimum2">
-						    <option value="<?php echo $mcl[1];?>"><?php echo $mcl[1];?></option> 
-	                        <option value="Unit">Unit</option>  
+						
+						 <div class="form-group col-md-8" style="padding-right:0px;">
+						        <input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/> 
+						     </div>
+						 <div class="form-group col-md-4" style="padding-left:0px;">
+						 <select class="form-control " id="unit" name="dropminimum2">
+				                         <option value="<?php echo $mcl[1];?>"><?php echo $mcl[1];?></option> 
+	                        			<option value="Unit">Unit</option>  
 			                             <option value="Ton">Ton</option>  
 										 <option value="Gram">Gram</option>  
 										 <option value="Inch">Inch</option>
@@ -903,14 +907,12 @@ $(document).ready(function() {
 										 <option value="40 ft container">40 ft container</option>
 										<option value="Pallets">Pallets</option>	
 										<option value="Carton">Carton</option>	
-			                            <option value="others">Others</option>						 
-                         </select>         	
-							</div>
+			                            <option value="others">Others</option>								 
+	                         </select>   
+				        </div>
 
 
-
-
-					
+					</div>
 
 
 

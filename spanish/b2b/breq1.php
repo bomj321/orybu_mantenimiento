@@ -24,7 +24,7 @@ include('head.php');
                         <div class="row">
                             <div class="col-sm-5 text-left">
                                 <ul class="list list-inline">
-                                    <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filter</a></li>
+                                    <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filtro</a></li>
                                 </ul>
                             </div><!-- end col -->
 
@@ -44,7 +44,7 @@ include('head.php');
                                 <div class="col-sm-3">
                                     <div class="widget">
                                 <select name="pais">
-                                                  <option value="Elegir" id="AF">Choose Option</option>
+                                                  <option value="Elegir" id="AF">Elegir opción</option>
                                                   <option value="Afganistán" id="AF">Afganistán</option>
                                                   <option value="Albania" id="AL">Albania</option>
                                                   <option value="Alemania" id="DE">Alemania</option>
@@ -292,7 +292,7 @@ include('head.php');
                                                       <?php   $sql="SELECT * FROM `categories` WHERE NOT title ='Eco Friendly'  AND NOT title ='Innovation' LIMIT 5";
                                                         $rst=mysqli_query($connection,$sql);    
                                                         ?>                          
-                                        <h6 class="subtitle thin">Categories</h6>
+                                        <h6 class="subtitle thin">Categorias</h6>
 
                                         <ul class="list list-unstyled">
                                         <?php while($rowt=mysqli_fetch_array($rst)){ ?>
@@ -300,7 +300,7 @@ include('head.php');
                                                 <div >
                                                     <input name="categorytitle"  value="<?php echo $rowt['title'];?>"  type="checkbox" >
                                                     <label >
-                                                        <?php echo $rowt['title'];?>
+                                                        <?php echo $rowt['titulo'];?>
                                                     </label>
                                                 </div>
                                             </li>
@@ -326,7 +326,7 @@ include('head.php');
                                                 <div>
                                                     <input  name="categorytitle"  value="<?php echo $rowt['title'];?>"  type="checkbox" >
                                                     <label >
-                                                        <?php echo $rowt['title'];?>
+                                                        <?php echo $rowt['titulo'];?>
                                                     </label>
                                                 </div>
                                             </li>
@@ -340,7 +340,7 @@ include('head.php');
 
 
                             <!------------MAS FILTROS------------>
-                                    <button type="submit" name="button">Search</button>
+                                    <button type="submit" name="button">BUSCAR</button>
 
                                 
 
@@ -363,7 +363,7 @@ include('head.php');
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <h2 class="title">Buyings Requests</h2>
+                                <h2 class="title">Solicitudes de Compras</h2>
                             </div><!-- end col -->
                         </div><!-- end row -->
                         </div>
@@ -410,7 +410,7 @@ include('head.php');
                     <td> <?php echo $rowreq['dtym'];?> </td>
                     <td><?php echo $rowreq['country'];?>  </td>                <td><?php echo $rowreq['catename']; ?></td>
                     <td style="width:120px;">
-                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
+                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="../../ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>
 
 

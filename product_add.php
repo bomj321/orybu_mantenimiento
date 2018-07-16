@@ -140,29 +140,7 @@ if(trim($str1) ==trim($str2))
 	 </script>
    <?php
    }
-   else
-   {
-     if($producttoplist <= '0')
-	 {
-	 ?>
-	 <script>
-	 alert("Your Top List Product Exceeded");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	 if($productshowcase <= '0')
-	 {
-	  ?>
-	 <script>
-	 alert("Your Show Case Product Exceeded");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	
   
-   }
 }
 else if(trim($str1) ==trim($str3))
 {
@@ -317,8 +295,8 @@ else if(trim($str1) ==trim($str3))
                 <div class="form-group" style="margin-top:20px;"><label> Product type:  <span class="text-danger">*</span> </label></div>				
 				<div class="form-group" style="margin-top:520px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
-				<div class="form-group" style="margin-top:25px;"><label> Payment: <span class="text-danger">*</span> </label></div>				
+				<div class="form-group" style="margin-top:29px;"><label> Delivery Details: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:29px;"><label> Payment: <span class="text-danger">*</span> </label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
@@ -768,11 +746,11 @@ else if(trim($str1) ==trim($str3))
 						  <!--SUBIR LICENCIAS-->
 
 
-						 <div class="row">
+						 <div class="row" >
 
 							 <div class="input-group col-xs-12" style="margin-bottom:10px; width:93%; margin-left:15px;">  
 	  							<input type="text" class="form-control input-group-lg" placeholder="Price" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required="true" >
-	  							<span class="input-group-addon" id="basic-addon1">$</span>
+	  							<span class="input-group-addon" id="basic-addon1">USD</span>
 	  							<select class="form-control " id="unit" name="dropminimum">
 		                         <option value="Unit">Unit</option>  
 	                             <option value="Ton">Ton</option>  
@@ -791,10 +769,12 @@ else if(trim($str1) ==trim($str3))
 	                         </select>        	
 								</div>
 
-						<div class="input-group col-xs-12" style="margin-bottom:10px; width:93%; margin-left:15px;">  
-	  							<input class="form-control " type="text" placeholder="Minimum Order" name="oquantity" required="true" >
-	  							<span class="input-group-addon" id="basic-addon1">$</span>
-	  							<select class="form-control " id="unit" name="dropminimum2">
+
+							 <div class="form-group col-sm-8" style="padding-right:0px;">
+						         <input  class="form-control " type="text" placeholder="Minimum Order" name="oquantity" required="true" > 
+						     </div>
+						 <div class="form-group col-sm-4" style="padding-left:0px;">
+						 <select class="form-control " id="unit" name="dropminimum2">
 				                         <option value="Unit">Unit</option>  
 			                             <option value="Ton">Ton</option>  
 										 <option value="Gram">Gram</option>  
@@ -809,14 +789,13 @@ else if(trim($str1) ==trim($str3))
 										<option value="Pallets">Pallets</option>	
 										<option value="Carton">Carton</option>	
 			                            <option value="others">Others</option>							 
-	                         </select>        	
-						</div>
+	                         </select>   
+				        </div>
 
 
+						 </div >
 
-
-						 </div>
-						 <div class="form-group">
+						 <div class="form-group" >
 								 <input type="text" class="form-control" required="true" placeholder="Delivery Details" name="delivery_details" id="delivery_details">
 						 </div>	
 						 <div class="form-group">

@@ -65,7 +65,7 @@ include('navh.php');
                                             </div><!-- end checkbox-input -->
                                         </div><!-- end col -->
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <label><a href="forgotpassword.php">¿Forgot Password?</a>
+                                            <label><a href="forgotpassword.php">Forgot Password?</a>
 											</label>
 											<label style="margin-left:20px;"><a href="register.php">Create account</a></label>
                                         </div>

@@ -35,7 +35,7 @@ $row=$stmt->fetch_assoc();
 ?>
 
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section white-background">
 		<?php  if(isset($_SESSION['suc']))
          {
            echo $_SESSION['suc']; }?>
@@ -118,7 +118,7 @@ $myString = $row['image'];
 												<!--
 												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php //echo $row['productaction'];?>&pid=<?php //echo $row['pid'] ?>">Show On</a>-->
 
-												   <a   class="btn btn-xs btn-success" style="max-width: 92.666px;">Show On</a>
+												   <a   class="btn btn-xs btn-success" style="max-width: 92.666px;">Show Case On</a>
 
 												
 													<?php
@@ -127,7 +127,23 @@ $myString = $row['image'];
 													{
 												
 													?>
-												    <a   class="btn btn-xs btn-danger" style="width: 93px;" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show Off</a>
+												    <a   class="btn btn-xs btn-danger" style="width: 93px;" href="javascript:js_Show()">Show Case Off</a>
+
+                            <input type="hidden" id="pid" value="<?php echo $row['pid'] ?>">
+                            <input type="hidden" id="productaction" value="<?php echo $row['productaction'] ?>">
+
+                            <script type="text/javascript">
+                                function js_Show() {
+                                  var pid=document.getElementById("pid").value;
+                                  var productaction=document.getElementById("productaction").value;
+
+                                  if (window.confirm("¿Está seguro que desea eliminar el registro seleccionado?")) {
+                                               location.href = "checkSellerActive.php?productaction="+productaction+"&pid="+pid;
+                                                    }
+                                                  }
+
+
+                            </script>
 												
 			
 													<?php

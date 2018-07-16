@@ -321,6 +321,18 @@ if(!empty($image5)){
 									
 									</br>
 									</br>
+										<div class="form-group">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Informacion de la compañia">
+									</div>
+										<div class="form-group">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Numero legal de la Compañia">
+									</div>
+						             <div class="form-group">
+                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Calle">
+									</div>
+
+									<center><h2>Informaci&oacute;n Bancar&iacute;a</h2></center>
+
 									<div class="form-group">
 										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Nombre del Banco">
 									</div>
@@ -331,17 +343,6 @@ if(!empty($image5)){
 									
 									<div class="form-group">
 										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Numero Bancario">
-									</div>
-									
-									
-										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Informacion de la compañia">
-									</div>
-										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Numero legal de la Compañia">
-									</div>
-						             <div class="form-group">
-                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Calle">
 									</div>
 									</br>
 

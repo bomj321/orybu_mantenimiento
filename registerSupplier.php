@@ -42,29 +42,30 @@ $confirmcode=$_SESSION['code'];
 					</br>
 								<form id="register-form" action="registerSupplier_action.php"  enctype="multipart/form-data" method="post" role="form">
 								<div class="row">
-					<div class="col-sm-12" >
-						<center> <h3>BANK INFORMATION</h3></center>
-									<div class="form-group">
-										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Name">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Code">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Number Bank">
-									</div>
+					<div class="col-sm-12" >						
 										
-						<center><h3>COMPANY INFORMATION</h3></center>
+						<center><h2>Company Information</h2></center>
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Company Name">
 									</div>
 										<div class="form-group">
 										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  required placeholder="Company Legal Number">
 									</div>
-							<div class="form-group">
+										<div class="form-group">
                                                <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Street ">
+										</div>
+
+										<center> <h2>Bank Information</h2></center>
+									<div class="form-group">
+										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Name">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="SWITF/BIC Code">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Account number">
 									</div>
 										<div class="form-group">
 

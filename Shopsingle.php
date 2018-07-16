@@ -158,7 +158,7 @@ function googleTranslateElementInit() {
     </div><!-- end row -->
 <!--HASTA AQUI-->
 <?php	$pid =$_GET['pid'];
-$sql="SELECT * FROM  products  INNER JOIN users ON(products.user_id= users.user_id) INNER JOIN seller ON(users.email=seller.email) INNER JOIN categories ON (products.catid=categories.catid) Where products.pid ='$pid'";
+$sql="SELECT * FROM  products  INNER JOIN users ON(products.email=users.email) INNER JOIN seller ON(users.email=seller.email) INNER JOIN categories ON (products.catid=categories.catid) Where products.pid ='$pid'";
 
 $result=mysqli_query($connection,$sql);
 if($result == false) {
@@ -189,7 +189,7 @@ $rows=mysqli_fetch_array($result);
 <div class="tab-content style2">
 <div class="tab-pane active" id="description">
 <h5>Additional Info</h5>
-<p><?php echo $row['fulldescription']; ?>
+<p><?php echo $rows['fulldescription']; ?>
 </p>
 
 <hr class="spacer-15">
@@ -198,19 +198,17 @@ $rows=mysqli_fetch_array($result);
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Dimensions</dt>
-<dd>120 x 75 x 90 cm</dd>
-<dt>Colors</dt>
-<dd><?php echo $row['color']; ?></dd>
+<dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
 <dt>Materials</dt>
-<dd>cotton</dd>
+<dd><?php echo $rows['elaboration']; ?></dd>
 </dl>
 </div><!-- end col -->
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Weight</dt>
-<dd>1.65 kg</dd>
+<dd><?php echo $rows['weight']; ?></dd>
 <dt>Manufacturer</dt>
-<dd><?php echo $row['countryName']; ?></dd>
+<dd><?php echo $rows['countryName']; ?></dd>
 </dl>
 </div><!-- end col -->
 </div><!-- end row -->
@@ -218,7 +216,7 @@ $rows=mysqli_fetch_array($result);
 
 <div  class="tab-pane" id="companyinfo">
 <h5>Company Name</h5>
-<p><?php echo $row['company_name']; ?>
+<p><?php echo $rows['company_name']; ?>
 </p>
 
 <hr class="spacer-15">
@@ -227,7 +225,7 @@ $rows=mysqli_fetch_array($result);
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Seller Name</dt>
-<dd><?php echo $row['firstName']; ?>  <?php echo $row['lastName']; ?></dd>
+<dd><?php echo $rows['firstName']; ?>  <?php echo $rows['lastName']; ?></dd>
 <dt>Country</dt>
 <dd><?php echo $rows['countryName']; ?></dd>
 <dt>Business Type</dt>
@@ -235,17 +233,19 @@ $rows=mysqli_fetch_array($result);
 </dl>
 </div><!-- end col -->
 <div class="col-sm-12 col-md-6">
-<dl class="dl-horizontal">
-<dt>Company Description</dt>
-<dd><?php echo $rows['companyDescription']; ?></dd>
-</dl>
+ <form class="form-inline">
+  <div class="form-group">
+    <label for="company">Company Description</label>    
+    <textarea  style="border:none;" name="companyDescription"  rows="3"  class="form-control"   placeholder="Description"><?php echo $rows['companyDescription']; ?></textarea>
+  </div>
+</form>   
 </div><!-- end col -->
 </div><!-- end row -->
 </div><!-- end tab-pane -->
 <div class="tab-pane" id="reviews">
 <div class="row">
 
-<h5>Company Description</h5>
+<h5>Product Description</h5>
 
 <dd><?php echo $rows['companyDescription']; ?></dd>
 </p>

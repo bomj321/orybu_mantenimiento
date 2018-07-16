@@ -29,7 +29,7 @@ include('head.php');
                         <div class="row">
                             <div class="col-sm-6 text-left">
                                 <ul class="list list-inline">
-                                    <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filter</a></li>
+                                    <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filtro</a></li>
                                 </ul>
                             </div><!-- end col -->
                         </div><!-- end row -->
@@ -426,7 +426,7 @@ include('head.php');
                                                  </td>
                          <td><?php echo $rowreq['catename']; ?></td>
                                                 <td style="width:30px;">
-                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
+                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="../../ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>
 
 

@@ -320,7 +320,18 @@ if(!empty($image5)){
                       <h2>Company Information </h2></center>
 									
 									</br>
-									</br>
+									</br>	
+										<div class="form-group">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Company Information">
+									</div>
+										<div class="form-group">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Company Legal No">
+									</div>
+						             <div class="form-group">
+                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Street">
+									</div>
+
+									<center><h2>Bank Information</h2></center>
 									<div class="form-group">
 										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Bank Name">
 									</div>
@@ -331,17 +342,6 @@ if(!empty($image5)){
 									
 									<div class="form-group">
 										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Number Bank">
-									</div>
-									
-									
-										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Company Information">
-									</div>
-										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Company Legal No">
-									</div>
-						             <div class="form-group">
-                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Street">
 									</div>
 									</br>
 

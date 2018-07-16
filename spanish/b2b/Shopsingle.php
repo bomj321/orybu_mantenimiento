@@ -81,32 +81,32 @@ function googleTranslateElementInit() {
                 <div class='carousel-inner'>
                     <div class='item active'>
                     <figure>
-                    <img src="images/<?php echo $cl[0]; ?>" alt="" />
+                    <img src="../../images/<?php echo $cl[0]; ?>" alt="" />
                     </figure>
                     </div><!-- end item -->
                     <div class='item'>
                     <figure>
-                    <img src="images/<?php echo $cl[1];  ?>" alt="" />
+                    <img src="../../images/<?php echo $cl[1];  ?>" alt="" />
                     </figure>
                     </div><!-- end item -->
                     <div class='item'>
                     <figure>
-                    <img src="images/<?php echo $cl[2];  ?>" alt="" />
+                    <img src="../../images/<?php echo $cl[2];  ?>" alt="" />
                     </figure>
                     </div><!-- end item -->
                     <div class='item'>
                     <figure>
-                    <img src="images/<?php echo $cl[3];  ?>" alt="" />
+                    <img src="../../images/<?php echo $cl[3];  ?>" alt="" />
                     </figure>
                     </div><!-- end item -->
                     <div class='item'>
                     <figure>
-                    <img src="images/<?php echo $cl[4];  ?>" alt="" />
+                    <img src="../../images/<?php echo $cl[4];  ?>" alt="" />
                     </figure>
                     </div><!-- end item -->
                     <div class='item'>
                     <figure>
-                    <img src="images/<?php echo $cl[5];  ?>" alt="" />
+                    <img src="../../images/<?php echo $cl[5];  ?>" alt="" />
                     </figure>
                     </div><!-- end item -->
                     <!-- Arrows -->
@@ -190,7 +190,7 @@ $rows=mysqli_fetch_array($result);
 <div class="tab-content style2">
 <div class="tab-pane active" id="description">
 <h5>Información Adicional</h5>
-<p><?php echo $row['fulldescription']; ?>
+<p><?php echo $rows['fulldescription']; ?>
 </p>
 
 <hr class="spacer-15">
@@ -199,19 +199,17 @@ $rows=mysqli_fetch_array($result);
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Dimensiones</dt>
-<dd>120 x 75 x 90 cm</dd>
-<dt>Colores</dt>
-<dd><?php echo $row['color']; ?></dd>
+<dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
 <dt>Material</dt>
-<dd>cotton</dd>
+<dd><?php echo $rows['elaboration']; ?></dd>
 </dl>
 </div><!-- end col -->
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Peso</dt>
-<dd>1.65 kg</dd>
+<dd><?php echo $rows['weight']; ?></dd>
 <dt>Fabricante</dt>
-<dd><?php echo $row['countryName']; ?></dd>
+<dd><?php echo $rows['countryName']; ?></dd>
 </dl>
 </div><!-- end col -->
 </div><!-- end row -->
@@ -219,7 +217,7 @@ $rows=mysqli_fetch_array($result);
 
 <div  class="tab-pane" id="companyinfo">
 <h5>Nombre de la Compañia</h5>
-<p><?php echo $row['company_name']; ?>
+<p><?php echo $rows['company_name']; ?>
 </p>
 
 <hr class="spacer-15">
@@ -228,7 +226,7 @@ $rows=mysqli_fetch_array($result);
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Nombre del Vendedor</dt>
-<dd><?php echo $row['firstName']; ?>  <?php echo $row['lastName']; ?></dd>
+<dd><?php echo $rows['firstName']; ?>  <?php echo $rows['lastName']; ?></dd>
 <dt>País</dt>
 <dd><?php echo $rows['countryName']; ?></dd>
 <dt>Tipo de Negocio</dt>
@@ -236,10 +234,12 @@ $rows=mysqli_fetch_array($result);
 </dl>
 </div><!-- end col -->
 <div class="col-sm-12 col-md-6">
-<dl class="dl-horizontal">
-<dt>Descripción</dt>
-<dd><?php echo $rows['companyDescription']; ?></dd>
-</dl>
+ <form class="form-inline">
+  <div class="form-group">
+    <label for="company">Company Description</label>    
+    <textarea  style="border:none;" name="companyDescription"  rows="3"  class="form-control"   placeholder="Description"><?php echo $rows['companyDescription']; ?></textarea>
+  </div>
+</form>   
 </div><!-- end col -->
 </div><!-- end row -->
 </div><!-- end tab-pane -->

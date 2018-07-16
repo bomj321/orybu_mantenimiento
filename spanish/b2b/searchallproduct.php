@@ -287,7 +287,7 @@ include('navh.php');
                                 <figure>
                 
                    <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                                  
-                     <img style="height:200px; width:100%;" src="images/<?php echo $cl[0]; ?>" alt="" />
+                     <img style="height:200px; width:100%;" src="../../images/<?php echo $cl[0]; ?>" alt="" />
                     
                                     </a>
                                 </figure>

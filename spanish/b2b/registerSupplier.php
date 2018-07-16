@@ -43,33 +43,33 @@ $confirmcode=$_SESSION['code'];
 					</br>
 								<form id="register-form" action="registerSupplier_action.php"  enctype="multipart/form-data" method="post" role="form">
 								<div class="row">
-					<div class="col-sm-12" >
-						<center> <h3>
-							INFORMACION BANCARIA
-							     </h3>
-						</center>
-									<div class="form-group">
-										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Nombre del Banco">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="Codigo Bancario">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Numero Bancario">
-									</div>
-										
-									<center><h3>INFORMACIÓN DE LA COMPAÑIA</h3></center>
+					<div class="col-sm-12" >																
+									<center><h2>Informacion de la Compañia</h2></center>
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Nombre de la Compañia">
 									</div>
 										<div class="form-group">
 										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  required placeholder="Numero Legal de la Compañia">
 									</div>
-							<div class="form-group">
+											<div class="form-group">
                                                <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Calle">
-									</div>
+										</div>
+
+												<center> <h2>
+									Informaci&oacute;n Bancar&iacute;a
+									     </h2>
+								</center>
+											<div class="form-group">
+												<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Nombre del Banco">
+											</div>
+											
+											<div class="form-group">
+												<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="C&oacute;digo SWITF/BIC">
+											</div>
+											
+											<div class="form-group">
+												<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="N&uacute;mero de Cuenta">
+											</div>
 										<div class="form-group">
 
                                         <span>Numero de Telefono</span>
@@ -355,7 +355,7 @@ $confirmcode=$_SESSION['code'];
 									<h4>Describe tu Compañía</h4>
 									<div class="form-group">
 										<select name="businessType" required class="form-control input">
-								  <option value="">Seleeciona tu tipo de Empresa</option>
+								  <option value="">Selecciona tu tipo de Empresa</option>
                                              <option value="Manufacturera">Manufacturera</option>
                                              <option value="Distribuidora" >Distribuidora</option>
 											  <option value="Empresa Comercial" >Empresa Comercial</option>
@@ -377,7 +377,7 @@ $confirmcode=$_SESSION['code'];
 							</div>
 							<div class="form-group">
 
-					 <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Describe tu Compañia Aqui" ></textarea>
+					 <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Describe tu Compañia Aqu&iacute;" ></textarea>
 						</div>
 										
 										

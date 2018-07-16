@@ -232,7 +232,7 @@ $(document).ready(function(){
 				  $rows=mysqli_fetch_array($stmtt);
 	?>
 
-                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
+                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="../../images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
 
 							  <center>
 							  <span class="amount text-default"><?php echo $ntitle?></span>
@@ -299,7 +299,7 @@ while (($nrx2 + 6) > $final ) {
 				  $rows=mysqli_fetch_array($stmtt);
 	?>
 
-                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
+                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="../../images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
 
 							  <center>
 							  <span class="amount text-default"><?php echo $ntitle?></span>
@@ -586,7 +586,7 @@ $userId=$row['user_id'];
 				  $rows=mysqli_fetch_array($stmtt);
 	?>
 
-                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
+                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="../../images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
 
 							  <center>
 							  <span class="amount text-default"><?php echo $ntitle?></span>
@@ -650,7 +650,7 @@ $userId=$row['user_id'];
 				  $rows=mysqli_fetch_array($stmtt);
 	?>
 
-                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
+                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="../../images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
 
 							  <center>
 							  <span class="amount text-default"><?php echo $ntitle?></span>

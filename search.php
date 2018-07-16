@@ -245,14 +245,14 @@ include('navh.php');
                 <?php
           if(!empty($_POST['keyword']) AND isset($_POST['keyword'])){
             $query_key=$_POST['keyword'];
-            $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%$query_key%') AND producttoplist='1' ";
+            $query="SELECT * FROM products INNER JOIN seller ON(products.email=seller.email) INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%$query_key%') ORDER BY  pid DESC  ";
                $result=mysqli_query($connection,$query); 
  }
 
  if(!empty($_POST['category']))
  {
     $category=$_POST['category'];
-  $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) AND producttoplist='1' ";
+  $query="SELECT * FROM products INNER JOIN seller ON(products.email=seller.email) INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) ORDER BY  pid DESC ";
   $result=mysqli_query($connection,$query);
   $category=$_POST['category'];
  }
@@ -260,7 +260,7 @@ include('navh.php');
  if(!empty($_POST['category']) AND !empty($_POST['keyword']) AND isset($_POST['keyword'])){
   $category=$_POST['category'];
   $query_key=$_POST['keyword'];           
-    $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) OR (products.keywords LIKE '%$query_key%')  AND producttoplist='1'";
+    $query="SELECT * FROM products INNER JOIN seller ON(products.email=seller.email) INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) OR (products.keywords LIKE '%$query_key%')  ORDER BY  pid DESC";
     $result=mysqli_query($connection,$query);
  }
 
@@ -315,7 +315,7 @@ include('navh.php');
                                   <center><span class="amount text-primary">USD $ <?php echo $row['price']; ?></span></center>
                                   <center><span class="amount text-default">Min Order: <?php echo $row['miniorder']; ?></span></center>
                                   <center><span class="amount text-default">Company Name: <?php echo $row['company_name']; ?></span></center>
-                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contact Supplier</a></center>
+                                  <center><a href="chat2.php?sellerid=<?php echo $row['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contact Supplier</a></center>
                         
                                 </div>
                             </div><!-- end cat-item-style2 -->
@@ -328,89 +328,7 @@ include('navh.php');
                    
                 
 
-<!-------------------------------------------------------------------NO TOP LIST----------------------------------------------------------------------------->
 
-                   
-                <?php
-          if(!empty($_POST['keyword']) AND isset($_POST['keyword'])){
-            $query_key=$_POST['keyword'];         
-          $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (products.keywords LIKE '%$query_key%')  AND producttoplist='0'";
-               $result_no=mysqli_query($connection,$query_no);
- }
- if(!empty($_POST['category']))
- {  
-  $category=$_POST['category'];
-  $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) AND producttoplist='0'";
-  $result_no=mysqli_query($connection,$query_no);
- }
-
- if(!empty($_POST['category']) AND !empty($_POST['keyword']) AND isset($_POST['keyword'])){
-  $category=$_POST['category'];
-  $query_key=$_POST['keyword'];           
-          $query_no="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE (categories.title LIKE '%$category%' ) OR (products.keywords LIKE '%$query_key%')  AND producttoplist='0'";
-          $result_no=mysqli_query($connection,$query_no);
- }
-       
-         ?>
-                        </div><!-- end row -->
-                    <?php
-                  while( $row_no=mysqli_fetch_array($result_no)){
-         $myString_no = $row_no['image'];
-          $productType_no=$row_no['productType'];
-         $cl = explode(',', $myString);
-                ?>
-
-         <div class="col-sm-6 col-md-6" >
-                          <?php
-
-
-
-
-              if($productType_no =="Eco Friendly"){
-                  ?>
-                       <span> <img style="height:35px; width:35px;float:right"src="images/ecofriendly.png" />
-                                       </span><?php
-                    }
-                    else if($productType_no =="Innovation"){
-                    ?>
-                       <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
-                                       </span><?php
-                    }
-                    ?>
-                            <div class="cat-item-style2">
-                 <div class="title">
-                 <?php echo '<h6>'.$row_no['title'].'</h6>'; ?>
-
-                                </div><!-- end title -->
-                <div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row_no['subtitle']; ?></span>  </center>
-
-                                        </div>
-                                <figure>
-
-                   <a href="Shopsingle.php?pid=<?php echo $row_no['pid'] ; ?>">
-                     <img style="height:200px; width:100%;" src="images/<?php echo $myString_no; ?>" alt="" />
-
-                                    </a>
-                                </figure>
-                                <div class="title">
-                 <?php echo '<h6><a href="Shopsingle.php?pid='.$row_no['pid'].'"> '.$row_no['ntitle'].'</a></h6>'; ?>
-
-                                </div><!-- end title -->
-                            <div class="price">
-                                  <center><span class="amount text-primary">USD $ <?php echo $row_no['price']; ?></span></center>
-                                  <center><span class="amount text-default">Min Order: <?php echo $row_no['miniorder']; ?></span></center>
-                                  <center><span class="amount text-default">Company Name: <?php echo $row_no['company_name']; ?></span></center>
-                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row_no['pid'];?>&name=<?php echo $row_no['firstName']?>"></i>Contact Supplier</a></center>
-                        
-                                </div>
-                            </div><!-- end cat-item-style2 -->
-                        <!-- end col -->
-
-                   <!-- end row -->
-
-           </div>
-           <?php  } ?>
                     
                 </div><!-- end content -->
 <!------------------------------------------------------------------- NO TOP LIST----------------------------------------------------------------------------->

@@ -317,8 +317,8 @@ else if(trim($str1) ==trim($str3))
                 <div class="form-group" style="margin-top:20px;"><label> Tipo de Producto:  <span class="text-danger">*</span> </label></div>				
 				<div class="form-group" style="margin-top:525px;"><label>Precio FOB <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:15px;"><label>Orden Minima <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label>Detalles del Envio: <span class="text-danger">*</span></label></div>
-				<div class="form-group" style="margin-top:23px;"><label> Metodo de Pago: <span class="text-danger">*</span> </label></div>				
+				<div class="form-group" style="margin-top:29px;"><label>Detalles del Envio: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:29px;"><label> Metodo de Pago: <span class="text-danger">*</span> </label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
@@ -788,26 +788,36 @@ else if(trim($str1) ==trim($str3))
                          </select>        	
 							</div>
 
-							<div class="input-group col-xs-12" style="margin-bottom:10px; width:93%; margin-left:15px;">  
-  							<input class="form-control " type="text" placeholder="Orden Minima" name="oquantity" required="true" >
-  							<span class="input-group-addon" id="basic-addon1">$</span>
-  							<select class="form-control " id="unit" name="dropminimum2">
-	                         <option value="Unit">Unidad</option>  
-                             <option value="Ton">Tonelada</option>  
-							 <option value="Gram">Gramo</option>  
-							 <option value="Inch">Pulgada</option>
-							 <option value="ounace">Onza</option>  
-						     <option value="Gallon">Galon</option>  
-                             <option value="Feet">Pie</option>
-                             <option value="Cubic Meter">Metro Cubico</option>
-							 <option value="Cubic Feet">Pie Cubico</option> 
-						     <option value="20 ft container">Contenedor de 20Ft</option>
-							 <option value="40 ft container">Contenedor de 40Ft</option>
-							<option value="Pallets">Paletas</option>	
-							<option value="Carton">Caja de cartón</option>	
-                            <option value="others">Otros</option>					 
-                         </select>        	
-							</div>
+
+
+
+
+							 <div class="form-group col-sm-8" style="padding-right:0px;">
+						         <input class="form-control " type="text" placeholder="Orden Minima" name="oquantity" required="true" >
+						     </div>
+						 <div class="form-group col-sm-4" style="padding-left:0px;">
+						 <select class="form-control " id="unit" name="dropminimum2">
+			                         <option value="Unit">Unidad</option>  
+		                             <option value="Ton">Tonelada</option>  
+									 <option value="Gram">Gramo</option>  
+									 <option value="Inch">Pulgada</option>
+									 <option value="ounace">Onza</option>  
+								     <option value="Gallon">Galon</option>  
+		                             <option value="Feet">Pie</option>
+		                             <option value="Cubic Meter">Metro Cubico</option>
+									 <option value="Cubic Feet">Pie Cubico</option> 
+								     <option value="20 ft container">Contenedor de 20Ft</option>
+									 <option value="40 ft container">Contenedor de 40Ft</option>
+									<option value="Pallets">Paletas</option>	
+									<option value="Carton">Caja de cartón</option>	
+		                            <option value="others">Otros</option>					 
+                         </select>    
+				        </div>
+
+
+
+
+
 
 						 </div>
 						 <div class="form-group">

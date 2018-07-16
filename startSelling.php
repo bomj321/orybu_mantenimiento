@@ -106,10 +106,10 @@ include('head.php');
          
                  
                 </div><!-- end row -->
-                <div class="row">
+                <div class="row" style="margin-top: 40px;">
                     <div class="col-md-12">
                         <center>
-                             <a type="button" class="btn btn-success btn-lg" href="product_add.php">Upload Product</a>
+                             <a type="button" class="btn btn-success btn-lg" href="product_add.php">UPLOAD PRODUCT</a>
                         </center>
                     </div>
                 </div>

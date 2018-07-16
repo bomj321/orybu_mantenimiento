@@ -252,7 +252,7 @@ include('navh.php');
                                 <figure>
 								
                    <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
-										 <img style="width: 100%;height: 20rem;" src="images/<?php echo $cl[0]; ?>" alt="" />
+										 <img style="width: 100%;height: 20rem;" src="../../images/<?php echo $cl[0]; ?>" alt="" />
 										
                                     </a>
                                 </figure>
@@ -265,7 +265,7 @@ include('navh.php');
                                   <center><span class="amount text-primary">USD <?php echo $row['price']; ?></span></center>
                                   <center><span class="amount text-default">Min Order: <?php echo $row['miniorder']; ?></span></center>
                                   <center><span class="amount text-default">Nombre de la Compañia: <?php echo $row['company_name']; ?></span></center>
-                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contactar Vendedor</a></center>
+                                  <center><a href="chat2.php?sellerid=<?php echo $row['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contactar Vendedor</a></center>
 										    
                                 </div>
                             </div><!-- end cat-item-style2 -->

@@ -82,7 +82,7 @@ $rows=mysqli_fetch_array($stmtt);
 		//$productType = $_POST['productType'];// item name
 			
 			///SUBIR IMAGENES
-		$target_dir = "images/";
+		$target_dir = "../../images/";
 
 	if($_FILES["imagenes_logo"]["name"] !="" AND !empty($_FILES["imagenes_logo"]["name"]) AND (strpos($_FILES["imagenes_logo"]["type"],'gif') || strpos($_FILES["imagenes_logo"]["type"],'jpeg') || strpos($_FILES["imagenes_logo"]["type"],'png') || strpos($_FILES["imagenes_logo"]["type"],'jpg')))
 {

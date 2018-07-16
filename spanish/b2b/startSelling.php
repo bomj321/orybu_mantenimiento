@@ -99,13 +99,13 @@ include('head.php');
                     </div><!-- end col -->
                 </div><!-- end row -->
 
-                <div class="row">
+                <div class="row" style="margin-top: 40px;">
                     <div class="col-md-12">
                         <center>
-                             <a type="button" class="btn btn-success btn-lg" href="product_add.php">Subir Productos</a>
+                             <a type="button" class="btn btn-success btn-lg" href="product_add.php">SUBIR PRODUCTOS</a>
                         </center>
                     </div>
-                </div><!-- end row 2-->
+                </div>
         
             </div><!-- end container -->
         </section>

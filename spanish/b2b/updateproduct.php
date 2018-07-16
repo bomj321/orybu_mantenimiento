@@ -155,7 +155,7 @@ if(isset($_POST['btn_save_updates']))
 			$miniorder=$oquantity.' '.$_POST['dropminimum2'];
 	
 	
-$target_dir = "images/";	
+$target_dir = "../../images/";	
 if($_FILES["file1"]["name"] !="" AND !empty($_FILES["file1"]["name"]))
 {
 			$target_file = $target_dir . basename($_FILES["file1"]["name"]);
@@ -434,7 +434,7 @@ $(document).ready(function() {
                 <div class="form-group" style="margin-top:25px;"><label> Tipo de producto: </label></div>				
 				<div class="form-group" style="margin-top:20px;"><label>Precio FOB: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label>Orden Miníma: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:15px;"><label>Detalles del Envio: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:25px;"><label>Detalles del Envio: <span class="text-danger">*</span></label></div>
 				<div class="form-group" style="margin-top:20px;"><label>Metodo de Pago: <span class="text-danger">*</span></label></div>				
 				
 				
@@ -850,9 +850,12 @@ $(document).ready(function() {
 			</select>
 			
 			</div>	
+
+
+			<div class="row">
 				
 			            <?php $stt8=$rowz['price_unit'];?>
-						 <div class="input-group" style="margin-bottom:10px;">  
+						 <div class="input-group" style="margin-bottom:10px; width:93%; margin-left:15px;">  
   							<input type="text" class="form-control" placeholder="Precio" required="true" aria-describedby="basic-addon1" name="fobprice" value="<?php echo $rowz['price']; ?>"  required >
   							<span class="input-group-addon" id="basic-addon1">$</span>
   							<select class="form-control" id="unit" name="dropminimum">
@@ -877,30 +880,34 @@ $(document).ready(function() {
 						 
 						 <?php $stt3=$rowz['miniorder']; $mcl = explode(' ', $stt3);  ?>
 
-						 <div class="input-group" style="margin-bottom:10px;">  
-  							<input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/>
-  							<span class="input-group-addon" id="basic-addon1">$</span>
-  							<select class="form-control" id="unit" name="dropminimum2">
-						    <option value="<?php echo $mcl[1];?>"><?php echo $mcl[1];?></option> 
-	                         <option value="Unidad">Unidad</option>  
-                             <option value="Tonelada">Tonelada</option>  
-							 <option value="Gramo">Gramo</option>  
-							 <option value="Pulgada">Pulgada</option>
-							 <option value="Onza">Onza</option>  
-						     <option value="Galon">Galon</option>  
-                             <option value="Pie">Pie</option>
-                             <option value="Metro Cubico">Metro Cubico</option>
-							 <option value="Pie Cubico">Pie Cubico</option> 
-						     <option value="Envase de 20ft">Envase de 20ft</option>
-							 <option value="Envase de 40ft">Envase de 40ft</option>
-							<option value="Paletas">Paletas</option>	
-							<option value="Carton">Carton</option>	
-                            <option value="Otros">Otros</option>							 
-                         </select>         	
-							</div>
 
 
 
+ 						<div class="form-group col-md-8" style="padding-right:0px;">
+						        <input class="form-control" type="text"  name="oquantity" value="<?php echo $mcl[0]; ?>" required="true" placeholder="Minimum order"/> 
+						     </div>
+						 <div class="form-group col-md-4" style="padding-left:0px;">
+						 <select class="form-control " id="unit" name="dropminimum2">
+				                        <option value="<?php echo $mcl[1];?>"><?php echo $mcl[1];?></option> 
+				                         <option value="Unidad">Unidad</option>  
+			                             <option value="Tonelada">Tonelada</option>  
+										 <option value="Gramo">Gramo</option>  
+										 <option value="Pulgada">Pulgada</option>
+										 <option value="Onza">Onza</option>  
+									     <option value="Galon">Galon</option>  
+			                             <option value="Pie">Pie</option>
+			                             <option value="Metro Cubico">Metro Cubico</option>
+										 <option value="Pie Cubico">Pie Cubico</option> 
+									     <option value="Envase de 20ft">Envase de 20ft</option>
+										 <option value="Envase de 40ft">Envase de 40ft</option>
+										<option value="Paletas">Paletas</option>	
+										<option value="Carton">Carton</option>	
+			                            <option value="Otros">Otros</option>								 
+	                         </select>   
+				        </div>
+
+
+				</div>
 
 					
 
