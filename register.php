@@ -371,7 +371,7 @@ include 'head.php';
 								
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="submit" name="register-submit" id="register-submit" class="btn btn-success round btn-md"><i class="fa fa-user mr-5"></i> Register</button>
+                                            <button type="submit" name="register-submit" id="register-submit" class="btn btn-success round btn-md"><i class="fa fa-user mr-5"></i> REGISTER</button>
                                         </div>
                                     </div><!-- end form-group -->
                                 </form>

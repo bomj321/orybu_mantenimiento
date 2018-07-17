@@ -298,7 +298,7 @@ include('head.php');
                                                 <div >
                                                     <input name="categorytitle"  value="<?php echo $rowt['title'];?>"  type="checkbox" >
                                                     <label >
-                                                        <?php echo $rowt['title'];?>
+                                                        <?php echo $rowt['titulo'];?>
                                                     </label>
                                                 </div>
                                             </li>

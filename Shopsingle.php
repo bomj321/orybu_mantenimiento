@@ -198,7 +198,21 @@ $rows=mysqli_fetch_array($result);
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
 <dt>Dimensions</dt>
-<dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
+<?php 
+if (!empty($rows['dimension']) AND !empty($rows['dimension2']) AND !empty($rows['dimension3'])) {
+?>    
+   <dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
+
+<?php 
+
+}else{
+ ?>
+ <dd>N/A</dd>
+ 
+ <?php
+}
+ 
+ ?>
 <dt>Materials</dt>
 <dd><?php echo $rows['elaboration']; ?></dd>
 </dl>

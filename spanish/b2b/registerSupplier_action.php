@@ -26,7 +26,7 @@ include 'Connect.php';
 		  $countryName= $_POST['selectcountryName'];
 		  $businessType= $_POST['businessType'];
 		  $noOfEmployee= $_POST['noOfEmployee'];
-		  $companyDescription= $_POST['companyDescription'];
+		  $companyDescription= htmlspecialchars($_POST['companyDescription']);
 		  $email= $_SESSION['confemail'];
 		  $confirmcode=$_SESSION['code'];
 		  ///////////////////////////////////////////

@@ -14,7 +14,7 @@ include('head.php');
 
 
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section white-background">
             <div class="container">
 
 

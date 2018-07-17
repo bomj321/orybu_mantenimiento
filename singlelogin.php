@@ -73,7 +73,7 @@ include('navh.php');
                                     </div><!-- end form-group -->
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <input type="submit" class="btn btn-success round btn-md" value="  Login         "> 
+                                            <input type="submit" class="btn btn-success round btn-md" value="LOGIN"> 
                                         </div>
                                     </div><!-- end form-group -->
                                 </form>

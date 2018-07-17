@@ -74,7 +74,7 @@ include('head.php');
                                     </div><!-- end form-group -->
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <input type="submit" class="btn btn-success round btn-md" value="  Iniciar sesión         "> 
+                                            <input type="submit" class="btn btn-success round btn-md" value="INICIAR SESI&oacute;N"> 
                                         </div>
                                     </div><!-- end form-group -->
                                 </form>

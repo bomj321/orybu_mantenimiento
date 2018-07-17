@@ -148,7 +148,7 @@ if(isset($_POST['btn_save_updates']))
 			$productType = $_POST['productType'];
 			//$showcaseid=$_POST['showcaseid'];
 			//$showtoplist=$_POST['showtoplist'];
-            $description = $_POST['description'];
+            $description = htmlspecialchars($_POST['description']);
 			$price=$_POST['fobprice'];
 			$price_unit=$_POST['dropminimum'];
 			$oquantity=$_POST['oquantity'];
