@@ -309,9 +309,9 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                                     <div class="col-sm-8 col-md-8 col-xs-8">
                                                                     <form action="pagar.php" method="POST">
                                                                                 <input type="hidden" name="precio" value="<?php echo $tot;?>">
-                                                                                <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">Pagar con Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
+                                                                                <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">PAGAR CON PAYPAL<i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
                                                                             </form>
-                                                                            <a href="wire.php" class="btn btn-success round" style="margin-top: 1rem;">Transferencia Bancaria <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="wire.php" class="btn btn-success round" style="margin-top: 1rem;">TRANSFERENCIA BANCARIA<i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->

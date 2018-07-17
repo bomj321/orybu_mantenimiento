@@ -297,9 +297,9 @@ include('navh.php');
                                                                         <div class="col-sm-8 col-md-8 col-xs-8">
                                                                             <form action="pagar.php" method="POST">
                                                                                 <input type="hidden" name="precio" value="<?php echo $tot;?>">
-                                                                                <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
+                                                                                <button type="submit" class="paypal btn btn-success round"  style="margin-top: 1rem;">PAY WITH PAYPAL<i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
                                                                             </form>
-                                                                            <a href="wire.php" class="btn btn-success round" style="margin-top: 1rem;">Wire Transfer<i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="wire.php" class="btn btn-success round" style="margin-top: 1rem;">WIRE TRANSFER<i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->

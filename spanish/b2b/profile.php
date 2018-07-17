@@ -28,11 +28,11 @@ $userId=$row['user_id'];
                     <!-- start sidebar -->
                     <div class="col-sm-3">
                         <div class="widget">
-                            <h3>Account Navigation</h3>
+                            <h3>Navegación de la Cuenta</h3>
                             
                             <ul class="list list-unstyled">
                                 <li>
-                                    <a href="buyeraccount.php">My Account</a>
+                                    <a href="buyeraccount.php">Mi Cuenta</a>
                                 </li>
                                 <li>
                                     <?php 
@@ -44,11 +44,11 @@ $userId=$row['user_id'];
                                     }
                                     $nr=mysqli_num_rows($stmt);
                                     ?>
-                                    <a href="cart.php">My Cart <span class="text-primary">
+                                    <a href="cart.php">Mi Carrito <span class="text-primary">
                                     <?php echo $nr; ?></span></a>
                                 </li>
                                 <li class="active">
-                                    <a href="buyerorders.php">My Order</a>
+                                    <a href="buyerorders.php">Mis Pedidos</a>
                                 </li>
                             </ul>
                         </div><!-- end widget -->
@@ -395,7 +395,7 @@ $row=$stmt->fetch_assoc()?>
 		  <td colspan="6">
         		  <center>
 
-         <a   class="btn btn-success" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">Actualizar</a>
+         <a   class="btn btn-success" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">ACTUALIZAR</a>
          </center>
 
 		 </td>

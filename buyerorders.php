@@ -99,7 +99,7 @@ echo $row['Field']."<br>";
                             </ul>
 
                             <hr class="spacer-10 no-border">
-                            <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md">All Products</a>
+                            <a href="allproduct.php" class="btn btn-success btn-block btn-md">ALL PRODUCTS</a>
                         </div><!-- end widget -->
                     </div><!-- end col -->
                     <!-- end sidebar -->
@@ -199,8 +199,8 @@ echo $row['Field']."<br>";
                                 
                                 <hr class="spacer-10 no-border">
                                 
-                                <a href="index.php" class="btn btn-light semi-circle btn-md">
-                                    <i class="fa fa-arrow-left mr-5"></i> Shopping
+                                <a href="index.php" class="btn btn-success btn-md">
+                                    <i class="fa fa-arrow-left mr-5"></i>SHOPPING
                                 </a>
                           
                         </div><!-- end row -->

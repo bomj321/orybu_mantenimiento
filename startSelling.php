@@ -18,7 +18,7 @@ include('head.php');
        <?php include('navh.php');
 	   ?>
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section white-background">
 	
 		
 		<?php 

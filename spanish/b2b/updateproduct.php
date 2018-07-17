@@ -1136,9 +1136,9 @@ $(document).ready(function() {
 		    -->
 		
 		  <center><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
-       &nbsp; Actualizar</i>
+       &nbsp; ACTUALIZAR</i>
         </button>
-		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;"><i class="fa fa-times"></i> Cancelar</a>
+		<a href="suppliers.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;"><i class="fa fa-times"></i> CANCELAR</a>
        
            </br>
          

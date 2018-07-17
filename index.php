@@ -474,7 +474,7 @@ while (($nrx2 + 6) > $final ) {
 							</div>
 							 <input type="hidden" name="pais" value="<?php echo $_SESSION['countryName'];?>" >
                        <center>
-                         <input type="submit" class="btn btn-success round btn-md"  name="requestSend" value="Submit">
+                         <input type="submit" class="btn btn-success round btn-md"  name="requestSend" value="SUBMIT">
 
                         
                         </form>
@@ -482,7 +482,7 @@ while (($nrx2 + 6) > $final ) {
 							</div>
 				<div style="width:100%;margin-top:18px"  >
 				<a href="breq.php" class="btn btn-success round btn-lg" style="width:100%" >
-						Show Buying Request
+						SHOW BUYING REQUEST
 				</a>
 
 				</div>

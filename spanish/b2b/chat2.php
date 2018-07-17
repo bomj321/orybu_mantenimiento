@@ -58,11 +58,11 @@ if(isset($_GET['leido'])) {
   <!-------------------------BOTONES-->
 <div style="margin-bottom: 2em;" class="row ">
   <div class="col-md-2">
-    <a href="chat2.php"><button class="btn btn-primary">MI CHATS</button></a>
+    <a href="chat2.php"><button class="btn btn-success">MI CHATS</button></a>
   </div>
 
 <div style="margin-left: -3em;" class="col-md-2">
-      <a href="chatby.php"><button class="btn btn-primary">SOLICITUDES DE COMPRA</button></a>
+      <a href="chatby.php"><button class="btn btn-success">SOLICITUDES DE COMPRA</button></a>
 
 </div>
 

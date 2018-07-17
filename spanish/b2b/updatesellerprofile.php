@@ -793,14 +793,14 @@ if(!empty($image5)){
 												<div id="selectedFiles2" style="margin-bottom: 10px;" class="col-md-5 col-xs-offset-4"></div>
 										</div>
 							
-						<div class="col-sm-6 col-sm-offset-3">	
+						<div class="col-sm-7 col-sm-offset-2">	
 							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
-       						&nbsp; Actualizar Perfil</i>
+       						&nbsp; ACTUALIZAR PERFIL</i>
         			</button>
            
        						
        						
-						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;" ><i class="fa fa-times"></i> Cancelar</a>       
+						<a href="myorybue.php" type="button" class="btn" style=" color:black; background-color:#F0F0F0;" ><i class="fa fa-times"></i> CANCELAR</a>       
 						<br>
 						<br>
 						<br>

@@ -110,7 +110,7 @@ if($result){
                                 <textarea id="message" rows="6" class="form-control input-lg" placeholder="Message" name="msg"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-default round btn-lg" value="Submit">
+                                <input type="submit" class="btn btn-success round btn-lg" value="SUBMIT">
                             </div>
                         </form>
                     </div><!-- end col -->

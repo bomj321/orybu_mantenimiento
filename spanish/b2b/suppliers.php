@@ -40,8 +40,8 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg">Ver Estadisticas de los Productos</a> 
- <a href="product_add.php" class="btn btn-success btn-lg">Agregar Producto</a>
+			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg">VER ESTAD&iacute;STICAS DE LOS PRODUCTOS</a> 
+ <a href="product_add.php" class="btn btn-success btn-lg">AGREGAR PRODUCTO</a>
            </br>
         
         </center>         
@@ -109,40 +109,73 @@ $cl = explode(',', $myString);
 		&nbsp;&nbsp;
 	
 		 <?php  $productaction =$row['productaction'];
-													
-													?>
-														<input type="hidden" name="productaction" value="<?php echo $productaction ?>" />
-													<?php 
-													if($productaction==0)
-													{
-												
-													?>
-												<!--
-												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php //echo $row['productaction'];?>&pid=<?php //echo $row['pid'] ?>">Show On</a>-->
+													 ?>
+                            <input type="hidden" name="productaction" value="<?php echo $productaction ?>" />
+                          <?php 
+                          if($productaction==0)
+                          {
+                        
+                          ?>
+                        <!--
+                          <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php //echo $row['productaction'];?>&pid=<?php //echo $row['pid'] ?>">Show On</a>-->
 
-												   <a   class="btn btn-xs btn-success" style="width: 120px; margin-left: -10px;">Show On</a>
+                           <a   class="btn btn-xs btn-success" style="width: 128px;">SHOW CASE ON</a>
 
-												
-													<?php
-													}
-													else if($productaction==2)
-													{
-												
-													?>
-												    <a   class="btn btn-xs btn-danger" style="width: 120px; margin-left: -10px;" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?>&pid=<?php echo $row['pid'] ?>">Show Off</a>
-												
-			
-													<?php
-													} 
+                        
+                          <?php
+                          }
+                          else if($productaction==2)
+                          {
+                        
+                          ?>
+                            <a   class="btn btn-xs btn-danger" style="width: 128px;" href="javascript:js_Show()">SHOW CASE OFF</a>
+
+                            <input type="hidden" id="pid" value="<?php echo $row['pid'] ?>">
+                            <input type="hidden" id="productaction" value="<?php echo $row['productaction'] ?>">
+
+                            <script type="text/javascript">
+                                function js_Show() {
+                                  var pid=document.getElementById("pid").value;
+                                  var productaction=document.getElementById("productaction").value;
+
+                                  if (window.confirm("¿Estás seguro que desea utilizarlo?")) {
+                                               location.href = "checkSellerActive.php?productaction="+productaction+"&pid="+pid;
+                                                    }
+                                                  }
+
+
+                            </script>
+                        
+      
+                          <?php
+                          } 
                                                    ?>
-		
-		 <?php   $producttoplist =$row['producttoplist'];
-													
-													?>
-														<input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
-													
-												
-												  <a   class="btn btn-xs btn-primary" style="width: 120px;" href="checktoplist.php?producttoplist=0&pid=<?php echo $row['pid'] ?>">lista superior</a>
+                                                  
+                                                    
+                          <?php   
+                          $producttoplist =$row['producttoplist'];
+                          
+                          ?>
+                            <input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
+                          
+                        
+                          <a   class="btn btn-xs btn-success" style="width: 128px;" href="javascript:js_Top_List()">LISTA SUPERIOR</a>
+                           <input type="hidden" id="pid_top_list" value="<?php echo $row['pid'] ?>">
+                           
+
+                            <script type="text/javascript">
+                                function js_Top_List() {
+                                  var pid_top_list=document.getElementById("pid_top_list").value;
+
+                                  if (window.confirm("¿Estás seguro que desea utilizarlo?")) {
+                                               location.href = "checktoplist.php?producttoplist=0&pid="+pid_top_list;
+                                                    }
+                                                  }
+
+
+                            </script>
+                        
+
 
 												
 													

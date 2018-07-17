@@ -83,7 +83,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                         <?php echo $percentage.'%';?>
                         </div>
                     </div>		        
-                    <a  class="btn btn-success btn-center" href="profile.php?<?php echo $getmail;?>">Actualizar Perfil</a>
+                    <a  class="btn btn-success btn-center" href="profile.php?<?php echo $getmail;?>">ACTUALIZAR PERFIL</a>
 		        </div>  
             </div>
             <div class="row">         
@@ -312,7 +312,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                         <div class="form-group has-success">
                             <input type="email" class="form-control" placeholder="Show Case:<?php echo $row['limitShowCase'];?>" disabled>
                         </div>
-                        <button type="submit" class="btn btn-success" id="buy">Comprar más</button>
+                        <button type="submit" class="btn btn-success" id="buy" style="border-radius: 0;">COMPRAR M&Aacute;S</button>
                     </form>
                 </div>       
             </div>

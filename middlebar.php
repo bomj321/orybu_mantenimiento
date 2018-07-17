@@ -40,7 +40,7 @@ $email=$_SESSION['uemail'];
 									</select>
                                 </div><!-- end col -->
                                 <div class="col-sm-3 ">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">SEARCH</button>
                                 </div><!-- end col -->								
                             </div><!-- end row -->
                         </form>

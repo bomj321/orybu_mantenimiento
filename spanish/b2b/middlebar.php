@@ -43,7 +43,7 @@ $email=$_SESSION['uemail'];
 										</select>
                                 </div><!-- end col -->
                                 <div class="col-sm-3 ">
-                                    <input  class=" btn btn-success btn-block btn-lg" type="submit"   style="height:46px;" value="Buscar">
+                                    <input  class=" btn btn-success btn-block btn-lg" type="submit"   style="height:46px; border-radius: 0px;" value="BUSCAR">
 									
                                 </div><!-- end col -->
 								

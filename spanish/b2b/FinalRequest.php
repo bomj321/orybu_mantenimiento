@@ -65,7 +65,7 @@ include('head.php');
                           <textarea id="message" rows="5" class="form-control" required placeholder="Descripcion..." name="description"></textarea>
                        </div>
 					 <div class="form-group">
-                                <input type="submit"  class="btn btn-success round btn-md"  value="Request">
+                                <input type="submit"  class="btn btn-success round btn-md"  value="SOLICITAR">
                      </div>
 	</form>
 </div>

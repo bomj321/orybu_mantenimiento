@@ -24,7 +24,7 @@ include('head.php');
 	   ?>
 
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section white-background">
             <div class="container">
 			    <div class="row">
                     <div class="col-sm-12">
@@ -35,7 +35,7 @@ include('head.php');
                                 </ul>
                             </div><!-- end col -->
                 <div class="col-sm-3 text-left">
-                                <a  href="breq.php"><button class="btn btn-success btn-md ">Show All</button></a>
+                                <a  href="breq.php"><button class="btn btn-success btn-md ">SHOW ALL</button></a>
 
                             
                         </div><!-- end row -->
@@ -47,7 +47,7 @@ include('head.php');
                                                           <form  action="breq1.php" method="POST">
                                 <div class="col-sm-3">
                                     <div class="widget">
-                                <select name="pais">
+                                <select name="pais" class="form-control">
                                                   <option value="Elegir" id="AF">Choose Option</option>
                                                   <option value="Afganistán" id="AF">Afganistán</option>
                                                   <option value="Albania" id="AL">Albania</option>
@@ -344,7 +344,7 @@ include('head.php');
 
 
                             <!------------MAS FILTROS------------>
-                                    <button type="submit" name="button">Search</button>
+                                    <button type="submit" name="button" class="btn btn-success">SEARCH</button>
 
                                 
 

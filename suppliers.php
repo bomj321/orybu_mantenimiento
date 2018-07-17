@@ -40,8 +40,8 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg" >Product Views Statistics</a> 
- <a href="product_add.php" class="btn btn-success btn-lg">Add Products</a>
+			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg" >PRODUCT VIEWS STATISTICS</a> 
+ <a href="product_add.php" class="btn btn-success btn-lg">ADD PRODUCTS</a>
            </br>
         
         </center>         
@@ -118,7 +118,7 @@ $myString = $row['image'];
 												<!--
 												  <a   class="btn btn-xs btn-success" href="checkSellerActive.php?productaction=<?php //echo $row['productaction'];?>&pid=<?php //echo $row['pid'] ?>">Show On</a>-->
 
-												   <a   class="btn btn-xs btn-success" style="max-width: 92.666px;">Show Case On</a>
+												   <a   class="btn btn-xs btn-success" >SHOW CASE ON</a>
 
 												
 													<?php
@@ -127,7 +127,7 @@ $myString = $row['image'];
 													{
 												
 													?>
-												    <a   class="btn btn-xs btn-danger" style="width: 93px;" href="javascript:js_Show()">Show Case Off</a>
+												    <a   class="btn btn-xs btn-danger" style="width: 135px;" href="javascript:js_Show()">SHOW CASE OFF</a>
 
                             <input type="hidden" id="pid" value="<?php echo $row['pid'] ?>">
                             <input type="hidden" id="productaction" value="<?php echo $row['productaction'] ?>">
@@ -137,7 +137,7 @@ $myString = $row['image'];
                                   var pid=document.getElementById("pid").value;
                                   var productaction=document.getElementById("productaction").value;
 
-                                  if (window.confirm("¿Está seguro que desea eliminar el registro seleccionado?")) {
+                                  if (window.confirm("Are you sure you want to use it?")) {
                                                location.href = "checkSellerActive.php?productaction="+productaction+"&pid="+pid;
                                                     }
                                                   }
@@ -158,7 +158,22 @@ $myString = $row['image'];
 														<input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
 													
 												
-												  <a   class="btn btn-xs btn-primary" style="max-width: 92.666px;" href="checktoplist.php?producttoplist=0&pid=<?php echo $row['pid'] ?>">Top List</a>
+												  <a   class="btn btn-xs btn-success" style="width: 135px;" href="javascript:js_Top_List()">TOP LIST</a>
+                           <input type="hidden" id="pid_top_list" value="<?php echo $row['pid'] ?>">
+                           
+
+                            <script type="text/javascript">
+                                function js_Top_List() {
+                                  var pid_top_list=document.getElementById("pid_top_list").value;
+
+                                  if (window.confirm("Are you sure you want to use it?")) {
+                                               location.href = "checktoplist.php?producttoplist=0&pid="+pid_top_list;
+                                                    }
+                                                  }
+
+
+                            </script>
+                        
 
 												
 													

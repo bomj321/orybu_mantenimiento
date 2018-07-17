@@ -101,11 +101,11 @@ $email=$_SESSION['uemail'];
                         }
                         ?>
                         <hr class="spacer-10 no-border">
-                        <a href="allproduct.php" class="btn btn-light semi-circle btn-md pull-left">
-                            <i class="fa fa-arrow-left mr-5"></i> Continue Shopping
+                        <a href="allproduct.php" class="btn btn-success btn-md pull-left">
+                            <i class="fa fa-arrow-left mr-5"></i>CONTINUE SHOPPING
                         </a>
-                        <a href="checkout.php" class="btn btn-success semi-circle btn-md pull-right">
-                            Checkout <i class="fa fa-arrow-right ml-5"></i>
+                        <a href="checkout.php" class="btn btn-success btn-md pull-right">
+                            CHECKOUT <i class="fa fa-arrow-right ml-5"></i>
                         </a>
                     </div><!-- end col -->
                 </div><!-- end row -->

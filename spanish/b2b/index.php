@@ -482,7 +482,7 @@ echo $final;
                        <center>
 
 
-                         <input type="submit" class="btn btn-success round btn-md"  name="requestSend" value="Enviar">
+                         <input type="submit" class="btn btn-success round btn-md"  name="requestSend" value="ENVIAR">
 
                         </form>
 
@@ -491,7 +491,7 @@ echo $final;
 
 				<div style="width:100%;margin-top:18px"  >
 				<a href="breq.php" class="btn btn-success round btn-lg" style="width:100%" >
-						Mostrar solicitud de compra
+						MOSTRAR SOLICITUDES DE COMPRA
 				</a>
 
 				</div>

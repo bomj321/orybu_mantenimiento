@@ -51,7 +51,7 @@ $fila =$asideres3->fetch_assoc();
 
         <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
 
-        <div style=" width: 30%; float: left;" >
+        <div style=" max-width: 40%; float: left; margin-left: 2em;" >
         <h6 style="text-align: center; color: black; font-weight: bold;">  <?php echo $row['ntitle'];?></h6>
         </div>
 
@@ -66,7 +66,7 @@ $fila =$asideres3->fetch_assoc();
 <hr style="width: 90%">
 <div style="margin-top: -1.5rem; margin-left:2rem;"><!--DIV DE INTERMEDIO-->
 
-        <div style=" width: 10%; float: left;" >
+        <div style=" max-width: 40%; float: left; margin-left: 0.7em;"  >
         <h6 style="text-align: center; color: black; font-weight: bold;">User:&nbsp;<?php echo $fila2['firstName'];?></h6>
         </div>
 

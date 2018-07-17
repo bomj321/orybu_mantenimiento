@@ -22,7 +22,7 @@ include('head.php');
         <!-- start navbar -->
 
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section white-background">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -41,7 +41,7 @@ include('head.php');
                                             <form  action="breq1.php" method="POST">
                                 <div class="col-sm-3">
                                     <div class="widget">
-                                <select name="pais">
+                                <select name="pais" class="form-control">
                                                   <option value="Elegir" id="AF">Elegir opción</option>
                                                   <option value="Afganistán" id="AF">Afganistán</option>
                                                   <option value="Albania" id="AL">Albania</option>
@@ -338,7 +338,7 @@ include('head.php');
 
 
                             <!------------MAS FILTROS------------>
-                                    <button type="submit" name="button">Buscar</button>
+                                    <button type="submit" name="button" class="btn btn-success">BUSCAR</button>
 
                                 
 

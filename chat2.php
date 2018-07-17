@@ -33,11 +33,11 @@ $rowemail=mysqli_fetch_array($stmt_email);
   <!-------------------------BOTONES-->
 <div style="margin-bottom: 2em;" class="row ">
   <div class="col-md-2">
-    <a href="chat2.php"><button class="btn btn-primary">MY CHATS</button></a>
+    <a href="chat2.php"><button class="btn btn-success">MY CHATS</button></a>
   </div>
 
 <div class="col-md-2">
-      <a href="chatby.php"><button class="btn btn-primary">BUYING REQUEST</button></a>
+      <a href="chatby.php"><button class="btn btn-success">BUYING REQUEST</button></a>
 
 </div>
 

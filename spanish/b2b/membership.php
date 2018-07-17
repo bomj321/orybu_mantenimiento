@@ -64,14 +64,14 @@ include('head.php');
                         <input type="hidden" name="hosted_button_id" value="EMJFY5KBHX2LY">        
                         <input type="hidden" name="titlebasic" value="Basic Membership" />
                         <input type="hidden" name="price" value="$100" />     
-                        <input type="submit"  name="save" value="COMPRAR AHORA" class="btn btn-default"/>
+                        <input type="submit"  name="save" value="COMPRAR AHORA" class="btn btn-success"/>
                       </form>
                   </td>
                   <td>
                       <form method="POST" action="register.php" >
                         <input type="hidden" name="title" value="Free Membership"/>
                         <input type="hidden" name="price" value="$0" />
-                        <input name="save" type="submit" value="Únete Gratis"  class="btn btn-default"/>
+                        <input name="save" type="submit" value="&Uacute;NETE GRAT&Iacute;S"  class="btn btn-success"/>
                       </form>  
                   </td>
                 </tr>
@@ -100,7 +100,7 @@ include('head.php');
                             </li>
                         </ul>
                         <br>
-                        <a href="buy_st.php" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">Comprar</a>
+                        <a href="buy_st.php" class="btn btn-success btn-block btn-md" style="margin-top:5px;">COMPRAR</a>
                     </div><!-- end widget -->                           
     </div>
     </div>

@@ -145,9 +145,9 @@ function googleTranslateElementInit() {
                     <form action="mycartArry.php?pid=<?php echo $pid; ?>" method="post">
                         <hr class="spacer-15">
                         <ul class="list list-inline">
-                            <li><a class="btn btn-success btn-md round" href="chat2.php?sellerid=<?php echo $sellerid;?>&pid=<?php echo $pid;?>"><i class="fa fa-chat mr-5"></i>Contactar al Vendedor</a></li>
-                            <li><a class="btn btn-success btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>Agregar a favoritos</a></li>
-                            <li><button type="submit"  class="btn btn-success btn-md round"><i class="fa fa-shopping-basket mr-5"></i>Comprar ahora</button></li>
+                            <li><a class="btn btn-success btn-md round" href="chat2.php?sellerid=<?php echo $sellerid;?>&pid=<?php echo $pid;?>"><i class="fa fa-chat mr-5"></i>CONTACTAR AL VENDEDOR</a></li>
+                            <li><a class="btn btn-success btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>AGREGAR A FAVORITOS</a></li>
+                            <li><button type="submit"  class="btn btn-success btn-md round"><i class="fa fa-shopping-basket mr-5"></i>COMPRAR AHORA</button></li>
                         </ul>
                     </form>
                 </div><!-- end col -->

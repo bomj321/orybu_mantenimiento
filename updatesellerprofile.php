@@ -793,7 +793,7 @@ if(!empty($image5)){
 							
 						<div class="col-sm-6 col-sm-offset-3">	
 							<center style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-success" ><i class="fa fa-refresh" >
-       						&nbsp; Update Profile</i>
+       						&nbsp;UPDATE PROFILE</i>
         			</button>
            
        						
