@@ -331,18 +331,7 @@ if(!empty($image5)){
                                                <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Street">
 									</div>
 
-									<center><h2>Bank Information</h2></center>
-									<div class="form-group">
-										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Bank Name">
-									</div>
 									
-									<div class="form-group">
-										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="Bank Code">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Number Bank">
-									</div>
 									</br>
 
 						             <div class="form-group">
@@ -624,6 +613,18 @@ if(!empty($image5)){
 					</select>                                            
 											 </select>
 									</div>
+					<center><h2>Bank Information</h2></center>
+									<div class="form-group">
+										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Bank Name">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="Bank Code">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Number Bank">
+									</div>				
 									</br>
 									</br>
 									<h4>Describe your Company </h4>

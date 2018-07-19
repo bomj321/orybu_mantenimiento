@@ -53,7 +53,7 @@ echo $row['Field']."<br>";
                             <h6 class="subtitle">New Collection</h6>
                             <figure>
                                 <a href="javascript:void(0);">
-                                    <img  style="height: 301px; width:250px;" src="images/<?php echo $cl[0];?>" alt="><?php echo $row['ntitle']; ?>">
+                                    <img  style="height: 301px; width:250px;" src="../../images/<?php echo $cl[0];?>" alt="><?php echo $row['ntitle']; ?>">
                                 </a>
                             </figure>
                         </div><!-- end widget -->

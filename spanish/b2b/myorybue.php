@@ -66,7 +66,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     <div style="float: right; background-color: #f7f7f7;border: 2px;padding-left: 51px;padding-right: 50px;padding-bottom: 30px; margin-right:7rem;">
                         <h5>Mi Perfil</h5>
                         <div style="margin-left: 15px;">
-                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
+                        <img src="../../images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
                         </div>
                         <hr>
                     <?php 
@@ -285,14 +285,14 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     $row=mysqli_fetch_array($result);
                     $image=$row['image'];
                     ?>					  
-                    <a href="learnIncreaseSale.php"><img src="images/<?php echo $image;?>"></a>
+                    <a href="learnIncreaseSale.php"><img src="../../images/<?php echo $image;?>"></a>
                     <?php
                     $sql="Select * from `images` Where id='48'";
                     $result=mysqli_query($connection,$sql);
                     $row=mysqli_fetch_array($result);
                     $image=$row['image'];
                     ?>	
-                    <a href="startBuying.php" ><img src="images/<?php echo $image;?>"></a> 
+                    <a href="startBuying.php" ><img src="../../images/<?php echo $image;?>"></a> 
 	            </div>
             </div>
             <hr>
@@ -338,7 +338,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                         
                     ?>
                     <div class="float-right col-md-3 col-sm-3">
-                        <a href="#"><img class="img-responsive" src="images/<?php echo $cl[0]; ?>" style="height: 20rem"></a>                       
+                        <a href="#"><img class="img-responsive" src="../../images/<?php echo $cl[0]; ?>" style="height: 20rem"></a>                       
                         <center>
                             <span class="amount text-default"><?php echo $rw['ntitle'];?></span>
                             </br>
@@ -364,7 +364,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                                         $cl = explode(',', $myString);
                                         ?>
                                     <li> 
-                                        <a href="#" class="product-image"><img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
+                                        <a href="#" class="product-image"><img src="../../images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
                                         <div class="product-details"> 
                                             <a href="#" class="product-name"><?php echo $row['ntitle']; ?></a> 
                                             <span class="price text-primary">$<?php echo $row['price']; ?></span>

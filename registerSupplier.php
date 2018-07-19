@@ -54,19 +54,7 @@ $confirmcode=$_SESSION['code'];
 										<div class="form-group">
                                                <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Street ">
 										</div>
-
-										<center> <h2>Bank Information</h2></center>
-									<div class="form-group">
-										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Name">
-									</div>
 									
-									<div class="form-group">
-										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="SWITF/BIC Code">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Account number">
-									</div>
 										<div class="form-group">
 
                                         <span>Phone Number:</span>
@@ -347,6 +335,22 @@ $confirmcode=$_SESSION['code'];
 					<option value="Zimbabwe">Zimbabwe</option>
 					</select>
 									</div>
+
+									<center> <h2>Bank Information</h2></center>
+									<div class="form-group">
+										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control" placeholder="Bank Name">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control" placeholder="SWITF/BIC Code">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control" placeholder="Account number">
+									</div>
+									
+
+													
 									</br>
 									</br>
 									<h4>Describe your company here</h4>

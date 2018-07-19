@@ -135,7 +135,7 @@ if(trim($str1) ==trim($str2))
    {
    ?>
     <script>
-	 alert("Your Product Limit Exceeded");
+	 alert("Tu limite de producto a sido excedido");
 	 window.location.href="suppliers.php";
 	 </script>
    <?php
@@ -148,37 +148,14 @@ else if(trim($str1) ==trim($str3))
    {
    ?>
     <script>
-	 alert("Your Product Limit Exceeded");
+	 alert("Tu limite de producto a sido excedido");
 	 window.location.href="suppliers.php";
 	 </script>
    <?php
    }
-   else
-   {
-     if($producttoplist <= '0')
-	 {
-	 ?>
-	 <script>
-	 alert("Your Top List Product Exceeded");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	 if($productshowcase <= '0')
-	 {
-	  ?>
-	 <script>
-	 alert("Your Show Case Product Exceeded");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	
-  
-   }
+   
   
   }
-
  
 
  ?>

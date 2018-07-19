@@ -60,7 +60,7 @@ $fila =$asideres3->fetch_assoc();
 
         <div class="caja1"  style="width:15%; float: right;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="images/<?php echo $valor[0];?>" alt="Product Image">
+          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="../../images/<?php echo $valor[0];?>" alt="Product Image">
         </div>
         <div style="clear:both"></div>
 

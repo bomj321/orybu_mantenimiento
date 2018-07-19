@@ -140,29 +140,7 @@ if(trim($str1) ==trim($str2))
 	 </script>
    <?php
    }
-   else
-   {
-     if($producttoplist <= '0')
-	 {
-	 ?>
-	 <script>
-	 alert("Tu lista superior de producto a sido excedida");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	 if($productshowcase <= '0')
-	 {
-	  ?>
-	 <script>
-	 alert("Tu cantidad de producto para mostrar a sido excedido");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	
   
-   }
 }
 else if(trim($str1) ==trim($str3))
 {
@@ -175,29 +153,7 @@ else if(trim($str1) ==trim($str3))
 	 </script>
    <?php
    }
-   else
-   {
-     if($producttoplist <= '0')
-	 {
-	 ?>
-	 <script>
-	 alert("Tu lista superior de producto a sido excedida");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	 if($productshowcase <= '0')
-	 {
-	  ?>
-	 <script>
-	 alert("Tu cantidad de producto para mostrar a sido excedido");
-	 window.location.href="suppliers.php";
-	 </script>
-	 <?php
-	 }
-	
-  
-   }
+   
   
   }
 

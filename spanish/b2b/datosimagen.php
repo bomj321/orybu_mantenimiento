@@ -1,7 +1,7 @@
 <?php
 
 //ruta de la imagen
-  $target_dir = "spanish/b2b/images";
+  $target_dir = $_SERVER['DOCUMENT_ROOT']."/images/";
   
   $nombre_imagen = $_FILES['imagen']['name'];
   $tipo_imagen = $_FILES['imagen']['type'];

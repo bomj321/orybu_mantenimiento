@@ -331,19 +331,7 @@ if(!empty($image5)){
                                                <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Calle">
 									</div>
 
-									<center><h2>Informaci&oacute;n Bancar&iacute;a</h2></center>
-
-									<div class="form-group">
-										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Nombre del Banco">
-									</div>
 									
-									<div class="form-group">
-										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="Codigo Bancario">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Numero Bancario">
-									</div>
 									</br>
 
 						             <div class="form-group">
@@ -625,6 +613,19 @@ if(!empty($image5)){
 					</select>                                            
 											 </select>
 									</div>
+					<center><h2>Informaci&oacute;n Bancaria</h2></center>
+
+									<div class="form-group">
+										<input type="text" name="bank_name" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $name_bank ?>" placeholder="Nombre del Banco">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="Codigo Bancario">
+									</div>
+									
+									<div class="form-group">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Numero Bancario">
+									</div>				
 									</br>
 									</br>
 									<h4>Describe tu Compañia</h4>
@@ -655,7 +656,7 @@ if(!empty($image5)){
 						 if(!empty($companylogo)) {
 						 ?>
     							<div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $companylogo; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $companylogo; ?>" />
     								<input class="form-control" type="file"  name="imagenes_logo" id="files"/>	
     								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=logo">Eliminar Logo</a>
     							</div>	
@@ -685,7 +686,7 @@ if(!empty($image5)){
 
     								<div class="input-group">
 									  
-									 <img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString; ?>" />
+									 <img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $myString; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
     								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=1">Eliminar Imagen</a>
 									</div>	
@@ -704,7 +705,7 @@ if(!empty($image5)){
 						 if(!empty($myString2)) {
 						 ?>
 						 		<div class="input-group">		
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString2; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $myString2; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>
     								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=2" >Eliminar Imagen</a>
     							</div>		
@@ -722,7 +723,7 @@ if(!empty($image5)){
 						 if(!empty($myString3)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString3; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $myString3; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>
     								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=3">Eliminar Imagen</a>
     							</div>			
@@ -740,7 +741,7 @@ if(!empty($image5)){
 						 if(!empty($myString4)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString4; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $myString4; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>
     								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=4">Eliminar Imagen</a>	
     							</div>	
@@ -758,7 +759,7 @@ if(!empty($image5)){
 						 if(!empty($myString5)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $myString5; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $myString5; ?>" />
     								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>	
     								<a href="updatesellerprofile.php?email=<?php echo $email;?>&image=5">Eliminar Imagen</a>
     							</div>	

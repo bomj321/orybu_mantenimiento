@@ -109,6 +109,8 @@ if (!empty($pid) AND !empty($para) ) {
     {
     ?>
        <input type="text" name="nueva_oferta" placeholder="Generate Offer, insert new price">
+       <input type="text" name="cantidad_oferta" placeholder="Generate Offer, insert Quantity">
+
      <?php
      } 
      ?>

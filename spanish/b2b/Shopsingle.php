@@ -142,7 +142,7 @@ function googleTranslateElementInit() {
             </div><!-- end row -->
             <div class="row">
                 <div class="col-sm-12">
-                    <form action="mycartArry.php?pid=<?php echo $pid; ?>" method="post">
+                    <form action="mycartArry.php?pid=<?php echo $pid; ?>&precio_nuevo=<?php echo $price; ?>&cantidad_nuevo=1" method="post">
                         <hr class="spacer-15">
                         <ul class="list list-inline">
                             <li><a class="btn btn-success btn-md round" href="chat2.php?sellerid=<?php echo $sellerid;?>&pid=<?php echo $pid;?>"><i class="fa fa-chat mr-5"></i>CONTACTAR AL VENDEDOR</a></li>
@@ -190,8 +190,6 @@ $rows=mysqli_fetch_array($result);
 <div class="tab-content style2">
 <div class="tab-pane active" id="description">
 <h5>Información Adicional</h5>
-<p><?php echo $rows['fulldescription']; ?>
-</p>
 
 <hr class="spacer-15">
 
@@ -214,7 +212,7 @@ if (!empty($rows['dimension']) AND !empty($rows['dimension2']) AND !empty($rows[
 }
  
  ?>
-<dt>Material</dt>
+<dt>Materiales</dt>
 <dd><?php echo $rows['elaboration']; ?></dd>
 </dl>
 </div><!-- end col -->
@@ -223,7 +221,7 @@ if (!empty($rows['dimension']) AND !empty($rows['dimension2']) AND !empty($rows[
 <dt>Peso</dt>
 <dd><?php echo $rows['weight']; ?></dd>
 <dt>Fabricante</dt>
-<dd><?php echo $rows['countryName']; ?></dd>
+<dd><?php echo $rows['country']; ?></dd>
 </dl>
 </div><!-- end col -->
 </div><!-- end row -->
@@ -260,12 +258,13 @@ if (!empty($rows['dimension']) AND !empty($rows['dimension2']) AND !empty($rows[
 <div class="tab-pane" id="reviews">
 <div class="row">
 
-<h5>Descripción de la Compañia</h5>
+<h5>Descripción del Producto</h5>
+<hr class="spacer-15">
 
-<dd><?php echo $rows['companyDescription']; ?></dd>
+<p>
+    <?php echo $rows['fulldescription']; ?>
 </p>
 
-<hr class="spacer-15">
 
 
 </div><!-- end row -->

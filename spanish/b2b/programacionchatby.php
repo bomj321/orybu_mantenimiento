@@ -8,6 +8,10 @@
         //$nombre = mysqli_real_escape_string($_POST['nombre']);
         $mensaje = mysqli_real_escape_string($connection,$_POST['mensaje']);
         $nuevo_precio = mysqli_real_escape_string($connection,$_POST['nueva_oferta']);
+        $cantidad_oferta = mysqli_real_escape_string($connection,$_POST['cantidad_oferta']);
+        if (empty($cantidad_oferta)) {
+          $cantidad_oferta = 1;
+        }        
         $comprobar = "SELECT * FROM c_chatsby WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='1') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='1')";
         $comprobacion = $connection->query($comprobar);
         $row=$comprobacion->fetch_assoc();
@@ -65,10 +69,11 @@
           //INSERTAR LOS MENSAJES
          
           
-          include('datosimagen.php');
+          include('datosimagenby.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-         $insert2 = "INSERT INTO chatsby (id_cch,de,para,pid,mensaje,image,nueva_oferta) VALUES
-         (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen','".$nuevo_precio."')";
+         $insert2 = "INSERT INTO chatsby(id_cch,de,para,pid,mensaje,image,nueva_oferta,cantidad_oferta) VALUES
+         (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','".$nombre_imagen."','".$nuevo_precio."','".$cantidad_oferta."')";
+         $resultado3 = $connection->query($insert2);
          $resultado3 = $connection->query($insert2);
          
           //INSERTAR LOS MENSAJES
@@ -91,10 +96,10 @@
            //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ        
           
           $id_cch=$fila['id_cch'];
-          include('datosimagen.php');
+          include('datosimagenby.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-          $insert3 = "INSERT INTO chatsby (id_cch,de,para,pid,mensaje,image,nueva_oferta) VALUES
-          (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen','".$nuevo_precio."')";
+           $insert3 = "INSERT INTO chatsby(id_cch,de,para,pid,mensaje,image,nueva_oferta,cantidad_oferta) VALUES
+          (".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','".$nombre_imagen."','".$nuevo_precio."','".$cantidad_oferta."')";
          $resultado4 = $connection->query($insert3);
         
 

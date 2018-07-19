@@ -1,7 +1,7 @@
 <?php
 session_start();
 $name=  $_SESSION['firstName'];
-$target_dir = "images/";
+$target_dir = "../../images/";
 
 if(!isset($_SESSION))
 {
@@ -28,6 +28,8 @@ if(!isset($_SESSION))
 	$fila2 = $ejecutar2->fetch_array();
 	$image = $fila['image'];
 	$nueva_oferta = $fila['nueva_oferta'];
+	$cantidad_oferta = $fila['cantidad_oferta'];
+
 ?>
 	<div id="datos-chat">
 		<?php 
@@ -47,7 +49,7 @@ if(!isset($_SESSION))
 		<span style="color: black;"><?php echo $fila['mensaje']; ?></span> 
 		<?php if (!empty($nueva_oferta)) {				
 			?> 
-		<span><a class="text-danger" href="mycartArryBy.php?pid=<?php echo $pid; ?>&precio_nuevo=<?php echo $nueva_oferta; ?>">Pulsa para aceptar la Oferta</a></span>
+		<span><a class="text-danger" href="mycartArry.php?pid=<?php echo $pid; ?>&precio_nuevo=<?php echo $nueva_oferta; ?>&cantidad_nuevo=<?php echo $cantidad_oferta; ?>">Nueva oferta por <?php echo $nueva_oferta .'$';?> y <?php echo $cantidad_oferta;?> articulo(s)</a></span>
 		<?php
 			}
 			?>

@@ -76,7 +76,7 @@ echo $row['Field']."<br>";
 								?>
                                 <li> 
                                     <a href="shop-single-product-v1.html" class="product-image">
-                                        <img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> ">
+                                        <img src="../../images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> ">
                                     </a>
                                     <div class="product-details">
                                         <p class="product-name"> 

@@ -36,7 +36,7 @@ include('head.php');
                             <div class='carousel-inner'>
                                 <div class='item active'>
                                     <figure style="width:100%;height:50%;float:left;">
-                                        <img src='ReqImages/<?php echo $rowreq['image']; ?>' alt='Product Image'/>
+                                        <img src="../../ReqImages/<?php echo $rowreq['image']; ?>" alt='Product Image'/>
                                     </figure>
                                 </div><!-- end item -->
 
@@ -63,7 +63,7 @@ include('head.php');
 
                         <div class="row">
                             <div class="col-sm-12">
-							  <h6> Descripción</h6>
+							  <h6> Descripci&oacute;n</h6>
                                 <p><?php echo $rowreq['bmessage']; ?></p>
                             </div><!-- end col -->
                         </div><!-- end row -->

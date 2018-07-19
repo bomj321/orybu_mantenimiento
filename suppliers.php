@@ -69,15 +69,14 @@ if ($nr > 0)
  <thead >
      <tr>
         <th>Title</th>
-        <th>price</th>
-        <th>Description</th>
+        <th>Price</th>
 		<th>Category </th>
 		<th>Product Type </th>
 		<th>Minimum Orders </th>
 	    <th>Payment </th>
         <th>Delivery Details</th>	
         <th>Image</th>
-        <th>Top List</th>
+        <th>Top List/Show Case</th>
        <th >Actions</th>
          
       </tr>
@@ -96,7 +95,6 @@ $myString = $row['image'];
             <tr>    
                 <td></br><?php echo $row['ntitle']; ?></td>
                 <td></br><?php echo $row['price']. ' USD'; ?></td>  
-                <td></br><?php echo $row['fulldescription']; ?></td>
                 <td></br><?php echo $row['title']; ?></td>
                 <td></br><?php echo $row['productType']; ?></td>
                 <td></br><?php echo $row['miniorder']; ?></td>
@@ -158,7 +156,7 @@ $myString = $row['image'];
 														<input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
 													
 												
-												  <a   class="btn btn-xs btn-success" style="width: 135px;" href="javascript:js_Top_List()">TOP LIST</a>
+												  <a   class="btn btn-xs btn-primary" style="width: 135px;" href="javascript:js_Top_List()">TOP LIST</a>
                            <input type="hidden" id="pid_top_list" value="<?php echo $row['pid'] ?>">
                            
 
@@ -193,15 +191,14 @@ $myString = $row['image'];
      <tr>
       
          <th>Title</th>
-        <th>price</th>
-        <th>Description</th>
+        <th>Price</th>
 		<th>Category </th>
 		<th>Product Type </th>
 		<th>Minimum Orders </th>
 	    <th>Payment </th>
         <th>Delivery Details</th>	
         <th>Image</th>
-        <th>Top List</th>
+        <th>Top List/Show Case</th>
        <th >Actions</th>
          
          

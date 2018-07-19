@@ -58,13 +58,13 @@ $fila =$asideres3->fetch_assoc();
 
         <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
 
-        <div style=" width: 26%; float: left;" >
+        <div style=" width: 35%; float: left;" >
         <h6 style="text-align: center; color: black; font-weight: bold;">  <?php echo $row['prod_name'];?></h6>
         </div>
 
         <div class="caja1"  style="width:15%; float: right;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="ReqImages/<?php echo $firstimage;?>"" alt="Product Image">
+          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="../../ReqImages/<?php echo $firstimage;?>"" alt="Product Image">
         </div>
         <div style="clear:both"></div>
 
@@ -73,7 +73,7 @@ $fila =$asideres3->fetch_assoc();
 <hr style="width: 90%">
 <div style="margin-top: -1.5rem;"><!--DIV DE INTERMEDIO-->
 
-        <div style=" width: 38%; float: left;" >
+       <div style=" margin-left: -145px;" >
         <h6 style="text-align: center; color: black; font-weight: bold;">Usuario:&nbsp;<?php echo $fila2['firstName'];?></h6>
         </div>
 

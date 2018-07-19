@@ -325,7 +325,7 @@ $row=$stmt->fetch_assoc()?>
 					<?php
 						 if(!empty($stri_logo)) {
 						 ?>
-    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri_logo; ?>" /></td>
+    								<td><img style="height:100px; width:100px;" src="../../images/<?php echo $stri_logo; ?>" /></td>
     								
     					<?php
 							}
@@ -343,7 +343,7 @@ $row=$stmt->fetch_assoc()?>
 					<?php
 						 if(!empty($stri1)) {
 						 ?>
-    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri1; ?>" /></td>
+    								<td><img style="height:100px; width:100px;" src="../../images/<?php echo $stri1; ?>" /></td>
     								
     					<?php
 							}
@@ -354,7 +354,7 @@ $row=$stmt->fetch_assoc()?>
 						<?php
 						 if(!empty($stri2)) {
 						 ?>
-    								<td><img style="height:100px; width:100px;" src="images/<?php echo $stri2; ?>" /></td>
+    								<td><img style="height:100px; width:100px;" src="../../images/<?php echo $stri2; ?>" /></td>
     					<?php
 							}
 							?>
@@ -363,7 +363,7 @@ $row=$stmt->fetch_assoc()?>
 						<?php
 						 if(!empty($stri3)) {
 						 ?>
-						<td><img style="height:100px; width:100px;" src="images/<?php echo $stri3; ?>" /></td>
+						<td><img style="height:100px; width:100px;" src="../../images/<?php echo $stri3; ?>" /></td>
     					<?php
 							}
 							?>
@@ -371,7 +371,7 @@ $row=$stmt->fetch_assoc()?>
 						<?php
 						 if(!empty($stri4)) {
 						 ?>
-						<td><img style="height:100px; width:100px;" src="images/<?php echo $stri4; ?>" /></td>
+						<td><img style="height:100px; width:100px;" src="../../images/<?php echo $stri4; ?>" /></td>
     					<?php
 							}
 							?>
@@ -380,7 +380,7 @@ $row=$stmt->fetch_assoc()?>
 						<?php
 						 if(!empty($stri5)) {
 						 ?>
-						<td><img style="height:100px; width:100px;" src="images/<?php echo $stri5; ?>" /></td>
+						<td><img style="height:100px; width:100px;" src="../../images/<?php echo $stri5; ?>" /></td>
     					<?php
 							}
 							?>

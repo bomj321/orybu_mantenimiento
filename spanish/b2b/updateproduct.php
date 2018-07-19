@@ -942,7 +942,7 @@ $(document).ready(function() {
 						 if(!empty($certification_verificacion)) {
 						 ?>
     							<div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $rowz['certification']; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $rowz['certification']; ?>" />
     								<input class="form-control" type="file"  name="file1" id="files"/>	
     								<a href="updateproduct.php?image=certificacion&pid=<?php echo $_GET['pid'];?>">Eliminar Certificacion</a>
     							</div>	
@@ -976,7 +976,7 @@ $(document).ready(function() {
 						 if(!empty($stri1)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri1; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $stri1; ?>" />
     								<input class="form-control" type="file"  name="imagenes1"  id="files1"/>
     								<a href="updateproduct.php?image=1&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>	
     							</div>	
@@ -995,7 +995,7 @@ $(document).ready(function() {
 						 if(!empty($stri2)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri2; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $stri2; ?>" />
     								<input class="form-control" type="file"  name="imagenes2"   id="files2"/>
     								<a href="updateproduct.php?image=2&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>
     							</div>		
@@ -1013,7 +1013,7 @@ $(document).ready(function() {
 						 if(!empty($stri3)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri3; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $stri3; ?>" />
     								<input class="form-control" type="file"  name="imagenes3"   id="files3"/>
     								<a href="updateproduct.php?image=3&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>	
     							</div>	
@@ -1031,7 +1031,7 @@ $(document).ready(function() {
 						 if(!empty($stri4)) {
 						 ?>
 						        <div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri4; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $stri4; ?>" />
     								<input class="form-control" type="file"  name="imagenes4"   id="files4"/>
     								<a href="updateproduct.php?image=4&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>	
     							</div>	
@@ -1049,7 +1049,7 @@ $(document).ready(function() {
 						 if(!empty($stri5)) {
 						 ?>
 						 		<div class="input-group">
-    								<img style="height:100px; width:100px; margin-right: 100px;" src="images/<?php echo $stri5; ?>" />
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../../images/<?php echo $stri5; ?>" />
     								<input class="form-control" type="file"  name="imagenes5"  id="files5"/>
     								<a href="updateproduct.php?image=5&pid=<?php echo $_GET['pid'];?>">Eliminar Imagen</a>
     							</div>		

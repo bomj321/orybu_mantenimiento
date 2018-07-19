@@ -40,7 +40,7 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg">VER ESTAD&iacute;STICAS DE LOS PRODUCTOS</a> 
+			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-success btn-lg">VER ESTAD&Iacute;STICAS DE LOS PRODUCTOS</a> 
  <a href="product_add.php" class="btn btn-success btn-lg">AGREGAR PRODUCTO</a>
            </br>
         
@@ -70,14 +70,13 @@ if ($nr > 0)
      <tr>
         <th>Titulo</th>
         <th>Precio</th>
-        <th>Descripción</th>
 		<th>Categoria</th>
 		<th>Tipo de Producto</th>
 		<th>Minima Orden</th>
 	    <th>Método de Pago</th>
         <th>Detalles de Envio</th>	
         <th>Imagen</th>
-        <th>Top List</th>
+        <th>Top List/Show Case</th>
        <th >Acciones</th>
          
       </tr>
@@ -97,13 +96,12 @@ $cl = explode(',', $myString);
             <tr>    
                 <td></br><?php echo $row['ntitle']; ?></td>
                 <td></br><?php echo $row['price']. ' USD'; ?></td>  
-                <td></br><?php echo $row['fulldescription']; ?></td>
                 <td></br><?php echo $row['title']; ?></td>
                 <td></br><?php echo $row['productType']; ?></td>
                 <td></br><?php echo $row['miniorder']; ?></td>
                 <td></br><?php echo $row['payment']; ?></td>
                 <td></br><?php echo $row['delivery_details']; ?></td>		
-                <td><img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" /></td>
+                <td><img style="height:100px; width:100px;" src="../../images/<?php echo $cl[0]; ?>" /></td>
 
         <td></br>
 		&nbsp;&nbsp;
@@ -128,14 +126,13 @@ $cl = explode(',', $myString);
                           {
                         
                           ?>
-                            <a   class="btn btn-xs btn-danger" style="width: 128px;" href="javascript:js_Show()">SHOW CASE OFF</a>
+                            <a   class="btn btn-xs btn-danger" style="width: 128px;" href="javascript:js_Show(<?php echo $row['pid']?>)">SHOW CASE OFF</a>
 
                             <input type="hidden" id="pid" value="<?php echo $row['pid'] ?>">
                             <input type="hidden" id="productaction" value="<?php echo $row['productaction'] ?>">
 
                             <script type="text/javascript">
-                                function js_Show() {
-                                  var pid=document.getElementById("pid").value;
+                                function js_Show(pid) {
                                   var productaction=document.getElementById("productaction").value;
 
                                   if (window.confirm("¿Estás seguro que desea utilizarlo?")) {
@@ -159,7 +156,7 @@ $cl = explode(',', $myString);
                             <input type="hidden" name="productaction" value="<?php echo $producttoplist ?>" />
                           
                         
-                          <a   class="btn btn-xs btn-success" style="width: 128px;" href="javascript:js_Top_List()">LISTA SUPERIOR</a>
+                          <a   class="btn btn-xs btn-primary" style="width: 128px; margin-left: 0.75em;" href="javascript:js_Top_List()">LISTA SUPERIOR</a>
                            <input type="hidden" id="pid_top_list" value="<?php echo $row['pid'] ?>">
                            
 
@@ -197,14 +194,13 @@ $cl = explode(',', $myString);
       
      <th>Titulo</th>
         <th>Precio</th>
-        <th>Descripción</th>
 		<th>Categoria</th>
 		<th>Tipo de Producto</th>
 		<th>Minima Orden</th>
 	    <th>Método de Pago</th>
         <th>Detalles de Envio</th>	
         <th>Imagen</th>
-        <th>Top List</th>
+        <th>Top List/Show Case</th>
        <th >Acciones</th>
          
          

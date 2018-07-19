@@ -13,7 +13,8 @@ $pais= $_SESSION['pais'];
 $userid=$_SESSION['user_id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 $desc=$_POST['description'];
-$target_dir = "ReqImages/";
+$target_dir =$_SERVER['DOCUMENT_ROOT']."/joryan/ReqImages/";  
+echo $target_dir;
 $target_file = $target_dir . basename($_FILES["pimage"]["name"]);
 $image=$_FILES['pimage']['name'];
 $filelocation = $target_dir.$image;
@@ -53,7 +54,7 @@ include('head.php');
 <div class="row">
 <div class="col-sm-8 col-sm-offset-2" style="margin-top:1rem;background-color:#D1F2EB;">
 <div style="background-color:#D1F2EB;width:100%;padding:8px" >
-<h2 class="title">Complete las Informaci&oacute;n</h2>  <br>
+<h2 class="title">Complete la Informaci&oacute;n</h2>  <br>
    <form method="POST" enctype="multipart/form-data">
                          <div class="form-group">
                           <label for="pimage">Imagen del Producto</label>

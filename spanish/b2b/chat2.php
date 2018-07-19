@@ -103,7 +103,9 @@ if (!empty($pid) AND !empty($para) ) {
     <?php if($rowemail>0)
     {
     ?>
-       <input type="text" name="nueva_oferta" placeholder="Generar oferta, insertar nuevo precio">
+       <input type="text" name="nueva_oferta" placeholder="Generar oferta, inserta nuevo precio">
+       <input type="text" name="cantidad_oferta" placeholder="Generar oferta, inserta cantidad">
+
      <?php
      } 
      ?>

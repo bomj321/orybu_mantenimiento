@@ -775,7 +775,7 @@ $(document).ready(function() {
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
 				<?php $st3=$rowz['volume']; $ccl = explode(' ', $st3);  ?>
-						<input type="text" class="form-control" placeholder="Enter Capicity" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
+						<input type="text" class="form-control" placeholder="Enter Capacity" name="cquantity" id="quantity" value="<?php echo $ccl[0]; ?>"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
 						 <select class="form-control input" id="unit" name="dropcapacity" >

@@ -174,7 +174,7 @@ include('navh.php');
                                               background-position: 0 -20px;
                                             }
                                             label.css-label {
-                                        background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_490b7ac6598bb6e25d0681c50e958cda.png);
+                                        background-image:url("images/csscheckbox.png");
                                         -webkit-touch-callout: none;
                                         -webkit-user-select: none;
                                         -khtml-user-select: none;
@@ -300,7 +300,7 @@ include('navh.php');
 
 
                                             <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila1['title']; ?>"><?php echo $fila1['titulo']; ?> (<?php echo $row1; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila1['title']; ?>"><?php echo $fila1['titulo']; ?> (<?php echo $row1; ?>)</a>
                                             </li>
 
                                                     <?php 
@@ -314,7 +314,7 @@ include('navh.php');
                                              if ($row2>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila2['title']; ?>"><?php echo $fila2['titulo']; ?> (<?php echo $row2; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila2['title']; ?>"><?php echo $fila2['titulo']; ?> (<?php echo $row2; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -325,7 +325,7 @@ include('navh.php');
                                              if ($row3>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila3['title']; ?>"><?php echo $fila3['titulo']; ?> (<?php echo $row3; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila3['title']; ?>"><?php echo $fila3['titulo']; ?> (<?php echo $row3; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -335,7 +335,7 @@ include('navh.php');
                                              if ($row4>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila4['title']; ?>"><?php echo $fila4['titulo']; ?> (<?php echo $row4; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila4['title']; ?>"><?php echo $fila4['titulo']; ?> (<?php echo $row4; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -345,7 +345,7 @@ include('navh.php');
                                              if ($row5>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila5['title']; ?>"><?php echo $fila5['titulo']; ?> (<?php echo $row5; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila5['title']; ?>"><?php echo $fila5['titulo']; ?> (<?php echo $row5; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -357,7 +357,7 @@ include('navh.php');
                                              if ($row6>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila6['title']; ?>"><?php echo $fila6['titulo']; ?> (<?php echo $row6; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila6['title']; ?>"><?php echo $fila6['titulo']; ?> (<?php echo $row6; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -367,7 +367,7 @@ include('navh.php');
                                              if ($row7>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila7['title']; ?>"><?php echo $fila7['titulo']; ?> (<?php echo $row7; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila7['title']; ?>"><?php echo $fila7['titulo']; ?> (<?php echo $row7; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -378,7 +378,7 @@ include('navh.php');
                                              if ($row8>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila8['title']; ?>"><?php echo $fila8['titulo']; ?> (<?php echo $row8; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila8['title']; ?>"><?php echo $fila8['titulo']; ?> (<?php echo $row8; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -388,7 +388,7 @@ include('navh.php');
                                              if ($row9>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila9['title']; ?>"><?php echo $fila9['titulo']; ?> (<?php echo $row9; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila9['title']; ?>"><?php echo $fila9['titulo']; ?> (<?php echo $row9; ?>)</a>
                                             </li>
                                                <?php 
                                                 }
@@ -398,7 +398,7 @@ include('navh.php');
                                              if ($row10>0) {
                                             ?> 
                                              <li >
-                                                <a style="color: #5FD6D3;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila10['title']; ?>"><?php echo $fila10['titulo']; ?> (<?php echo $row10; ?>)</a>
+                                                <a style="color: #5FD6D3; font-size: 15px; font-weight: bold;" class="btn btn-white btn-xs" href="searchallproduct.php?title=<?php echo $fila10['title']; ?>"><?php echo $fila10['titulo']; ?> (<?php echo $row10; ?>)</a>
                                             </li>
                                                <?php 
                                                 }

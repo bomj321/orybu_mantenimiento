@@ -25,7 +25,7 @@ $email=$_SESSION['uemail'];
                                 <thead>
                                     <tr>
                                         <th >Productos</th>
-                                        <th >Descripción</th>
+                                        <th >Descripci&oacute;n</th>
                                         <th>Precio</th>
                                         <th>Cantidad</th>
                                         <th>Total</th>
@@ -44,13 +44,13 @@ $email=$_SESSION['uemail'];
                                         <td>
                                             <a href="#">
                                                  <?php
-                                                    if($buyer_request==1){
+                                                    if($buyer_request==1)){
                                                  ?>
-                                                <img width="60px" src="ReqImages/<?php echo $rowcart['image'];?>" alt="product">
+                                                <img width="60px" src="../../ReqImages/<?php echo $rowcart['image'];?>" alt="product">
                                                 <?php
                                                     }else{
                                                  ?>
-                                                     <img width="60px" src="images/<?php echo $rowcart['image'];?>" alt="product">
+                                                     <img width="60px" src="../../images/<?php echo $rowcart['image'];?>" alt="product">
                                                  <?php
                                                     }
                                                  ?>

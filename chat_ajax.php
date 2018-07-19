@@ -28,6 +28,7 @@ if(!isset($_SESSION))
 	$fila2 = $ejecutar2->fetch_array();
 	$image = $fila['image'];
 	$nueva_oferta = $fila['nueva_oferta'];
+	$cantidad_oferta = $fila['cantidad_oferta'];
 ?>
 	<div id="datos-chat">
 		<?php 
@@ -47,7 +48,7 @@ if(!isset($_SESSION))
 		<span style="color: black;"><?php echo $fila['mensaje']; ?></span>
 			<?php if (!empty($nueva_oferta)) {				
 			?> 
-		<span><a class="text-danger" href="mycartArry.php?pid=<?php echo $pid; ?>&precio_nuevo=<?php echo $nueva_oferta; ?>">Press to accept the Offer</a></span>
+		<span><a class="text-danger" href="mycartArry.php?pid=<?php echo $pid; ?>&precio_nuevo=<?php echo $nueva_oferta; ?>&cantidad_nuevo=<?php echo $cantidad_oferta; ?>">New Offer for <?php echo $nueva_oferta .'$';?> and <?php echo $cantidad_oferta;?> item(s)</a></span>
 		<?php
 			}
 		?>
