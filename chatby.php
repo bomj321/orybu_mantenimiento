@@ -1,8 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['user_id']))
-{
-  echo "<script>
+if (!isset($_SESSION['user_id'])) {
+    echo "<script>
                 alert('Please log in!!!');
                 window.location= 'singlelogin.php'
         </script>";
@@ -13,10 +12,10 @@ include('topbar.php');
 include('middlebar.php');
 include('navh.php');
 
-ini_set('error_reporting',0);
+ini_set('error_reporting', 0);
 $email=$_SESSION['uemail'];
 $sql_email="SELECT * FROM seller WHERE email='$email'";
-$stmt_email=mysqli_query($connection,$sql_email);
+$stmt_email=mysqli_query($connection, $sql_email);
 $rowemail=mysqli_fetch_array($stmt_email);
 
 ?>
@@ -53,22 +52,21 @@ $rowemail=mysqli_fetch_array($stmt_email);
 <?php 
   
     $pid = mysqli_real_escape_string($connection, $_GET['pid']);
-    $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
+    $para = mysqli_real_escape_string($connection, $_GET['sellerid']);
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
-if(isset($_GET['leido'])) {
-  $pid = mysqli_real_escape_string($connection, $_GET['pid']);
-  $leido = mysqli_real_escape_string($connection, $_GET['leido']);
-  $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
-  $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
-  $tchats = "SELECT * FROM chatsby WHERE de = '$para' OR para = '$para'";
-  $ejecutartchats = $connection->query($tchats);
-  $tc = mysqli_fetch_array($tchats);
-  if($tc['de'] != $de) {
-  $update = "UPDATE chatsby SET leido = '1' WHERE (de = '$para' OR para = '$para') AND pid ='$pid'";
-    $connection->query($update);
-
-  }
+if (isset($_GET['leido'])) {
+    $pid = mysqli_real_escape_string($connection, $_GET['pid']);
+    $leido = mysqli_real_escape_string($connection, $_GET['leido']);
+    $para = mysqli_real_escape_string($connection, $_GET['sellerid']);
+    $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
+    $tchats = "SELECT * FROM chatsby WHERE de = '$para' OR para = '$para'";
+    $ejecutartchats = $connection->query($tchats);
+    $tc = mysqli_fetch_array($tchats);
+    if ($tc['de'] != $de) {
+        $update = "UPDATE chatsby SET leido = '1' WHERE (de = '$para' OR para = '$para') AND pid ='$pid'";
+        $connection->query($update);
+    }
 }
 
 
@@ -89,10 +87,8 @@ include("programacionasidechatby.php");
 <!--CHAT-->
 
 <?php 
-if (!empty($pid) AND !empty($para) ) {
-  
-
- ?>
+if (!empty($pid) and !empty($para)) {
+    ?>
   <div  class="col-md-6 col-md-offset-2" id="contenedor">
     <div id="caja-chat">
       <div id="chat">
@@ -102,24 +98,21 @@ if (!empty($pid) AND !empty($para) ) {
     </div>
 
     <form method="POST" action="" enctype="multipart/form-data">
-      <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
+      <!--<input type="hidden" name="nombre" value="<?php //echo "$name";?>">-->
       <textarea name="mensaje" placeholder="Enter your message"></textarea>
     <input class="filesenviar" id="files"  type="file"  name="imagen"/>
-    <?php if($rowemail>0)
-    {
-    ?>
-       <input type="text" name="nueva_oferta" placeholder="Generate Offer, insert new price">
-       <input type="text" name="cantidad_oferta" placeholder="Generate Offer, insert Quantity">
+    <?php if ($rowemail>0) {
+        ?>
+       <input type="text" id="nueva_oferta" name="nueva_oferta" placeholder="Generate Offer, insert new price" onchange="nuevaoferta(this.value)">
+          <input type="text" id="cantidad_oferta" name="cantidad_oferta" placeholder="Generate Offer, insert Quantity" onchange="cantidadoferta(this.value)">
 
      <?php
-     } 
-     ?>
+    } ?>
     <input class="inputenviar" type="submit" name="enviar" value="Send">    </form>
      </div>
 
 <!--CHAT-->
-<?php 
-
+<?php
 };
 
  ?>
@@ -215,6 +208,50 @@ include("programacionchatby.php");
 </script>
 
 <!--SCRIPT PARA EL SCROLL-->
+
+<!--SCRIPT PARA LOS CAMPOS REQUERIDOS-->
+
+<script type="text/javascript">
+  function nuevaoferta(val) {
+      var str = $('#nueva_oferta').val();
+
+    if (str !== "") {
+        document.getElementById("nueva_oferta").setAttribute("required", "true");
+        document.getElementById("cantidad_oferta").setAttribute("required", "true");
+
+        return;
+    }else{ 
+    	document.getElementById("nueva_oferta").removeAttribute("required");
+        document.getElementById("cantidad_oferta").removeAttribute("required");
+
+
+        return;
+        
+    }
+  
+}
+
+function cantidadoferta(val) {
+    var str = $('#cantidad_oferta').val();
+
+
+    if (str !== "") {
+        document.getElementById("nueva_oferta").setAttribute("required", "true");
+        document.getElementById("cantidad_oferta").setAttribute("required", "true");
+
+        return;
+    } else { 
+    	document.getElementById("nueva_oferta").removeAttribute("required");
+        document.getElementById("cantidad_oferta").removeAttribute("required");
+
+
+        return;
+        
+    }
+  
+}
+</script>  
+<!--SCRIPT PARA LOS CAMPOS REQUERIDOS-->
 </body>
 <!--------------------------------------------CHAT DE BUYER REQUEST-->
 

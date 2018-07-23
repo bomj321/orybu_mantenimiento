@@ -293,7 +293,7 @@ include('navh.php');
                                     </div>
                                     <div id="tagsFilterCollapse" class="panel-collapse collapse in">
                                         <div class="panel-body">                                           
-                                        <ul class="tags">
+                                    <ul class="tags" style="margin-left:-25px;">
                                              <?php 
                                              if ($row1>0) {
                                             ?> 

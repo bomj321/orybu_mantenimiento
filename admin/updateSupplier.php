@@ -69,128 +69,104 @@ if (isset($_POST['btn_save_updates'])) {
         $companyDescription= $_POST['companyDescription'];
         $limitTopList= $_POST['limitTopList'];
         $limitShowCase= $_POST['limitShowCase'];
-        
-    
+
+
+        $sqlimages = "UPDATE seller  SET company_name ='" . $companyName . "',street='" . $street . "',city='" . $city . "',zipCode='" . $zipCode . "',province='" . $province . "',businessType='" . $businessType . "',noOfEmployee='" . $noOfEmployee . "',companyDescription='" . $companyDescription . "',countryName='" . $countryName . "',companyLegalNo='" . $companyLegalNo . "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
+        mysqli_query($connection, $sqlimages);
+        $stmtimages = $connection->prepare($sqlimages);
+        if ($stmtimages === false) {
+            trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
+        }
+
         $target_dir = "../images/";
-    
-        $target_file = $target_dir . basename($_FILES["file1"]["name"]);
-        $images=$_FILES['file1']['name'];
-        $filelocation = $target_dir.$images;
-        $temp = $_FILES['file1']['tmp_name'];
-        move_uploaded_file($temp, $filelocation);
-        /////////////////////////////////////////////
-        //////////////////////////////////////////
-        
-        ///SUBIR IMAGENES
-        foreach ($_FILES["file2"]["error"] as $key => $error) {
-            $nombre_archivo = $_FILES["file2"]["name"][$key];
-            $tipo_archivo = $_FILES["file2"]["type"][$key];
-            $tamano_archivo = $_FILES["file2"]["size"][$key];
-            $temp_archivo = $_FILES["file2"]["tmp_name"][$key];
- 
-            if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png") || strpos($tipo_archivo, "jpg")) && ($tamano_archivo < 1000000))) {
 
+        if ($_FILES["imagenes_logo"]["name"] != "" and !empty($_FILES["imagenes_logo"]["name"]) and (strpos($_FILES["imagenes_logo"]["type"], 'gif') || strpos($_FILES["imagenes_logo"]["type"], 'jpeg') || strpos($_FILES["imagenes_logo"]["type"], 'png') || strpos($_FILES["imagenes_logo"]["type"], 'jpg'))) {
+            $target_file = $target_dir . basename($_FILES["imagenes_logo"]["name"]);
+            $images = $_FILES['imagenes_logo']['name'];
+            $filelocation = $target_dir . $images;
+            $temp = $_FILES['imagenes_logo']['tmp_name'];
+            move_uploaded_file($temp, $filelocation);
+        }
 
-            //echo "
-            //	<script>
-             //   alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
-              //  window.location= 'updatesellerprofile.php?email=echo $email'
-                //</script>
-                //";
-            } else {
-                $nom_img = $nombre_archivo;
-                $directorio = '../images/'; // Directorio
- 
-                if (move_uploaded_file($temp_archivo, $directorio . "/" . $nom_img)) {
-                    echo "
-    			<script>
-                alert('Images uploaded correctly');
-                window.location= 'manageSupplier.php?email=echo $email'
-        		</script>
-        		";
-                }
-            }
-        } // Fin Foreach
+        if ($_FILES["imagenes_action1"]["name"] != "" and !empty($_FILES["imagenes_action1"]["name"]) and (strpos($_FILES["imagenes_action1"]["type"], 'gif') || strpos($_FILES["imagenes_action1"]["type"], 'jpeg') || strpos($_FILES["imagenes_action1"]["type"], 'png') || strpos($_FILES["imagenes_action1"]["type"], 'jpg'))) {
+            $target_file = $target_dir . basename($_FILES["imagenes_action1"]["name"]);
+            $image1 = $_FILES['imagenes_action1']['name'];
+            $filelocation = $target_dir . $image1;
+            $temp1 = $_FILES['imagenes_action1']['tmp_name'];
+            move_uploaded_file($temp1, $filelocation);
+        }
+        if ($_FILES["imagenes_action2"]["name"] != "" and !empty($_FILES["imagenes_action2"]["name"]) and (strpos($_FILES["imagenes_action2"]["type"], 'gif') || strpos($_FILES["imagenes_action2"]["type"], 'jpeg') || strpos($_FILES["imagenes_action2"]["type"], 'png') || strpos($_FILES["imagenes_action2"]["type"], 'jpg'))) {
+            $target_file = $target_dir . basename($_FILES["imagenes_action2"]["name"]);
+            $image2 = $_FILES['imagenes_action2']['name'];
+            $filelocation = $target_dir . $image2;
+            $temp2 = $_FILES['imagenes_action2']['tmp_name'];
+        }
+        move_uploaded_file($temp2, $filelocation);
 
-        
-        ///SUBIR IMAGENES
-
-                
-        $image1=$_FILES['file2']['name'][0];
-        $image2=$_FILES['file2']['name'][1];
-        $image3=$_FILES['file2']['name'][2];
-        $image4=$_FILES['file2']['name'][3];
-        $image5=$_FILES['file2']['name'][4];
+        if ($_FILES["imagenes_action3"]["name"] != "" and !empty($_FILES["imagenes_action3"]["name"]) and (strpos($_FILES["imagenes_action3"]["type"], 'gif') || strpos($_FILES["imagenes_action3"]["type"], 'jpeg') || strpos($_FILES["imagenes_action3"]["type"], 'png') || strpos($_FILES["imagenes_action3"]["type"], 'jpg'))) {
+            $target_file = $target_dir . basename($_FILES["imagenes_action3"]["name"]);
+            $image3 = $_FILES['imagenes_action3']['name'];
+            $filelocation = $target_dir . $image3;
+            $temp3 = $_FILES['imagenes_action3']['tmp_name'];
+            move_uploaded_file($temp3, $filelocation);
+        }
+        if ($_FILES["imagenes_action4"]["name"] != "" and !empty($_FILES["imagenes_action4"]["name"]) and (strpos($_FILES["imagenes_action4"]["type"], 'gif') || strpos($_FILES["imagenes_action4"]["type"], 'jpeg') || strpos($_FILES["imagenes_action4"]["type"], 'png') || strpos($_FILES["imagenes_action4"]["type"], 'jpg'))) {
+            $target_file = $target_dir . basename($_FILES["imagenes_action4"]["name"]);
+            $image4 = $_FILES['imagenes_action4']['name'];
+            $filelocation = $target_dir . $image4;
+            $temp4 = $_FILES['imagenes_action4']['tmp_name'];
+            move_uploaded_file($temp4, $filelocation);
+        }
+        if ($_FILES["imagenes_action5"]["name"] != "" and !empty($_FILES["imagenes_action5"]["name"]) and (strpos($_FILES["imagenes_action5"]["type"], 'gif') || strpos($_FILES["imagenes_action5"]["type"], 'jpeg') || strpos($_FILES["imagenes_action5"]["type"], 'png') || strpos($_FILES["imagenes_action5"]["type"], 'jpg'))) {
+            $target_file = $target_dir . basename($_FILES["imagenes_action5"]["name"]);
+            $image5 = $_FILES['imagenes_action5']['name'];
+            $filelocation = $target_dir . $image5;
+            $temp5 = $_FILES['imagenes_action5']['tmp_name'];
+            move_uploaded_file($temp5, $filelocation);
+        } 	 ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
                 
         ////////////////////////////////////////////////
     
   
-
-        if (empty($images)) {
-            $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
-
-            $sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo. "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
-            mysqli_query($connection, $sqlimages);
-            $stmtimages = $connection->prepare($sqlimages);
-            if ($stmtimages === false) {
-                trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
-            }
-
-
-            if ($stmtimages->execute()) {
-                ?>
-              <script>
-				        alert("Updated  Company Information!");  //not showing an alert box.
-				        window.location.href="manageSupplier.php?email=echo $email";
-		
-				</script>
-                <?php
-            } else {
-                echo "ERROR1";
-            }
-        } elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
-            $sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo. "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
-            mysqli_query($connection, $sqllicense);
-            $stmtlicense = $connection->prepare($sqllicense);
-            if ($stmtlicense === false) {
-                trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
-            }
-
-
-            if ($stmtlicense->execute()) {
-                ?>
-              <script>
-				        alert("Updated  Company Information!");  //not showing an alert box.
-				         window.location.href="manageSupplier.php?email=echo $email";
-		
-				</script>
-                <?php
-            } else {
-                echo "ERROR2";
-            }
-        } else {
-            $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
-
-            $sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo. "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
-            mysqli_query($connection, $sql);
-            $stmt = $connection->prepare($sql);
-            if ($stmt === false) {
-                trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-            }
-
-
-            if ($stmt->execute()) {
-                ?>
-              <script>
-				        alert("Updated  Company Information!");  //not showing an alert box.
-				         window.location.href="manageSupplier.php?email=echo $email";
-		
-				</script>
-                <?php
-            } else {
-                echo "ERROR3";
-            }
+        if (!empty($images)) {
+            $sql_logo="UPDATE seller  SET companylogo='".$images."' WHERE (email='$email')";
+            mysqli_query($connection, $sql_logo);
         }
+    
+    
+        if (!empty($image1)) {
+            $sql2="UPDATE seller  SET companylicense='".$image1."' WHERE (email='$email')";
+            mysqli_query($connection, $sql2);
+        }
+    
+
+        if (!empty($image2)) {
+            $sql3="UPDATE seller  SET companylicense2='".$image2."' WHERE (email='$email')";
+            mysqli_query($connection, $sql3);
+        }
+    
+        if (!empty($image3)) {
+            $sql4="UPDATE seller  SET companylicense3='".$image3."' WHERE (email='$email')";
+            mysqli_query($connection, $sql4);
+        }
+    
+        if (!empty($image4)) {
+            $sql5="UPDATE seller  SET companylicense4='".$image4."' WHERE (email='$email')";
+            mysqli_query($connection, $sql5);
+        }
+    
+        if (!empty($image5)) {
+            $sql6="UPDATE seller  SET companylicense5='".$image5."' WHERE (email='$email')";
+            mysqli_query($connection, $sql6);
+        }
+        //////////////////////////////////////////////////////////////////////SUBIR IMAGENES////////////////////////////////////////////////////////////////
+        echo ' 
+						  <script>
+									alert("Updated Your Company Information!");  //not showing an alert box.
+									 window.location.href="manageSupplier.php";
+						 </script>
+							';
     }
   ?>
 		<!-- MAIN PANEL -->
@@ -1010,23 +986,115 @@ $row = mysqli_fetch_array($stmt);
 							
 									</textarea>	
 						</div>
-										<div class="form-group">
-										<label>Company Logo</label>
-										
-										 <img style="height:100px; width:100px;" src="../images/<?php echo $companylogo; ?>" />
-					        <input class="form-control" type="file" name="file1" />
+									<div class="col-md-12">
+											<h4>Update Company Licenses</h4>
+									</div>
+									
+										<div class="form-group" >
+												<div class="input-group">
+													<img style="height:100px; margin-right: 100px; width:100px;" src="../images/<?php echo $companylogo; ?>" />
+													<input class="form-control" type="file" name="imagenes_logo" />
+												</div>	
+										</div>
+			<!--PARTE DE LAS IMAGENES-->			
+						<div class="col-md-12">
+								<h4>Update Company Licenses</h4>
 						</div>
-						<div="form-group">
-						<label>Company License </label>
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $image1; ?>" />	
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $image2; ?>" />
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $image3; ?>" />
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $image4; ?>" />
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $image5; ?>" />
-					        <input class="form-control" type="file" name="file2[]" multiple="multiple" />
-						
+						<div class="form-group" > 						 
+						 
+						 <?php
+                        if (!empty($image1)) {
+                            ?>
+    								
 
-											
+    								<div class="input-group">
+									  
+									 <img style="height:100px; width:100px; margin-right: 100px;" src="../images/<?php echo $image1; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action1"  id="files1"/>
+									</div>	
+    					<?php
+                        } else {
+                            ?>
+								<h6>Add Company License #1</h6>
+								<input class="form-control" type="file"  name="imagenes_action1"  id="files"/>
+							
+						<?php
+                        }
+                ?> 
+							
+							
+						<?php
+                    if (!empty($image2)) {
+                        ?>
+						 		<div class="input-group">		
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../images/<?php echo $image2; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action2"   id="files2"/>
+    							</div>		
+    					<?php
+                    } else {
+                        ?>
+							      <h6>Add Company License #2</h6>
+								<input class="form-control" type="file"  name="imagenes_action2"  id="files2"/>
+							
+						<?php
+                    }
+                ?> 
+							
+						<?php
+                    if (!empty($image3)) {
+                        ?>
+						        <div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../images/<?php echo $image3; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action3"   id="files3"/>
+    							</div>			
+    					<?php
+                    } else {
+                        ?>
+								<h6>Add Company License #3</h6>
+								<input class="form-control" type="file"  name="imagenes_action3"  id="files3"/>
+							
+						<?php
+                    }
+                ?> 
+						
+						<?php
+                    if (!empty($image4)) {
+                        ?>
+						        <div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../images/<?php echo $image4; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action4"   id="files4"/>
+    							</div>	
+    					<?php
+                    } else {
+                        ?>
+								<h6>Add Company License #4</h6>
+								<input class="form-control" type="file"  name="imagenes_action4"  id="files4"/>
+							
+						<?php
+                    }
+                ?> 
+							
+						<?php
+                    if (!empty($image5)) {
+                        ?>
+						        <div class="input-group">
+    								<img style="height:100px; width:100px; margin-right: 100px;" src="../images/<?php echo $image5; ?>" />
+    								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>	
+    							</div>	
+    					<?php
+                    } else {
+                        ?>
+								<h6>Add Company License #5</h6>
+								<input class="form-control" type="file"  name="imagenes_action5"  id="files5"/>
+							
+						<?php
+                    }
+                ?> 																
+							 
+						  </div>
+			<!--PARTE DE LAS IMAGENES-->			
+						
+						<div >			
 									<div class="form-group">
 										<div class="row">
 										</br>

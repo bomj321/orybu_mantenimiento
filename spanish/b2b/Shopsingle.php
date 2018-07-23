@@ -1,5 +1,5 @@
 <?php session_start();
-    if(!isset($_SESSION['uemail'])):
+    if (!isset($_SESSION['uemail'])):
         header('location:singlelogin.php');
     endif;
 require 'Connect.php';
@@ -10,12 +10,12 @@ $_SESSION['user_id'];
 
 $date =  date('Y-m-d');// Tiempo
 $chart="INSERT INTO chart_basic_user (id,id_pid,visited_at,visit) VALUES ('NULL','{$pid}','{$date}','1')";
-mysqli_query($connection,$chart);
+mysqli_query($connection, $chart);
 
 //Fin de Inserción a la db para las estadisticas de los usuarios
 
 $stquery1="SELECT * FROM products where pid='$pid'";
-$stres1=mysqli_query($connection,$stquery1);
+$stres1=mysqli_query($connection, $stquery1);
 $r1=mysqli_fetch_array($stres1);
 $uzerid=$r1['user_id'];
 $catid=$r1['catid'];
@@ -23,21 +23,21 @@ $subcatid=$r1['subcatid'];
 
 //Inserción a la db para las estadisticas de los administradores
 $chart_ad="INSERT INTO `chart_category_subcatego_admin` (id,id_catid,id_subcatid,visited_at,visit) VALUES ('NULL','{$catid}','{$subcatid}','{$date}','1')";
-mysqli_query($connection,$chart_ad);
+mysqli_query($connection, $chart_ad);
 //Fin de Inserción a la db para las estadisticas de los administradores
 
 $stquery2="SELECT * FROM users where user_id='$uzerid'";
-$stres2=mysqli_query($connection,$stquery2);
-while($r2=mysqli_fetch_array($stres2)){
-$sellerid=$r2['user_id'];    
-$prodStat=$r2['productstat'];
-$prodStat++;
+$stres2=mysqli_query($connection, $stquery2);
+while ($r2=mysqli_fetch_array($stres2)) {
+    $sellerid=$r2['user_id'];
+    $prodStat=$r2['productstat'];
+    $prodStat++;
 }
 $upstquery="UPDATE users SET productstat='$prodStat' where user_id='$uzerid'";
-mysqli_query($connection,$upstquery);
+mysqli_query($connection, $upstquery);
 
 $query="SELECT * from products where pid=$pid";
-$res=mysqli_query($connection,$query);
+$res=mysqli_query($connection, $query);
 $row=mysqli_fetch_array($res);
 $title =$row['ntitle'];
 $price =$row['price'];
@@ -161,9 +161,9 @@ function googleTranslateElementInit() {
 <?php	$pid =$_GET['pid'];
 $sql="SELECT * FROM  products  INNER JOIN users ON(products.user_id= users.user_id) INNER JOIN seller ON(users.email=seller.email) INNER JOIN categories ON (products.catid=categories.catid)Where products.pid ='$pid'";
 
-$result=mysqli_query($connection,$sql);
-if($result == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+$result=mysqli_query($connection, $sql);
+if ($result == false) {
+    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 
 $nr=mysqli_num_rows($result);
@@ -191,39 +191,76 @@ $rows=mysqli_fetch_array($result);
 <div class="tab-pane active" id="description">
 <h5>Información Adicional</h5>
 
-<hr class="spacer-15">
+        <hr class="spacer-15">
 
-<div class="row">
-<div class="col-sm-12 col-md-6">
-<dl class="dl-horizontal">
-<dt>Dimensiones</dt>
-<?php 
-if (!empty($rows['dimension']) AND !empty($rows['dimension2']) AND !empty($rows['dimension3'])) {
-?>    
-   <dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
+        <div class="row">
+        <div class="col-sm-12 col-md-6">
+                <dl class="dl-horizontal">
+                <dt>Dimensiones</dt>
+                <?php 
+                if (!empty($rows['dimension']) and !empty($rows['dimension2']) and !empty($rows['dimension3'])) {
+                    ?>    
+                <dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
 
-<?php 
+                <?php
+                } else {
+                    ?>
+                <dd>N/A</dd>
+                
+                <?php
+                }
+                
+                ?>
+                <dt>Materiales</dt>
+                <dd><?php echo $rows['elaboration']; ?></dd>
+                <dt>Uso</dt>
+                <dd><?php echo $rows['puse']; ?></dd>
+                <dt>Capacidad</dt>
+                <dd><?php echo $rows['capacity']; ?></dd>
+                <dt>Fuente de Poder</dt>
+                <?php 
+                if (!empty($rows['energypower'])) {
+                    ?>    
+                <dd><?php echo $rows['energypower']; ?> </dd>
 
-}else{
- ?>
- <dd>N/A</dd>
- 
- <?php
-}
- 
- ?>
-<dt>Materiales</dt>
-<dd><?php echo $rows['elaboration']; ?></dd>
-</dl>
-</div><!-- end col -->
-<div class="col-sm-12 col-md-6">
-<dl class="dl-horizontal">
-<dt>Peso</dt>
-<dd><?php echo $rows['weight']; ?></dd>
-<dt>Fabricante</dt>
-<dd><?php echo $rows['country']; ?></dd>
-</dl>
-</div><!-- end col -->
+                <?php
+                } else {
+                    ?>
+                <dd>N/A</dd>
+                
+                <?php
+                }
+                
+                ?>
+                </dl>
+        </div><!-- end col -->
+        <div class="col-sm-12 col-md-6">
+                <dl class="dl-horizontal">
+                <dt>Peso</dt>
+                <dd><?php echo $rows['weight']; ?></dd>
+                <dt>Fabricante</dt>
+                <dd><?php echo $rows['country']; ?></dd>
+                <dt>M&eacute;todo de Pago</dt>
+                <dd><?php echo $rows['payment']; ?></dd>
+                <dt>Empaquetado</dt>
+                <dd><?php echo $rows['packing']; ?></dd>
+                <dt>Velocidad de Rotaci&oacute;n</dt>
+                <?php 
+                if (!empty($rows['rotationspeed'])) {
+                    ?>    
+                <dd><?php echo $rows['rotationspeed']; ?> </dd>
+
+                <?php
+                } else {
+                    ?>
+                <dd>N/A</dd>
+                
+                <?php
+                }
+                
+                ?>
+                </dl>
+        </div><!-- end col -->
 </div><!-- end row -->
 </div><!-- end tab-pane -->
 
@@ -278,8 +315,8 @@ if (!empty($rows['dimension']) AND !empty($rows['dimension2']) AND !empty($rows[
         </section>
         <!-- end section -->
     <?php
-	include('footer.php');
-	?>
+    include('footer.php');
+    ?>
 
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>

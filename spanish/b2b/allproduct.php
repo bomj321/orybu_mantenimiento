@@ -284,7 +284,7 @@ include('navh.php');
                                             <?php $query1="SELECT * FROM categories";
                                         $result1=mysqli_query($connection,$query1);
                                         ?>      
-                                        <ul class="tags">
+                                        <ul class="tags" style="margin-left:-25px;">
                                             <?php 
                                              if ($row1>0) {
                                             ?> 
