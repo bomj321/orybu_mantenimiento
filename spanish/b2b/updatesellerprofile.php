@@ -620,33 +620,49 @@ if(!empty($image5)){
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="Codigo Bancario">
+										<input type="text" name="bank_code" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $bank_code ?>" placeholder="C&oacute;digo SWITF/BIC">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="Numero Bancario">
+										<input type="text" name="bank_number" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $number_bank ?>" placeholder="N&uacute;mero de Cuenta">
 									</div>				
 									</br>
 									</br>
 									<h4>Describe tu Compañia</h4>
 									<div class="form-group">
 										<select name="businessType"  class="form-control input">
-								  <option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
-                                             <option value="Manufacturer">Manufacturera</option>
-                                             <option value="Distributor" >Distribuidora</option>
-											  <option value="Trading Company" >Compañia de Venta</option>
-                                             <option value="Retailer" >Minorista</option>  
-                                             <option value="other" >Otro</option>                                      
+											<?php 
+												if (empty($businessType)) {				 
+												
+											 ?>
+												 <option value="">Selecciona tu tipo de Empresa</option>
+												 <option value="Manufacturer">Manufacturera</option>
+	                                             <option value="Distributor" >Distribuidora</option>
+												 <option value="Trading Company" >Compañia de Venta</option>
+	                                             <option value="Retailer" >Minorista</option>  
+	                                             <option value="other" >Otro</option>   
+											 <?php 
+											 	}else{
+											  ?>
+													 <option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
+		                                             <option value="Manufacturer">Manufacturera</option>
+		                                             <option value="Distributor" >Distribuidora</option>
+													 <option value="Trading Company" >Compañia de Venta</option>
+		                                             <option value="Retailer" >Minorista</option>  
+		                                             <option value="other" >Otro</option>     
+											  <?php 
+											  	}
+											   ?>							                                             
 											 </select>
 									</div>
 									<div class="form-group">
 										
-					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"   value="<?php echo $noOfEmployee ?>" placeholder="Numero de Empleados">
+					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"   value="<?php echo $noOfEmployee ?>" placeholder="Número de Empleados">
 													
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"  rows="4" cols="50" placeholder="Descripción">
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"  rows="4" cols="50" placeholder="Describe tu Compañia Aqu&iacute;" >
 							 <?php echo $companyDescription?>
 							
 							</textarea>	

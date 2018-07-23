@@ -1,21 +1,19 @@
 <?php session_start();
  if (!($_SESSION["loggedin"])) {
+     header("Location: login.php?status=Unauthorized Access Attempt!");
+ }
+
+    if ($_SESSION["loggedin"]=="F") {
         header("Location: login.php?status=Unauthorized Access Attempt!");
     }
-
-    if($_SESSION["loggedin"]=="F")
-    {
-    	   header("Location: login.php?status=Unauthorized Access Attempt!");
-   
-    }
-	include('header.php');
+    include('header.php');
 include('Connect.php');
  $email =$_GET['email'];
  $sql="SELECT * FROM users  Where email='$email'";
  
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+$stmt=mysqli_query($connection, $sql);
+if ($stmt == false) {
+    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 $nr=mysqli_num_rows($stmt);
 
@@ -29,214 +27,171 @@ $password=$row['password'];
 $countryName=$row['countryName'];
  
 
-if(isset($_POST['btn_save_updates']))
-	{
-	 $eemail =$_GET['email'];
- $email =$_POST['email'];
-$firstName=$_POST['firstName'];
-$lastName=$_POST['lastName'];
-$email=$_POST['email'];
-$userType=$_POST['userType'];
-$password=$_POST['password'];
-$countryName=$_POST['selectcountryName'];
-	
-	
-$sql="UPDATE users  SET  firstName='".$firstName."',lastName='".$lastName."',email='".$email."',userType='".$userType."',password='".$password."',countryName='".$countryName."'  WHERE (email='$eemail')";
- mysqli_query($connection,$sql);
-	 $stmt = $connection->prepare($sql);
-     if($stmt === false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
+if (isset($_POST['btn_save_updates'])) {
+    $eemail =$_GET['email'];
+    $email =$_POST['email'];
+    $firstName=$_POST['firstName'];
+    $lastName=$_POST['lastName'];
+    $email=$_POST['email'];
+    $userType=$_POST['userType'];
+    $password=$_POST['password'];
+    $countryName=$_POST['selectcountryName'];
+    
+    
+    $sql="UPDATE users  SET  firstName='".$firstName."',lastName='".$lastName."',email='".$email."',userType='".$userType."',password='".$password."',countryName='".$countryName."'  WHERE (email='$eemail')";
+    mysqli_query($connection, $sql);
+    $stmt = $connection->prepare($sql);
+    if ($stmt === false) {
+        trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+    }
  
-	
-			if($stmt->execute())
-			{
-			
-				?>
+    
+    if ($stmt->execute()) {
+        ?>
                 <script>
 				        alert("User Information Updated!");  //not showing an alert box.
 		window.location.href="manageSupplier.php";
 				</script>
                 <?php
-			}
-			else{
-		
-		}
-		
-	
-		
-	}
-	if(isset($_POST['btn_save']))
-	{
-	  
-		 $companyName= $_POST['companyName'];
-		echo  $companyLegalNo= $_POST['companyLegalNo'];
-		 $street= $_POST['street'];
-		  $city= $_POST['city'];
-		  $province= $_POST['province'];
-		  $zipCode= $_POST['zipCode'];
-		  $countryName= $_POST['selectcountryName'];
-		  $businessType= $_POST['businessType'];
-		  $noOfEmployee= $_POST['noOfEmployee'];
-	 	  $companyDescription= $_POST['companyDescription'];
-		   $limitTopList= $_POST['limitTopList'];
-		   $limitShowCase= $_POST['limitShowCase'];
-		
-	
-			$target_dir = "../images/";
-	
-		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
-				$images=$_FILES['file1']['name'];
-			 $filelocation = $target_dir.$images;
+    } else {
+    }
+}
+    if (isset($_POST['btn_save'])) {
+        $companyName= $_POST['companyName'];
+        echo  $companyLegalNo= $_POST['companyLegalNo'];
+        $street= $_POST['street'];
+        $city= $_POST['city'];
+        $province= $_POST['province'];
+        $zipCode= $_POST['zipCode'];
+        $countryName= $_POST['selectcountryName'];
+        $businessType= $_POST['businessType'];
+        $noOfEmployee= $_POST['noOfEmployee'];
+        $companyDescription= $_POST['companyDescription'];
+        $limitTopList= $_POST['limitTopList'];
+        $limitShowCase= $_POST['limitShowCase'];
+        
+    
+        $target_dir = "../images/";
+    
+        $target_file = $target_dir . basename($_FILES["file1"]["name"]);
+        $images=$_FILES['file1']['name'];
+        $filelocation = $target_dir.$images;
         $temp = $_FILES['file1']['tmp_name'];
-		 move_uploaded_file($temp, $filelocation);
-		 /////////////////////////////////////////////
-	//////////////////////////////////////////
-		
-		 ///SUBIR IMAGENES
-		 foreach ($_FILES["file2"]["error"] as $key => $error) { 
-		$nombre_archivo = $_FILES["file2"]["name"][$key];   
-		$tipo_archivo = $_FILES["file2"]["type"][$key];   
-		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
-		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
+        move_uploaded_file($temp, $filelocation);
+        /////////////////////////////////////////////
+        //////////////////////////////////////////
+        
+        ///SUBIR IMAGENES
+        foreach ($_FILES["file2"]["error"] as $key => $error) {
+            $nombre_archivo = $_FILES["file2"]["name"][$key];
+            $tipo_archivo = $_FILES["file2"]["type"][$key];
+            $tamano_archivo = $_FILES["file2"]["size"][$key];
+            $temp_archivo = $_FILES["file2"]["tmp_name"][$key];
  
-		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
-		{  
+            if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png") || strpos($tipo_archivo, "jpg")) && ($tamano_archivo < 1000000))) {
 
 
-			//echo "
-			//	<script>
+            //echo "
+            //	<script>
              //   alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
               //  window.location= 'updatesellerprofile.php?email=echo $email'
-        		//</script>
-        		//";
-		
-		
-    		
-		} 
-		else  
-		{   
-    		$nom_img = $nombre_archivo;      
-    		$directorio = '../images/'; // Directorio
+                //</script>
+                //";
+            } else {
+                $nom_img = $nombre_archivo;
+                $directorio = '../images/'; // Directorio
  
-    		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
-    		{  
-
-    			echo "
+                if (move_uploaded_file($temp_archivo, $directorio . "/" . $nom_img)) {
+                    echo "
     			<script>
                 alert('Images uploaded correctly');
-                window.location= 'updateSupplier.php?email=echo $email'
+                window.location= 'manageSupplier.php?email=echo $email'
         		</script>
         		";
+                }
+            }
+        } // Fin Foreach
 
-    		
-			}  
-		} 
-	} // Fin Foreach 		 
+        
+        ///SUBIR IMAGENES
 
-		
-		 ///SUBIR IMAGENES
-
-				
-				$image1=$_FILES['file2']['name'][0];
-				$image2=$_FILES['file2']['name'][1];
-				$image3=$_FILES['file2']['name'][2];
-				$image4=$_FILES['file2']['name'][3];
-				$image5=$_FILES['file2']['name'][4];
-				
-		 ////////////////////////////////////////////////
-	
+                
+        $image1=$_FILES['file2']['name'][0];
+        $image2=$_FILES['file2']['name'][1];
+        $image3=$_FILES['file2']['name'][2];
+        $image4=$_FILES['file2']['name'][3];
+        $image5=$_FILES['file2']['name'][4];
+                
+        ////////////////////////////////////////////////
+    
   
 
-	if(empty($images)){
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+        if (empty($images)) {
+            $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
 
-$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sqlimages); 
-$stmtimages = $connection->prepare($sqlimages);
-if($stmtimages === false) 
- {
-    trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
-}
+            $sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo. "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
+            mysqli_query($connection, $sqlimages);
+            $stmtimages = $connection->prepare($sqlimages);
+            if ($stmtimages === false) {
+                trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
+            }
 
 
-    if($stmtimages->execute())
-			{
-				?>
+            if ($stmtimages->execute()) {
+                ?>
               <script>
 				        alert("Updated  Company Information!");  //not showing an alert box.
-				        window.location.href="updatesellerprofile.php?email=echo $email";
+				        window.location.href="manageSupplier.php?email=echo $email";
 		
 				</script>
                 <?php
-			}
-			else{
-		echo "ERROR1";
-		}
-
-}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
-	
-
-
-
-	$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sqllicense); 
-$stmtlicense = $connection->prepare($sqllicense);
-if($stmtlicense === false) 
- {
-    trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
-}
+            } else {
+                echo "ERROR1";
+            }
+        } elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
+            $sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo. "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
+            mysqli_query($connection, $sqllicense);
+            $stmtlicense = $connection->prepare($sqllicense);
+            if ($stmtlicense === false) {
+                trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
+            }
 
 
-    if($stmtlicense->execute())
-			{
-				?>
+            if ($stmtlicense->execute()) {
+                ?>
               <script>
 				        alert("Updated  Company Information!");  //not showing an alert box.
-				         window.location.href="updatesellerprofile.php?email=echo $email";
+				         window.location.href="manageSupplier.php?email=echo $email";
 		
 				</script>
                 <?php
-			}
-			else{
-				echo "ERROR2";
+            } else {
+                echo "ERROR2";
+            }
+        } else {
+            $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
 
-		}
-
-}else {
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
-
-	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sql); 
-$stmt = $connection->prepare($sql);
-if($stmt === false) 
- {
-    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
+            $sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo. "',limitTopList='" . $limitTopList . "',limitShowCase='" . $limitShowCase . "'  WHERE email='$email' ";
+            mysqli_query($connection, $sql);
+            $stmt = $connection->prepare($sql);
+            if ($stmt === false) {
+                trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+            }
 
 
-   if($stmt->execute())
-			{
-				?>
+            if ($stmt->execute()) {
+                ?>
               <script>
 				        alert("Updated  Company Information!");  //not showing an alert box.
-				         window.location.href="updatesellerprofile.php?email=echo $email";
+				         window.location.href="manageSupplier.php?email=echo $email";
 		
 				</script>
                 <?php
-			}
-			else{
-						echo "ERROR3";
-
-		}
-
-}
-
-
-		
-	
-		
-	}
+            } else {
+                echo "ERROR3";
+            }
+        }
+    }
   ?>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -650,9 +605,9 @@ if($stmt === false)
 
 			<?php
 $sql="SELECT * FROM seller  WHERE email='$email'";
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+$stmt=mysqli_query($connection, $sql);
+if ($stmt == false) {
+    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 
 $row = mysqli_fetch_array($stmt);
@@ -660,21 +615,25 @@ $row = mysqli_fetch_array($stmt);
 
    $companyName= $row['company_name'];
     $companyLegalNo= $row['companyLegalNo'];
-		 $street= $row['street'];
-		  $city= $row['city'];
-		  $province= $row['province'];
-		  $zipCode= $row['zipCode'];
-		   $countryName= $row['countryName'];
-		   $businessType= $row['businessType'];
-		  $noOfEmployee= $row['noOfEmployee'];
-		   $companyDescription= $row['companyDescription'];
-		 $companylogo= $row['companylogo'];
-		 $limitTopList= $row['limitTopList'];
-		 $limitShowCase= $row['limitShowCase'];
-		  $myString = $row['companylicense'];
-$cl = explode(',', $myString);
-	
-	
+         $street= $row['street'];
+          $city= $row['city'];
+          $province= $row['province'];
+          $zipCode= $row['zipCode'];
+           $countryName= $row['countryName'];
+           $businessType= $row['businessType'];
+          $noOfEmployee= $row['noOfEmployee'];
+           $companyDescription= $row['companyDescription'];
+         $companylogo= $row['companylogo'];
+         $limitTopList= $row['limitTopList'];
+         $limitShowCase= $row['limitShowCase'];
+          $image1 = $row['companylicense'];
+          $image2 = $row['companylicense2'];
+          $image3 = $row['companylicense3'];
+          $image4 = $row['companylicense4'];
+          $image5 = $row['companylicense5'];
+
+    
+    
 ?> 
 			<!-- row -->
 
@@ -1059,9 +1018,11 @@ $cl = explode(',', $myString);
 						</div>
 						<div="form-group">
 						<label>Company License </label>
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $cl[0]; ?>" />	<img style="height:100px; width:100px;" src="../images/<?php echo $cl[1]; ?>" /><img style="height:100px; width:100px;" src="../images/<?php echo $cl[2]; ?>" />
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $cl[3]; ?>" />
-									 <img style="height:100px; width:100px;" src="../images/<?php echo $cl[4]; ?>" />
+									 <img style="height:100px; width:100px;" src="../images/<?php echo $image1; ?>" />	
+									 <img style="height:100px; width:100px;" src="../images/<?php echo $image2; ?>" />
+									 <img style="height:100px; width:100px;" src="../images/<?php echo $image3; ?>" />
+									 <img style="height:100px; width:100px;" src="../images/<?php echo $image4; ?>" />
+									 <img style="height:100px; width:100px;" src="../images/<?php echo $image5; ?>" />
 					        <input class="form-control" type="file" name="file2[]" multiple="multiple" />
 						
 

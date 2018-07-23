@@ -112,7 +112,8 @@ if (!empty($pid) AND !empty($para) ) {
      } 
      ?>
    
-    <input class="inputenviar" type="submit" name="enviar" value="Send">    </form>
+    <input class="inputenviar" type="submit" name="enviar" value="Send">    
+  </form>
      </div>
 
 <!--CHAT-->
