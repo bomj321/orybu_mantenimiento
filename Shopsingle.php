@@ -215,7 +215,20 @@ $rows=mysqli_fetch_array($result);
         <dt>Use</dt>
         <dd><?php echo $rows['puse']; ?></dd>
         <dt>Capacity</dt>
-        <dd><?php echo $rows['capacity']; ?></dd>
+        <?php 
+        if (!empty($rows['capacity'])) {
+            ?>    
+        <dd><?php echo $rows['capacity']; ?> </dd>
+
+        <?php
+        } else {
+            ?>
+        <dd>N/A</dd>
+        
+        <?php
+        }
+
+    ?>
         <dt>Energy Power</dt>
         <?php 
         if (!empty($rows['energypower'])) {

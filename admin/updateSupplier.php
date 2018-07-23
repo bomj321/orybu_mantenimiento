@@ -987,7 +987,7 @@ $row = mysqli_fetch_array($stmt);
 									</textarea>	
 						</div>
 									<div class="col-md-12">
-											<h4>Update Company Licenses</h4>
+											<h4>Update Company Logo</h4>
 									</div>
 									
 										<div class="form-group" >
