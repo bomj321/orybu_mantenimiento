@@ -194,83 +194,116 @@ $rows=mysqli_fetch_array($result);
 
 <div class="row">
 <div class="col-sm-12 col-md-6">
-        <dl class="dl-horizontal">
-        <dt>Dimensions</dt>
+        <dl class="dl-horizontal">        
         <?php 
         if (!empty($rows['dimension']) and !empty($rows['dimension2']) and !empty($rows['dimension3'])) {
-            ?>    
+            ?>  
+        <dt>Dimensions</dt>      
         <dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
 
         <?php
-        } else {
-            ?>
-        <dd>N/A</dd>
-        
-        <?php
-        }
-        
+        } 
         ?>
-        <dt>Materials</dt>
-        <dd><?php echo $rows['elaboration']; ?></dd>
-        <dt>Use</dt>
-        <dd><?php echo $rows['puse']; ?></dd>
-        <dt>Capacity</dt>
+              
+    
         <?php 
-        if (!empty($rows['capacity'])) {
-            ?>    
-        <dd><?php echo $rows['capacity']; ?> </dd>
-
-        <?php
-        } else {
+        if (!empty($rows['elaboration']) AND $rows['elaboration']!=" ") {
             ?>
-        <dd>N/A</dd>
-        
-        <?php
-        }
+                    <dt>Materials</dt>       
+                    <dd><?php echo $rows['elaboration']; ?> </dd>
 
-    ?>
-        <dt>Energy Power</dt>
+        <?php
+        } 
+            ?>
+
+
+         <?php 
+        if (!empty($rows['puse']) AND $rows['puse']!=" ") {
+            ?>
+                    <dt>Use</dt>       
+                    <dd><?php echo $rows['puse']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+        
         <?php 
-        if (!empty($rows['energypower'])) {
-            ?>    
-        <dd><?php echo $rows['energypower']; ?> </dd>
+        if (!empty($rows['capacity']) AND $rows['capacity']!=" ") {
+            ?>
+                    <dt>Capacity</dt>       
+                    <dd><?php echo $rows['capacity']; ?> </dd>
 
         <?php
-        } else {
+        } 
             ?>
-        <dd>N/A</dd>
-        
+               
+       
+        <?php 
+        if (!empty($rows['energypower']) AND $rows['energypower']!=" ") {
+            ?>    
+                <dt>Energy Power</dt>    
+                <dd><?php echo $rows['energypower']; ?> </dd>
+
         <?php
-        }
-        
+        } 
         ?>
+       
         </dl>
 </div><!-- end col -->
 <div class="col-sm-12 col-md-6">
-        <dl class="dl-horizontal">
-        <dt>Weight</dt>
-        <dd><?php echo $rows['weight']; ?></dd>
-        <dt>Manufacturer</dt>
-        <dd><?php echo $rows['country']; ?></dd>
-        <dt>Payment</dt>
-        <dd><?php echo $rows['payment']; ?></dd>
-        <dt>Packing</dt>
-        <dd><?php echo $rows['packing']; ?></dd>
-        <dt>Rotation Speed</dt>
-        <?php 
-        if (!empty($rows['rotationspeed'])) {
-            ?>    
-        <dd><?php echo $rows['rotationspeed']; ?> </dd>
+        <dl class="dl-horizontal">      
+       
+
+          <?php 
+        if (!empty($rows['weight']) AND $rows['weight']!=" ") {
+            ?> 
+            <dt>Weight</dt>   
+            <dd><?php echo $rows['weight']; ?> </dd>
 
         <?php
-        } else {
-            ?>
-        <dd>N/A</dd>
-        
+        } 
+            ?> 
+              <?php 
+        if (!empty($rows['country']) AND $rows['country']!=" ") {
+            ?> 
+            <dt>Manufacturer</dt>   
+            <dd><?php echo $rows['country']; ?> </dd>
+
         <?php
-        }
+        } 
+            ?>     
+
+
+
+            <?php 
+        if (!empty($rows['payment']) AND $rows['payment']!=" ") {
+            ?> 
+            <dt>Payment</dt>   
+            <dd><?php echo $rows['payment']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+         <?php 
+        if (!empty($rows['packing']) AND $rows['packing']!=" ") {
+            ?> 
+            <dt>Packing</dt>   
+            <dd><?php echo $rows['packing']; ?> </dd>
+
+        <?php
+        } 
+            ?>      
         
-        ?>
+        <?php 
+        if (!empty($rows['rotationspeed']) AND $rows['rotationspeed']!=" ") {
+            ?> 
+            <dt>Rotation Speed</dt>   
+            <dd><?php echo $rows['rotationspeed']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+      
         </dl>
        
 </div><!-- end col -->

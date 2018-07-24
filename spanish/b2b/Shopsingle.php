@@ -195,84 +195,117 @@ $rows=mysqli_fetch_array($result);
 
         <div class="row">
         <div class="col-sm-12 col-md-6">
-                <dl class="dl-horizontal">
-                <dt>Dimensiones</dt>
-                <?php 
-                if (!empty($rows['dimension']) and !empty($rows['dimension2']) and !empty($rows['dimension3'])) {
-                    ?>    
-                <dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
+                 <dl class="dl-horizontal">        
+        <?php 
+        if (!empty($rows['dimension']) and !empty($rows['dimension2']) and !empty($rows['dimension3'])) {
+            ?>  
+        <dt>Dimensiones</dt>      
+        <dd><?php echo $rows['dimension']; ?> x <?php echo $rows['dimension2']; ?> x <?php echo $rows['dimension3']; ?> <?php echo $rows['dimension4']; ?></dd>
 
-                <?php
-                } else {
-                    ?>
-                <dd>N/A</dd>
-                
-                <?php
-                }
-                
-                ?>
-                <dt>Materiales</dt>
-                <dd><?php echo $rows['elaboration']; ?></dd>
-                <dt>Uso</dt>
-                <dd><?php echo $rows['puse']; ?></dd>
-                <dt>Capacidad</dt>
-                <?php 
-                    if (!empty($rows['capacity'])) {
-                            ?>    
-                        <dd><?php echo $rows['capacity']; ?> </dd>
+        <?php
+        } 
+        ?>
+              
+    
+        <?php 
+        if (!empty($rows['elaboration']) AND $rows['elaboration']!=" ") {
+            ?>
+                    <dt>Materiales</dt>       
+                    <dd><?php echo $rows['elaboration']; ?> </dd>
 
-                        <?php
-                        } else {
-                            ?>
-                        <dd>N/A</dd>
-                        
-                        <?php
-                        }
+        <?php
+        } 
+            ?>
 
-                    ?>
-                <dt>Fuente de Poder</dt>
-                <?php 
-                if (!empty($rows['energypower'])) {
-                    ?>    
+
+         <?php 
+        if (!empty($rows['puse']) AND $rows['puse']!=" ") {
+            ?>
+                    <dt>Uso</dt>       
+                    <dd><?php echo $rows['puse']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+        
+        <?php 
+        if (!empty($rows['capacity']) AND $rows['capacity']!=" ") {
+            ?>
+                    <dt>Capacidad</dt>       
+                    <dd><?php echo $rows['capacity']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+               
+       
+        <?php 
+        if (!empty($rows['energypower']) AND $rows['energypower']!=" ") {
+            ?>    
+                <dt>Fuente de Poder</dt>    
                 <dd><?php echo $rows['energypower']; ?> </dd>
 
-                <?php
-                } else {
-                    ?>
-                <dd>N/A</dd>
-                
-                <?php
-                }
-                
-                ?>
-                </dl>
+        <?php
+        } 
+        ?>
+       
+        </dl>
         </div><!-- end col -->
         <div class="col-sm-12 col-md-6">
-                <dl class="dl-horizontal">
-                <dt>Peso</dt>
-                <dd><?php echo $rows['weight']; ?></dd>
-                <dt>Fabricante</dt>
-                <dd><?php echo $rows['country']; ?></dd>
-                <dt>M&eacute;todo de Pago</dt>
-                <dd><?php echo $rows['payment']; ?></dd>
-                <dt>Empaquetado</dt>
-                <dd><?php echo $rows['packing']; ?></dd>
-                <dt>Velocidad de Rotaci&oacute;n</dt>
-                <?php 
-                if (!empty($rows['rotationspeed'])) {
-                    ?>    
-                <dd><?php echo $rows['rotationspeed']; ?> </dd>
+                <dl class="dl-horizontal">      
+       
 
-                <?php
-                } else {
-                    ?>
-                <dd>N/A</dd>
-                
-                <?php
-                }
-                
-                ?>
-                </dl>
+          <?php 
+        if (!empty($rows['weight']) AND $rows['weight']!=" ") {
+            ?> 
+            <dt>Peso</dt>   
+            <dd><?php echo $rows['weight']; ?> </dd>
+
+        <?php
+        } 
+            ?> 
+              <?php 
+        if (!empty($rows['country']) AND $rows['country']!=" ") {
+            ?> 
+            <dt>Fabricante</dt>   
+            <dd><?php echo $rows['country']; ?> </dd>
+
+        <?php
+        } 
+            ?>     
+
+
+
+            <?php 
+        if (!empty($rows['payment']) AND $rows['payment']!=" ") {
+            ?> 
+            <dt>Metodo de Pago</dt>   
+            <dd><?php echo $rows['payment']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+         <?php 
+        if (!empty($rows['packing']) AND $rows['packing']!=" ") {
+            ?> 
+            <dt>Empaquetado</dt>   
+            <dd><?php echo $rows['packing']; ?> </dd>
+
+        <?php
+        } 
+            ?>      
+        
+        <?php 
+        if (!empty($rows['rotationspeed']) AND $rows['rotationspeed']!=" ") {
+            ?> 
+            <dt>Velocidad de Rotaci&oacute;n</dt>   
+            <dd><?php echo $rows['rotationspeed']; ?> </dd>
+
+        <?php
+        } 
+            ?>
+      
+        </dl>
         </div><!-- end col -->
 </div><!-- end row -->
 </div><!-- end tab-pane -->
